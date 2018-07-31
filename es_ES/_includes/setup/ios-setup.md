@@ -1,46 +1,45 @@
-## iOS setup
+## Configuración de iOS 
 
-### Install Xcode
+### Instalar Xcode
 
-To develop Flutter apps for iOS, you need a Mac with Xcode 9.0 or newer:
+Para desarrollar apps con Flutter en iOS, necesitaras una MAC con Xcode 9.0 o mas nuevo:
 
-1. Install Xcode 9.0 or newer (via [web download](https://developer.apple.com/xcode/) or
-the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835)).
-1. Configure the Xcode command-line tools to use the newly-installed version of Xcode by
-running `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer` from
-the command line.
+1. Instalar Xcode 9.0 o mas nuevo (via [descarga web](https://developer.apple.com/xcode/) o
+[Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835)).
+1. Configurar la linea de comandos de Xcode para usar el recien version recien instalada de Xcode 
+ejecutando `sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer` desde 
+la linea de comandos.
 
-   This is the correct path for most cases, when you want to use the latest version of Xcode.
-   If you need to use a different version, specify that path instead.
-1. Make sure the Xcode license agreement is signed by either opening Xcode once and confirming or
-running `sudo xcodebuild -license` from the command line.
+   Esta es el directorio correcto la mayoria de casos, cuando quiera hacer uso de la version mas reciente de Xcode.
+   Si necesita usar una version siferente, especifique esa direccion en su lugar.
 
-With Xcode, you’ll be able to run Flutter apps on an iOS device or on the simulator.
+1. Asegurese de firmar el acuerdo de licenci de Xcode abriendo por primera vez y confirmando o
+ejecutando `sudo xcodebuild -license` desde la linea de comando.
 
-### Set up the iOS simulator
+Con Xcode, seras capaz de ejecutar apps de Flutter en un dispositivo o un simulador.
 
-To prepare to run and test your Flutter app on the iOS simulator, follow these steps:
+### Configurar el simulador iOS
 
-1. On your Mac, find the Simulator via Spotlight or by using the following command:
+Para preparar la ejecución y probar tu app de Flutter en el simulador de iOS, siga estos pasos:
+
+1. En su Mac, Encuente el simulador via Sporlight o utilizando el siguiente comando:
 
 {% commandline %}
 open -a Simulator
 {% endcommandline %}
 
-2. Make sure your simulator is using a 64-bit device (iPhone 5s or later) by checking the settings
-in the simulator's **Hardware > Device** menu.
-3. Depending on your development machine's screen size, simulated high-screen-density iOS devices
-may overflow your screen. Set the device scale under the **Window > Scale** menu in the simulator.
-4. Start your app by running `flutter run`.
+2. Asegura que el simulador utilizado este utilizando in dispositivo de 64-bit (iPhone 5s o superior)  verificando la configuracion en el menu del simulador **Hardware > Device**.
+3. Dependiendo de el tamaño de la pantalla de la maquina de desarrolo, se simulara la calidad en la pantalla de tu dispositivo iOS el cual podria desbordar la pantalla, configura la escala del dispositivoen el menu **Window > Scale** en el simulador.
+4. Inicia tu app ejecutando `flutter run`.
 
 
-### Deploy to iOS devices
+### Desplegar en dispositivos iOS
 
-To deploy your Flutter app to a physical iOS device, you’ll need some additional tools and an Apple account. You'll also need to set up physical device deployment in Xcode.
+Para desplegar tu app de Flutter en un dispositivo fisico de iOS, necesitaras algunas herramientas extras y una cuenta de Apple. Tambien necesitaras configurar el dispositivo fisico para desplegarlo en Xcode.
 
-1. Install [homebrew](http://brew.sh/).
-1. Open the terminal and run these commands to install the tools for deploying Flutter apps to
-iOS devices.
+
+1. Instalar [homebrew](http://brew.sh/).
+1. Abrir la terminar y ejecutar estos comandos para instalar las herramientas para desplegar las apps de Flutter en dispositivos iOS
 
 {% commandline %}
 brew update
@@ -49,19 +48,19 @@ brew install ideviceinstaller ios-deploy cocoapods
 pod setup
 {% endcommandline %}
 
-   If any of these commands fails with an error, run `brew doctor` and follow the instructions
-   for resolving the issue.
+   Si cualquiera de estos comandos falla con error, ejecuta `brew doctor` y sigue las instrucciones
+   para resolver el problema.
 
-1. Follow the Xcode signing flow to provision your project:
-    1. Open the default Xcode workspace in your project by running `open ios/Runner.xcworkspace` in a terminal window from your Flutter project directory.
-    1. In Xcode, select the `Runner` project in the left navigation panel.
-    1. In the `Runner` target settings page, make sure your Development Team is selected under **General > Signing > Team**. When you select a team, Xcode creates and downloads a Development Certificate, registers your device with your account, and creates and downloads a provisioning profile (if needed).
-        * To start your first iOS development project, you may need to sign into Xcode with your Apple ID.<br>
-        ![Xcode account add](/images/setup/xcode-account.png)<br>
-        Development and testing is supported for any Apple ID. Enrolling in the Apple Developer Program is required to distribute your app to the App Store. View the [differences between Apple membership types](https://developer.apple.com/support/compare-memberships).
-        * The first time you use an attached physical device for iOS development, you will need to trust both your Mac and the Development Certificate on that device. Select `Trust` in the dialog prompt when first connecting the iOS device to your Mac.<br>
-        ![Trust Mac](/images/setup/trust-computer.png)<br>
-        Then, go to the Settings app on the iOS device, select **General > Device Management** and trust your Certificate.
-        * If automatic signing fails in Xcode, verify that the project's **General > Identity > Bundle Identifier** value is unique.<br>
-        ![Check the app's Bundle ID](/images/setup/xcode-unique-bundle-id.png)
-1. Start your app by running `flutter run`.
+1. Continua con el flujo de registro en Xcode para provisionar tu proyecto:
+    1. Abre el espacio de trabajo por defecto en tu proyecto ejecutando `open ios/Runner.xcworkspace`  en una ventana de terminal del directorio donde esta el proyecto de Flutter.
+    1. En Xcode, seleccina el proyecto `Runner` en  el panel de navegación del lado izquierdo.
+    1. En la pagina de configuración de `Runner`, asegurate que tu Equipo de Desarroolo esta seleccionado debajo de **General > Signing > Team**. Cuando seleccionas un equipo, code crea y descarga un Certificado de Desarrollo, registra tu dispositivo a tu cuenta, y crea y descarga un perfil provisional (de necesitarse).
+        * Para empezar tu primer proyecto de desarrollo en iOS, necesitaras regitrarte en Xcode con tu ID de Apple.<br>
+        ![Agregar cuenta en Xcode](/images/setup/xcode-account.png)<br>
+        Hay soporte para sesarrollo y pruebas para cualquier ID de apple. Enrrolarte en el programa de desarrolladores de Apple es necesario para distribuir tu app en el App Store. Ver la [diferencias entre los tipos de membrecias de Apple](https://developer.apple.com/support/compare-memberships).
+        * La primera ocaciones que utilices un dispositivo físico para desarrollo iOS, necesitaras autorizar ambas tu Mac y tu Certificado de desarrollo en el dispositivo. Selecciona `Trust` en la ventana que te muestra la primera vez que es conectado tu dispositivo iOs a tu Mac.<br>
+        ![Autorizar Mac](/images/setup/trust-computer.png)<br>
+        Ahora, ve a la configuracion de la app en el dispositivo iOS, selecciona **General > Device Management**  y autoriza el Certificado.
+        * Si tu registro automatico falla en Xcode, verifica que elvalor del proyecto sea único **General > Identity > Bundle Identifier**.<br>
+        ![Compruebe el ID del paquete de la app](/images/setup/xcode-unique-bundle-id.png)
+1. Inicia tu app ejecutando el comando `flutter run`.

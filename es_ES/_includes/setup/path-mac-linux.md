@@ -1,30 +1,31 @@
-### Update your path
+### Actualiza tu path
 
-You can update your PATH variable for the current session only at the command line,
-as shown in [Get the Flutter SDK](./#get-sdk). You'll probably want to
-update this variable permanently, so you can run `flutter` commands in any terminal session.
+Se puede actualizar la variable de PATH para la sesion actual solo para la linea de comandos, 
+como se muestra en [Obtener Flutter SDK](./#get-sdk). Probablemente necesitaras 
+actualizar esta variable permanentemente, de esta manera poder ejecutar el comando `flutter`
+en cualquier sesion de terminal.
 
-The steps for modifying this variable permanently for all terminal sessions are machine-specific.
-Typically you add a line to a file that is executed whenever you open 
-a new window. For example:
+Los pasos para modificar esta variables permanentemente para tofas las sesiones de terminal para el equipo.
+Tipicamente se agrega una linea al archivo que se ejecuta cada que abres
+una nueva ventana, por ejemplo:
 
-1. Determine the directory where you placed the Flutter SDK. You will
-   need this in Step 3.
-2. Open (or create) `$HOME/.bash_profile`. The file path and filename might be
-   different on your machine.
-3. Add the following line and change `[PATH_TO_FLUTTER_GIT_DIRECTORY]` to be
-   the path where you cloned Flutter's git repo:
+1. Determine el directorio donde se encuentra el SDK de Flutter. Necesitaras esto
+   en el paso 3.
+2. Abre (o crea) `$HOME/.bash_profile`. la direccion del archivo puede estar
+   en un lugar diferente en tu equipo.
+3. Agrega la siguiente linea y cambia `[PATH_TO_FLUTTER_GIT_DIRECTORY]` para ser
+   el directorio donde esta clonado el repositorio de Flutter:
 
 {% commandline %}
 export PATH=[PATH_TO_FLUTTER_GIT_DIRECTORY]/flutter/bin:$PATH
 {% endcommandline %}
 
-4. Run `source $HOME/.bash_profile` to refresh the current window. 
+4. Ejecuta `source $HOME/.bash_profile` para refrescar la ventana actual. 
 
-5. Verify that the `flutter/bin` directory is now in your PATH by running:
+5. Verifica que el directorio de `flutter/bin` esta en tu PATH ejecutando el siguiente comando:
 
 {% commandline %}
 echo $PATH
 {% endcommandline %}
 
-For more details, see [this StackExchange question](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path).
+Para mas detalles, ver [Estas preguntas en StackExchange](https://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path).

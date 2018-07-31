@@ -1,14 +1,14 @@
-## Get the Flutter SDK {#get-sdk}
+## Obtener el SDK de Flutter {#get-sdk}
 
-1. Download the following installation bundle to get the latest beta release of the
-Flutter SDK (for other release channels, and older builds, see the [SDK
-archive](/sdk-archive/) page.):
+1. Descarga la siguiente paquete de instalación para obtener la version beta mas reciente de 
+Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [archivo 
+SDK](/sdk-archive/) page.):
 {% if page.url contains "linux" %}
-    * [(loading...)](#){:.download-latest-link-linux}
+    * [(cargando...)](#){:.download-latest-link-linux}
 {% else %}
-    * [(loading...)](#){:.download-latest-link-macos}
+    * [(cargando...)](#){:.download-latest-link-macos}
 {% endif %}<br><br>
-1. Extract the file in the desired location, e.g.:
+1. Extraer el archivo en la locación deseada, ej.:
     {% commandline %}
     cd ~/development
 {% if page.url contains "linux" %}
@@ -18,33 +18,33 @@ archive](/sdk-archive/) page.):
 {% endif %}
     {% endcommandline %}
 
-1. Add the `flutter` tool to your path:
+1. Agrega la herramienta `flutter` a tu "path":
     {% commandline %}
     export PATH=`pwd`/flutter/bin:$PATH
     {% endcommandline %}
 
-The above command sets your PATH variable temporarily, for the current terminal window. To
-permanently add Flutter to your path, see [Update your path](#update-your-path).
+El commando de arriba configurara el PATH en la variable temporal, para la ventana actual de terminal. para
+agregar de manera permanente Flutter a tu "path", vea [Actualiza el path](#update-your-path).
 
-You are now ready to run Flutter commands!
+Ahora esta todo listo para ejecutar los commando de Flutter en la consola de Flutter!
 
-To update an existing version of Flutter, see [Upgrading Flutter](/upgrading/).
+Para actualizar una version existente de Flutter, vea [Actualizando Flutter](/upgrading/).
 
-### Run flutter doctor
+### Ejecutar flutter doctor
 
-Run the following command to see if there are any dependencies you need to install to complete
-the setup:
+Ejecuta el siguiente comando para verificar si existe alguna dependencia que se necesite para
+completar la configuración:
 
 {% commandline %}
 flutter doctor
 {% endcommandline %}
 
-This command checks your environment and displays a report to the terminal window.
-The Dart SDK is bundled with Flutter; it is not necessary to install Dart separately.
-Check the output carefully for other software you may need to install or further 
-tasks to perform (shown in **bold** text).
+Este comando verifica tu ambiente y muestra un reporte en la terminal de windows.
+El SDK de Dart esta empaquetado con Flutter, no es necesario instalar Dart por separado.
+Verifica la salida con cuidad para otros programas que pudieras necesitar o para 
+desempeñar otras tareas mas adelante (mostradas en texto en **negrita**).
 
-For example:
+Por ejemplo:
 <pre>
 [-] Android toolchain - develop for Android devices
     • Android SDK at /Users/obiwan/Library/Android/sdk
@@ -53,15 +53,17 @@ For example:
       visit https://flutter.io/setup/#android-setup for detailed instructions.
 </pre>
 
-The following sections describe how to perform these tasks and finish the setup process.
+La siguiente seccion describe como desempeñar estas tareas y finalizar el proceso de configuración.
 
-Once you have installed any missing dependencies, run the `flutter doctor` command again to
-verify that you’ve set everything up correctly.
+Uva vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
+de nuevo para verificar que todo se ha configurado correctamente.
 
-The `flutter` tool uses Google Analytics to anonymously report feature usage statistics
-and basic crash reports. This data is used to help improve Flutter tools over time.
-Analytics is not sent on the very first run or for any runs involving `flutter config`,
-so you can opt out of analytics before any data is sent. To disable reporting, 
-type `flutter config --no-analytics` and to display the current setting, type 
-`flutter config`. See Google's privacy policy:[www.google.com/intl/en/policies/privacy](https://www.google.com/intl/en/policies/privacy/).
+Las herramientas de Flutter usan Google Analytics para anonimamente reportar estadistica de 
+caracteristicas de uso y repostes basicos de fallas. Estos datos son utilizados para ayudar 
+a mejorar las herramientas de flutter con el tiempo.
+Analytics no envia cada ejecución o cualquier ejecucion dentro del `flutter config`,
+por lo que puede optar por no participar en los análisis antes de enviar los datos. 
+Para deshabilitar los reportes, teclee `flutter config --no-analytics` y para desplegar la
+configuracion actual, teclee `flutter config`. 
+Vea la politica de privacidad de Google: [www.google.com/intl/en/policies/privacy](https://www.google.com/intl/en/policies/privacy/).
 {: .alert-warning}

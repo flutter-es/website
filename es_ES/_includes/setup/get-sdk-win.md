@@ -1,8 +1,8 @@
 ## Obetener el SDK de Flutter
 
 1. Descarga la siguiente paquete de instalación para obtener la version beta mas reciente de 
-Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [SDK
-archive](/sdk-archive/)):
+Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [archivo 
+SDK](/sdk-archive/)):
     * [(cargando...)](#){:.download-latest-link-windows}
 1. Extraiga el archivo zip y coloque el contenido de `flutter` en la locacion
    deseada de instalación para el Flutter SDK (ej. `C:\src\flutter`; no instale
@@ -29,7 +29,7 @@ Reinicia Windows para aplicar los cambios completamente.
 
 ### Ejecutar flutter doctor
 
-Enl a consola de FLutter, ejecuta el siguiente comando para
+En la consola de FLutter, ejecuta el siguiente comando para
 ver si existe alguna dependencia que necesite instalar para completar la configuración:
 
 {% commandline %}
@@ -51,6 +51,7 @@ Por Ejemplo:
 </pre>
 
 La siguiente seccion describe como desempeñar estas tareas y finalizar el proceso de configuración.
+
 Uva vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
 de nuevo para verificar que todo se ha configurado correctamente.
 
