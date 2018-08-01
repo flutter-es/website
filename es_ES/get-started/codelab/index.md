@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Write Your First Flutter App
+title: Escribe tu primer app en Flutter
 permalink: /get-started/codelab/
 image: /get-started/codelab/images/step7-themes.png
 ---
@@ -11,11 +11,11 @@ image: /get-started/codelab/images/step7-themes.png
          style="border: 10px solid #333; border-radius: 10px; margin-bottom: 10px" >
 </figure>
 
-This is a guide to creating your first Flutter app. If you
-are familiar with object-oriented code and basic programming
-concepts such as variables, loops, and conditionals,
-you can complete this tutorial. You don’t need
-previous experience with Dart or mobile programming.
+Esta es una guia para crear tu primer app en Flutter. Si la
+programación orientada a objetos te es familiar y conceptos básicos
+de programación como variables, ciclos y condicionales,
+podras completar este tutorial. No se necesita
+experiencia previa con Dart o programación móvil.
 
 {% comment %}
 TODO: (maybe, but later)
@@ -28,77 +28,77 @@ TODO: (maybe, but later)
 * TOC
 {:toc}
 
-## What you'll build
+## Que haremos
 {:.no_toc}
 
-You’ll implement a simple mobile app that generates proposed names for a
-startup company. The user can select and unselect names,
-saving the best ones. The code generates ten names at a time.
-As the user scrolls, new batches of names are generated.
-The user can tap the list icon in the upper right of the app bar
-to move to a new route that lists only the favorited names.
+Se implementara una app móvil sencilla que generara nombres propuestos para un
+empresa que inicia. El usuario puede seleccionar o deseleccionar nombres,
+almacenando los mejores. El código genera nombres de diez en diez.
+Mientras el usuario busca, nuevos juegos de nombres son generados.
+El user puede puede tocar el icono de lista en la orilla superior derecha en la barra de la app
+para moverse a una nueva ruta que muestra únicamente los nombre favoritos.
 
-The animated GIF shows how the finished app works.
+El GIF animado muestra como se vera el producto terminado.
 
 <div class="whats-the-point" markdown="1">
-  <h4>What you’ll learn</h4>
+  <h4>Que aprenderemos</h4>
 
-  * Basic structure of a Flutter app.
-  * Finding and using packages to extend functionality.
-  * Using hot reload for a quicker development cycle.
-  * How to implement a stateful widget.
-  * How to create an infinite, lazily loaded list.
-  * How to create and navigate to a second screen.
-  * How to change the look of an app using Themes.
+  * Estructura básica de una app en Flutter.
+  * Encontrar y utilizar paquetes para extender funcionalidades.
+  * Usar hot reload para un ciclo de desarrollo mas rápido.
+  * Como implementar un "stateful widget".
+  * Como crear una lista de carga lenta e infinita.
+  * Como crear y navegar a una segunda pantalla.
+  * Como cambiar el estilo de una app utilizando "Themes".
 </div>
 
 <div class="whats-the-point" markdown="1">
-  <h4>What you'll use</h4>
+  <h4>Que usaremos</h4>
 
-  You'll need to install the following:
+  Necesitaremos instalar lo siguiente:
 
   - Flutter SDK<br>
-    The Flutter SDK includes Flutter's engine, framework, widgets, tools,
-    and a Dart SDK. This codelab requires v0.1.4 or later.
+    El SDK de Flutter incluye el motor de Flutter, framework, widgets, herramientas,
+    y un SDK de Dart. Este laboratorio necesita v0.1.4 o superior.
 
   - Android Studio IDE<br>
-    This codelab features the Android Studio IDE, but you can use
-    another IDE, or work from the command line.
+    Este laboratorio utiliza el IDE de Android Studio, Peropuedes utilizar otro
+    IDE, o trabajar de la linea de comandos.
 
-  - Plugin for your IDE<br>
-    The Flutter and Dart plugins must be installed separately for your
-    IDE. Besides Android Studio, Flutter and Dart plugins are also available
-    for the [VS Code](https://code.visualstudio.com/download) and
-    [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac) IDEs.
+  - Complementos para el IDE<br>
+    Los complementes de Flutter y Dart deber ser instalado por separado para el
+    IDE. Ademas Android Studio, los complementos Flutter y Dart tambien estan disponibles
+    para los IDEs [VS Code](https://code.visualstudio.com/download) e
+    [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac).
 
-  See [Flutter Installation and Setup](/get-started/install/) for information on
-  how to set up your environment.
+  Vea [Instalación y configuración de Flutter](/get-started/install/) para mas informacion de
+  como configurar el ambiente de trabajo.
 </div>
 
-# Step 1: Create the starting Flutter app
+# Paso 1: Crear la app inicial de Flutter
 
-Create a simple, templated Flutter app, using the instructions in
-[Getting Started with your first Flutter app.](/get-started/test-drive/#create-app)
-Name the project **startup_namer** (instead of _myapp_).
-You’ll be modifying this starter app to create the finished app.
+Crear un app sencilla desde una plantilla de Flutter, utilizando las intrucciones en
+[Iniciando con tu primer app de Flutter.](/get-started/test-drive/#create-app)
+Nombre del proyecto **startup_namer** (en lugar de _myapp_).
+Modificaras esta app de inicial para crear el app final.
 
-In this codelab, you'll mostly be editing **lib/main.dart**,
-where the Dart code lives.
+En este laboratorio, mayormente estaras editando **lib/main.dart**,
+donde el codigo Dart vive.
 
 {{site.alert.tip}}
-  When pasting code into your app, indentation can
-  become skewed. You can fix this automatically with the Flutter tools:
+  Cuando se pega código dentro de tu app, los margenes pueden
+  moverse. Puedes corregir esto automaticamente con las herramientas de Flutter:
 
-  * Android Studio / IntelliJ IDEA: Right-click the dart code and
-    select **Reformat Code with dartfmt**.
-  * VS Code: Right-click and select **Format Document**.
-  * Terminal: Run `flutter format <filename>`.
+  * Android Studio / IntelliJ IDEA: Clic derecho en el código Dart 
+  y elige **Reformat Code with dartfmt**.
+  * VS Code: Clic derecho y seleccionar **Format Document**.
+  * Terminal: Ejecuta el comando `flutter format <filename>`.
 {{site.alert.end}}
 
- 1. Replace `lib/main.dart`.<br>
-    Delete all of the code from **lib/main.dart**.
-    Replace with the following code, which displays "Hello World" in the center
-    of the screen.
+ 1. Reemplaza `lib/main.dart`.<br>
+    Borra todo el codigo de **lib/main.dart**.
+    Reemplaza con el siguiente código, el cual muestra "Hello World" en el centro
+    de la pantalla. 
 
     ```dart
     import 'package:flutter/material.dart';
@@ -123,7 +123,7 @@ where the Dart code lives.
     }
     ```
 
- 2. Run the app. You should see the following screen.
+ 2. Ejecuta el app. Deberas ver la siguiente pantalla.
 
     <center><img src="images/hello-world-screenshot.png" alt="screenshot of hello world app"></center>
 
@@ -131,25 +131,25 @@ where the Dart code lives.
 ## Observations
 {:.no_toc}
 
-- This example creates a Material app.
-  [Material](https://material.io/guidelines/) is a visual design language
-  that is standard on mobile and the web. Flutter offers a rich set
-  of Material widgets.
-- The main method specifies fat arrow (`=>`) notation,
-  which is short hand used for one-line functions or methods.
-- The app extends `StatelessWidget` which makes the app itself a
-  widget. In Flutter, almost everything is a widget, including
-  alignment, padding, and layout.
-- The `Scaffold` widget, from the Material library,
-  provides a default app bar, title, and a body property that
-  holds the widget tree for the home screen. The widget subtree
-  can be quite complex.
-- A widget’s main job is to provide a `build()` method
-  that describes how to display the widget in terms of other,
-  lower level widgets.
-- The widget tree for this example consists of a `Center` widget
-  containing a `Text` child widget. The `Center` widget aligns its
-  widget subtree to the center of the screen.
+- Este ejemplo crea una "Material app".
+  [Material](https://material.io/guidelines/) es un lenguaje de diseño visual
+  el cual es un estandar en web y móvil. Flutter ofrece un gran conjunto
+  de "Material widgets".
+- El metodo main especifíca con la siguiente notación de flecha (`=>`),
+  la cual es una manera corta usada para funciones o metodos de una linea.
+- La app hereda de `StatelessWidget` el cual hace a la app misma un
+  widget. En Flutter, casi todo es un widget, incluyendo
+  alignment, padding, y layout.
+- El widget `Scaffold`, de la libreria de Material,
+  provee una "app bar" por defecto, "title", y una propiedad "body" el cual
+  soporta el arbol de widget para la pantalla de inicio. El subarbol de widget
+  puede ser bastante complejo.
+- El trabajo principal de un widget es proveer un metodo `build()`
+  el cual describe como mostrar un widget en termino de otro,
+  widgets de bajo nivel.
+- El árbol de widget para este ejemplo consisteen un widget `Center`
+  que contiene un child widget `Text`. El widget `Center` alinea un subárbol de 
+  widgets al centro de la pantalla.
 
 {% comment %}
   Removing this for now. A) It might be confusing and B) the code as shown here is wrong.
@@ -180,7 +180,7 @@ where the Dart code lives.
   }
   {% endprettify %}
 
-  Update with this code:
+  Actualiza con el siguiente código:
 
   class HelloWorld extends StatelessWidget {
    @override
@@ -195,21 +195,21 @@ where the Dart code lives.
 
 ---
 
-# Step 2: Use an external package
+# Paso 2: Usar un paquete externo
 
-In this step, you’ll start using an open-source package named
-**english_words**, which contains a few thousand of the most used
-English words plus some utility functions.
+En este paso, empezaras utilizando un paquete de código libre llamado
+**english_words**, el cual contiene uno cuantos de miles de las palabras
+en Ingles mas utilizadas ademas de otras funciones de utilidad.
 
-You can find the
-[english_words](https://pub.dartlang.org/packages/english_words)
-package, as well as many other open source packages, on
+Puedes encontrar el paquete
+[english_words](https://pub.dartlang.org/packages/english_words),
+asi como muchas otros paquetes de código libre en
 [pub.dartlang.org](https://pub.dartlang.org/flutter/).
 
- 1. The pubspec file manages the assets for a Flutter app.
-    In **pubspec.yaml**, add **english_words** (3.1.0 or higher)
-    to the dependencies list.
-    The new line is highlighted below:
+ 1. El archivo pubspec gestiona los activos para una app Flutter.
+    En **pubspec.yaml**, agrega **english_words** (3.1.0 o mayor)
+    a las lista de dependencias.
+    La nueva linea es resaltada abajo:
 
     {% prettify yaml %}
       dependencies:
@@ -220,9 +220,9 @@ package, as well as many other open source packages, on
         [[highlight]]english_words: ^3.1.0[[/highlight]]
     {% endprettify %}
 
- 2. While viewing the pubspec in Android Studio's editor view,
-    click **Packages get** upper right. This pulls the package into
-    your project. You should see the following in the console:
+ 2. Mientras vez el pubspec en el editor de Android Studio,
+    clic **Packages get** arriba a la derecha. Esto trae los paquetes dentro
+    del proyecto. Se debera ver lo siguiente en la consola:
 
     ```terminal
     > flutter packages get
@@ -230,8 +230,8 @@ package, as well as many other open source packages, on
     Process finished with exit code 0
     ```
 
- 3. In **lib/main.dart**, add the import for `english_words`,
-    as shown in the highlighted line:
+ 3. En **lib/main.dart**, agrega el "import" para `english_words`,
+    como se muestra resaltado en la linea:
 
     <!-- skip -->
     {% prettify dart %}
@@ -239,21 +239,21 @@ package, as well as many other open source packages, on
       [[highlight]]import 'package:english_words/english_words.dart';[[/highlight]]
     {% endprettify %}
 
-    As you type, Android Studio gives you suggestions for libraries to
-    import. It then renders the import string in gray, letting you
-    know that the imported library is unused (so far).
+    Mientras tecleas, Android Studio da sugerencias para las librerias a
+    importar. Entonces renderiza el texto de "import" en gris, haciendote 
+    saber que la libreria importada no ha sido utilizada (hasta el momento).
 
- 4. Use the English words package to generate the text instead of
-    using the string "Hello World".
+ 4. Usa el paquete de palabras en Ingles para generar texto en lugar de
+    utilizar el texto "Hello World".
 
     {{site.alert.note}}
-      "Pascal case" (also known as "upper camel case"),
-      means that each word in the string, including the first one,
-      begins with an uppercase letter. So, "uppercamelcase" becomes
+      "Pascal case" (tambien conocido como "upper camel case"),
+      significa que cada palabra en el texto, incluyendo la primera, 
+      empezara con letra mayúscula. Entonces, "uppercamelcase" se convierte
       "UpperCamelCase".
     {{site.alert.end}}
 
-    Make the following changes, as highlighted below:
+    Realiza los siguientes cambios, como se resalta abajo:
 
     <!-- skip -->
     {% prettify dart %}
@@ -282,50 +282,53 @@ package, as well as many other open source packages, on
       }
     {% endprettify %}
 
- 5. If the app is running, use the hot reload button
+ 5. Si la app esta ejecutandose, utilice el boton de hot reload
     (<img src="images/hot-reload-button.png" alt="lightning bolt icon">)
-    to update the running app. Each time you click hot reload,
-    or save the project, you should see a different word pair,
-    chosen at random, in the running app.
+    para actualizar el app. Cada vez que se presione hot reload
+    o se guarde el proyecto, debera verse una diferente palabra,
+    eligida aleatoreamente, en la app.
+    Esto es debido a que las palabras generadas dentro de el metodo "build",
+    el cual se ejecuta cada vez que la MaterialApp requiere renderizar
+    o cuando
     This is because the word pairing is generated inside the build
     method, which is run each time the MaterialApp requires rendering,
-    or when toggling the Platform in Flutter Inspector.
+    o al alternar la plataforma en el inspector de Flutter .
 
 <center><img src="images/step2-screenshot.png" alt="screenshot at completion of second step"></center>
 
 
-## Problems?
+## Problemas?
 {:.no_toc}
 
-If your app is not running correctly, look for typos. If needed,
-use the code at the following links to get back on track.
+Si tu app no esta ejecutandoce correctamente, busque por errores al teclear. De ser necesario,
+use el código en el siguiente enlace, para hacer una revisión hacia atras.
 
 * [**pubspec.yaml**](https://gist.githubusercontent.com/Sfshaza/bb51e3b7df4ebbf3dfd02a4a38db2655/raw/57c25b976ec34d56591cb898a3df0b320e903b99/pubspec.yaml)
-(The **pubspec.yaml** file won't change again.)
+(El archivo **pubspec.yaml** no cambiara de nuevo.)
 * [**lib/main.dart**](https://gist.githubusercontent.com/Sfshaza/bb51e3b7df4ebbf3dfd02a4a38db2655/raw/57c25b976ec34d56591cb898a3df0b320e903b99/main.dart)
 
 ---
 
-# Step 3: Add a Stateful widget
+# Paso 3: Agregar un Stateful widget
 
-State<em>less</em> widgets are immutable, meaning that their
-properties can’t change&mdash;all values are final.
+State<em>less</em> widgets son inmutables, esto quiere decir que
+sus propiedades no puedes cambiar&mdash;todos sus valores son finales.
 
-State<em>ful</em> widgets maintain state that might change
-during the lifetime of the widget. Implementing a stateful
-widget requires at least two classes: 1) a StatefulWidget class
-that creates an instance of 2) a State class. The StatefulWidget
-class is, itself, immutable, but the State class persists over the
-lifetime of the widget.
+State<em>ful</em> widgets mantienes un estado que puede cambiar
+durente el tiempo de vida del widget. Implementar un stateful
+widget necesira al menos dos clases: 1) una clase StatefulWidget
+la cual crea la instancia 2) una clase State. La clase StatefulWidget es,
+a si misma, inmutable, pero la clase State persiste sobre el tiempo de
+vida de el widget.
 
-In this step, you’ll add a stateful widget, RandomWords, which creates
-its State class, RandomWordsState. The State class will eventually
-maintain the proposed and favorite word pairs for the widget.
+En este paso, agregaras un stateful widget, RandomWords, el cual crea su clase
+State, RandomWordsState. La clase State eventualmente
+mantendra las palabras propuestas y favoritas para el widget.
 
- 1. Add the stateful RandomWords widget to main.dart.
-    It can go anywhere in the file, outside of MyApp, but the solution
-    places it at the bottom of the file. The RandomWords widget does little
-    else besides creating its State class:
+ 1. Agrega el stateful RandomWords widget a main.dart.
+    Puede ir en cualquier lugar del archivo, fuera de MyApp, pero la solución
+    la coloca al final del archivo. El RandomWords widget hace poco ademas de 
+    crear su clase State:
 
     <!-- skip -->
     {% prettify dart %}
@@ -335,15 +338,15 @@ maintain the proposed and favorite word pairs for the widget.
     }
     {% endprettify %}
 
- 2. Add the RandomWordsState class. Most of the
-    app’s code resides in this class, which maintains the state for the
-    RandomWords widget. This class will save the generated word pairs,
-    which grow infinitely as the user scrolls, and also favorite
-    word pairs, as the user adds or removes them from the list by
-    toggling the heart icon.
+ 2. Agrega la clase RandomWordsState. La mayorias de el código de la
+    app se encuentra en esta clase, la cual mantiene el estado para el
+    RandomWords widget. Esta clase salvara las palabras generadas,
+    el cual crece infinitamente mientra el usuario de desplaza, y tambien las palabras
+    favoritas, mientras el uduario agregue o elimine de la lista
+    seleccionando el icono de corazón.
 
-    You’ll build this class bit by bit. To begin, create a minimal
-    class by adding the highlighted text:
+    Contruira esta clase poco a poco. Para empezar, creando una clase pequeña
+    y agregando el texto resaltado:
 
     <!-- skip -->
     {% prettify dart %}
@@ -351,13 +354,13 @@ maintain the proposed and favorite word pairs for the widget.
     [[highlight]]}[[/highlight]]
     {% endprettify %}
 
- 3. After adding the state class, the IDE complains that
-    the class is missing a build method. Next, you'll add a basic
-    build method that generates the word pairs by moving the
-    word generation code from MyApp to RandomWordsState.
+ 3. Despues de agregar esta clase de estado, el IDE se quejara que
+    a la clase le hace falta el metodo build. Siguiente, agregar un metodo
+    build basico que genera el juego de palabras moviendo la
+    generacion de códigog de MyApp a RandomWordsState.
 
-    Add the build method to RandomWordState, as shown
-    by the highlighted text:
+    Agregar el metodo build a RandomWordState, como se muestra
+    en el siguiente texto resaltado:
 
     <!-- skip -->
     {% prettify dart %}
@@ -370,8 +373,8 @@ maintain the proposed and favorite word pairs for the widget.
     }
     {% endprettify %}
 
- 4. Remove the word generation code from MyApp by making
-    the highlighted changes below:
+ 4. Elimine la generación de código de MyApp haciendo los
+    cambios resaltados como es la parte de abajo:
 
     <!-- skip -->
     {% prettify dart %}
@@ -396,7 +399,7 @@ maintain the proposed and favorite word pairs for the widget.
     }
     {% endprettify %}
 
-Restart the app. If you try to hot reload, you might see a warning:
+Reinicia la app. Si se intenta un hot reload, podria ver el siguiente mensaje de precaución:
 
 ```nocode
 Reloading...
@@ -404,25 +407,25 @@ Not all changed program elements ran during view reassembly; consider
 restarting.
 ```
 
-It may be a false positive, but consider restarting in order to make sure
-that your changes are reflected in the app's UI.
+Podria ser un falso positivo, pero considere reiniciar en orden de asegurar estos
+cambios sean refrejados en la UI de la app.
 
-The app should behave as before, displaying a word
-pairing each time you hot reload or save the app.
+La app debera mostrar el comportamiento de antes, mostrando un juego de palabras
+cada vez que que se haga un hot reload o guarde la app.
 
 <center><img src="images/step3-screenshot.png" alt="screenshot at completion of third step"></center>
 
-## Problems?
+## Problemas?
 {:.no_toc}
 
-If your app is not running correctly, you can use the code
-at the following link to get back on track.
+Si tu app no esta corriendo correctamente, puede utilizar este código
+de el siguiente enlace para regresar a la normalidad.
 
 * [**lib/main.dart**](https://gist.githubusercontent.com/Sfshaza/d7f13ddd8888556232476be8578efe40/raw/329c397b97309ce99f834bf70ebb90778baa5cfe/main.dart)
 
 ---
 
-# Step 4: Create an infinite scrolling ListView
+# Paso 4: Crear un ListView de scroll infinito
 
 In this step, you'll expand RandomWordsState to generate
 and display a list of word pairings. As the user scrolls, the list
@@ -917,10 +920,10 @@ to see the code for the final app.
 
 ---
 
-# Well done!
+# Bien hecho!
 
-You've written an interactive Flutter app that runs on both iOS and Android.
-In this codelab, you've:
+Has escrito una app interactiva en Flutter que se ejecuta en ambos iOS y Android
+En este laboratorio, tu has:
 
 * Created a Flutter app from the ground up.
 * Written Dart code.
