@@ -1,6 +1,6 @@
 ## Requerimiento del sistema
 
-To install and run Flutter, your development environment must meet these minimum requirements:
+Para instalar y ejecutar Flutter, el ambiente de trabajo debe de cumplir al menos con los siguientes requerimientos:
 
 * **Sistema Operativo**: macOS (64-bit)
 * **Espacio en disco**: 700 MB (Esto no incluye el espacio en disco para IDE/tools).

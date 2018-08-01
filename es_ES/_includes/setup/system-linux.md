@@ -1,10 +1,10 @@
-## System requirements
+## Requerimiento del Sistema
 
-To install and run Flutter, your development environment must meet these minimum requirements:
+Para instalar y ejecutar Flutter, el ambiente de trabajo debe de cumplir al menos con los siguientes requerimientos:
 
-* **Operating Systems**: Linux (64-bit)
-* **Disk Space**: 600 MB (does not include disk space for IDE/tools).
-* **Tools**: Flutter depends on these command-line tools being available in your environment.
+* **Sistema Operativo**: Linux (64-bit)
+* **Espacio en Disco**: 600 MB (no incluye espacio en disco para IDE/herramientas).
+* **Herramientas**: Flutter  depende de que estas herramientas esten disponibles en tu ambiente.
   * `bash`, `mkdir`, `rm`, `git`, `curl`, `unzip`, `which`
-* **Shared libraries**: Flutter `test` command depends on this library being available in your environment.
-  * `libGLU.so.1` - provided by mesa packages e.g. `libglu1-mesa` on Ubuntu/Debian
+* **Librerias Compartidas**: El commando `test` en Flutter  depende de que estas librerias esten disponibles en tu ambiente.
+  * `libGLU.so.1` -  proveída por "mesa packages" ej. `libglu1-mesa` en Ubuntu/Debian

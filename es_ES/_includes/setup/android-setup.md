@@ -1,4 +1,4 @@
-## Android setup
+## Configuración de Android 
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-lightbulb-o"> </i> **Nota:**

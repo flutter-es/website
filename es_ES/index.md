@@ -1,20 +1,22 @@
 ---
-title: Flutter - Beautiful native apps in record time
+title: Flutter - Hermosas app nativas en tiempo record
 layout: page
 homepage: true
 hide_title: true
+permalink: /
 description: >
-  Flutter is Google’s mobile UI framework for crafting high-quality
-  native experiences on iOS and Android in record time.
-  Flutter works with existing code, is used by developers and organizations
-  around the world, and is free and open source.
+  Flutter es una framework  para UI en dispositivos móviles de Google para elaboración de calidad
+  en experiencias nativas sobre iOS y Android en tiempo record.
+  Flutter trabaja con codigo existente, es utilizado por desarrolladores y organizaciones
+  alrededor del mundo, es gratis y de código abierto.
+
 ---
 
 <div class="homepage__illustration">
     <h1 class="homepage__illustration--text">
-        <span>Último release:</span>
+        <span>Último lanzamiento:</span>
         &nbsp;
-        <a href="https://medium.com/flutter-io/flutter-release-preview-1-943a9b6ee65a?linkId=53249457">Flutter Release Preview 1</a>
+        <a href="https://medium.com/flutter-io/flutter-release-preview-1-943a9b6ee65a?linkId=53249457">Avance Flutter 1</a>
     </h1>
     <img src="images/homepage/header-illustration.png"
          class="homepage__illustration--image"
@@ -23,7 +25,7 @@ description: >
 
 <section class="homepage__key_points card">
     <h1 class="homepage__title">
-        Build beautiful native apps in&nbsp;record&nbsp;time
+        Crea hermosas apps nativas en tiempo record
     </h1>
 
     <div class="homepage__tagline">
