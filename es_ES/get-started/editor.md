@@ -23,7 +23,7 @@ o VS Code. Si quiere utilizar un editor difrente, eso esta bien, simplemente sal
 
 ## Configuración Android Studio
 
-*Android Studio:* Un experiencias completa e integráda del IDE para Flutter. 
+*Android Studio:* Un experiencia completa e integráda del IDE para Flutter. 
 
 ### Instalar Android Studio
 
