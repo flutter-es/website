@@ -22,7 +22,7 @@ Con Xcode, serás capaz de ejecutar apps de Flutter en un dispositivo o un simul
 
 Para preparar la ejecución y probar tu app de Flutter en el simulador de iOS, siga estos pasos:
 
-1. En su Mac, Encuentre el simulador via Spotlight o utilizando el siguiente comando:
+1. En su Mac, encuentre el simulador via Spotlight o utilizando el siguiente comando:
 
 {% commandline %}
 open -a Simulator
