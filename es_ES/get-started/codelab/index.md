@@ -12,8 +12,8 @@ image: /get-started/codelab/images/step7-themes.png
 </figure>
 
 Esta es una guiá para crear tu primer app en Flutter. Si la
-programación orientada a objetos te es familiar y conceptos básicos
-de programación como variables, ciclos y condicionales,
+programación orientada a objetos y conceptos básicos
+de programación como variables, ciclos y condicionales, te son familiares
 podrás completar este tutorial. No se necesita
 experiencia previa con Dart o programación móvil.
 
@@ -141,7 +141,7 @@ donde el código Dart vive.
   widget. En Flutter, casi todo es un widget, incluyendo
   alignment, padding, y layout.
 - El widget `Scaffold`, de la librería de Material,
-  provee una "app bar" por defecto, "title", y una propiedad "body" el cual
+  provee una AppBar por defecto, "title", y una propiedad "body" el cual
   soporta el árbol de widget para la pantalla de inicio. El subárbol de widget
   puede ser bastante complejo.
 - El trabajo principal de un widget es proveer un método `build()`

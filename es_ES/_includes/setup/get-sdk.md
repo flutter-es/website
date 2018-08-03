@@ -1,6 +1,6 @@
 ## Obtener el SDK de Flutter {#get-sdk}
 
-1. Descarga la siguiente paquete de instalación para obtener la version beta mas reciente de 
+1. Descarga la siguiente paquete de instalación para obtener la versión beta mas reciente de 
 Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [archivo 
 SDK](/sdk-archive/) page.):
 {% if page.url contains "linux" %}
@@ -23,14 +23,14 @@ SDK](/sdk-archive/) page.):
     export PATH=`pwd`/flutter/bin:$PATH
     {% endcommandline %}
 
-El commando de arriba configurara el PATH en la variable temporal, para la ventana actual de terminal. para
+El comando de arriba configurara el PATH en la variable temporal, para la ventana actual de terminal. para
 agregar de manera permanente Flutter a tu "path", vea [Actualiza el path](#update-your-path).
 
-Ahora esta todo listo para ejecutar los commando de Flutter en la consola de Flutter!
+Ahora esta todo listo para ejecutar los comando de Flutter en la consola de Flutter!
 
-Para actualizar una version existente de Flutter, vea [Actualizando Flutter](/upgrading/).
+Para actualizar una versión existente de Flutter, vea [Actualizando Flutter](/upgrading/).
 
-### Ejecutar flutter doctor
+### Ejecutar Flutter doctor
 
 Ejecuta el siguiente comando para verificar si existe alguna dependencia que se necesite para
 completar la configuración:
@@ -53,17 +53,17 @@ Por ejemplo:
       visit https://flutter.io/setup/#android-setup for detailed instructions.
 </pre>
 
-La siguiente seccion describe como desempeñar estas tareas y finalizar el proceso de configuración.
+La siguiente sección describe como desempeñar estas tareas y finalizar el proceso de configuración.
 
 Uva vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
 de nuevo para verificar que todo se ha configurado correctamente.
 
-Las herramientas de Flutter usan Google Analytics para anonimamente reportar estadistica de 
-caracteristicas de uso y repostes basicos de fallas. Estos datos son utilizados para ayudar 
+Las herramientas de Flutter usan Google Analytics para anonimamente reportar estadística de 
+características de uso y repostes básicos de fallas. Estos datos son utilizados para ayudar 
 a mejorar las herramientas de flutter con el tiempo.
-Analytics no envia cada ejecución o cualquier ejecucion dentro del `flutter config`,
+Analytics no enviá cada ejecución o cualquier ejecución dentro del `flutter config`,
 por lo que puede optar por no participar en los análisis antes de enviar los datos. 
 Para deshabilitar los reportes, teclee `flutter config --no-analytics` y para desplegar la
-configuracion actual, teclee `flutter config`. 
-Vea la politica de privacidad de Google: [www.google.com/intl/en/policies/privacy](https://www.google.com/intl/en/policies/privacy/).
+configuración actual, teclee `flutter config`. 
+Vea la política de privacidad de Google: [www.google.com/intl/en/policies/privacy](https://www.google.com/intl/en/policies/privacy/).
 {: .alert-warning}
