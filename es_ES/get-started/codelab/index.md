@@ -11,10 +11,10 @@ image: /get-started/codelab/images/step7-themes.png
          style="border: 10px solid #333; border-radius: 10px; margin-bottom: 10px" >
 </figure>
 
-Esta es una guia para crear tu primer app en Flutter. Si la
+Esta es una guiá para crear tu primer app en Flutter. Si la
 programación orientada a objetos te es familiar y conceptos básicos
 de programación como variables, ciclos y condicionales,
-podras completar este tutorial. No se necesita
+podrás completar este tutorial. No se necesita
 experiencia previa con Dart o programación móvil.
 
 {% comment %}
@@ -32,10 +32,10 @@ TODO: (maybe, but later)
 {:.no_toc}
 
 Se implementara una app móvil sencilla que generara nombres propuestos para un
-empresa que inicia. El usuario puede seleccionar o deseleccionar nombres,
+empresa que inicia. El usuario puede seleccionar o de seleccionar nombres,
 almacenando los mejores. El código genera nombres de diez en diez.
 Mientras el usuario busca, nuevos juegos de nombres son generados.
-El user puede puede tocar el icono de lista en la orilla superior derecha en la barra de la app
+El usuario puede puede tocar el icono de lista en la orilla superior derecha en la barra de la app
 para moverse a una nueva ruta que muestra únicamente los nombre favoritos.
 
 El GIF animado muestra como se vera el producto terminado.
@@ -62,32 +62,32 @@ El GIF animado muestra como se vera el producto terminado.
     y un SDK de Dart. Este laboratorio necesita v0.1.4 o superior.
 
   - Android Studio IDE<br>
-    Este laboratorio utiliza el IDE de Android Studio, Peropuedes utilizar otro
+    Este laboratorio utiliza el IDE de Android Studio, Pero puedes utilizar otro
     IDE, o trabajar de la linea de comandos.
 
   - Complementos para el IDE<br>
     Los complementes de Flutter y Dart deber ser instalado por separado para el
-    IDE. Ademas Android Studio, los complementos Flutter y Dart tambien estan disponibles
+    IDE. Ademas Android Studio, los complementos Flutter y Dart también están disponibles
     para los IDEs [VS Code](https://code.visualstudio.com/download) e
     [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac).
 
-  Vea [Instalación y configuración de Flutter](/get-started/install/) para mas informacion de
+  Vea [Instalación y configuración de Flutter](/get-started/install/) para mas información de
   como configurar el ambiente de trabajo.
 </div>
 
 # Paso 1: Crear la app inicial de Flutter
 
-Crear un app sencilla desde una plantilla de Flutter, utilizando las intrucciones en
+Crear un app sencilla desde una plantilla de Flutter, utilizando las instrucciones en
 [Iniciando con tu primer app de Flutter.](/get-started/test-drive/#create-app)
 Nombre del proyecto **startup_namer** (en lugar de _myapp_).
 Modificaras esta app de inicial para crear el app final.
 
-En este laboratorio, mayormente estaras editando **lib/main.dart**,
-donde el codigo Dart vive.
+En este laboratorio, mayormente estarás editando **lib/main.dart**,
+donde el código Dart vive.
 
 {{site.alert.tip}}
   Cuando se pega código dentro de tu app, los margenes pueden
-  moverse. Puedes corregir esto automaticamente con las herramientas de Flutter:
+  moverse. Puedes corregir esto automáticamente con las herramientas de Flutter:
 
   * Android Studio / IntelliJ IDEA: Clic derecho en el código Dart 
   y elige **Reformat Code with dartfmt**.
@@ -96,7 +96,7 @@ donde el codigo Dart vive.
 {{site.alert.end}}
 
  1. Reemplaza `lib/main.dart`.<br>
-    Borra todo el codigo de **lib/main.dart**.
+    Borra todo el código de **lib/main.dart**.
     Reemplaza con el siguiente código, el cual muestra "Hello World" en el centro
     de la pantalla. 
 
@@ -123,31 +123,31 @@ donde el codigo Dart vive.
     }
     ```
 
- 2. Ejecuta el app. Deberas ver la siguiente pantalla.
+ 2. Ejecuta el app. Deberás ver la siguiente pantalla.
 
     <center><img src="images/hello-world-screenshot.png" alt="screenshot of hello world app"></center>
 
 
-## Observations
+## Observaciones
 {:.no_toc}
 
 - Este ejemplo crea una "Material app".
   [Material](https://material.io/guidelines/) es un lenguaje de diseño visual
-  el cual es un estandar en web y móvil. Flutter ofrece un gran conjunto
+  el cual es un estándar en web y móvil. Flutter ofrece un gran conjunto
   de "Material widgets".
-- El metodo main especifíca con la siguiente notación de flecha (`=>`),
-  la cual es una manera corta usada para funciones o metodos de una linea.
+- El método main especifica con la siguiente notación de flecha (`=>`),
+  la cual es una manera corta usada para funciones o métodos de una linea.
 - La app hereda de `StatelessWidget` el cual hace a la app misma un
   widget. En Flutter, casi todo es un widget, incluyendo
   alignment, padding, y layout.
-- El widget `Scaffold`, de la libreria de Material,
+- El widget `Scaffold`, de la librería de Material,
   provee una "app bar" por defecto, "title", y una propiedad "body" el cual
-  soporta el arbol de widget para la pantalla de inicio. El subarbol de widget
+  soporta el árbol de widget para la pantalla de inicio. El subárbol de widget
   puede ser bastante complejo.
-- El trabajo principal de un widget es proveer un metodo `build()`
+- El trabajo principal de un widget es proveer un método `build()`
   el cual describe como mostrar un widget en termino de otro,
   widgets de bajo nivel.
-- El árbol de widget para este ejemplo consisteen un widget `Center`
+- El árbol de widget para este ejemplo consiste en un widget `Center`
   que contiene un child widget `Text`. El widget `Center` alinea un subárbol de 
   widgets al centro de la pantalla.
 
@@ -222,7 +222,7 @@ asi como muchas otros paquetes de código libre en
 
  2. Mientras vez el pubspec en el editor de Android Studio,
     clic **Packages get** arriba a la derecha. Esto trae los paquetes dentro
-    del proyecto. Se debera ver lo siguiente en la consola:
+    del proyecto. Se deberá ver lo siguiente en la consola:
 
     ```terminal
     > flutter packages get
@@ -239,15 +239,15 @@ asi como muchas otros paquetes de código libre en
       [[highlight]]import 'package:english_words/english_words.dart';[[/highlight]]
     {% endprettify %}
 
-    Mientras tecleas, Android Studio da sugerencias para las librerias a
-    importar. Entonces renderiza el texto de "import" en gris, haciendote 
-    saber que la libreria importada no ha sido utilizada (hasta el momento).
+    Mientras tecleas, Android Studio da sugerencias para las librerías a
+    importar. Entonces renderiza el texto de "import" en gris, haciéndote 
+    saber que la librería importada no ha sido utilizada (hasta el momento).
 
  4. Usa el paquete de palabras en Ingles para generar texto en lugar de
     utilizar el texto "Hello World".
 
     {{site.alert.note}}
-      "Pascal case" (tambien conocido como "upper camel case"),
+      "Pascal case" (también conocido como "upper camel case"),
       significa que cada palabra en el texto, incluyendo la primera, 
       empezara con letra mayúscula. Entonces, "uppercamelcase" se convierte
       "UpperCamelCase".
@@ -282,16 +282,13 @@ asi como muchas otros paquetes de código libre en
       }
     {% endprettify %}
 
- 5. Si la app esta ejecutandose, utilice el boton de hot reload
+ 5. Si la app esta ejecutándose, utilice el botón de hot reload
     (<img src="images/hot-reload-button.png" alt="lightning bolt icon">)
     para actualizar el app. Cada vez que se presione hot reload
-    o se guarde el proyecto, debera verse una diferente palabra,
-    eligida aleatoreamente, en la app.
-    Esto es debido a que las palabras generadas dentro de el metodo "build",
+    o se guarde el proyecto, deberá verse una diferente palabra,
+    elegida aleatoria mente, en la app.
+    Esto es debido a que las palabras generadas dentro de el método "build",
     el cual se ejecuta cada vez que la MaterialApp requiere renderizar
-    o cuando
-    This is because the word pairing is generated inside the build
-    method, which is run each time the MaterialApp requires rendering,
     o al alternar la plataforma en el inspector de Flutter .
 
 <center><img src="images/step2-screenshot.png" alt="screenshot at completion of second step"></center>
@@ -300,7 +297,7 @@ asi como muchas otros paquetes de código libre en
 ## Problemas?
 {:.no_toc}
 
-Si tu app no esta ejecutandoce correctamente, busque por errores al teclear. De ser necesario,
+Si tu app no esta ejecutando correctamente, busque por errores al teclear. De ser necesario,
 use el código en el siguiente enlace y continuar
 
 * [**pubspec.yaml**](https://gist.githubusercontent.com/Sfshaza/bb51e3b7df4ebbf3dfd02a4a38db2655/raw/57c25b976ec34d56591cb898a3df0b320e903b99/pubspec.yaml)
@@ -315,15 +312,15 @@ State<em>less</em> widgets son inmutables, esto quiere decir que
 sus propiedades no puedes cambiar&mdash;todos sus valores son finales.
 
 State<em>ful</em> widgets mantienes un estado que puede cambiar
-durente el tiempo de vida del widget. Implementar un stateful
-widget necesira al menos dos clases: 1) una clase StatefulWidget
+durante el tiempo de vida del widget. Implementar un stateful
+widget necesitara al menos dos clases: 1) una clase StatefulWidget
 la cual crea la instancia 2) una clase State. La clase StatefulWidget es,
 a si misma, inmutable, pero la clase State persiste sobre el tiempo de
 vida de el widget.
 
 En este paso, agregaras un stateful widget, RandomWords, el cual crea su clase
 State, RandomWordsState. La clase State eventualmente
-mantendra las palabras propuestas y favoritas para el widget.
+mantendrá las palabras propuestas y favoritas para el widget.
 
  1. Agrega el stateful RandomWords widget a main.dart.
     Puede ir en cualquier lugar del archivo, fuera de MyApp, pero la solución
@@ -338,15 +335,15 @@ mantendra las palabras propuestas y favoritas para el widget.
     }
     {% endprettify %}
 
- 2. Agrega la clase RandomWordsState. La mayorias de el código de la
+ 2. Agrega la clase RandomWordsState. La mayoría de código de la
     app se encuentra en esta clase, la cual mantiene el estado para el
-    RandomWords widget. Esta clase salvara las palabras generadas,
-    el cual crece infinitamente mientra el usuario de desplaza, y tambien las palabras
-    favoritas, mientras el uduario agregue o elimine de la lista
+    RandomWords widget. Esta clase guardara las palabras generadas,
+    el cual crece infinitamente mientra el usuario de desplaza, y también las palabras
+    favoritas, mientras el usuario agregue o elimine de la lista
     seleccionando el icono de corazón.
 
-    Contruira esta clase poco a poco. Para empezar, creando una clase pequeña
-    y agregando el texto resaltado:
+    Creara esta clase poco a poco. Para empezar, creé una clase pequeña
+    y agregue el texto resaltado:
 
     <!-- skip -->
     {% prettify dart %}
@@ -354,12 +351,12 @@ mantendra las palabras propuestas y favoritas para el widget.
     [[highlight]]}[[/highlight]]
     {% endprettify %}
 
- 3. Despues de agregar esta clase de estado, el IDE se quejara que
-    a la clase le hace falta el metodo build. Siguiente, agregar un metodo
-    build basico que genera el juego de palabras moviendo la
-    generacion de códigog de MyApp a RandomWordsState.
+ 3. Después de agregar esta clase de estado, el IDE se quejara que
+    a la clase le hace falta el método build. Siguiente, agregar un método
+    build básico que genera el juego de palabras moviendo la
+    generación de código de MyApp a RandomWordsState.
 
-    Agregar el metodo build a RandomWordState, como se muestra
+    Agregar el método build a RandomWordState, como se muestra
     en el siguiente texto resaltado:
 
     <!-- skip -->
@@ -399,7 +396,7 @@ mantendra las palabras propuestas y favoritas para el widget.
     }
     {% endprettify %}
 
-Reinicia la app. Si se intenta un hot reload, podria ver el siguiente mensaje de precaución:
+Reinicia la app. Si se intenta un hot reload, podría ver el siguiente mensaje de precaución:
 
 ```nocode
 Reloading...
@@ -407,10 +404,10 @@ Not all changed program elements ran during view reassembly; consider
 restarting.
 ```
 
-Podria ser un falso positivo, pero considere reiniciar en orden de asegurar estos
-cambios sean refrejados en la UI de la app.
+Podría ser un falso positivo, pero considere reiniciar en orden de asegurar estos
+cambios sean reflejados en la UI de la app.
 
-La app debera mostrar el comportamiento de antes, mostrando un juego de palabras
+La app deberá mostrar el comportamiento de antes, mostrando un juego de palabras
 cada vez que que se haga un hot reload o guarde la app.
 
 <center><img src="images/step3-screenshot.png" alt="screenshot at completion of third step"></center>
@@ -429,15 +426,15 @@ de el siguiente enlace y continuar.
 
 En este paso, extenderemos la clase RandomWordsState para generar
 y desplegar una lista de palabras. Mientras el usuario se desplaza, la lista
-lo desplegara en un ListView widget, crecera infinitamente. El `builder` de fabrica del constructor 
-ListView permite contruir un una lista de carga lenta, a petición.
+lo desplegara en un ListView widget, crecerá infinitamente. El `builder` de fabrica del constructor 
+ListView permite construir un una lista de carga lenta, a petición.
 
  1. Agrega una lista `_suggestions` a la clase RandomWordsState
     para guardar las palabras sugeridas. La variable empieza con
     un guion bajo (`_`)&mdash;prefijar un identificador con un guión bajo aplica 
     privacidad en el lenguaje Dart.
 
-    Tambien, agrega una variable `biggerFont` para hacer el tamaño de la fuente mas grande.
+    También, agrega una variable `biggerFont` para hacer el tamaño de la fuente mas grande.
 
     <!-- skip -->
     {% prettify dart %}
@@ -450,14 +447,14 @@ ListView permite contruir un una lista de carga lenta, a petición.
     {% endprettify %}
 
  2. Agrega la función `_buildSuggestions()` a la clase RandomWordsState.
-    Este metodo contruira el ListView que despliega las palabras sugeridas.
+    Este método construirá el ListView que despliega las palabras sugeridas.
 
     La clase ListView provee una propiedad builder, `itemBuilder`,
-    un builder de fabrica y un función callback especificada como función anonima,
-    Dos parametros se pasan a la función&mdash;El BuildContext, 
-    y un rengon de iteración , `i`. El iterador empieza desde 0 e incrementa
-    cada vez que la funcion es llamada, un vez cada que un juego de palabras es llamado.
-    Este modelo permite que la lista sugerida crezca infinitamente mietras el usuario se desplaza.
+    un builder de fabrica y un función callback especificada como función anónima,
+    Dos parámetros se pasan a la función&mdash;El BuildContext, 
+    y un renglón de iteración , `i`. El iterador empieza desde 0 e incrementa
+    cada vez que la función es llamada, un vez cada que un juego de palabras es llamado.
+    Este modelo permite que la lista sugerida crezca infinitamente mientras el usuario se desplaza.
 
     Agrega las lineas resaltadas abajo:
 
@@ -495,8 +492,8 @@ ListView permite contruir un una lista de carga lenta, a petición.
     }
     {% endprettify %}
 
- 3. La funcion `_buildSuggestions` llama a `_buildRow` una vez por
-    juego de palabras. Esta funcion despliega un ListTile cada nuevo juego de palabras
+ 3. La función `_buildSuggestions` llama a `_buildRow` una vez por
+    juego de palabras. Esta función despliega un ListTile cada nuevo juego de palabras
     lo cual permite que los renglones se vean mejor en el siguiente paso.
 
     Agrega una función `_buildRow` a RandomWordsState:
@@ -517,9 +514,9 @@ ListView permite contruir un una lista de carga lenta, a petición.
     }
     {% endprettify %}
 
- 4. Actualiza el metodo de build para RandomWordsState y utilizar
-    `_buildSuggestions()`, en lugar de llamar directamente la libreria
-     de generación de palabras. Realice los cambios que estan resaltados:
+ 4. Actualiza el método de build para RandomWordsState y utilizar
+    `_buildSuggestions()`, en lugar de llamar directamente la librería
+     de generación de palabras. Realice los cambios que están resaltados:
 
     <!-- skip -->
     {% prettify dart %}
@@ -540,9 +537,9 @@ ListView permite contruir un una lista de carga lenta, a petición.
     }
     {% endprettify %}
 
- 5. Actualiza el metodo build para MyApp.
+ 5. Actualiza el método build para MyApp.
     Elimina las instancias de Scaffold y AppBar de MyApp.
-    Estos seran administrados por RandomWordsState, lo cual hará mas fácil
+    Estos serán administrados por RandomWordsState, lo cual hará mas fácil
     de cambiar el nombre de la ruta en la app bar mientras el usuario navegue
     de una pantalla a otra, en el siguiente paso.
 
@@ -578,9 +575,9 @@ en el siguiente enlace y continuar.
 
 # Paso 5: Agregar interactividad.
 
-En este paso, seras capaz de agregar iconos de corazon que puedan tocarse en cada renglon
+En este paso, seras capaz de agregar iconos de corazón que puedan tocarse en cada renglón
 cuando el usuario toque una entrada de la lista, se resaltara
-a estado de "favorito", estas palabras seran agregadas o eliminadas 
+a estado de "favorito", estas palabras serán agregadas o eliminadas 
 al set de guardadas favoritas.
 
  1. Agrega un set `_saved` a RandomWordsState. Este set almacenara
@@ -600,7 +597,7 @@ al set de guardadas favoritas.
     {% endprettify %}
 
  2. En la función `_buildRow`, agrega una verificación `alreadySaved`
-    para asegurar que la palabrasha sido ya agregada a favoritos.
+    para asegurar que la palabras ha sido ya agregada a favoritos.
 
     <!-- skip -->
     {% prettify dart %}
@@ -610,8 +607,8 @@ al set de guardadas favoritas.
       }
     {% endprettify %}
 
- 3. Tambien en `_buildRow()`, agrega un icono con forma de corazón al
-    ListTiles para habilitar que es favorito. Despues, agregaremos la posibilidad de
+ 3. También en `_buildRow()`, agrega un icono con forma de corazón al
+    ListTiles para habilitar que es favorito. Después, agregaremos la posibilidad de
     interactuar con los iconos de corazón.
 
     Agrega las lineas resaltadas bajo:
@@ -633,7 +630,7 @@ al set de guardadas favoritas.
       }
     {% endprettify %}
 
- 4. Reinicia la app. Deberas de ver corazones en cada renglón, 
+ 4. Reinicia la app. Deberás de ver corazones en cada renglón, 
     pero no podrás interactuar con ellos aún.
 
  5. Haz los nombre sugeridos se puedan pulsar en la función `_buildRow`. 
@@ -676,8 +673,8 @@ al set de guardadas favoritas.
   una actualización de la UI.
 {{site.alert.end}}
 
-Haga hot reload en la app. debera ser capaz de pulsar cualquier palabra a favorito o quitar de favorito,
-Vea que el pulsar la palabra genera una animación ink splash implicita
+Haga hot reload en la app. deberá ser capaz de pulsar cualquier palabra a favorito o quitar de favorito,
+Vea que el pulsar la palabra genera una animación ink splash implícita
 que sale de el lugar que fue pulsado.
 
 <center><img src="images/step5-screenshot.png" alt="screenshot at completion of 5th step"></center>
@@ -695,7 +692,7 @@ en el siguiente enlace y continuar.
 # Paso 6: Navegar a una nueva pantalla
 
 En este paso, agregaras una nueva pantalla (llamada _route_ en Flutter) esta
-mostrara los favoritos. Aprenderas como navegar entre la página de inicio
+mostrara los favoritos. Aprenderás como navegar entre la página de inicio
 y la ruta nueva.
 
 En Flutter, el Navegator administra la pila de rutas que contiene la app.
@@ -704,7 +701,7 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
 
  1. Agrega un icono de lista a la AppBar en el método build para 
     RandomWordsState.  Cuando el usuario presione el icono de lista, una nueva 
-    ruta que contiene los articulos favoritos se empuja dentro del Navegator,
+    ruta que contiene los artículos favoritos se empuja dentro del Navegator,
     mostrando el icono.
 
     {{site.alert.tip}}
@@ -746,17 +743,17 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
     }
     {% endprettify %}
 
-    Hot reload la app. El icono de lista aparecera en el AppBar.
-    Pulsandolo no hace nada aún, por que la función `_pushSaved` esta vacía.
+    Hot reload la app. El icono de lista aparecerá en el AppBar.
+    Pulsándolo no hace nada aún, por que la función `_pushSaved` esta vacía.
 
  3. Cuando el usuario pulse el icono de lista en el AppBarr,
-    Se contruira una ruta y se metera dentro de la pila del Navegator.
-    Esta accion cambiara lo que muestra la pantalla a la nueva ruta.
+    Se construirá una ruta y se meterá dentro de la pila del Navegator.
+    Esta acción cambiara lo que muestra la pantalla a la nueva ruta.
 
-    El contenido para la nueva página es contruida en la propiedad `builder` en MaterialPageRoute's `builder`, 
+    El contenido para la nueva página es construida en la propiedad `builder` en MaterialPageRoute's `builder`, 
     en  una función anónima.
 
-    Agregar llamada al Navigator.push, como muestra el codigo resaltado,
+    Agregar llamada al Navigator.push, como muestra el código resaltado,
     el cual empuja la ruta a la pila de Navigator.
 
     <!-- skip -->
@@ -804,7 +801,7 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
  5. La propiedad builder regresa un Scaffold,
     contiene la AppBar para una nueva ruta, llamada
     "Saved Suggestions". El body de la ruta nueva
-    consiste de un ListView que contiene los renglónes del ListTiles;
+    consiste de un ListView que contiene los renglones del ListTiles;
     cada renglón es separado por un divisor.
 
     Agregue el código resaltado abajo:
@@ -845,10 +842,10 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
     {% endprettify %}
 
  6. Hot reload la app. Seleccione como favoritas algunas y
-    pulse el icono de lista en la AppBar. La nueva ruta aparecera conteniendo
+    pulse el icono de lista en la AppBar. La nueva ruta aparecerá conteniendo
     los favoritos. Vea que el Navegator agrega un boton de "Back" al AppBarr.
-    No se necesita implementar explicitamente `Navigator.pop`.
-    Pulse el boton de "Back" para regresar a la ruta de inicio.
+    No se necesita implementar explícitamente `Navigator.pop`.
+    Pulse el botón de "Back" para regresar a la ruta de inicio.
 
 <center>
   <img src="images/step6a-screenshot.png" alt="screenshot at completion of 6th step">
@@ -872,9 +869,9 @@ _theme_ controla como se ve y se siente tu app. Puedes usar un tema
 por defecto, el cual depende del dispositivo físico o emulador,
 o puedes crear un tema personalizado que refleje tu branding.
 
- 1. Puedes facilmente cambiar el tema de una app configurando
+ 1. Puedes fácilmente cambiar el tema de una app configurando
     la clase ThemeData. Tu app actualmente utiliza el tema por defecto,
-    pero puedes cambiar el color primerio a blanco.
+    pero puedes cambiar el color primario a blanco.
 
     Cambiar el tema de la app a blanco agregando el código resaltado a MyApp:
 
@@ -902,7 +899,7 @@ o puedes crear un tema personalizado que refleje tu branding.
     para cambiar otros aspectos de la UI. La
     [Colors](https://docs.flutter.io/flutter/material/Colors-class.html)
     clase que se proveé en Material library tiene muchas constantes de color con las cual se puede jugar,
-    y hot reload permite experimentar con la UI facil y rápido.
+    y hot reload permite experimentar con la UI fácil y rápido.
 
 <center><img src="images/step7-themes.png" alt="screenshot at completion of 7th step"></center>
 
@@ -923,13 +920,13 @@ Has escrito una app interactiva en Flutter que se ejecuta en ambos iOS y Android
 En este laboratorio, tu has:
 
 * Creaste una app de Flutter desde cero.
-* Escrita en codigo Dart.
-* Utilizando una libreria externa de un tercero.
-* Usaste hot reload para un ciclo de desarrollo mas rapido.
-* Implentaste un stateful widget, agregándo interactividad a tu app.
+* Escrita en código Dart.
+* Utilizando una librería externa de un tercero.
+* Usaste hot reload para un ciclo de desarrollo mas rápido.
+* Implementaste un stateful widget, agregando interactividad a tu app.
 * Creaste una lista de carga lenta, mostrando un desplazamiento infinito con un
   ListView y ListTiles.
-* Creaste una ruta y agregaste logica de movimiento entre la ruta de inicio
+* Creaste una ruta y agregaste lógica de movimiento entre la ruta de inicio
   y la ruta nueva.
 * Aprendiste como cambiar el estilo de tu app utilizando Themes.
 

@@ -4,11 +4,11 @@ title: "Empezar: Prueba Inicial"
 permalink: /get-started/test-drive/
 ---
 
-Esta página describe como hacer tu prueba inicial en flutter: crea una nueva app de Flutter 
+Esta página describe como hacer tu prueba inicial en Flutter: crear una nueva app de Flutter 
 con nuestras plantillas, ejecutarla, y aprender como hacer cambios con "Hot Reload".
 
 Flutter es un juego de herramientas flexible, por favor empieza por selecionar tu herramienta
-de desarrollo favorita para escribir, contruir y ejecutar tus apps de Flutter.
+de desarrollo favorita para escribir, crear y ejecutar tus apps de Flutter.
 
 <div id="tab-set-install">
 
@@ -26,11 +26,11 @@ de desarrollo favorita para escribir, contruir y ejecutar tus apps de Flutter.
 
    1. Seleccionar **File > New Flutter Project**
    1. Seleccionar **Flutter application** como tipo de proyecto, y presionar siguiente
-   1. Introducir nombre de proyecto (ej. `myapp`), y presional Siguiente
+   1. Introducir nombre de proyecto (ej. `myapp`), y presionar siguiente
    1. Clic en **Finish**
    1. Espera mientras Android Studio instala el SDK, y crear el proyecto.
 
-Los comando de arriba crean un directorio para el proyecto llamado `myapp`
+Los comandos de arriba crean un directorio para el proyecto llamado `myapp`
 el cual contiene una app demo sencilla
 que utiliza [Material Components](https://material.io/guidelines/).
 
@@ -46,11 +46,11 @@ Dentro del directorio del proyecto, el codigo de tu app esta en `lib/main.dart`.
       AVDs](https://developer.android.com/studio/run/managing-avds.html).
    1. Clic en el **Run icon** en la barra de herramientas, o llama el articulo del menu **Run >
       Run**.
-   1. Si todo funciona, debras de ver inicar su app en el dispositivo o 
+   1. Si todo funciona, deberas de ver iniciar tu app en el dispositivo o 
       simulador:<br>
       ![App iniciada en Android](/images/flutter-starter-app-android.png)
 
-## Probando el hot reload
+## Probando hot reload
 
 Flutter ofrece un ciclo de desarrollo rapido con _hot reaload_, la habilidad de recargar 
 el código en una app ejecutando en vivo sin reiniciar o perder el estado de la app. simplemente
@@ -85,17 +85,16 @@ Los comando de arriba crean un directorio para el proyecto llamado `myapp`
 el cual contiene una app demo sencilla
 que utiliza [Material Components](https://material.io/guidelines/).
 
-Dentro del directorio del proyecto, el codigo de tu app esta en `lib/main.dart`.
+Dentro del directorio del proyecto, el código de tu app esta en `lib/main.dart`.
 
 ## Ejecutar app
 
  1. Localizar la barra de estatus de VS Code(la barra azul en la parte de abajo de la ventana)
  1. Selecionar el dispositivo de el area de **Device Selector**.
     Para detalles, vea [Cambio rápido entre dispositivos de Flutter][].
-    - Si no se encuentra ninguna dispositivo disponible y prefieres usar un simulador,
+    - Si no se encuentra ningun dispositivo disponible y prefieres usar un simulador,
       clic **No Devices** y lance un simulador.
-    - Para configurar un dispositivo real, siga las instrucciones para el dispositivo en especifico la pagina 
-      de tu SO [Empezar: Instalar](/get-started/install).
+    - Para configurar un dispositivo real, siga las instrucciones para el dispositivo en específico para [empezar: instalar](/get-started/install) en el SO que utilice.
  1. llamar a **Debug > Start Debugging** o presionar <kbd>F5</kbd>
  1. Espere que el app sea lanzada &mdash; el progreso se imprimira en la vista de
     **Debug Console**
@@ -136,10 +135,10 @@ para ejecutar y construir.
    {% endcommandline %}
 
 El comando de arriba crea el directorio del proyecto de Flutter llamado `myapp` el cual
-contiene una app demo sencialla que utiliza
+contiene una app demo sencilla que utiliza
 [Material Components](https://material.io/guidelines/).
 
-Dentro del directorio del proyecto, el codigo de tu app esta en `lib/main.dart`.
+Dentro del directorio del proyecto, el código de tu app esta en `lib/main.dart`.
 
 ## Ejecutar app
 
@@ -148,11 +147,11 @@ Dentro del directorio del proyecto, el codigo de tu app esta en `lib/main.dart`.
    {% commandline %}
    flutter devices
    {% endcommandline %}
-   * Run the app with the `flutter run` command:
+   * Ejecuta la app con el comando `flutter run`:
    {% commandline %}
    flutter run
    {% endcommandline %}
-   * Si todo funciona, despues de que la app sea contruida, deberas ver tu app iniciada en el dipositivo o simulador:<br>
+   * Si todo funciona, despues de que la app sea construida, deberas ver tu app iniciada en el dispositivo o simulador:<br>
       ![App Iniciada en Android](/images/flutter-starter-app-android.png)
 
 ## Probando el hot reload
