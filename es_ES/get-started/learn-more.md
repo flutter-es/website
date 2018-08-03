@@ -22,7 +22,7 @@ Otras fuentes:
 * [De Java a Dart](https://codelabs.developers.google.com/codelabs/from-java-to-dart/#0) laboratorio
 * [Bootstrap dentro de Dart: aprender mas acerca del lenguaje](/bootstrap-into-dart/)
 
-Por favor contactanos a nuestra [lista de correo][]. Nos gustaria saber de ti.
+Por favor contáctanos a nuestra [lista de correo][]. Nos gustaria saber de ti.
 
 Happy Fluttering!
 

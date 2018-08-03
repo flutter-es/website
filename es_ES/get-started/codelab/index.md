@@ -11,9 +11,9 @@ image: /get-started/codelab/images/step7-themes.png
          style="border: 10px solid #333; border-radius: 10px; margin-bottom: 10px" >
 </figure>
 
-Esta es una guiá para crear tu primer app en Flutter. Si la
+Esta es una guiá para crear tu primera app en Flutter. Si la
 programación orientada a objetos y conceptos básicos
-de programación como variables, ciclos y condicionales, te son familiares
+de programación como variables, ciclos y condicionales
 podrás completar este tutorial. No se necesita
 experiencia previa con Dart o programación móvil.
 
@@ -28,32 +28,32 @@ TODO: (maybe, but later)
 * TOC
 {:toc}
 
-## Que haremos
+## Qué haremos
 {:.no_toc}
 
-Se implementara una app móvil sencilla que generara nombres propuestos para un
-empresa que inicia. El usuario puede seleccionar o de seleccionar nombres,
+Se implementará una app móvil sencilla que generará nombres propuestos para un
+empresa que inicia. El usuario puede seleccionar o deseleccionar nombres,
 almacenando los mejores. El código genera nombres de diez en diez.
-Mientras el usuario busca, nuevos juegos de nombres son generados.
+A medida que el usuario se desplaza por la pantalla, nuevos juegos de nombres son generados.
 El usuario puede puede tocar el icono de lista en la orilla superior derecha en la barra de la app
 para moverse a una nueva ruta que muestra únicamente los nombre favoritos.
 
-El GIF animado muestra como se vera el producto terminado.
+El GIF animado muestra como se verá el producto terminado.
 
 <div class="whats-the-point" markdown="1">
   <h4>Que aprenderemos</h4>
 
   * Estructura básica de una app en Flutter.
   * Encontrar y utilizar paquetes para extender funcionalidades.
-  * Usar hot reload para un ciclo de desarrollo mas rápido.
-  * Como implementar un "stateful widget".
-  * Como crear una lista de carga lenta e infinita.
-  * Como crear y navegar a una segunda pantalla.
-  * Como cambiar el estilo de una app utilizando "Themes".
+  * Usar hot reload para un ciclo de desarrollo más rápido.
+  * Cómo implementar un "stateful widget".
+  * Cómo crear una lista de carga lenta e infinita.
+  * Cómo crear y navegar a una segunda pantalla.
+  * Cómo cambiar el estilo de una app utilizando "Themes".
 </div>
 
 <div class="whats-the-point" markdown="1">
-  <h4>Que usaremos</h4>
+  <h4>Qué usaremos</h4>
 
   Necesitaremos instalar lo siguiente:
 
@@ -197,13 +197,13 @@ donde el código Dart vive.
 
 # Paso 2: Usar un paquete externo
 
-En este paso, empezaras utilizando un paquete de código libre llamado
+En este paso, empezarás utilizando un paquete de código libre llamado
 **english_words**, el cual contiene uno cuantos de miles de las palabras
-en Ingles mas utilizadas ademas de otras funciones de utilidad.
+en Inglés más utilizadas, además de otras funciones de utilidad.
 
 Puedes encontrar el paquete
 [english_words](https://pub.dartlang.org/packages/english_words),
-asi como muchas otros paquetes de código libre en
+así como muchas otros paquetes de código libre en
 [pub.dartlang.org](https://pub.dartlang.org/flutter/).
 
  1. El archivo pubspec gestiona los activos para una app Flutter.
@@ -239,17 +239,17 @@ asi como muchas otros paquetes de código libre en
       [[highlight]]import 'package:english_words/english_words.dart';[[/highlight]]
     {% endprettify %}
 
-    Mientras tecleas, Android Studio da sugerencias para las librerías a
+    Mientras tecleas, Android Studio da sugerencias para las bibliotecas a
     importar. Entonces renderiza el texto de "import" en gris, haciéndote 
     saber que la librería importada no ha sido utilizada (hasta el momento).
 
- 4. Usa el paquete de palabras en Ingles para generar texto en lugar de
+ 4. Usa el paquete de palabras en inglés para generar texto en lugar de
     utilizar el texto "Hello World".
 
     {{site.alert.note}}
       "Pascal case" (también conocido como "upper camel case"),
       significa que cada palabra en el texto, incluyendo la primera, 
-      empezara con letra mayúscula. Entonces, "uppercamelcase" se convierte
+      empezará con letra mayúscula. Entonces, "uppercamelcase" se convierte
       "UpperCamelCase".
     {{site.alert.end}}
 

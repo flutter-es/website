@@ -1,6 +1,6 @@
 ## Obtener el SDK de Flutter
 
-1. Descarga la siguiente paquete de instalación para obtener la versión beta mas reciente de 
+1. Descarga el siguiente paquete de instalación para obtener la versión beta mas reciente de 
 Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [archivo 
 SDK](/sdk-archive/)):
     * [(cargando...)](#){:.download-latest-link-windows}
@@ -9,7 +9,7 @@ SDK](/sdk-archive/)):
    flutter en un directorio como `C:\Program Files\` que requiere permisos de administrador).
 1. Localice el archivo `flutter_console.bat` dentro del directorio de `flutter`. Inicíelo con doble clic.
 
-Ahora esta todo listo para ejecutar los comando de Flutter en la consola de Flutter!
+Ahora está todo listo para ejecutar los comando de Flutter en la consola de Flutter!
 
 Para actualizar una versión existente de Flutter, vea [Actualizando Flutter](/upgrading/).
 
@@ -27,18 +27,18 @@ estos pasos y agregue Flutter a las variables de ambiente en el PATH:
 
 Reinicia Windows para aplicar los cambios completamente.
 
-### Ejecutar flutter doctor
+### Ejecutar Flutter doctor
 
-En la consola de FLutter, ejecuta el siguiente comando para
+En la consola de Flutter, ejecuta el siguiente comando para
 ver si existe alguna dependencia que necesite instalar para completar la configuración:
 
 {% commandline %}
 flutter doctor
 {% endcommandline %}
 
-Este comando verifica tu ambiente y muestra un reporte en la terminal de windows.
+Este comando verifica tu entorno y muestra un reporte en la terminal de windows.
 El SDK de Dart esta empaquetado con Flutter, no es necesario instalar Dart por separado.
-Verifica la salida con cuidad para otros programas que pudieras necesitar o para 
+Verifica la salida con cuidado para otros programas que pudieras necesitar o para 
 desempeñar otras tareas mas adelante (mostradas en texto en **negrita**).
 
 Por Ejemplo:
@@ -52,10 +52,10 @@ Por Ejemplo:
 
 La siguiente sección describe como desempeñar estas tareas y finalizar el proceso de configuración.
 
-Uva vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
+Una vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
 de nuevo para verificar que todo se ha configurado correctamente.
 
-Las herramientas de Flutter usan Google Analytics para anonimamente reportar estadística de 
+Las herramientas de Flutter usan Google Analytics para, anónimamente, reportar estadística de 
 características de uso y reportes básicos de fallas. Estos datos son utilizados para ayudar 
 a mejorar las herramientas de flutter con el tiempo.
 Analytics no enviá cada ejecución o cualquier ejecución dentro del `flutter config`,

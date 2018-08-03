@@ -1,5 +1,5 @@
 ---
-title: Flutter - Hermosas app nativas en tiempo record
+title: Flutter - Hermosas app nativas en tiempo récord
 layout: page
 homepage: true
 hide_title: true

@@ -4,12 +4,12 @@ title: "Empezar: Configurar Editor"
 permalink: /get-started/editor/
 ---
 
-Usted puede contruir apps con Flutter utilizando cualquier editor de texto combinando con nuestras
+Usted puede construir apps con Flutter utilizando cualquier editor de texto combinando con nuestras
 herramientas en línea de comando. De cualquier manera, recomendamos utilizar alguno de nuestros plugin para una
 mejor experiencia. Con nuestros plugins de edición, usted podrá auto completar código, sintaxis resaltada, asistencia al editar widgets, apoyo para ejecutar & depurar, y más. 
 
 Siga los siguientes pasos para agregar un complemento al editor para Androind Studio, IntelliJ 
-o VS Code. Si quiere utilizar un editor diferente, esta bien, simplemente salte al 
+o VS Code. Si quiere utilizar un editor diferente, está bien, simplemente salte al 
 [siguiente paso: crear y ejecutar tu primer app](/get-started/test-drive/).
 
 <div id="tab-set-install">
@@ -23,7 +23,7 @@ o VS Code. Si quiere utilizar un editor diferente, esta bien, simplemente salte 
 
 ## Configuración Android Studio
 
-*Android Studio:* Un experiencia completa e integráda del IDE para Flutter. 
+*Android Studio:* Un experiencia completa e integrada del IDE para Flutter. 
 
 ### Instalar Android Studio
 
@@ -86,7 +86,7 @@ Para instalar:
 
 ## Siguiente paso
 
-Hagamos una prueba: crea un proyecto, ejecutalo y 
+Hagamos una prueba: crea un proyecto, ejecútalo y 
 experimenta 'hot reload'.
 
 
