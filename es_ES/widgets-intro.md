@@ -522,8 +522,3 @@ Claves Globales
 _Artículo principal: [GlobalKey](https://docs.flutter.io/flutter/widgets/GlobalKey-class.html)_
 
 Puede utilizar claves globales para identificar de forma única los widgets hijos. Las claves globales deben ser globalmente únicas en toda la jerarquía de widgets, a diferencia de las claves locales que sólo necesitan ser únicas entre hermanos. Dado que son únicos en el mundo, se puede utilizar una clave global para recuperar el estado asociado a un widget.
-
-
-
-
-
