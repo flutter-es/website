@@ -164,12 +164,13 @@ En este caso, queremos asegurarnos de que nuestros Widgets aparezcan en la panta
 <!-- skip -->
 ```dart
 void main() {
-  testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
+  testWidgets('MyWidget tiene un título y un mensaje',
+      (WidgetTester tester) async {
     await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
     final titleFinder = find.text('T');
     final messageFinder = find.text('M');
 
-    // Use el matcher `findsOneWidget` proporcionado por flutter_test para verificar que 
+    // Use el matcher `findsOneWidget` proporcionado por flutter_test para verificar que
     // nuestros Text Widgets aparezcan exactamente una vez en el Widget tree
     expect(titleFinder, findsOneWidget);
     expect(messageFinder, findsOneWidget);
@@ -198,7 +199,8 @@ void main() {
   // Define una prueba. La función TestWidgets también proporcionará un WidgetTester
   // para que podamos trabajar con él. El WidgetTester permitirá construir e interactuar
   // con Widgets en el ambiente de prueba.
-  testWidgets('MyWidget tiene un título y un mensaje', (WidgetTester tester) async {
+  testWidgets('MyWidget tiene un título y un mensaje',
+      (WidgetTester tester) async {
     // Crear el Widget, le dice al tester que lo construya
     await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
 
@@ -206,7 +208,7 @@ void main() {
     final titleFinder = find.text('T');
     final messageFinder = find.text('M');
 
-    // Use el matcher `findsOneWidget` proporcionado por flutter_test para verificar que 
+    // Use el matcher `findsOneWidget` proporcionado por flutter_test para verificar que
     // nuestros Text Widgets aparezcan exactamente una vez en el Widget tree
     expect(titleFinder, findsOneWidget);
     expect(messageFinder, findsOneWidget);
