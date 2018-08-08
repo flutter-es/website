@@ -216,15 +216,15 @@ Ejemplo:
 
 Supongamos que tienes una aplicación con el punto de entrada en
 `my_app/lib/main.dart`. Para crear una versión instrumentada, cree un archivo 
-Dart en `my_app/test_driver/`. Nombrélo después acorde a la función que este probando; 
+Dart en `my_app/test_driver/`. Nómbrelo después acorde a la función que esté probando; 
 vamos por `user_list_scrolling.dart` ubicado en `my_app/test_driver/`:
 
 ```dart
-// Esta línea importa la extención
+// Esta línea importa la extensión
 import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
-  // Esta línea habilita la extención
+  // Esta línea habilita la extensión
   enableFlutterDriverExtension();
 
   // Llama a main() de tu app o llama runApp con el widget que sea que estas interesado en probar.
