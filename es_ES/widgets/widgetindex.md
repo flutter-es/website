@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Indice de widgets en Flutter
+title: Índice de widgets en Flutter
 permalink: widgets/widgetindex/
 ---
 {% assign sorted = site.data.catalog.widgets | sort:'name' %}
 <div class="catalog">
-    <div class="category-description"><p>This is an alphabetical list of nearly every widget that is bundled with Flutter. You can also <a href="/widgets">browse widgets by category.</a></p></div>
+    <div class="category-description"><p>Esta es una lista alfabética de casi todos los widgets que están incluidos con Flutter. También puedes <a href="/widgets">buscar widgets por categoría.</a></p></div>
     <ul class="cards">
         {% for comp in sorted %}
         <li class="cards__item">
@@ -13,7 +13,7 @@ permalink: widgets/widgetindex/
                 <div class="catalog-image-holder">{{comp.image}}</div>
                 <h3>{{comp.name}}</h3>
                 <p class="scrollable-description"> {{comp.description}} </p>
-                <p><a href="{{comp.link}}">Documentation</a></p><div class="clear"></div>
+                <p><a href="{{comp.link}}">Documentación</a></p><div class="clear"></div>
             </div>
         </li>
         {% endfor %}
