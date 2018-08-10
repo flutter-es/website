@@ -11,8 +11,8 @@ permalink: /widgets-intro/
 
 Widgets en Flutter son construidos usando un moderno framework de estilo-reactivo, el cual toma
 inspiración de [React](http://facebook.github.io/react/). La idea central es
-que construyas tu UI de widgets. Los Widgets describen cómo debería ser su vista
-dada su configuración y estado actuales. Cuando el estado de un widget cambia
+que construyas tu UI de widgets. Los Widgets describen cómo debería ser su vista,
+dada su configuración y estado actuales. Cuando el estado de un widget cambia,
 el widget reconstruye su descripción, que el framework difiere de la descripción
 anterior para determinar los cambios mínimos necesarios en el árbol de renderizado
 subyacente para la transición de un estado al siguiente.
@@ -46,7 +46,7 @@ void main() {
 }
 ```
 
-la función [`runApp`](https://docs.flutter.io/flutter/widgets/runApp.html)
+La función [`runApp`](https://docs.flutter.io/flutter/widgets/runApp.html)
 toma el
 [`Widget`](https://docs.flutter.io/flutter/widgets/Widget-class.html) dado y
 lo convierte en la raíz del árbol de widgets. En este ejemplo, el árbol de widgets consiste
@@ -394,7 +394,7 @@ mencionado anteriormente:
 
 ```dart
 class Counter extends StatefulWidget {
-  // TEsta clase es la configuración para el estado. Tiene
+  // Esta clase es la configuración para el estado. Tiene
   // los valores (en nada) proporcionado por el padre y utilizado por el método
   // de construcción del Estado. Los campos en una subclase Widget siempre se marcan como "final".
 
@@ -619,7 +619,7 @@ class ShoppingList extends StatefulWidget {
 
   // El framework llama createState la primera vez que un widget aparece en una ubicación
   // dada del árbol. Si el padre reconstruye y usa el mismo tipo de
-  // wwidget (con la misma clave), el framework reutiliza el objeto State
+  // widget (con la misma clave), el framework reutiliza el objeto State
   // en lugar de crear un nuevo objeto State.
 
   @override
