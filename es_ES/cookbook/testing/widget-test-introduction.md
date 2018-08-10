@@ -13,14 +13,14 @@ viene con el SDK de Flutter.
 El paquete `flutter_test` provee las siguientes herramientas para probar los Widgets:
 
   * La clase [`WidgetTester`](https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html), 
-  nos permite construir e interactuar con los Widgets en un ambiente de pruebas.
+  nos permite construir e interactuar con los Widgets en un entorno de pruebas.
   * La función [`testWidgets`](https://docs.flutter.io/flutter/flutter_test/testWidgets.html). Esta 
   función creará automáticamente un nuevo `WidgetTester` por 
   cada caso de prueba, y es utilizada en lugar de la función normal `test`. 
   * Clases [`Finder`](https://docs.flutter.io/flutter/flutter_test/Finder-class.html). Nos permiten 
-  buscar por Widgets en el ambiente de pruebas.  
+  buscar por Widgets en el entorno de pruebas.  
   * Las constantes [`Matcher`](https://docs.flutter.io/flutter/package-matcher_matcher/Matcher-class.html) 
-  específicas de los Widget, que nos ayudan a verificar si un `Finder` localiza un Widget o múltiples Widgets en el ambiente de pruebas.
+  específicas de los Widget, que nos ayudan a verificar si un `Finder` localiza un Widget o múltiples Widgets en el entorno de pruebas.
   
 Si esto suena abrumador, ¡no se preocupe! Veremos como todas esas piezas encajan juntas a través de este curso.
   
@@ -91,7 +91,7 @@ Nuestra prueba verificará que `MyWidget` muestre el título y el mensaje especi
 void main() {
   // Define una prueba. la función TestWidgets también proporcionará un WidgetTester
   // para que podamos trabajar con él. El WidgetTester nos permitirá construir e interactuar
-  // con Widgets en el ambiente de pruebas.   
+  // con Widgets en el entorno de pruebas.   
   testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
     // Test code will go here!
   });
@@ -100,7 +100,7 @@ void main() {
 
 ### 4. Construya el Widget usando el `WidgetTester`
 
-A continuación, queremos compilar `MyWidget` dentro del ambiente de prueba. Para hacerlo, podemos usar el método
+A continuación, queremos compilar `MyWidget` dentro del entorno de prueba. Para hacerlo, podemos usar el método
 [`pumpWidget`](https://docs.flutter.io/flutter/flutter_test/WidgetTester/pumpWidget.html) 
 proporcionado por`WidgetTester`. El método `pumpWidget` creará y renderizará el Widget que proporcionamos.
 
@@ -121,7 +121,7 @@ void main() {
 Después de la llamada inicial a `pumpWidget`, el `WidgetTester` proporciona formas adicionales 
 para reconstruir el mismo Widget. Esto es útil si se está trabajando con un `StatefulWidget` o animaciones. 
 
-Por ejemplo, si tocamos un botón y este botón llama a `setState`, Flutter no reconstruirá automáticamente su Widget en el ambiente de prueba. Necesitamos usar uno de los siguientes métodos para pedirle a Flutter que cree nuestro Widget una vez más. 
+Por ejemplo, si tocamos un botón y este botón llama a `setState`, Flutter no reconstruirá automáticamente su Widget en el entorno de prueba. Necesitamos usar uno de los siguientes métodos para pedirle a Flutter que cree nuestro Widget una vez más. 
 
   - [tester.pump()](https://docs.flutter.io/flutter/flutter_test/TestWidgetsFlutterBinding/pump.html) 
   : Dispara la reconstrucción del widget después de una duración determinada.
@@ -132,7 +132,7 @@ Estos métodos proporcionan un control detallado sobre el ciclo de vida de la co
 
 ### 5. Busque nuestro Widget usando un `Finder`
 
-Ahora que hemos creado nuestro Widget en el ambiente de prueba, queremos buscar en el árbol de widgets el Text Widget `title` y el `message` utilizando un `Finder`. Esto nos permitirá verificar que ¡estamos mostrando esos Widgets correctamente!
+Ahora que hemos creado nuestro Widget en el entorno de prueba, queremos buscar en el árbol de widgets el Text Widget `title` y el `message` utilizando un `Finder`. Esto nos permitirá verificar que ¡estamos mostrando esos Widgets correctamente!
 
 En este caso, usaremos el método de alto nivel [`find`](https://docs.flutter.io/flutter/flutter_test/find-constant.html) 
 proporcionado por el paquete `flutter_test` para crear nuestros `Finders`. Como sabemos que estamos buscando los 
@@ -144,7 +144,8 @@ Para más información acerca de las clases `Finder`, por favor vea el curso [Bu
 <!-- skip -->
 ```dart
 void main() {
-  testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
+  testWidgets('MyWidget tiene un título y un mensaje', 
+     (WidgetTester tester) async {
     await tester.pumpWidget(MyWidget(title: 'T', message: 'M'));
     
     // Crear nuestros Finders
@@ -198,7 +199,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   // Define una prueba. La función TestWidgets también proporcionará un WidgetTester
   // para que podamos trabajar con él. El WidgetTester permitirá construir e interactuar
-  // con Widgets en el ambiente de prueba.
+  // con Widgets en el entorno de prueba.
   testWidgets('MyWidget tiene un título y un mensaje',
       (WidgetTester tester) async {
     // Crear el Widget, le dice al tester que lo construya
