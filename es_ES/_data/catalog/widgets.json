@@ -962,7 +962,7 @@
   },
   {
     "name": "RawKeyboardListener",
-    "description": "A widget that calls a callback whenever the user presses or releases a key on a keyboard.",
+    "description": "Un widget que realiza llamadas de regreso (callbacks) cuando sea que el usuario presiona o suelta una tecla en el teclado.",
     "categories": [
       "Input"
     ],
@@ -973,7 +973,7 @@
   },
   {
     "name": "AnimatedContainer",
-    "description": "A container that gradually changes its values over a period of time.",
+    "description": "Un contenedor que gradualmente cambiar su valor en un período de tiempo.",
     "categories": [
       "Animation and Motion"
     ],
@@ -984,7 +984,7 @@
   },
   {
     "name": "AnimatedCrossFade",
-    "description": "A widget that cross-fades between two given children and animates itself between their sizes.",
+    "description": "Un widget que hace desvanecimientos cruzados entre dos hijos dados y realiza animaciones en si mismo entre sus tamaños.",
     "categories": [
       "Animation and Motion"
     ],
@@ -995,7 +995,7 @@
   },
   {
     "name": "Hero",
-    "description": "A widget that marks its child as being a candidate for hero animations.",
+    "description": "Un widget que marca a su hijo como candidato para las animaciones de Hero.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1007,7 +1007,7 @@
   },
   {
     "name": "AnimatedBuilder",
-    "description": "A general-purpose widget for building animations. AnimatedBuilder is useful for more complex widgets that wish to include an animation as part of a larger build function. To use AnimatedBuilder, simply construct the widget and pass it a builder function.",
+    "description": "Un widget de propósito general para construir animaciones. AnimatedBuilder es útil para widgets más complejos que deseen incluir una animación como parte de una función de construcción más grande. Para usar AnimatedBuilder, simplemente construya el widget y pásele una función de constructor.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1018,7 +1018,7 @@
   },
   {
     "name": "Draggable",
-    "description": "A widget that can be dragged from to a DragTarget. When a draggable widget recognizes the start of a drag gesture, it displays a feedback widget that tracks the user's finger across the screen. If the user lifts their finger while on top of a DragTarget, that target is given the opportunity to accept the data carried by the draggable.",
+    "description": "Un widget que se puede arrastrar desde un DragTarget. Cuando un widget arrastrable reconoce el inicio de un gesto de arrastre, muestra un widget de retroalimentación que rastrea el dedo del usuario a través de la pantalla. Si el usuario levanta el dedo mientras está en la parte superior de un DragTarget, se le da la oportunidad de aceptar los datos transportados por el objetivo arrastrable.",
     "categories": [
     ],
     "subcategories": [
@@ -1029,7 +1029,7 @@
   },
   {
     "name": "LongPressDraggable",
-    "description": "Makes its child draggable starting from long press.",
+    "description": "Hace que su hijo sea arrastrable a partir de una pulsación larga.",
     "categories": [
     ],
     "subcategories": [
@@ -1040,7 +1040,7 @@
   },
   {
     "name": "GestureDetector",
-    "description": "A widget that detects gestures. Attempts to recognize gestures that correspond to its non-null callbacks. If this widget has a child, it defers to that child for its sizing behavior. If it does not have a child, it grows to fit the parent instead.",
+    "description": "Un widget que detecta gestos. Intenta reconocer gestos que corresponden a sus llamadas de retorno no nulas. Si este widget tiene un hijo, se remite a ese hijo por su comportamiento de tamaño. Si no tiene un hijo, crece para adaptarse a los padres.",
     "categories": [
     ],
     "subcategories": [
@@ -1051,7 +1051,7 @@
   },
   {
     "name": "DragTarget",
-    "description": "A widget that receives data when a Draggable widget is dropped. When a draggable is dragged on top of a drag target, the drag target is asked whether it will accept the data the draggable is carrying. If the user does drop the draggable on top of the drag target (and the drag target has indicated that it will accept the draggable's data), then the drag target is asked to accept the draggable's data.",
+    "description": "Un widget que recibe datos cuando se suelta un widget arrastrable. Cuando se arrastra un arrastrable encima de un objetivo de arrastre, se pregunta al objetivo de arrastre si aceptará los datos que lleva el arrastrable. Si el usuario suelta el arrastrable encima del objetivo de arrastre (y el objetivo de arrastre ha indicado que aceptará los datos del arrastrable), se le pide al objetivo de arrastre que acepte los datos del arrastrable.",
     "categories": [
     ],
     "subcategories": [
@@ -1062,7 +1062,7 @@
   },
   {
     "name": "Dismissible",
-    "description": "A widget that can be dismissed by dragging in the indicated direction. Dragging or flinging this widget in the DismissDirection causes the child to slide out of view. Following the slide animation, if resizeDuration is non-null, the Dismissible widget animates its height (or width, whichever is perpendicular to the dismiss direction) to zero over the resizeDuration.",
+    "description": "Un widget que puede ser eliminado arrastrando en la dirección indicada. Arrastrando o lanzando este widget en la dirección DismissDirection hace que el hijo se deslice fuera de la vista. Después de que deslice la animación, si resizeDuration no es nulo, el widget Dismissible anima su altura (o anchura, la que sea perpendicular a la dirección de salida) a cero sobre resizeDuration.",
     "categories": [
     ],
     "subcategories": [
@@ -1073,7 +1073,7 @@
   },
   {
     "name": "IgnorePointer",
-    "description": "A widget that is invisible during hit testing. When ignoring is true, this widget (and its subtree) is invisible to hit testing. It still consumes space during layout and paints its child as usual. It just cannot be the target of located events, because it returns false from RenderBox.hitTest.",
+    "description": "Un widget que es invisible durante la prueba de aciertos. Cuando ignorar es verdadero, este widget (y su subárbol) es invisible para la prueba de aciertos. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente no puede ser el objetivo de eventos localizados, porque devuelve false desde RenderBox.hitTest.",
     "categories": [
     ],
     "subcategories": [
@@ -1084,7 +1084,7 @@
   },
   {
     "name": "AbsorbPointer",
-    "description": "A widget that absorbs pointers during hit testing. When absorbing is true, this widget prevents its subtree from receiving pointer events by terminating hit testing at itself. It still consumes space during layout and paints its child as usual. It just prevents its children from being the target of located events, because it returns true from RenderBox.hitTest.",
+    "description": "Un widget que absorbe los punteros durante la prueba de impacto. Cuando la absorción es verdadera, este widget evita que su subárbol reciba eventos de puntero terminando la prueba de impacto en sí mismo. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente impide que sus hijos sean el objetivo de eventos localizados, porque devuelve true desde RenderBox.hitTest.",
     "categories": [
     ],
     "subcategories": [
@@ -1095,7 +1095,7 @@
   },
   {
     "name": "Navigator",
-    "description": "A widget that manages a set of child widgets with a stack discipline. Many apps have a navigator near the top of their widget hierarchy in order to display their logical history using an Overlay with the most recently visited pages visually on top of the older pages. Using this pattern lets the navigator visually transition from one page to another by moving the widgets around in the overlay. Similarly, the navigator can be used to show a dialog by positioning the dialog widget above the current page.",
+    "description": "Un widget que gestiona un conjunto de widgets hijo con una disciplina de pila. Muchas aplicaciones tienen un navegador cerca de la parte superior de su jerarquía de widgets para mostrar su historial lógico utilizando una sobreimpresión con las páginas visitadas más recientemente visualmente encima de las páginas más antiguas. El uso de este patrón permite al navegador realizar una transición visual de una página a otra moviendo los widgets en la sobreimpresión. Del mismo modo, el navegador puede ser utilizado para mostrar un diálogo posicionando el widget de diálogo sobre la página actual.",
     "categories": [
     ],
     "subcategories": [
@@ -1106,7 +1106,7 @@
   },
   {
     "name": "Theme",
-    "description": "Applies a theme to descendant widgets. A theme describes the colors and typographic choices of an application.",
+    "description": "Aplica un tema a los widgets de descendientes. Un tema describe los colores y las opciones tipográficas de una aplicación.",
     "categories": [
       "Styling"
     ],
@@ -1117,7 +1117,7 @@
   },
   {
     "name": "MediaQuery",
-    "description": "Establishes a subtree in which media queries resolve to the given data.",
+    "description": "Establece un subárbol en el que las consultas de los medios de comunicación se resuelven a los datos dados.",
     "categories": [
       "Styling"
     ],
@@ -1128,7 +1128,7 @@
   },
   {
     "name": "ListView",
-    "description": "A scrollable, linear list of widgets. ListView is the most commonly used scrolling widget. It displays its children one after another in the scroll direction. In the cross axis, the children are required to fill the ListView.",
+    "description": "Una lista lineal y desplazable de widgets. ListView es el widget de desplazamiento más utilizado. Muestra a sus hijos uno tras otro en la dirección de desplazamiento. En el eje transversal, se requiere que los hijos llenen el ListView.",
     "categories": [
       "Scrolling"
     ],
@@ -1150,7 +1150,7 @@
   },
   {
     "name": "GridView",
-    "description": "A scrollable, 2D array of widgets. The most commonly used grid layouts are GridView.count, which creates a layout with a fixed number of tiles in the cross axis, and GridView.extent, which creates a layout with tiles that have a maximum cross-axis extent. A custom SliverGridDelegate can produce an aribtrary 2D arrangement of children, including arrangements that are unaligned or overlapping.",
+    "description": "Una matriz de widgets en 2D que se puede desplazar. Los diseños de cuadrícula más utilizados son GridView.count, que crea un diseño con un número fijo de tiles en el eje transversal, y GridView.extent, que crea un diseño con tiles que tienen una extensión máxima en el eje transversal. Un SliverGridDelegate personalizado puede producir un arreglo arbitrario 2D de hijos, incluyendo arreglos que no están alineados o que se superponen.",
     "categories": [
       "Scrolling"
     ],
@@ -1161,7 +1161,7 @@
   },
   {
     "name": "SingleChildScrollView",
-    "description": "A box in which a single widget can be scrolled. This widget is useful when you have a single box that will normally be entirely visible, for example a clock face in a time picker, but you need to make sure it can be scrolled if the container gets too small in one axis (the scroll direction).",
+    "description": "Un cuadro en el que se puede desplazar un único widget. Este widget es útil cuando tiene una sola caja que normalmente será completamente visible, por ejemplo una cara de reloj en un selector de tiempo, pero necesita asegurarse de que se puede desplazar si el contenedor se vuelve demasiado pequeño en un eje (la dirección de desplazamiento).",
     "categories": [
       "Scrolling"
     ],
@@ -1172,7 +1172,7 @@
   },
   {
     "name": "Scrollable",
-    "description": "Scrollable implements the interaction model for a scrollable widget, including gesture recognition, but does not have an opinion about how the viewport, which actually displays the children, is constructed.",
+    "description": "Scrollable implementa el modelo de interacción para un widget desplazable, incluyendo el reconocimiento de gestos, pero no tiene una opinión sobre cómo se construye el viewport, que en realidad muestra a los hijos.",
     "categories": [
       "Scrolling"
     ],
@@ -1184,7 +1184,7 @@
   },
   {
     "name": "Scrollbar",
-    "description": "A Material Design scrollbar. A scrollbar indicates which portion of a Scrollable widget is actually visible.",
+    "description": "Una barra de desplazamiento de Material Design. Una barra de desplazamiento indica qué parte de un widget desplazable es realmente visible.",
     "categories": [
       "Scrolling"
     ],
@@ -1195,7 +1195,7 @@
   },
   {
     "name": "CustomScrollView",
-    "description": "A ScrollView that creates custom scroll effects using slivers.",
+    "description": "Una vista de desplazamiento que crea efectos de desplazamiento personalizados utilizando slivers.",
     "categories": [
       "Scrolling"
     ],
@@ -1206,7 +1206,7 @@
   },
   {
     "name": "NotificationListener",
-    "description": "A widget that listens for Notifications bubbling up the tree.",
+    "description": "Un widget que escucha las Notificaciones que aparecen en el árbol.",
     "categories": [
       "Scrolling"
     ],
@@ -1217,7 +1217,7 @@
   },
   {
     "name": "ScrollConfiguration",
-    "description": "Controls how Scrollable widgets behave in a subtree.",
+    "description": "Controla cómo se comportan los widgets desplazables en un subárbol.",
     "categories": [
       "Scrolling"
     ],
@@ -1228,7 +1228,7 @@
   },
   {
     "name": "RefreshIndicator",
-    "description": "A Material Design pull-to-refresh wrapper for scrollables.",
+    "description": "Una envoltura pull-to-refresh de Material Design para productos deslizables.",
     "categories": [
       "Scrolling"
     ],
@@ -1239,7 +1239,7 @@
   },
   {
     "name": "Opacity",
-    "description": "A widget that makes its child partially transparent.",
+    "description": "Un widget que hace que su hijo sea parcialmente transparente.",
     "categories": [
       "Painting and effects"
     ],
@@ -1250,7 +1250,7 @@
   },
   {
     "name": "Transform",
-    "description": "A widget that applies a transformation before painting its child.",
+    "description": "Un widget que aplica una transformación antes de pintar a su hijo.",
     "categories": [
       "Painting and effects"
     ],
@@ -1261,7 +1261,7 @@
   },
   {
     "name": "DecoratedBox",
-    "description": "A widget that paints a Decoration either before or after its child paints.",
+    "description": "Un widget que pinta una Decoración antes o después de que su hijo lo pinte.",
     "categories": [
       "Painting and effects"
     ],
@@ -1272,7 +1272,7 @@
   },
   {
     "name": "FractionalTranslation",
-    "description": "A widget that applies a translation expressed as a fraction of the box's size before painting its child.",
+    "description": "Un widget que aplica una traslación expresada como una fracción del tamaño de la caja antes de pintar su hijo.",
     "categories": [
       "Painting and effects"
     ],
@@ -1283,7 +1283,7 @@
   },
   {
     "name": "RotatedBox",
-    "description": "A widget that rotates its child by a integral number of quarter turns.",
+    "description": "Un widget que rota a su hijo por un número integral de cuartos de vuelta.",
     "categories": [
       "Painting and effects"
     ],
@@ -1294,7 +1294,7 @@
   },
   {
     "name": "ClipOval",
-    "description": "A widget that clips its child using an oval.",
+    "description": "Un widget que recorta a su hijo usando un óvalo.",
     "categories": [
       "Painting and effects"
     ],
@@ -1305,7 +1305,7 @@
   },
   {
     "name": "ClipPath",
-    "description": "A widget that clips its child using a path.",
+    "description": "Un widget que recorta su hijo usando una trayectoria.",
     "categories": [
       "Painting and effects"
     ],
@@ -1316,7 +1316,7 @@
   },
   {
     "name": "ClipRect",
-    "description": "A widget that clips its child using a rectangle.",
+    "description": "Un widget que recorta su hijo usando un rectángulo.",
     "categories": [
       "Painting and effects"
     ],
@@ -1327,7 +1327,7 @@
   },
   {
     "name": "CustomPaint",
-    "description": "A widget that provides a canvas on which to draw during the paint phase.",
+    "description": "Un widget que proporciona un lienzo sobre el que dibujar durante la fase de pintura.",
     "categories": [
       "Painting and effects"
     ],
@@ -1338,7 +1338,7 @@
   },
   {
     "name": "BackdropFilter",
-    "description": "A widget that applies a filter to the existing painted content and then paints child. This effect is relatively expensive, especially if the filter is non-local, such as a blur.",
+    "description": "Un widget que aplica un filtro al contenido pintado existente y luego pinta al hijo. Este efecto es relativamente costoso, especialmente si el filtro no es local, como un desenfoque.",
     "categories": [
       "Painting and effects"
     ],
@@ -1349,7 +1349,7 @@
   },
   {
     "name": "Semantics",
-    "description": "A widget that annotates the widget tree with a description of the meaning of the widgets. Used by accessibility tools, search engines, and other semantic analysis software to determine the meaning of the application.",
+    "description": "Un widget que anota el árbol de widgets con una descripción del significado de los widgets. Utilizado por herramientas de accesibilidad, motores de búsqueda y otros programas de análisis semántico para determinar el significado de la aplicación.",
     "categories": [
       "Accessibility"
     ],
@@ -1360,7 +1360,7 @@
   },
   {
     "name": "MergeSemantics",
-    "description": "A widget that merges the semantics of its descendants.",
+    "description": "Un widget que fusiona la semántica de sus descendientes.",
     "categories": [
       "Accessibility"
     ],
@@ -1371,7 +1371,7 @@
   },
   {
     "name": "ExcludeSemantics",
-    "description": "A widget that drops all the semantics of its descendants. This can be used to hide subwidgets that would otherwise be reported but that would only be confusing. For example, the Material Components Chip widget hides the avatar since it is redundant with the chip label.",
+    "description": "Un widget que deja de lado toda la semántica de sus descendientes. Esto se puede utilizar para ocultar subwidgets que de otro modo serían reportados pero que sólo serían confusos. Por ejemplo, el widget Material Components Chip oculta el avatar ya que es redundante con la etiqueta del chip.",
     "categories": [
       "Accessibility"
     ],
@@ -1382,7 +1382,7 @@
   },
   {
     "name": "FutureBuilder",
-    "description": "Widget that builds itself based on the latest snapshot of interaction with a Future.",
+    "description": "Widget que se construye a sí mismo basado en la última fotografía de la interacción con un Future.",
     "categories": [
       "Async"
     ],
@@ -1393,7 +1393,7 @@
   },
   {
     "name": "StreamBuilder",
-    "description": "Widget that builds itself based on the latest snapshot of interaction with a Stream.",
+    "description": "Widget que se construye a sí mismo basado en la última fotografía de interacción con un Stream.",
     "categories": [
       "Async"
     ],
@@ -1404,7 +1404,7 @@
   },
   {
     "name": "DecoratedBoxTransition",
-    "description": "Animated version of a DecoratedBox that animates the different properties of its Decoration.",
+    "description": "Versión animada de una DecoratedBox que anima las diferentes propiedades de su Decoración.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1415,7 +1415,7 @@
   },
   {
     "name": "FadeTransition",
-    "description": "Animates the opacity of a widget.",
+    "description": "Anima la opacidad de un widget.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1426,7 +1426,7 @@
   },
   {
     "name": "PositionedTransition",
-    "description": "Animated version of Positioned which takes a specific Animation to transition the child's position from a start position to and end position over the lifetime of the animation.",
+    "description": "Versión animada de Positioned (Posicionado) que toma una animación específica para cambiar la posición del hijo de una posición inicial a una posición final a lo largo de la vida de la animación.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1437,7 +1437,7 @@
   },
   {
     "name": "RotationTransition",
-    "description": "Animates the rotation of a widget.",
+    "description": "Anima la rotación de un widget.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1448,7 +1448,7 @@
   },
   {
     "name": "ScaleTransition",
-    "description": "Animates the scale of transformed widget.",
+    "description": "Anima la escala del widget transformado.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1459,7 +1459,7 @@
   },
   {
     "name": "SizeTransition",
-    "description": "Animates its own size and clips and aligns the child.",
+    "description": "Animar su propio tamaño y recorta y alinea al hijo.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1470,7 +1470,7 @@
   },
   {
     "name": "SlideTransition",
-    "description": "Animates the position of a widget relative to its normal position.",
+    "description": "Anima la posición de un widget con respecto a su posición normal.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1481,7 +1481,7 @@
   },
   {
     "name": "AnimatedDefaultTextStyle",
-    "description": "Animated version of DefaultTextStyle which automatically transitions the default text style (the text style to apply to descendant Text widgets without explicit style) over a given duration whenever the given style changes.",
+    "description": "Versión animada de DefaultTextStyle que transiciona automáticamente el estilo de texto predeterminado (el estilo de texto que se aplica a los widgets de texto descendente sin estilo explícito) durante una duración determinada cada vez que el estilo cambia.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1493,7 +1493,7 @@
   {
     "name": "AnimatedListState",
     "sample": "AnimatedListState_index",
-    "description": "The state for a scrolling container that animates items when they are inserted or removed.",
+    "description": "El estado de un contenedor de desplazamiento que anima los elementos cuando se insertan o se quitan.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1504,7 +1504,7 @@
   },
   {
     "name": "AnimatedModalBarrier",
-    "description": "A widget that prevents the user from interacting with widgets behind itself.",
+    "description": "Un widget que evita que el usuario interactúe con widgets detrás de sí mismo.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1515,7 +1515,7 @@
   },
   {
     "name": "AnimatedOpacity",
-    "description": "Animated version of Opacity which automatically transitions the child's opacity over a given duration whenever the given opacity changes.",
+    "description": "Versión animada de Opacidad que transiciona automáticamente la opacidad del hijo durante un tiempo determinado cada vez que la opacidad cambia.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1526,7 +1526,7 @@
   },
   {
     "name": "AnimatedPhysicalModel",
-    "description": "Animated version of PhysicalModel.",
+    "description": "Versión animada de PhysicalModel.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1537,7 +1537,7 @@
   },
   {
     "name": "AnimatedPositioned",
-    "description": "Animated version of Positioned which automatically transitions the child's position over a given duration whenever the given position changes.",
+    "description": "Versión animada de Positioned que cambia automáticamente la posición del hijo durante un tiempo determinado cada vez que cambia de posición.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1548,7 +1548,7 @@
   },
   {
     "name": "AnimatedSize",
-    "description": "Animated widget that automatically transitions its size over a given duration whenever the given child's size changes.",
+    "description": "Widget animado que transiciona automáticamente su tamaño a lo largo de una duración determinada cada vez que cambia el tamaño del hijo.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1559,7 +1559,7 @@
   },
   {
     "name": "AnimatedWidget",
-    "description": "A widget that rebuilds when the given Listenable changes value.",
+    "description": "Un widget que se reconstruye cuando el Listenable dado cambia de valor.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1570,7 +1570,7 @@
   },
   {
     "name": "AnimatedWidgetBaseState",
-    "description": "A base class for widgets with implicit animations.",
+    "description": "Una clase base para widgets con animaciones implícitas.",
     "categories": [
       "Animation and Motion"
     ],
