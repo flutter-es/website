@@ -16,4 +16,4 @@ packages
 example/*.dart
 
 .idea/
-.vscode
+.vscode/
