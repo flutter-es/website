@@ -9,7 +9,7 @@ permalink: /widgets-intro/
 
 ## Introducción
 
-Widgets en Flutter son construidos usando un moderno framework de estilo-reactivo, el cual toma
+Los widgets de Flutter son construidos usando un moderno framework de estilo-reactivo, el cual toma
 inspiración de [React](http://facebook.github.io/react/). La idea central es
 que construyas tu UI de widgets. Los Widgets describen cómo debería ser su vista,
 dada su configuración y estado actuales. Cuando el estado de un widget cambia,
@@ -18,9 +18,9 @@ anterior para determinar los cambios mínimos necesarios en el árbol de renderi
 subyacente para la transición de un estado al siguiente.
 
 <aside id="note" class="alert alert-info" markdown="1">
-**Nota:** Si quieres conocer mejor a Flutter sumergiéndote en algún código,
+**Nota:** Si quieres conocer mejor a Flutter sumergiéndote en algo de código,
 echa un vistazo a
-[Construcción de diseños en Flutter](/tutorials/layout/) y
+[Construcción de layouts en Flutter](/tutorials/layout/) y
 [Agregar interactividad a su aplicación Flutter](/tutorials/interactive/).
 </aside>
 
@@ -57,9 +57,9 @@ y su hijo, el widget
 El framework obliga al widget raíz a cubrir la pantalla, lo que significa que el texto
 "Hola, mundo" termina centrado en la pantalla. La dirección del texto debe
 especificarse en esta instancia; cuando se usa el widget MaterialApp,
-este lo hace por usted, como se demuestra mas adelante.
+este lo hace por usted, como se demuestra más adelante.
 
-Al escribir una aplicación, comúnmente creará nuevos widgets que son subclases de
+Al escribir una aplicación, comúnmente creará nuevos widgets que son subclases de,
 ya sea
 [`StatelessWidget`](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
 o
@@ -68,29 +68,29 @@ dependiendo de si su widget gestiona algún estado. El trabajo principal de un w
 implementar una función de construcción
 [`build`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html)
 , que describe el widget en términos de otros widgets de nivel inferior.
-El framework construye esos widgets a su vez hasta que el proceso llega al fondo
-en widgets que representan el subyacente [`RenderObject`](https://docs.flutter.io/flutter/rendering/RenderObject-class.html), que calcula y describe la geometría del widget.
+El framework construye estos widgets en orden, hasta que el proceso toca fondo
+en widgets que representan el [`RenderObject`] (https://docs.flutter.io/flutter/rendering/RenderObject-class.html) subyacente, el cual calcula y describe la geometría del widget.
 
 Widgets básicos
 ---------------
 
-_Artículo principal : [Descripción general de los widgets - Modelos de diseño](https://flutter.io/widgets/layout)_
+_Artículo principal : [Descripción general de los widgets - Modelos de Layout](https://flutter.io/widgets/layout)_
 
 Flutter viene con un conjunto de potentes widgets básicos, de los cuales los siguientes
 son de uso muy común:
 
  * [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html): El widget
    [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
-   le permite crear una ejecución de texto con estilo dentro de su aplicación.
+   le permite crear una cadena de texto con estilo, dentro de su aplicación.
 
  * [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html),
    [`Column`](https://docs.flutter.io/flutter/widgets/Column-class.html):
-   Estos widgets flexibles le permiten crear diseños flexibles tanto en la
+   Estos widgets flexibles le permiten crear layout flexibles tanto en la
    dirección horizontal
    ([`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html)) como
    en la vertical.
    ([`Column`](https://docs.flutter.io/flutter/widgets/Column-class.html))
-   Su diseño se basa en el modelo de diseño flexbox de la web.
+   Su diseño se basa en el modelo de layout flexbox de la web.
 
  * [`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html):
    En lugar de estar orientados linealmente (ya sea horizontal o verticalmente), un widget
@@ -101,7 +101,7 @@ son de uso muy común:
    sobre los hijos de un
    [`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html) para
    posicionarlos en relación con el borde superior, derecho, inferior o izquierdo del stack.
-   Los Stacks se basan en el modelo de diseño de posicionamiento absoluto en la web.
+   Los Stacks se basan en el modelo de layout de posicionamiento absoluto en la web.
 
  * [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html):
    El widget [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html)
@@ -202,14 +202,14 @@ flutter:
 
 Muchos widgets necesitan estar dentro de un
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
-parar mostrarse correctamente, con el fin de heredar los datos del tema. Por lo tanto,
+parar mostrarse correctamente, con el fin de heredar los datos del Theme. Por lo tanto,
 ejecutamos la aplicación con un
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html).
 
 El widget `MyAppBar` crea un
 [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html)
-con una altura de 56 píxeles independientes del dispositivo con un relleno interno de 8 píxeles, tanto a la izquierda como a la derecha. Dentro del contenedor, `MyAppBar` usa una
-estructura [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html) para
+con una altura de 56 píxeles independientes del dispositivo con un padding de 8 píxeles, tanto a la izquierda como a la derecha. Dentro del contenedor, `MyAppBar` usa un
+layout [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html) para
 organizar sus hijos. El hijo del medio, el widget `title`, se marca como
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html),
 lo que significa que se expande para rellenar cualquier espacio disponible
@@ -222,29 +222,29 @@ para
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html).
 
 El widget `MyScaffold` organiza a sus hijos en una columna vertical. En la
-parte superior de la columna se coloca una instancia de `MyAppBar`, pasando la barra
-de aplicaciones un widget [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
-para usar como título. Pasar widgets como argumentos a widgets es una técnica muy poderosa
+parte superior de la columna se coloca una instancia de `MyAppBar`, pasándole un
+widget [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
+para usarlo como su título. Pasar widgets como argumentos de widgets es una técnica muy poderosa
 que le permite crear widgets genéricos que pueden ser reutilizados en una amplia variedad
 de formas. Finalmente, `MyScaffold` utiliza un
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html) para
 rellenar el espacio restante con su cuerpo, que consiste en un mensaje centrado.
 
-Utilizando Componentes Material
--------------------------------
+Utilizando Material Components
+------------------------------
 
-_Articulo principal: [Resumen de widgets: Componentes Material](https://flutter.io/widgets/material)_
+_Articulo principal: [Resumen de widgets: Material Components](https://flutter.io/widgets/material)_
 
 Flutter proporciona una serie de widgets que te ayudan a crear aplicaciones que
-siguen el diseño Material. Una aplicación de material comienza con el widget
+siguen el Material Design. Una aplicación Material comienza con el widget
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
 que construye una serie de widgets en la raíz de su aplicación,
 incluyendo un
 [`Navigator`](https://docs.flutter.io/flutter/widgets/Navigator-class.html),
-que gestiona una pila de widgets identificados por cadenas, también conocidas como "rutas".
+que gestiona una pila de widgets identificados por cadenas de exto, también conocidas como "routes".
 El
 [`Navigator`](https://docs.flutter.io/flutter/widgets/Navigator-class.html)
-le permite una transición sin problemas entre pantallas de su aplicación. Utilizando el widget
+le permite una transición sin problemas entre pantallas de su aplicación. Utilizar el widget
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
 es totalmente opcional pero es una buena práctica.
 
@@ -261,7 +261,7 @@ void main() {
 class TutorialHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Scaffold es un diseño para los principales componentes de Material.
+    // Scaffold es un layout para la mayoría de los Material Components.
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -278,12 +278,12 @@ class TutorialHome extends StatelessWidget {
           ),
         ],
       ),
-      // es la mayor parte de la pantalla.
+      // el body es la mayor parte de la pantalla.
       body: Center(
         child: Text('Hola, mundo!'),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Agregar', // utilizado por la tecnologías de asistencia
+        tooltip: 'Agregar', // utilizado por las tecnologías de accesibilidad para discapacitados
         child: Icon(Icons.add),
         onPressed: null,
       ),
@@ -295,21 +295,21 @@ class TutorialHome extends StatelessWidget {
 Ahora que hemos cambiado de `MyAppBar` y `MyScaffold` a los widgets
 [`AppBar`](https://docs.flutter.io/flutter/material/AppBar-class.html) y
 [`Scaffold`](https://docs.flutter.io/flutter/material/Scaffold-class.html)
-de `material.dart`, nuestra aplicación se está empezando a mirar un poco más
+de `material.dart`, nuestra aplicación se está empezando a ver un poco más
 Material. Por ejemplo, la barra de aplicaciones tiene una sombra y el texto
 hereda automáticamente el estilo correcto. También hemos agregado un botón
-de acción flotante para una buena medida.
+de acción flotante por añadidura.
 
 Note que estamos pasando de nuevo los widgets como argumentos a otros widgets. El widget
 [`Scaffold`](https://docs.flutter.io/flutter/material/Scaffold-class.html)
-toma un número de widgets diferentes como argumentos nombrados, cada uno de los cuales
-se coloca en la disposición del Scaffold en el lugar apropiado. Del mismo modo, el widget
+toma un número de widgets diferentes como argumentos con nombre, cada uno de los cuales
+se coloca en el layout del Scaffold en el lugar apropiado. Del mismo modo, el widget
 [`AppBar`](https://docs.flutter.io/flutter/material/AppBar-class.html)
-nos permite pasar widgets para los
+nos permite pasarle widgets para el
 [`leading`](https://docs.flutter.io/flutter/material/AppBar-class.html#leading)
 y los
 [`actions`](https://docs.flutter.io/flutter/material/AppBar-class.html#actions)
-de el widget
+de su widget
 [`title`](https://docs.flutter.io/flutter/material/AppBar-class.html#title).
 Este patrón se repite a lo largo de todo el framework y es algo que podría
 considerar al diseñar sus propios widgets.
@@ -359,7 +359,7 @@ llama a su callback
 [`onTap`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html#onTap)
 en este caso imprimiendo un mensaje a la consola. Puede utilizar
 [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
-para detectar una variedad de gestos de entrada, incluidos taps, drags y escalas.
+para detectar una variedad de gestos de entrada, incluidos taps, drags y scales.
 
 Muchos widgets usan un
 [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
@@ -378,14 +378,14 @@ Cambiar los widgets en respuesta a las entradas
 _Artítulos principales: [`StatefulWidget`](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html), [`State.setState`](https://docs.flutter.io/flutter/widgets/State/setState.html)_
 
 Hasta ahora, solo hemos usado widgets sin estado. Los widgets sin estado
-reciben argumentos de su widget padre, que almacenan en variables de miembro
+reciben argumentos de su widget padre, que son almacenados en propiedades
 [`final`](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#final-and-const).
-Cuando se le pide a un widget que se
-[`construya`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html),
-usa estos valores almacenados para derivar nuevos argumentos para los widgets que crea.
+Cuando en un widget es invocado el método
+[`build`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html),
+usa los valores almacenados por aquél (el widget) para derivar nuevos argumentos para los widgets que crea.
 
-Para construir experiencias mas complejas&mdash;por ejemplo, reaccionar de forma
-más interesante a las aplicaciones&mdash;de entrada de usuario que típicamente llevan algún estado.
+Con el fin de crear experiencias más complejas, por ejemplo para reaccionar de formas
+más interesante a las entradas del usuario, las aplicaciones generalmente almacenan un estado.
 Flutter utiliza StatefulWidgets para capturar esta idea. StatefulWidgets son
 widgets especiales que saben como generar objetos State, que luego se usan
 para mantener el estado. Considera este ejemplo básico, usando el
@@ -394,9 +394,9 @@ mencionado anteriormente:
 
 ```dart
 class Counter extends StatefulWidget {
-  // Esta clase es la configuración para el estado. Tiene
-  // los valores (en nada) proporcionado por el padre y utilizado por el método
-  // de construcción del Estado. Los campos en una subclase Widget siempre se marcan como "final".
+  // Esta clase es la configuración para el estado. Guarda
+  // los valores (nada en este ejemplo) proporcionados por el padre y usados por el método
+  // build del State. Los campos en una subclase Widget siempre se marcan como "final".
 
   @override
   _CounterState createState() => _CounterState();
@@ -408,11 +408,11 @@ class _CounterState extends State<Counter> {
   void _increment() {
     setState(() {
       // Esta llamada a setState le dice al framework Flutter que
-      // algo ha cambiado en este Estado, lo que hace que se vuelva a ejecutar
-      // el método de construcción siguiente para que la pantalla pueda reflejar los
+      // algo ha cambiado en este State, lo que hace que se vuelva a ejecutar
+      // el método build a continuación para que la pantalla pueda reflejar los
       // valores actualizados. Si cambiamos _counter sin llamar
-      // setState(), entonces el método de construcción no sería llamado de nuevo,
-      // así que no parece que pase nada.
+      // setState(), entonces el método build no sería llamado de nuevo,
+      // así que aparentará no haber ocurrido nada.
       _counter++;
     });
   }
@@ -421,7 +421,7 @@ class _CounterState extends State<Counter> {
   Widget build(BuildContext context) {
     // Este método se vuelve a ejecutar cada vez que se llama setState, por ejemplo
     // como se hace con el método _increment anterior.
-    // El framework Flutter ha sido optimizado para hacer que los métodos de construcción
+    // El framework Flutter ha sido optimizado para hacer que los métodos build
     // se vuelvan a ejecutar rápidamente, para que puedas reconstruir cualquier cosa que
     // necesite ser actualizada en lugar de tener que cambiar individualmente
     // las instancias de los widgets.
@@ -446,15 +446,15 @@ estado actual. Por otro lado, los objetos de estado son persistentes entre llama
 permitiéndoles recordar información.
 
 El ejemplo anterior acepta la entrada del usuario y utiliza directamente el resultado
-en su método de construcción.  En aplicaciones más complejas, diferentes partes de la jerarquía
-de widgets podrían ser responsables de diferentes responsabilidades; por ejemplo, un
+en su método build.  En aplicaciones más complejas, diferentes partes de la jerarquía
+de widgets podrían ser responsables de diferentes aspectos; por ejemplo, un
 widget puede presentar una interfaz de usuario compleja con el objetivo de recopilar
 información específica, como una fecha o lugar, mientras que otro widget podría
 usar esa información para cambiar la presentación general.
 
-En Flutter, las notificaciones de cambio fluyen "arriba" en la jerarquía de widgets
-por medio de callbacks, mientras que el estado actual fluye "hacia abajo" a los widgets sin
-estado que hacen presentación. El padre común que redirige este flujo es el State. Veamos
+En Flutter, los cambios se notifican "hacia arriba" por la jerarquía de widgets
+mediante el uso de callbacks, mientras que el estado actual fluye "hacia abajo" a los stateless widgets
+que hacen la presentación. El padre común que redirige este flujo es el State. Veamos
 cómo funciona en la práctica, con este ejemplo un poco más complejo:
 
 
@@ -509,7 +509,7 @@ class _CounterState extends State<Counter> {
 ```
 
 Nótese cómo creamos dos nuevos widgets sin estado, separando limpiamente
-las responsabilidades de _desplegando_ el contador (CounterDisplay) y _cambiando_
+las responsabilidades de _mostrar_ el contador (CounterDisplay) y _cambiar_
 el contador (CounterIncrementor).
 Aunque el resultado neto es el mismo que el ejemplo anterior, la separación de
 responsabilidades permite encapsular una mayor complejidad en los widgets individuales
@@ -544,7 +544,7 @@ class ShoppingListItem extends StatelessWidget {
   Color _getColor(BuildContext context) {
     // El tema depende del BuildContext porque diferentes partes del árbol
     // pueden tener diferentes temas.  El BuildContext indica dónde se está llevando a cabo la
-    // a cabo la construcción y por lo tanto qué tema usar.
+    // llamada al método build y por lo tanto qué tema usar.
 
     return inCart ? Colors.black54 : Theme.of(context).primaryColor;
   }
@@ -574,10 +574,10 @@ class ShoppingListItem extends StatelessWidget {
 }
 ```
 
-El widget `ShoppingListItem` sigue un patrón común para los widgets sin estado.
-Almacena los valores que recibe en su constructor en variables miembro
+El widget `ShoppingListItem` sigue un patrón común para los widgets stateless.
+Almacena los valores que recibe en su constructor en propiedades
 [`final`](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#final-and-const),
-que luego utiliza durante su función
+que luego utiliza durante la ejecución del método
 [`build`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html).
 Por ejemplo el booleano `inCart` para alternar entre dos apariencias visuales:
 uno que usa el color primario del tema actual y otro que usa gris.
@@ -586,18 +586,18 @@ Cuando el usuario toca el elemento de la lista, el widget no modifica su valor `
 directamente. En lugar de eso, el widget llama a la función `onCartChanged`
 recibido de su widget padre. Este patrón le permite almacenar el estado más arriba
 en la jerarquía de widgets, lo que hace que el estado persista por períodos más largos de
-tiempo. En el extremo, el estado almacenado en el widget pasado a
+tiempo. En el caso extremo, el estado almacenado en el widget pasado a
 [`runApp`](https://docs.flutter.io/flutter/widgets/runApp.html) persiste
 durante toda la vida útil de la aplicación.
 
 Cuando el padre recibe el callback `onCartChanged`, el padre actualiza
-su estado interno, que activa el padre para reconstruir y crear una nueva
+su estado interno, lo cual desencadena la re-llamada al método build y crea una nueva
 instancia de `ShoppingListItem` con el nuevo valor `inCart`. Aunque el padre
 crea una nueva instancia de `ShoppingListItem` cuando se reconstruye, esa operación no es
 costosa porque el framework compara los widgets recién construídos con los widgets
-construídos previamente y aplica solo las diferencias el subyacente [`RenderObject`](https://docs.flutter.io/flutter/rendering/RenderObject-class.html).
+construídos previamente y aplica solo las diferencias al [`RenderObject`](https://docs.flutter.io/flutter/rendering/RenderObject-class.html) subyacente.
 
-Veamos un ejemplo de un widget padre que almacena estado mutable:
+Veamos un ejemplo de un widget padre que almacena un estado mutable:
 
 <!--
 class Product {
@@ -618,9 +618,8 @@ class ShoppingList extends StatefulWidget {
   final List<Product> products;
 
   // El framework llama createState la primera vez que un widget aparece en una ubicación
-  // dada del árbol. Si el padre reconstruye y usa el mismo tipo de
-  // widget (con la misma clave), el framework reutiliza el objeto State
-  // en lugar de crear un nuevo objeto State.
+  // dada del árbol. Si el padre vuelve a ejecutar build (con la misma llave),
+  // el framework reutiliza el objeto State en lugar de crear un nuevo objeto State.
 
   @override
   _ShoppingListState createState() => _ShoppingListState();
@@ -632,7 +631,7 @@ class _ShoppingListState extends State<ShoppingList> {
   void _handleCartChanged(Product product, bool inCart) {
     setState(() {
       // Cuando un usuario cambia lo que hay en el carrito, necesitamos cambiar _shoppingCart
-      // dentro de una llamada setState para activar una reconstrucción. El framework entonces llama a
+      // dentro de una llamada setState para activar un rebuild. El framework entonces llama a
       // build, abajo, que actualiza la apariencia visual de la aplicación.
 
       if (inCart)
@@ -685,7 +684,7 @@ para crear una nueva instancia de `_ShoppingListState` para asociar
 con esa ubicación en el árbol. (Note que típicamente nombramos subclases de
 [`State`](https://docs.flutter.io/flutter/widgets/State-class.html) con
 guiones bajos para indicar que son detalles privados de implementación.)
-Cuando el padre de este widget se reconstruye, el padre crea una nueva instancia de
+Cuando el padre de este widget hace un rebuild, el padre crea una nueva instancia de
 `ShoppingList`, pero el framework reutiliza la instancia `_ShoppingListState`
 que ya está en el árbol en lugar de llamar a
 [`createState`](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html#createState)
