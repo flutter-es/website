@@ -7,13 +7,13 @@
     "subcategories": [
       "Single-child layout widgets"
     ],
-    "description": "Un widget de conveniencia que combina widgets comunes de pintura, posicionamiento y tamaño.",
+    "description": "Un widget de conveniencia que combina widgets comunes de dibujado, posicionado y dimensionado",
     "link": "https://docs.flutter.io/flutter/widgets/Container-class.html",
     "image": "<svg viewBox='0 0 100 100'><defs><marker id='arrow-container-1' orient='auto-start-reverse' viewBox='0 0 1 1' markerWidth='3' markerHeight='3' refX='0.5' refY='0.5'><path d='M 1 0.5 L 0.5 0 L 0.5 1 z' fill='#f50057'/></marker><marker id='arrow-container-2' orient='auto-start-reverse' viewBox='0 0 1 1' markerWidth='3' markerHeight='3' refX='0.5' refY='0.5'><path d='M 1 0.5 L 0.5 0 L 0.5 1 z' fill='#ffffff'/></marker><filter id='shadow-container' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='4'/></filter><linearGradient id='gradient-container' x1='0' y1='0.2' x2='0.4' y2='0.9'><stop offset='55%' stop-color='#ffffff'/><stop offset='100%' stop-color='#fdccdd'/></linearGradient></defs><rect x='0' y='0' width='100' height='100' fill='#3949ab'/><rect x='15' y='25' width='70' height='47.5' rx='10' ry='10' fill='#000000' filter='url(#shadow-container)'/><rect x='15' y='25' width='70' height='47.5' rx='10' ry='10' fill='url(#gradient-container)' stroke-width='5' stroke='#3b75ad'/><rect x='30' y='40' width='40' height='30' fill='#4dd0e1'/><line x1='20' y1='55' x2='27' y2='55' stroke='#f50057' stroke-width='2' marker-start='url(#arrow-container-1)' marker-end='url(#arrow-container-1)'/><line x1='73' y1='55' x2='80' y2='55' stroke='#f50057' stroke-width='2' marker-start='url(#arrow-container-1)' marker-end='url(#arrow-container-1)'/><line x1='50' y1='30' x2='50' y2='37' stroke='#f50057' stroke-width='2' marker-start='url(#arrow-container-1)' marker-end='url(#arrow-container-1)'/><line x1='50' y1='78' x2='50' y2='82' stroke='#f50057' stroke-width='2' marker-start='url(#arrow-container-1)' marker-end='url(#arrow-container-1)'/><line x1='16' y1='17.5' x2='85' y2='17.5' stroke='#ffffff' stroke-width='2' marker-start='url(#arrow-container-2)' marker-end='url(#arrow-container-2)'/><line x1='7.5' y1='26' x2='7.5' y2='72' stroke='#ffffff' stroke-width='2' marker-start='url(#arrow-container-2)' marker-end='url(#arrow-container-2)'/></svg>"
   },
   {
     "name": "Row",
-    "description": "Diseñe una lista de widgets secundarios en la dirección horizontal.",
+    "description": "Layout con una lista de widgets hijos en dirección horizontal.",
     "categories": [
       "Basics"
     ],
@@ -25,7 +25,7 @@
   },
   {
     "name": "Column",
-    "description": "Diseñe una lista de widgets secundarios en la dirección vertical.",
+    "description": "Layout con una lista de widgets hijos en dirección vertical.",
     "categories": [
       "Basics"
     ],
@@ -74,7 +74,7 @@
   },
   {
     "name": "RaisedButton",
-    "description": "Un botón elevado (RaisedButton) de Material Design. Un botón elevado consiste en una pieza rectangular de material que se desplaza sobre la interfaz.",
+    "description": "Un botón elevado (RaisedButton) de Material Design. Un botón elevado consiste en una pieza rectangular que flota sobre la interfaz",
     "categories": [
       "Basics"
     ],
@@ -122,7 +122,7 @@
   },
   {
     "name": "Stack",
-    "description": "Esta clase es útil si desea superponer varios children de una manera simple, por ejemplo, tener texto y una imagen, superpuestos con un degradado y un botón adjunto a la parte inferior.",
+    "description": "Esta clase es útil si desea superponer varios widgets hijos de una manera simple, por ejemplo, tener texto y una imagen, superpuestos con un degradado y un botón adjunto a la parte inferior.",
     "categories": [
       "Stack"
     ],
@@ -206,7 +206,7 @@
   },
   {
     "name": "FloatingActionButton",
-    "description": "Un botón de acción flotante (FloatingActionButton) es un botón de icono circular que se desplaza sobre el contenido para promover una acción principal en la aplicación. Los botones de acción flotante se usan más comúnmente en el campo Scaffold.floatingActionButton.",
+    "description": "Un botón de acción flotante (FloatingActionButton) es un botón de icono circular que flota sobre el contenido para promover una acción principal en la aplicación. Los botones de acción flotante se usan más comúnmente en el campo Scaffold.floatingActionButton.",
     "categories": [],
     "subcategories": [
       "Buttons"
@@ -216,7 +216,7 @@
   },
   {
     "name": "FlatButton",
-    "description": "Un botón plano (FlatButton) es una sección impresa en un widget de Componentes de Material que reacciona a los toques llenando de color.",
+    "description": "Un botón plano (FlatButton) es una sección dibujada en un widget de Componentes de Material que reacciona a los toques rellenándose de color.",
     "categories": [],
     "subcategories": [
       "Buttons"
@@ -227,7 +227,7 @@
   {
     "name": "IconButton",
     "sample": "IconButton_index",
-    "description": "Un botón de icono es una imagen impresa en un widget Material que reacciona a los toques llenando con color (tinta).",
+    "description": "Un botón de icono es una imagen dibujada en un widget Material que reacciona a los toques rellenándo con color (tinta).",
     "categories": [],
     "subcategories": [
       "Buttons"
@@ -248,7 +248,7 @@
   },
   {
     "name": "ButtonBar",
-    "description": "Una disposición horizontal de botones.",
+    "description": "Un conjunto de botones dispuestos horizontalmente.",
     "categories": [],
     "subcategories": [
       "Buttons"
@@ -278,7 +278,7 @@
   },
   {
     "name": "Radio",
-    "description": "Los botones de radio permiten al usuario seleccionar una opción de un conjunto. Utilice los botones de opción para selección exclusiva si cree que el usuario necesita ver todas las opciones disponibles una al lado de la otra.",
+    "description": "utilizar los Radio Buttons permiten al usuario seleccionar una opción de un conjunto. Utilice los botones de opción para selección exclusiva si cree que el usuario necesita ver todas las opciones disponibles una al lado de la otra.",
     "categories": [],
     "subcategories": [
       "Input and selections"
@@ -308,7 +308,7 @@
   },
   {
     "name": "Date & Time Pickers",
-    "description": "Los selectores de fecha usan una ventana de diálogo para seleccionar una sola fecha en el móvil. Los seleccionadores de tiempo usan un diálogo para seleccionar una sola vez (en el formato horas: minutos) en el móvil.",
+    "description": "Los Date pickers usan una ventana de diálogo para seleccionar una sola fecha en el móvil. Los Time pickers de tiempo usan un diálogo para seleccionar un tiempo individual ( en formato horas:minutos) en el móvil.",
     "categories": [],
     "subcategories": [
       "Input and selections"
@@ -398,7 +398,7 @@
   },
   {
     "name": "Card",
-    "description": "Una tarjeta de Material Design. Una carta tiene esquinas ligeramente redondeadas y una sombra.",
+    "description": "Una tarjeta de Material Design. Una Card tiene esquinas ligeramente redondeadas y una sombra.",
     "categories": [],
     "subcategories": [
       "Information displays"
@@ -408,7 +408,7 @@
   },
   {
     "name": "LinearProgressIndicator",
-    "description": "Los indicadores de progreso y actividad son indicaciones visuales de un contenido de carga de la aplicación. El widget LinearProgressIndicator implementa este componente. Además, también puede usar el widget CircularProgressIndicator.",
+    "description": "Los indicadores de progreso y actividad son indicaciones visuales de la carga de contenido en la aplicación. El widget LinearProgressIndicator implementa este componente. Además, también puede usar el widget CircularProgressIndicator.",
     "categories": [],
     "subcategories": [
       "Information displays"
@@ -418,7 +418,7 @@
   },
   {
     "name": "GridView",
-    "description": "Una lista de cuadrículas consiste en un patrón repetido de celdas dispuestas en un diseño vertical y horizontal. El widget GridView implementa este componente. ",
+    "description": "Una lista de cuadrículas consiste en un patrón repetido de celdas dispuestas en un layout vertical y horizontal. El widget GridView implementa este componente. ",
     "categories": [],
     "subcategories": [
       "Information displays"
@@ -448,7 +448,7 @@
   },
   {
     "name": "Divider",
-    "description": "Una línea horizontal de un píxel lógico grueso, con relleno en cada lado.",
+    "description": "Una linea horizontal con un grosor de un pixel lógico y padding a cada lado.",
     "categories": [],
     "subcategories": [
       "Layout"
@@ -458,7 +458,7 @@
   },
   {
     "name": "CupertinoActivityIndicator",
-    "description": "Un indicador de actividad estilo iOS. Muestra un 'spinner' circular.",
+    "description": "Un indicador de actividad con el estilo iOS. Muestra un 'spinner' circular.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -468,7 +468,7 @@
   },
   {
     "name": "CupertinoAlertDialog",
-    "description": "Un diálogo de alerta estilo iOS.",
+    "description": "Un diálogo de alerta con el estilo iOS",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -478,7 +478,7 @@
   },
   {
     "name": "CupertinoButton",
-    "description": "Un botón estilo iOS.",
+    "description": "Un botón con el estilo iOS",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -488,7 +488,7 @@
   },
   {
     "name": "CupertinoDialog",
-    "description": "Un diálogo de estilo iOS.",
+    "description": "Un diálogo con el estilo iOS",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -518,7 +518,7 @@
   },
   {
     "name": "CupertinoSwitch",
-    "description": "Un cambio de estilo iOS. Se usa para activar o desactivar el estado de una configuración única.",
+    "description": "Un switch con el estilo iOS. Se usa para activar o desactivar el estado de una configuración única.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -528,7 +528,7 @@
   },
   {
     "name": "CupertinoPicker",
-    "description": "Un selector de estilo iOS. Se usa para seleccionar un elemento en una lista breve.",
+    "description": "Un selector con el estilo iOS. Se usa para seleccionar un elemento en una lista breve.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -538,7 +538,7 @@
   },
   {
     "name": "CupertinoPageTransition",
-    "description": "Proporciona una animación de transición de página estilo iOS.",
+    "description": "Proporciona una animación de transición de página con el estilo iOS.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -548,7 +548,7 @@
   },
   {
     "name": "CupertinoFullscreenDialogTransition",
-    "description": "Una transición de estilo iOS utilizada para invocar diálogos de pantalla completa.",
+    "description": "Una transición con el estilo iOS utilizada para invocar diálogos de pantalla completa.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -558,7 +558,7 @@
   },
   {
     "name": "CupertinoNavigationBar",
-    "description": "Una barra de navegación superior estilo iOS. Normalmente se usa con CupertinoPageScaffold.",
+    "description": "Una barra de navegación superior con el estilo iOS. Normalmente se usa con CupertinoPageScaffold.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -568,7 +568,7 @@
   },
   {
     "name": "CupertinoTabBar",
-    "description": "Una barra de pestañas inferior al estilo iOS. Normalmente se usa con CupertinoTabScaffold.",
+    "description": "Una barra de pestañas inferior con el estilo iOS. Normalmente se usa con CupertinoTabScaffold.",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -578,7 +578,7 @@
   },
   {
     "name": "CupertinoPageScaffold",
-    "description": "Estructura básica de diseño de página de estilo iOS. Posiciona una barra de navegación y contenido. ",
+    "description": "Estructura básica de diseño de página con el estilo iOS. Posiciona una barra de navegación y contenido. ",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -598,7 +598,7 @@
   },
   {
     "name": "CupertinoTabView",
-    "description": "El contenido de raíz de una pestaña que admita la navegación paralela entre pestañas. Normalmente se usa con CupertinoTabScaffold ",
+    "description": "El contenido raíz de una pestaña que soporta navegar paralelamente entre pestañas. Normalmente se usa con CupertinoTabScaffold ",
     "categories": [
       "Cupertino (iOS-style widgets)"
     ],
@@ -608,7 +608,7 @@
   },
   {
     "name": "Padding",
-    "description": "Un widget que inserta a su hijo por el padding dado.",
+    "description": "Un widget que encuadra a sus hijos con el padding dado.",
     "categories": [
       "Styling"
     ],
@@ -642,7 +642,7 @@
   },
   {
     "name": "FittedBox",
-    "description": "Escala y posiciona a su hijo dentro de sí mismo de acuerdo con el ajuste.",
+    "description": "Escala y posiciona a su hijo dentro de el de acuerdo con el ajuste.",
     "categories": [
     ],
     "subcategories": [
@@ -697,7 +697,7 @@
   },
   {
     "name": "IntrinsicHeight",
-    "description": "Un widget que dimensiona su hijo a la altura intrínseca del hijo. ",
+    "description": "Un widget que dimensiona su hijo de acuerdo a la altura intrínseca de los hijos de este.",
     "categories": [
     ],
     "subcategories": [
@@ -708,7 +708,7 @@
   },
   {
     "name": "IntrinsicWidth",
-    "description": "Un widget que dimensiona su hijo al ancho intrínseco del hijo. ",
+    "description": "Un widget que dimensiona su hijo de acuerdo a la anchura intrínseca de los hijos de este.",
     "categories": [
     ],
     "subcategories": [
@@ -730,7 +730,7 @@
   },
   {
     "name": "Offstage",
-    "description": "Un widget que establece al hijo como si estuviera en el árbol, pero sin pintar nada, sin que el hijo esté disponible para la prueba de golpes, y sin dejar espacio en el padre. ",
+    "description": "Un widget que posiciona su hijo fuera, como si estuviera en el árbol de widgets, pero sin pintar nada , sin que esté disponible para el hit testing y sin ocupar ningún espacio en el padre.",
     "categories": [
     ],
     "subcategories": [
@@ -752,7 +752,7 @@
   },
   {
     "name": "SizedBox",
-    "description": "Una caja con un tamaño especificado. Si se le da un hijo, este widget fuerza a su hijo a tener un ancho y / o altura específicos (suponiendo que el padre de este widget permita los valores). Si el ancho o el alto es nulo, este artilugio se dimensionará a sí mismo para que coincida con el tamaño del niño en esa dimensión. ",
+    "description": "Una caja con un tamaño específico. Si se le proporciona un hijo, este widget forzará a su hijo a tener una anchura y/o altura específicos ( asumiendo que los valores pueden ser permitidos por los padres de este widget). Si la anchura o la altura fueran null, este widget se dimensionará a si mismo para ajustarse al tamaño de sus hijos en esa dirección.",
     "categories": [
     ],
     "subcategories": [
