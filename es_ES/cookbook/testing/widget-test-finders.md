@@ -28,8 +28,7 @@ En nuestras pruebas, a menudo necesitamos encontrar Widgets que contengan un tex
 
 <!-- skip -->
 ```dart
-testWidgets('encuentra un Text Widget',
-   (WidgetTester tester) async {
+testWidgets('encuentra un Text Widget', (WidgetTester tester) async {
   // Crea una App con un Text Widget que muestra la letra 'H'
   await tester.pumpWidget(MaterialApp(
     home: Scaffold(
@@ -50,8 +49,7 @@ En este caso, podemos proporcionar una `Key` para cada Widget en la lista. Esto 
 
 <!-- skip -->
 ```dart
-testWidgets('encuentra un Widget usando una Key',
-   (WidgetTester tester) async {
+testWidgets('encuentra un Widget usando una Key', (WidgetTester tester) async {
   // Define nuestra llave de prueba
   final testKey = Key('K');
 
@@ -71,14 +69,13 @@ y queremos asegurarnos de que estamos renderizando el Widget `child`.
 
 <!-- skip -->
 ```dart
-testWidgets('encuentra una instancia específica',
-   (WidgetTester tester) async {
+testWidgets('encuentra una instancia específica', (WidgetTester tester) async {
   final childWidget = Padding(padding: EdgeInsets.zero);
 
   // Proporciona nuestro childWidget al Container
   await tester.pumpWidget(Container(child: childWidget));
 
-  // Busca por el childWidget en el árbol y verifica que exista  
+  // Busca por el childWidget en el árbol y verifica que exista
   expect(find.byWidget(childWidget), findsOneWidget);
 });
 ```
@@ -98,8 +95,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('encuentra un Text Widget',
-     (WidgetTester tester) async {
+  testWidgets('encuentra un Text Widget', (WidgetTester tester) async {
     // Crea una App con un Text Widget que muestra la letra 'H'
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
@@ -111,8 +107,7 @@ void main() {
     expect(find.text('H'), findsOneWidget);
   });
 
-  testWidgets('encuentra un Widget usando una Key',
-     (WidgetTester tester) async {
+  testWidgets('encuentra un Widget usando una Key', (WidgetTester tester) async {
     // Define nuestra llave de prueba
     final testKey = Key('K');
 
@@ -123,14 +118,13 @@ void main() {
     expect(find.byKey(testKey), findsOneWidget);
   });
 
-  testWidgets('encuentra una instance específica',
-     (WidgetTester tester) async {
+  testWidgets('encuentra una instance específica', (WidgetTester tester) async {
     final childWidget = Padding(padding: EdgeInsets.zero);
 
     // Proporciona nuestro childWidget al Container
     await tester.pumpWidget(Container(child: childWidget));
 
-    // Busca por el childWidget en el árbol y verifica que exista  
+    // Busca por el childWidget en el árbol y verifica que exista
     expect(find.byWidget(childWidget), findsOneWidget);
   });
 }
