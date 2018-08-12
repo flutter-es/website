@@ -107,7 +107,8 @@ void main() {
     expect(find.text('H'), findsOneWidget);
   });
 
-  testWidgets('encuentra un Widget usando una Key', (WidgetTester tester) async {
+  testWidgets('encuentra un Widget usando una Key',
+      (WidgetTester tester) async {
     // Define nuestra llave de prueba
     final testKey = Key('K');
 
