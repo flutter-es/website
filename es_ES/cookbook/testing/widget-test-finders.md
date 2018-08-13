@@ -24,7 +24,7 @@ por favor revisa la receta
 
 ### 1. Encuentra un Widget `Text`
 
-En nuestras pruebas, a menudo necesitamos encontrar Widgets que contengan un texto específico. Esto es exactamente para lo que sirve el método `find.text`. Creara un `Finder` que busque por Widgets que muestren un `String` de texto específico.
+En nuestras pruebas, a menudo necesitamos encontrar Widgets que contengan un texto específico. Esto es exactamente para lo que sirve el método `find.text`. Creará un `Finder` que busque por Widgets que muestren un `String` de texto específico.
 
 <!-- skip -->
 ```dart
@@ -82,7 +82,7 @@ testWidgets('encuentra una instancia específica', (WidgetTester tester) async {
 
 ### Resumen
 
-La constante `find`  proporcionada por el paquete `flutter_test` nos brinda varias formas de localizar Widgets en el entorno de prueba. Esta receta demostró tres de estos métodos, y existen muchos más métodos para diferentes propositos.
+La constante `find` proporcionada por el paquete `flutter_test` nos brinda varias formas de localizar Widgets en el entorno de prueba. Esta receta demostró tres de estos métodos, y existen muchos más métodos para diferentes propósitos.
 
 Si los ejemplos anteriores no funcionan para un caso de uso en particular, por favor mira la documentación 
 [`CommonFinders`](https://docs.flutter.io/flutter/flutter_driver/CommonFinders-class.html)
@@ -119,7 +119,7 @@ void main() {
     expect(find.byKey(testKey), findsOneWidget);
   });
 
-  testWidgets('encuentra una instance específica', (WidgetTester tester) async {
+  testWidgets('encuentra una <instancia></instancia> específica', (WidgetTester tester) async {
     final childWidget = Padding(padding: EdgeInsets.zero);
 
     // Proporciona nuestro childWidget al Container
