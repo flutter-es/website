@@ -118,8 +118,8 @@ void main() {
     // Encuentra el Widget MaterialApp usando la testKey
     expect(find.byKey(testKey), findsOneWidget);
   });
-
-  testWidgets('encuentra una <instancia></instancia> específica', (WidgetTester tester) async {
+  testWidgets('encuentra una instancia específica',
+      (WidgetTester tester) async {
     final childWidget = Padding(padding: EdgeInsets.zero);
 
     // Proporciona nuestro childWidget al Container
