@@ -7,22 +7,22 @@ permalink: /cookbook/testing/widget-test-finders/
 Para localizar Widgets en un entorno de prueba, necesitamos usar clases `Finder`. Si bien es posible escribir nuestras propias clases `Finder`, generalmente es más conveniente ubicar Widgets usando las herramientas proporcionadas por el paquete  
 [`flutter_test`](https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html).
 
-En este curso, veremos la constante
+En esta receta, veremos la constante
 [`find`](https://docs.flutter.io/flutter/flutter_test/find-constant.html)
-proporcionada por el paquete `flutter_test` y demostraremos cómo trabajar con algunos de los `Finders` que proporciona. Para obtener una lista completa de los buscadores disponibles, por favor consulte la documentación de 
+proporcionada por el paquete `flutter_test` y demostraremos cómo trabajar con algunos de los `Finders` que proporciona. Para obtener una lista completa de los buscadores disponibles, por favor consulta la documentación de 
 [`CommonFinders`](https://docs.flutter.io/flutter/flutter_driver/CommonFinders-class.html).
 
-Si no está familiarizado con Widget testing y el rol de las clases `Finder`, 
-por favor revise el curso 
+Si no estás familiarizado con Widget testing y el rol de las clases `Finder`, 
+por favor revisa la receta 
 [Introducción al Widget testing](/cookbook/testing/widget-test-introduction/). 
 
 ### Instrucciones
 
-  1. Encuentre un Widget `Text` 
-  2. Encuentre un Widget con una `Key` específica
-  3. Encuentre una instancia específica de un Widget
+  1. Encuentra un Widget `Text` 
+  2. Encuentra un Widget con una `Key` específica
+  3. Encuentra una instancia específica de un Widget
 
-### 1. Encuentre un Widget `Text`
+### 1. Encuentra un Widget `Text`
 
 En nuestras pruebas, a menudo necesitamos encontrar Widgets que contengan un texto específico. Esto es exactamente para lo que sirve el método `find.text`. Creara un `Finder` que busque por Widgets que muestren un `String` de texto específico.
 
@@ -41,7 +41,7 @@ testWidgets('encuentra un Text Widget', (WidgetTester tester) async {
 });
 ```
 
-### 2. Encuentre un Widget con una `Key` específica
+### 2. Encuentra un Widget con una `Key` específica
 
 En algunos casos, es posible que queramos encontrar un Widget basado en la clave que se le ha proporcionado. Esto puede ser útil si estamos mostrando múltiples instancias del mismo Widget. Por ejemplo, podríamos tener un `ListView` que muestre varios `Text` Widgets que contengan el mismo texto.
 
@@ -61,7 +61,7 @@ testWidgets('encuentra un Widget usando una Key', (WidgetTester tester) async {
 });
 ```
 
-### 3. Encuentre una instancia específica de un Widget
+### 3. Encuentra una instancia específica de un Widget
 
 Por último, puede que nos interese localizar una instancia específica de un Widget.
 Por ejemplo, esto puede ser útil al crear Widgets que toman una propiedad `child` 
@@ -82,9 +82,9 @@ testWidgets('encuentra una instancia específica', (WidgetTester tester) async {
 
 ### Resumen
 
-La constante `find`  proporcionada por el paquete `flutter_test` nos brinda varias formas de localizar Widgets en el entorno de prueba. Este curso demostró tres de estos métodos, y existen muchos más métodos para diferentes propositos.
+La constante `find`  proporcionada por el paquete `flutter_test` nos brinda varias formas de localizar Widgets en el entorno de prueba. Esta receta demostró tres de estos métodos, y existen muchos más métodos para diferentes propositos.
 
-Si los ejemplos anteriores no funcionan para un caso de uso en particular, por favor vea la documentación 
+Si los ejemplos anteriores no funcionan para un caso de uso en particular, por favor mira la documentación 
 [`CommonFinders`](https://docs.flutter.io/flutter/flutter_driver/CommonFinders-class.html)
 para revisar todos los métodos disponibles. 
 
