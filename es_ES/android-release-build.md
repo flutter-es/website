@@ -25,28 +25,28 @@ final de la aplicación.
 
 * `uses-permission`: Remueva el [permiso][permissiontag] `android.permission.INTERNET`
 si su código de la aplicación no necesita acceso a Internet. 
-access. La plantilla estándar incluye esta etiqueta para permitir la comunicación entre
-Herramientas de flutter y una aplicación en ejecución.
+La plantilla estándar incluye esta etiqueta para permitir la comunicación entre
+herramientas de flutter y una aplicación en ejecución.
 
 ## Revisa la configuración de compilación
 
 Revisa el archivo por defecto de [Gradle build][gradlebuild] `build.gradle`
-localizado en el directorio `<app dir>/android/app/` y verifique si los valores estan correctos, especialmente:
+localizado en el directorio `<app dir>/android/app/` y verifique si los valores están correctos, especialmente:
 
 * `defaultConfig`:
 
-  * `applicationId`: Especifique el (Id de Aplicación)[appid]Specify final y único.
+  * `applicationId`: Especifique el (Id de Aplicación)[appid] final y único.
 
   * `versionCode` & `versionName`: Especifique el número de versión de la aplicación interna, y
   la cadena de número de versión. Consulte la guía de información de versión en
   la [documentación de versiones][versions] para más detalle.
 
-  * `minSdkVersion` & `targetSdkVersion`: Especifique el nivel mínimo de API y el nivel de nivel en el que se está diseñando la aplicación. Consulte la sección de contenido de la API el las [documentación de versiones][versions] para más detalle.
+  * `minSdkVersion` & `targetSdkVersion`: Especifique el nivel mínimo de API y el nivel de API en el que se está diseñando la aplicación. Consulte la sección de contenido de la API en la [documentación de versiones][versions] para más detalle.
 
 ## Añadiendo un icono para el Launcher
 
-Cuando una nueva aplicación Flutter es creada, este tiene un icono de Launcher por defecto. Para personalizar este icono usted debería 
-customize this icon es posible que desee ver el paquete [Iconos del launcher de Flutter](https://pub.dartlang.org/packages/flutter_launcher_icons).
+Cuando una nueva aplicación Flutter es creada, este tiene un icono de inicio por defecto. Para personalizar este icono usted debería 
+ver el paquete [Iconos de inicio de Flutter](https://pub.dartlang.org/packages/flutter_launcher_icons).
 
 Alternativamente, si desea hacerlo manualmente, aquí está como:
 
@@ -69,15 +69,15 @@ Si usted tiene un Keystore, salte al siguiente paso. Si no, cree una corriendo l
 la línea de comandos:
 `keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key`
 
-*Nota*: Mantenga est archivo privado; no lo verifique en el control de fuente pública.
+*Nota*: Mantenga este archivo privado; no lo verifique en el control de fuente pública.
 
 *Nota*: `keytool` puede no estar en su ruta. Este es parte del JDK de Java, el cual es instalado como parte
 de Android Studio. Para la ruta en concreto, ejecute `flutter doctor -v` y vea la ruta impresa después
-de 'Java binary at:', y luego use esa ruta completamente calificada reemplazando `java` con` keytool`.
+de 'Java binary at:', y luego use esa ruta completamente calificada reemplazando `java` con `keytool`.
 
 ### Referencie el keystore desde la app
 
-Cree un arfchivo llamado `<app dir>/android/key.properties` que contiene una referencia a su keystore:
+Cree un archivo llamado `<app dir>/android/key.properties` que contiene una referencia a su keystore:
 
 ```
 storePassword=<contraseña del paso anterior>
@@ -86,12 +86,11 @@ keyAlias=key
 storeFile=<localización del archivo, por ejemplo /Users/<user name>/key.jks>
 ```
 
-*Nota*: Mantenga est archivo privado; no lo verifique en el control de fuente pública.
+*Nota*: Mantenga este archivo privado; no lo verifique en el control de fuente pública.
 
 ### Configurar la firma en Gradle
 
-Configure la firma de su app editando el archivo `<app dir>/android/app/build.gradle`
-file.
+Configure la firma de su app editando el archivo `<app dir>/android/app/build.gradle`.
 
 1. Reemplace:
 ```
@@ -110,8 +109,8 @@ file.
 ```
    buildTypes {
        release {
-           // TODO: Add your own signing config for the release build.
-           // Signing with the debug keys for now, so `flutter run --release` works.
+           // TODO: Agregue su propia configuración de firma para la versión de lanzamiento.
+           // Firmando con las claves de depuración por ahora, así `flutter run --release` funciona.
            signingConfig signingConfigs.debug
        }
    }
@@ -138,8 +137,8 @@ Las versiones de lanzamiento de su aplicación ahora se firmarán automáticamen
 
 ## Habilitando Proguard
 
-Por defecto, Flutter no ofusca o minifica el Android host.
-Si usted intenta usar librerias de Java de terceras partes,
+Por defecto, Flutter no ofusca o minimiza el Android host.
+Si usted intenta usar librerías de Java de terceras partes,
 usted puede querer reducir el tamaño del APK o proteger ese código de ingeniería inversa.
 
 Para información sobre código Dart de ofuscamiento, vea [Código Dart de Ofuscamiento](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code)
@@ -196,8 +195,8 @@ Esta sección describe cómo crear una versión APK. Si completó los pasos de f
 
 Usando la línea de comandos:
 
-1. `cd <app dir>` (replace `<app dir>` con su directorio de la aplicación).
-1. Ejecute `flutter build apk` (`flutter build` defaults to `--release`).
+1. `cd <app dir>` (reemplace `<app dir>` con su directorio de la aplicación).
+1. Ejecute `flutter build apk` (`flutter build` por defecto a `--release`).
 
 La versión APK para su aplicación se crea en `<app dir>/build/app/outputs/apk/app-release.apk`.
 
