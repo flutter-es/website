@@ -198,8 +198,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-    testWidgets('Agregar y remover de una lista de tareas pendientes',
-       (WidgetTester tester) async {
+  testWidgets('Agregar y remover de una lista de tareas pendientes',
+      (WidgetTester tester) async {
     // Crear el Widget
     await tester.pumpWidget(TodoList());
     
