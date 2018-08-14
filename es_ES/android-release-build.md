@@ -8,7 +8,7 @@ permalink: /android-release/
 Durante el ciclo de desarrollo típico, probarás una aplicación usando `flutter run` en la
 línea de comando, los botones Run y Debug de la barra de herramientas en IntelliJ, o ambos. Por defecto, Flutter crea una versión *debug* de su aplicación.
 
-Cuando esté listo para preparar una versión de *release* para Android, por ejemplo para
+Cuando estes listo para preparar una versión *release* para Android, por ejemplo para
 [publicarla a Google Play Store][play], sige los pasos.
 
 * TOC Placeholder
