@@ -227,7 +227,7 @@
   {
     "name": "IconButton",
     "sample": "IconButton_index",
-    "description": "Un botón de icono es una imagen dibujada en un widget Material que reacciona a los toques rellenándo con color (tinta).",
+    "description": "Un botón de icono es una imagen dibujada en un widget Material que reacciona a los toques rellenando con color (tinta).",
     "categories": [],
     "subcategories": [
       "Buttons"
@@ -278,7 +278,7 @@
   },
   {
     "name": "Radio",
-    "description": "utilizar los Radio Buttons permiten al usuario seleccionar una opción de un conjunto. Utilice los botones de opción para selección exclusiva si cree que el usuario necesita ver todas las opciones disponibles una al lado de la otra.",
+    "description": "Utilizar los Radio Buttons permiten al usuario seleccionar una opción de un conjunto. Utilice los botones de opción para selección exclusiva si cree que el usuario necesita ver todas las opciones disponibles una al lado de la otra.",
     "categories": [],
     "subcategories": [
       "Input and selections"
@@ -448,7 +448,7 @@
   },
   {
     "name": "Divider",
-    "description": "Una linea horizontal con un grosor de un pixel lógico y padding a cada lado.",
+    "description": "Una línea horizontal con un grosor de un pixel lógico y padding a cada lado.",
     "categories": [],
     "subcategories": [
       "Layout"
@@ -642,7 +642,7 @@
   },
   {
     "name": "FittedBox",
-    "description": "Escala y posiciona a su hijo dentro de el de acuerdo con el ajuste.",
+    "description": "Escala y posiciona a su hijo dentro de él de acuerdo con el ajuste.",
     "categories": [
     ],
     "subcategories": [
@@ -752,7 +752,7 @@
   },
   {
     "name": "SizedBox",
-    "description": "Una caja con un tamaño específico. Si se le proporciona un hijo, este widget forzará a su hijo a tener una anchura y/o altura específicos ( asumiendo que los valores pueden ser permitidos por los padres de este widget). Si la anchura o la altura fueran null, este widget se dimensionará a si mismo para ajustarse al tamaño de sus hijos en esa dirección.",
+    "description": "Una caja con un tamaño específico. Si se le proporciona un hijo, este widget forzará a su hijo a tener una anchura y/o altura específicos ( asumiendo que los valores pueden ser permitidos por los padres de este widget). Si la anchura o la altura fueran null, este widget se dimensionará a sí mismo para ajustarse al tamaño de sus hijos en esa dirección.",
     "categories": [
     ],
     "subcategories": [
