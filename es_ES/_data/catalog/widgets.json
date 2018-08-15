@@ -664,7 +664,7 @@
   },
   {
     "name": "ConstrainedBox",
-    "description": "Un widget que impone restricciones adicionales en su child. ",
+    "description": "Un widget que impone restricciones adicionales en su hijo. ",
     "categories": [
     ],
     "subcategories": [
@@ -807,7 +807,7 @@
   },
   {
     "name": "GridView",
-    "description": "Una matriz 2D desplazable de widgets.",
+    "description": "Un array 2D de widgets desplazable.",
     "categories": [
     ],
     "subcategories": [
@@ -818,7 +818,7 @@
   },
   {
     "name": "Flow",
-    "description": "Un widget que implementa el algoritmo de diseño de flujo.",
+    "description": "Un widget que implementa el algoritmo de flow layout.",
     "categories": [
     ],
     "subcategories": [
@@ -829,7 +829,7 @@
   },
   {
     "name": "Table",
-    "description": "Un widget que usa el algoritmo de diseño de tabla para sus hijos.",
+    "description": "Un widget que usa el algoritmo de table layout para sus hijos.",
     "categories": [
     ],
     "subcategories": [
@@ -840,7 +840,7 @@
   },
   {
     "name": "Wrap",
-    "description": "Un widget que muestra sus hijos en múltiples ejecuciones horizontales o verticales.",
+    "description": "Un widget que muestra sus hijos en múltiples líneas horizontales o verticales.",
     "categories": [
     ],
     "subcategories": [
@@ -851,7 +851,7 @@
   },
   {
     "name": "ListBody",
-    "description": "Un widget que ordena sus hijos secuencialmente a lo largo de un eje dado, forzándolos a la dimensión del elemento primario en el otro eje.",
+    "description": "Un widget que ordena sus hijos secuencialmente a lo largo de un eje dado, forzándolos a la dimensión del elemento padre en el otro eje.",
     "categories": [
     ],
     "subcategories": [
@@ -863,7 +863,7 @@
   {
     "name": "ListView",
     "sample": "ListView_index",
-    "description": "Una lista desplazable y lineal de widgets. ListView es el widget de desplazamiento más comúnmente utilizado. Muestra sus hijos uno tras otro en la dirección de desplazamiento. En el eje transversal, los hijos deben completar ListView.",
+    "description": "Una lista desplazable y lineal de widgets. ListView es el widget de desplazamiento más comúnmente utilizado. Muestra sus hijos uno tras otro en la dirección de desplazamiento. En el eje transversal, los hijos deben rellenar ListView.",
     "categories": [
     ],
     "subcategories": [
@@ -885,7 +885,7 @@
   },
   {
     "name": "LayoutBuilder",
-    "description": "Crea un árbol de widgets que puede depender del tamaño del widget principal.",
+    "description": "Crea un árbol de widgets que puede depender de los tamaños de los widgets del padre.",
     "categories": [
     ],
     "subcategories": [
@@ -896,7 +896,7 @@
   },
   {
     "name": "RichText",
-    "description": "El widget RichText muestra texto que usa múltiples estilos diferentes. El texto para mostrar se describe utilizando un árbol de objetos TextSpan, cada uno de los cuales tiene un estilo asociado que se utiliza para ese subárbol. El texto puede dividirse en varias líneas o puede que se muestren todos en la misma línea, según las restricciones de diseño.",
+    "description": "El widget RichText muestra texto que usa múltiples estilos diferentes. El texto para mostrar se describe utilizando un árbol de objetos TextSpan, cada uno de los cuales tiene un estilo asociado que se utiliza para ese subárbol. El texto puede dividirse en varias líneas o puede que se muestren todos en la misma línea, dependiendo de las restricciones del layout",
     "categories": [
       "Text"
     ],
@@ -929,7 +929,7 @@
   },
   {
     "name": "AssetBundle",
-    "description": "Los paquetes de activos contienen recursos, como imágenes y cadenas, que pueden ser utilizados por una aplicación. El acceso a estos recursos es asincrónico, por lo que se pueden cargar de forma transparente a través de una red (por ejemplo, desde un NetworkAssetBundle) o desde el sistema de archivos local sin bloquear la interfaz de usuario de la aplicación.",
+    "description": "Los Asset bundles contienen recursos, como imágenes y cadenas de texto, que pueden ser utilizados por una aplicación. El acceso a estos recursos es asíncrono, por lo que se pueden cargar de forma transparente a través de una red (por ejemplo, desde un NetworkAssetBundle) o desde el sistema de archivos local sin bloquear la interfaz de usuario de la aplicación.",
     "categories": [
       "Assets, Images, and Icons"
     ],
@@ -940,7 +940,7 @@
   },
   {
     "name": "Form",
-    "description": "Un contenedor opcional para agrupar varios widgets de campo de formulario (por ejemplo, widgets TextField).",
+    "description": "Un contenedor opcional para agrupar varios widgets de form field (por ejemplo, widgets TextField).",
     "categories": [
       "Input"
     ],
@@ -951,7 +951,7 @@
   },
   {
     "name": "FormField",
-    "description": "Un solo campo de formulario. Este widget mantiene el estado actual del campo de formulario, por lo que las actualizaciones y los errores de validación se reflejan visualmente en la interfaz de usuario.",
+    "description": "Un único form field. Este widget mantiene el estado actual del form field, por lo que las actualizaciones y los errores de validación se reflejan visualmente en la interfaz de usuario.",
     "categories": [
       "Input"
     ],
@@ -962,7 +962,7 @@
   },
   {
     "name": "RawKeyboardListener",
-    "description": "Un widget que realiza llamadas de regreso (callbacks) cuando sea que el usuario presiona o suelta una tecla en el teclado.",
+    "description": "Un widget que ejecuta un callback cuando el usuario presiona o suelta una tecla en el teclado.",
     "categories": [
       "Input"
     ],
@@ -984,7 +984,7 @@
   },
   {
     "name": "AnimatedCrossFade",
-    "description": "Un widget que hace desvanecimientos cruzados entre dos hijos dados y realiza animaciones en si mismo entre sus tamaños.",
+    "description": "Un widget que realiza una animación cross-fade entre dos hijos dados, realizando la transición entre sus dimensiones.",
     "categories": [
       "Animation and Motion"
     ],
@@ -995,7 +995,7 @@
   },
   {
     "name": "Hero",
-    "description": "Un widget que marca a su hijo como candidato para las animaciones de Hero.",
+    "description": "Un widget que marca a su hijo como candidato para animaciones Hero.",
     "categories": [
       "Animation and Motion"
     ],
@@ -1040,7 +1040,7 @@
   },
   {
     "name": "GestureDetector",
-    "description": "Un widget que detecta gestos. Intenta reconocer gestos que corresponden a sus llamadas de retorno no nulas. Si este widget tiene un hijo, se remite a ese hijo por su comportamiento de tamaño. Si no tiene un hijo, crece para adaptarse a los padres.",
+    "description": "Un widget que detecta gestos. Intenta reconocer gestos que se corresponden con sus callbacks no nulos. Si este widget tiene un hijo, difiere a este hijo su comportamiento para dimensionarse. Si no tiene un hijo, crecerá hasta rellenar el widget padre.",
     "categories": [
     ],
     "subcategories": [
@@ -1051,7 +1051,7 @@
   },
   {
     "name": "DragTarget",
-    "description": "Un widget que recibe datos cuando se suelta un widget arrastrable. Cuando se arrastra un arrastrable encima de un objetivo de arrastre, se pregunta al objetivo de arrastre si aceptará los datos que lleva el arrastrable. Si el usuario suelta el arrastrable encima del objetivo de arrastre (y el objetivo de arrastre ha indicado que aceptará los datos del arrastrable), se le pide al objetivo de arrastre que acepte los datos del arrastrable.",
+    "description": "Un widget que recibe datos cuando un widget Draggable es soltado. Cuando un draggable es soltado encima de un drag target, al drag target se le consultará si acepta los datos que el draggable porta. Si el usuario suelta el draggable encima del drag target (y el drag target ha indicado que aceptará los datos del draggable), entonces el drag target es consultado para aceptar los datos del draggable.",
     "categories": [
     ],
     "subcategories": [
@@ -1062,7 +1062,7 @@
   },
   {
     "name": "Dismissible",
-    "description": "Un widget que puede ser eliminado arrastrando en la dirección indicada. Arrastrando o lanzando este widget en la dirección DismissDirection hace que el hijo se deslice fuera de la vista. Después de que deslice la animación, si resizeDuration no es nulo, el widget Dismissible anima su altura (o anchura, la que sea perpendicular a la dirección de salida) a cero sobre resizeDuration.",
+    "description": "Un widget que puede ser descartado arrastrándolo en la dirección indicada. Arrastran o arrojando este widget en la DismissDirection causa que su hijo se deslize fuera de la vista. Seguido de la animación slide. si resizeDuration no es nulo, el widget Dismissible anima su altura( o anchura, cualquiera que sea perpendicular a DismissDirection) hasta cero durante la resizeDuration.",
     "categories": [
     ],
     "subcategories": [
@@ -1073,7 +1073,7 @@
   },
   {
     "name": "IgnorePointer",
-    "description": "Un widget que es invisible durante la prueba de aciertos. Cuando ignorar es verdadero, este widget (y su subárbol) es invisible para la prueba de aciertos. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente no puede ser el objetivo de eventos localizados, porque devuelve false desde RenderBox.hitTest.",
+    "description": "Un widget que es invisible durante la hit testing. Cuando ignoring es true, este widget (y su subárbol) es invisible para el hit testing. Todavía consume espacio durante el layout y pinta a su hijo como de costumbre. Simplemente no puede ser el objetivo de eventos localizados, porque devuelve false desde RenderBox.hitTest.",
     "categories": [
     ],
     "subcategories": [
@@ -1084,7 +1084,7 @@
   },
   {
     "name": "AbsorbPointer",
-    "description": "Un widget que absorbe los punteros durante la prueba de impacto. Cuando la absorción es verdadera, este widget evita que su subárbol reciba eventos de puntero terminando la prueba de impacto en sí mismo. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente impide que sus hijos sean el objetivo de eventos localizados, porque devuelve true desde RenderBox.hitTest.",
+    "description": "Un widget que absorbe los punteros durante el hit testing. Cuando la obsorbing es true, este widget evita que su subárbol reciba eventos de puntero terminando el hit testing en sí mismo. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente impide que sus hijos sean el objetivo de eventos localizados, porque devuelve true desde RenderBox.hitTest.",
     "categories": [
     ],
     "subcategories": [
@@ -1095,7 +1095,7 @@
   },
   {
     "name": "Navigator",
-    "description": "Un widget que gestiona un conjunto de widgets hijo con una disciplina de pila. Muchas aplicaciones tienen un navegador cerca de la parte superior de su jerarquía de widgets para mostrar su historial lógico utilizando una sobreimpresión con las páginas visitadas más recientemente visualmente encima de las páginas más antiguas. El uso de este patrón permite al navegador realizar una transición visual de una página a otra moviendo los widgets en la sobreimpresión. Del mismo modo, el navegador puede ser utilizado para mostrar un diálogo posicionando el widget de diálogo sobre la página actual.",
+    "description": "Un widget que gestiona un conjunto de widgets hijo con una disciplina de pila. Muchas aplicaciones tienen un navegador cerca de la parte superior de su jerarquía de widgets para mostrar su historial lógico utilizando una sobreimpresión con las páginas visitadas más recientemente visualmente encima de las páginas más antiguas. El uso de este patrón permite al navegador realizar una transición visual de una página a otra moviendo los widgets en la capa sobrepuesta. Del mismo modo, el navegador puede ser utilizado para mostrar un diálogo posicionando el widget de diálogo sobre la página actual.",
     "categories": [
     ],
     "subcategories": [
@@ -1106,7 +1106,7 @@
   },
   {
     "name": "Theme",
-    "description": "Aplica un tema a los widgets de descendientes. Un tema describe los colores y las opciones tipográficas de una aplicación.",
+    "description": "Aplica un theme a sus widgets descendientes. Un theme describe los colores y las opciones tipográficas de una aplicación.",
     "categories": [
       "Styling"
     ],
@@ -1117,7 +1117,7 @@
   },
   {
     "name": "MediaQuery",
-    "description": "Establece un subárbol en el que las consultas de los medios de comunicación se resuelven a los datos dados.",
+    "description": "Establece un sub-árbol en el cual las media queries se resuelven con los datos dados.",
     "categories": [
       "Styling"
     ],
@@ -1206,7 +1206,7 @@
   },
   {
     "name": "NotificationListener",
-    "description": "Un widget que escucha las Notificaciones que aparecen en el árbol.",
+    "description": "Un widget que escucha las notificaciones que se propagan hacia arriba por el árbol de widgets.",
     "categories": [
       "Scrolling"
     ],
@@ -1249,19 +1249,8 @@
     "image": "<svg viewBox='0 0 100 100'><rect x='0' y='0' width='100' height='100' fill='#3949ab'/><rect x='10' y='10' width='60' height='60' fill='#3b75ad'/><rect x='20' y='30' width='70' height='50' fill='#ffffff' opacity='0.8'/></svg>"
   },
   {
-    "name": "Transform",
-    "description": "Un widget que aplica una transformación antes de pintar a su hijo.",
-    "categories": [
-      "Painting and effects"
-    ],
-    "subcategories": [
-    ],
-    "link": "https://docs.flutter.io/flutter/widgets/Transform-class.html",
-    "image": "<img alt='' src='/images/catalog-widget-placeholder.png'>"
-  },
-  {
     "name": "DecoratedBox",
-    "description": "Un widget que pinta una Decoración antes o después de que su hijo lo pinte.",
+    "description": "Un widget que pinta un Decoration antes o después de que su hijo lo pinte.",
     "categories": [
       "Painting and effects"
     ],
@@ -1272,7 +1261,7 @@
   },
   {
     "name": "FractionalTranslation",
-    "description": "Un widget que aplica una traslación expresada como una fracción del tamaño de la caja antes de pintar su hijo.",
+    "description": "Un widget que aplica una traslación expresada como una fracción del tamaño de su caja antes de pintar su hijo.",
     "categories": [
       "Painting and effects"
     ],
