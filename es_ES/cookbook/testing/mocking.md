@@ -13,19 +13,19 @@ En ciertos casos, las pruebas unitarias pueden depender de las clases que obtien
 Por lo tanto, en lugar de confiar en un servicio web o base de datos en vivo, podemos "simular" esas dependencias. Los Mocks nos permiten emular un servicio web en vivo o una base de datos y devolver resultados específicos según la situación.
 
 En términos generales, podemos simular dependencias creando una implementación alternativa de una clase. Podemos escribir estas implementaciones alternativas a mano o hacer uso del paquete 
-[Mockito](https://pub.dartlang.org/packages/mockito) como un acceso directo.
+[Mockito](https://pub.dartlang.org/packages/mockito) como atajo.
 
 Esta receta demuestra los conceptos básicos de simular utilizando el paquete Mockito. 
-Para obtener más información, por favor consulte la documentación del paquete 
+Para obtener más información, por favor consulta la documentación del paquete 
 [mockito](https://pub.dartlang.org/packages/mockito).
 
 ## Instrucciones
 
   1. Agrega la dependencia de `mockito` 
   2. Crea una función para probar 
-  3. Crea un archivo de prueba con un `http.Client` falso
+  3. Crea un archivo de prueba con un `http.Client` simulado
   4. Escribe una prueba para cada condición
-  5. Ejecute las pruebas
+  5. Ejecuta las pruebas
 
 ## 1. Agrega la dependencia de `mockito` 
 
@@ -33,7 +33,7 @@ Para utilizar el paquete `mockito` , primero debemos agregarlo a nuestro archivo
 `pubspec.yaml` junto con la dependencia `flutter_test` en la sección 
 `dev_dependencies`.
 
-También usaremos el paquete `http` en este ejemplo y definiremos esa dependencia en las `dependencies`.
+También usaremos el paquete `http` en este ejemplo y definiremos esa dependencia en la sección `dependencies`.
 
 ```yaml
 dependencies:
@@ -49,8 +49,8 @@ dev_dependencies:
 En este ejemplo, queremos probar de forma unitaria la función `fetchPost` de la receta
 [Obtener datos desde internet](/cookbook/networking/fetch-data/). Para probar esta función, necesitamos hacer dos cambios:
 
-  1. Proporcione un `http.Client` a la función. Esto nos permitirá proporcionar el `http.Client` correcto según la situación. Para proyectos de Flutter y del lado del servidor, podemos proporcionar un `http.IOClient`. Para las aplicaciones del navegador, podemos proporcionar un `http.BrowserClient`. Para las pruebas, proporcionaremos un `http.Client` simulado.
-  2. Utilice el `client` proporcionado para buscar datos de Internet, en lugar del método
+  1. Proporciona un `http.Client` a la función. Esto nos permitirá proporcionar el `http.Client` correcto según la situación. Para proyectos de Flutter y del lado del servidor, podemos proporcionar un `http.IOClient`. Para las aplicaciones del navegador, podemos proporcionar un `http.BrowserClient`. Para las pruebas, proporcionaremos un `http.Client` simulado.
+  2. Utiliza el `client` proporcionado para buscar datos de Internet, en lugar del método
   estático `http.get` , que es difícil de simular.
 
 La función debería tener el siguiente aspecto:
@@ -75,7 +75,7 @@ Future<Post> fetchPost(http.Client client) async {
 
 A continuación, necesitaremos crear nuestro archivo de prueba junto con una clase `MockClient` .
 Siguiendo los consejos de la receta 
-[Introducción a la prueba unitaria](/cookbook/testing/unit-test/) , we will
+[Introducción a la prueba unitaria](/cookbook/testing/unit-test/) ,
 crearemos un archivo denominado `fetch_post_test.dart` en la carpeta raíz `test` . 
 
 La clase `MockClient` implementará la clase `http.Client` . Esto nos permitirá pasar el `MockClient` a nuestra función `fetchPost` , y nos permitirá devolver diferentes respuestas http en cada prueba.
@@ -126,7 +126,7 @@ main() {
 }
 ``` 
 
-### 5. Ejecute las pruebas
+### 5. Ejecuta las pruebas
 
 Ahora que tenemos una función `fetchPost` con pruebas en su lugar, ¡podemos ejecutar las pruebas! 
 
