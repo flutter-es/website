@@ -7,7 +7,7 @@ SDK](/sdk-archive/)):
 1. Extraiga el archivo zip y coloque el contenido de `flutter` en la locación
    deseada de instalación para el Flutter SDK (ej. `C:\src\flutter`; no instale
    flutter en un directorio como `C:\Program Files\` que requiere permisos de administrador).
-1. Localice el archivo `flutter_console.bat` dentro del directorio de `flutter`. Inicíalo con doble clic.
+1. Localice el archivo `flutter_console.bat` dentro del directorio de `flutter`. Inícialo con doble clic.
 
 Ahora está todo listo para ejecutar los comando de Flutter en la consola de Flutter!
 
