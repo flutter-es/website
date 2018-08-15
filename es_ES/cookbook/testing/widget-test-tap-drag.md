@@ -28,7 +28,7 @@ En muchos casos, las interacciones del usuario actualizarán el estado de nuestr
   1. Crea un Widget para probar
   2. Ingresa texto en el campo de texto
   3. Asegúrate de que, al pulsar un botón, agrega a la lista de tareas pendientes
-  4. Asegúrate de que, al deslizar-para-apartar, retira de la lista de tareas pendientes
+  4. Asegúrate de que, al deslizar-para-desechar, retira de la lista de tareas pendientes
     
 ### 1. Crea un Widget para probar
 
@@ -36,14 +36,14 @@ Para este ejemplo, crearemos una aplicación básica de tareas pendientes. Tendr
 
   1. Ingresa texto en un `TextField`
   2. Al pulsar un `FloatingActionButton` se agrega el texto a una lista de tareas pendientes
-  3. Deslizar para apartar remueve el elemento de la lista
+  3. Deslizar para desechar remueve el elemento de la lista
 
 Para mantener el foco en las pruebas, esta receta no proporcionará una guía detallada sobre cómo crear la aplicación de tareas pendientes. Para obtener más información sobre cómo se construye esta aplicación, por favor consulte las recetas relevantes:
 
-  * [Crea y diseña un campo de texto](/cookbook/forms/text-input/)
+  * [Crea y da estilo a un campo de texto](/cookbook/forms/text-input/)
   * [Manejo de Toques](/cookbook/gestures/handling-taps/)
-  * [Crea una lista basica](/cookbook/lists/basic-list/)
-  * [Implementa Deslizar para Apartar](/cookbook/gestures/dismissible/)
+  * [Crea una lista básica](/cookbook/lists/basic-list/)
+  * [Implementa Deslizar para desechar](/cookbook/gestures/dismissible/)
   
 ```dart
 class TodoList extends StatefulWidget {
@@ -105,9 +105,9 @@ class _TodoListState extends State<TodoList> {
 
 Ahora que tenemos una aplicación de tareas pendientes, !podemos empezar a escribir nuestra prueba! En este caso, comenzaremos por ingresar el texto en un `TextField`.
 
-Podemos lograr esta tarea al:
+Podemos lograr esta tarea:
 
-  1. Construir el Widget en el entorno de prueba
+  1. Construyendo el Widget en el entorno de prueba
   2. Usando el método
   [`enterText`](https://docs.flutter.io/flutter/flutter_test/WidgetTester/enterText.html)
    desde el `WidgetTester`
@@ -119,8 +119,8 @@ testWidgets('Agregar y remover de una lista de tareas pendientes',
   // Crear el Widget
   await tester.pumpWidget(TodoList());
     
-  // Ingresar 'hi' en el TextField
-  await tester.enterText(find.byType(TextField), 'hi');
+  // Ingresar 'hola' en el TextField
+  await tester.enterText(find.byType(TextField), 'hola');
 });
 ```
 
@@ -156,20 +156,20 @@ testWidgets('Agregar y remover de una lista de tareas pendientes',
   await tester.pump();
 
   // Asegúrate de encontrar el elemento de la lista en la pantalla
-  expect(find.text('hi'), findsOneWidget);
+  expect(find.text('hola'), findsOneWidget);
 });
 ```
 
-### 4. Asegúrate de que, al deslizar-para-apartar, retira de la lista de pendientes
+### 4. Asegúrate de que, al deslizar-para-desechar, retira de la lista de pendientes
 
-Finalmente, podemos asegurarnos de que el desempeño de una acción deslice-para-apartar sobre un elemento de la lista de tareas pendientes lo removerá de la lista. Esto implicará tres pasos: 
+Finalmente, podemos asegurarnos de que el desempeño de una acción deslice-para-desechar sobre un elemento de la lista de tareas pendientes lo removerá de la lista. Esto implicará tres pasos: 
 
   1. Usa el método 
   [`drag`](https://docs.flutter.io/flutter/flutter_test/WidgetController/drag.html)
-  para realizar una acción deslice-para-apartar.
+  para realizar una acción deslice-para-desechar.
   2. Usa el método
   [`pumpAndSettle`](https://docs.flutter.io/flutter/flutter_test/WidgetTester/pumpAndSettle.html)
-  para reconstruir continuamente nuestro árbol de Widgets hasta que finalice la animación de apartar.
+  para reconstruir continuamente nuestro árbol de Widgets hasta que finalice la animación de desechar.
   3. Asegúrate de que el elemento ya no aparezca en la pantalla.
 
 <!-- skip -->
@@ -178,14 +178,14 @@ testWidgets('Agregar y remover de una lista de tareas pendientes',
    (WidgetTester tester) async {
   // Ingresa texto y adiciona el elemento...
   
-  // Desliza el elemento para apartarlo
+  // Desliza el elemento para desecharlo
   await tester.drag(find.byType(Dismissible), Offset(500.0, 0.0));
 
-  // Construye el Widget hasta que la animación de apartar finalice
+  // Construye el Widget hasta que la animación de desechar finalice
   await tester.pumpAndSettle();
 
   // Asegúrate de que el elemento ya no está en la pantalla
-  expect(find.text('hi'), findsNothing);
+  expect(find.text('hola'), findsNothing);
 });
 ```
 
@@ -203,8 +203,8 @@ void main() {
     // Crear el Widget
     await tester.pumpWidget(TodoList());
 
-    // Ingresar 'hi' en el TextField
-    await tester.enterText(find.byType(TextField), 'hi');
+    // Ingresar 'hola' en el TextField
+    await tester.enterText(find.byType(TextField), 'hola');
 
     // pulsar el botón Agregar
     await tester.tap(find.byType(FloatingActionButton));
@@ -213,16 +213,16 @@ void main() {
     await tester.pump();
 
     // Esperar a encontrar el elemento en la pantalla
-    expect(find.text('hi'), findsOneWidget);
+    expect(find.text('hola'), findsOneWidget);
 
-    // Deslizar el elemento para apartarlo
+    // Deslizar el elemento para desecharlo
     await tester.drag(find.byType(Dismissible), Offset(500.0, 0.0));
 
-    // Construir el Widget hasta que la animación de apartar finalice
+    // Construir el Widget hasta que la animación de desechar finalice
     await tester.pumpAndSettle();
 
     // Asegurarse de que el elemento ya no está en la pantalla
-    expect(find.text('hi'), findsNothing);
+    expect(find.text('hola'), findsNothing);
   });
 }
 
