@@ -9,7 +9,7 @@ Durante el ciclo de desarrollo típico, probarás una aplicación usando `flutte
 línea de comando, los botones Run y Debug de la barra de herramientas en IntelliJ, o ambos. Por defecto, Flutter crea una versión *debug* de su aplicación.
 
 Cuando estes listo para preparar una versión *release* para Android, por ejemplo para
-[publicarla a Google Play Store][play], sige los pasos.
+[publicarla a Google Play Store][play], sigue los pasos.
 
 * TOC Placeholder
 {:toc}
@@ -41,11 +41,11 @@ localizado en el directorio `<app dir>/android/app/` y verifica si los valores e
   la cadena de número de versión. Consulta la guía de información de versión en
   la [documentación de versiones][versions] para más detalle.
 
-  * `minSdkVersion` & `targetSdkVersion`: Especifica el nivel mínimo de API y el nivel de API en que está diseñanda la aplicación para ser ejecutada. Consulte la sección de contenido de la API en la [documentación de versiones][versions] para más detalle.
+  * `minSdkVersion` & `targetSdkVersion`: Especifica el nivel mínimo de API y el nivel de API en que está diseñada la aplicación para ser ejecutada. Consulte la sección de contenido de la API en la [documentación de versiones][versions] para más detalle.
 
 ## Añadiendo un icono para el Launcher
 
-Cuando una nueva aplicación Flutter es creada, este tiene un Launcher Icon por defecto. Para personalizar este icono usted debería 
+Cuando una nueva aplicación Flutter es creada, este tiene un Launcher Icon por defecto. Para personalizar este icono debería 
 ver el paquete [Iconos de inicio de Flutter](https://pub.dartlang.org/packages/flutter_launcher_icons).
 
 Alternativamente, si deseas hacerlo manualmente, aquí está como:
@@ -139,7 +139,7 @@ Los release build de tu aplicación ahora se firmarán automáticamente.
 
 Por defecto, Flutter no ofusca o minimiza el Android host.
 Si pretendes usar librerías de Java de terceras partes,
-usted querrás reducir el tamaño del APK o proteger ese código de ingeniería inversa.
+querrás reducir el tamaño del APK o proteger ese código de ingeniería inversa.
 
 Para información sobre ofuscación de código Dart, ver [Obfuscating Dart Code](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code)
 En la [wiki de Flutter](https://github.com/flutter/flutter/wiki/).
@@ -158,7 +158,7 @@ Crea el archivo `/android/app/proguard-rules.pro` y añade las reglas listadas a
 -keep class io.flutter.plugins.**  { *; }
 ```
 
-La configuración anterior sólo protege las bibliotecas del motor de Flutter. Cualquier biblioteca adicional (por ejemplo, Firebase) requiere que se agreguen sus propias reglas.
+La configuración anterior solo protege las bibliotecas del motor de Flutter. Cualquier biblioteca adicional (por ejemplo, Firebase) requiere que se agreguen sus propias reglas.
 
 ### Paso 2 - Habilita obfuscación y/o minificación
 
