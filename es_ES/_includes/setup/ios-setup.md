@@ -39,7 +39,7 @@ Para desplegar tu app de Flutter en un dispositivo físico de iOS, necesitarás 
 
 
 1. Instalar [homebrew](http://brew.sh/).
-1. Abrir la terminar y ejecutar estos comandos para instalar las herramientas para desplegar las apps de Flutter en dispositivos iOS
+1. Abrir la terminal y ejecutar estos comandos para instalar las herramientas para desplegar las apps de Flutter en dispositivos iOS
 
 {% commandline %}
 brew update

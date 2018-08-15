@@ -370,7 +370,7 @@ mantendrá las palabras propuestas y favoritas para el widget.
     }
     {% endprettify %}
 
- 4. Elimine la generación de código de MyApp haciendo los
+ 4. Elimina la generación de código de MyApp haciendo los
     cambios resaltados como es la parte de abajo:
 
     <!-- skip -->
@@ -639,7 +639,7 @@ al set de guardadas favoritas.
     Cuando una palabra sea pulsada, llamara a la función
     `setState()` notificando al framework que el estado ha cambiado.
 
-    Agregue las lineas resaltadas:
+    Agrega las lineas resaltadas:
 
     <!-- skip -->
     {% prettify dart %}
@@ -732,7 +732,7 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
     }
     {% endprettify %}
 
- 2. Agregue una función `_pushSaved()` a la clase RandomWordsState.
+ 2. Agrega una función `_pushSaved()` a la clase RandomWordsState.
 
     <!-- skip -->
     {% prettify dart %}
@@ -804,7 +804,7 @@ Sacando la ruta de la pila del Navegator, regresando lo que mostraba la ruta ant
     consiste de un ListView que contiene los renglones del ListTiles;
     cada renglón es separado por un divisor.
 
-    Agregue el código resaltado abajo:
+    Agrega el código resaltado abajo:
 
     <!-- skip -->
     {% prettify dart %}
@@ -919,7 +919,7 @@ Has escrito una app interactiva en Flutter que se ejecuta en ambos iOS y Android
 
 En este laboratorio, tu has:
 
-* Creaste una app de Flutter desde cero.
+* Creado una app de Flutter desde cero.
 * Escrita en código Dart.
 * Utilizando una librería externa de un tercero.
 * Usaste hot reload para un ciclo de desarrollo mas rápido.
