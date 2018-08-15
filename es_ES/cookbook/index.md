@@ -38,7 +38,7 @@ referencia para ayudar a construir una aplicación.
   * [Añadiendo efecto ripple de Material Touch](/cookbook/gestures/ripples/)
   * [Implementando Deslizar para Descartar](/cookbook/gestures/dismissible/)
   
-## Navigation
+## Navegación
 
   * [Navegar a una nueva pantalla y volver](/cookbook/navigation/navigation-basics/)
   * [Enviar datos a una nueva pantalla](/cookbook/navigation/passing-data/)
