@@ -158,7 +158,7 @@ Crea el archivo `/android/app/proguard-rules.pro` y añade las reglas listadas a
 -keep class io.flutter.plugins.**  { *; }
 ```
 
-La configuración anterior solo protege las bibliotecas del motor de Flutter. Cualquier biblioteca adicional (por ejemplo, Firebase) requiere que se agreguen sus propias reglas.
+La configuración anterior sólo protege las bibliotecas del motor de Flutter. Cualquier biblioteca adicional (por ejemplo, Firebase) requiere que se agreguen sus propias reglas.
 
 ### Paso 2 - Habilita obfuscación y/o minificación
 
