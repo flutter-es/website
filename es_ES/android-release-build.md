@@ -1,83 +1,83 @@
 ---
 layout: page
-title: Prepararando una aplicación de Android para su liberación
+title: Preparando para release una app Android
 
 permalink: /android-release/
 ---
 
 Durante el ciclo de desarrollo típico, probarás una aplicación usando `flutter run` en la
-línea de comando, los botones Ejecutar y Depurar de la barra de herramientas en IntelliJ, o ambos. Por defecto, Flutter crea una versión *de depuración* de su aplicación.
+línea de comando, los botones Run y Debug de la barra de herramientas en IntelliJ, o ambos. Por defecto, Flutter crea una versión *debug* de su aplicación.
 
-Cuando esté listo para preparar una versión de *liberación* para Android, por ejemplo para
-[publicarla a Google Play Store][play], siga los pasos en esta página.
+Cuando estés listo para preparar una versión *release* para Android, por ejemplo para
+[publicarla a Google Play Store][play], sigue los pasos.
 
 * TOC Placeholder
 {:toc}
 
 ## Revisa el App Manifest
 
-Revisa el archivo de [Manifiesto de la aplicación][manifest] `AndroidManifest.xml` localizado
-en el directorio `<app dir>/android/app/src/main/` y verifique si los valores son correctos,
+Revisa el fichero por defecto [App Manifest][manifest] `AndroidManifest.xml` localizado
+en el directorio `<app dir>/android/app/src/main/` y verifica si los valores son correctos,
 especialmente:
 
-* `application`: Edite la etiqueta [`application`][applicationtag] para reflejar el nombre
+* `application`: Edita la etiqueta [`application`][applicationtag] para reflejar el nombre
 final de la aplicación.
 
-* `uses-permission`: Remueva el [permiso][permissiontag] `android.permission.INTERNET`
-si su código de la aplicación no necesita acceso a Internet. 
+* `uses-permission`: Elimina el [permiso][permissiontag] `android.permission.INTERNET`
+si el código de tu aplicación no necesita acceso a Internet. 
 La plantilla estándar incluye esta etiqueta para permitir la comunicación entre
-herramientas de flutter y una aplicación en ejecución.
+herramientas de Flutter y una aplicación en ejecución.
 
 ## Revisa la configuración de compilación
 
 Revisa el archivo por defecto de [Gradle build][gradlebuild] `build.gradle`
-localizado en el directorio `<app dir>/android/app/` y verifique si los valores están correctos, especialmente:
+localizado en el directorio `<app dir>/android/app/` y verifica si los valores están correctos, especialmente:
 
 * `defaultConfig`:
 
   * `applicationId`: Especifique el (Id de Aplicación)[appid] final y único.
 
-  * `versionCode` & `versionName`: Especifique el número de versión de la aplicación interna, y
-  la cadena de número de versión. Consulte la guía de información de versión en
+  * `versionCode` & `versionName`: Especifica el número de versión de la aplicación interna, y
+  la cadena de número de versión. Consulta la guía de información de versión en
   la [documentación de versiones][versions] para más detalle.
 
-  * `minSdkVersion` & `targetSdkVersion`: Especifique el nivel mínimo de API y el nivel de API en el que se está diseñando la aplicación. Consulte la sección de contenido de la API en la [documentación de versiones][versions] para más detalle.
+  * `minSdkVersion` & `targetSdkVersion`: Especifica el nivel mínimo de API y el nivel de API en que está diseñada la aplicación para ser ejecutada. Consulte la sección de contenido de la API en la [documentación de versiones][versions] para más detalle.
 
 ## Añadiendo un icono para el Launcher
 
-Cuando una nueva aplicación Flutter es creada, este tiene un icono de inicio por defecto. Para personalizar este icono usted debería 
+Cuando una nueva aplicación Flutter es creada, este tiene un Launcher Icon por defecto. Para personalizar este icono debería 
 ver el paquete [Iconos de inicio de Flutter](https://pub.dartlang.org/packages/flutter_launcher_icons).
 
-Alternativamente, si desea hacerlo manualmente, aquí está como:
+Alternativamente, si deseas hacerlo manualmente, aquí está como:
 
-1. Revise las pautas de [Iconos del Launcher de Android][launchericons] para el diseño del ícono.
+1. Revisa las pautas de [Iconos del Launcher de Android][launchericons] para el diseño del ícono.
 
-1. En el directorio `<app dir>/android/app/src/main/res/` , coloque sus archivos de iconos en la carpeta señalada
+1. En el directorio `<app dir>/android/app/src/main/res/` , coloca tus archivos de iconos en la carpeta señalada
 usando los [Calificadores de Configuración][configurationqualifiers].
 Las carpetas predeterminadas `mipmap-` demuestran la convención de nomenclatura correcta.
 
-1. En `AndroidManifest.xml`, actualice el atributo `android:icon` de la etiqueta [`application`][applicationtag] a los
+1. En `AndroidManifest.xml`, actualiza el atributo `android:icon` de la etiqueta [`application`][applicationtag] a los
 iconos de referencia del paso anterior (por ejemplo, `<application android:icon="@mipmap/ic_launcher" ...`).
 
-1. Para verificar que los iconos han sido reemplazados, ejecute su app usando `flutter run` e inspeccione el icono de la app en el 
+1. Para verificar que los iconos han sido reemplazados, ejecuta tu app usando `flutter run` e inspecciona el icono de la app en el 
 Launcher.
 
 ## Firmando la app
 
 ### Creando un Keystore
-Si usted tiene un Keystore, salte al siguiente paso. Si no, cree una corriendo lo siguiente en
+Si tienes una Keystore anterior, salta al siguiente paso. Si no, crea una ejecutando lo siguiente en
 la línea de comandos:
 `keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key`
 
-*Nota*: Mantenga este archivo privado; no lo verifique en el control de fuente pública.
+*Nota*: Mantenga este archivo privado; no lo incluya en un repositorio de control de versiones público.
 
 *Nota*: `keytool` puede no estar en su ruta. Este es parte del JDK de Java, el cual es instalado como parte
-de Android Studio. Para la ruta en concreto, ejecute `flutter doctor -v` y vea la ruta impresa después
-de 'Java binary at:', y luego use esa ruta completamente calificada reemplazando `java` con `keytool`.
+de Android Studio. Para la ruta en concreto, ejecuta `flutter doctor -v` y verás la ruta impresa después
+de 'Java binary at:', y luego usa esa ruta completa reemplazando `java` con `keytool`.
 
-### Referencie el keystore desde la app
+### Referencia el keystore desde la app
 
-Cree un archivo llamado `<app dir>/android/key.properties` que contiene una referencia a su keystore:
+Crea un archivo llamado `<app dir>/android/key.properties` que contenga una referencia a tu keystore:
 
 ```
 storePassword=<contraseña del paso anterior>
@@ -86,17 +86,17 @@ keyAlias=key
 storeFile=<localización del archivo, por ejemplo /Users/<user name>/key.jks>
 ```
 
-*Nota*: Mantenga este archivo privado; no lo verifique en el control de fuente pública.
+*Nota*: Mantenga este archivo privado; no lo incluya en un repositorio de control de versiones público.
 
 ### Configurar la firma en Gradle
 
-Configure la firma de su app editando el archivo `<app dir>/android/app/build.gradle`.
+Configura la firma de tu app editando el archivo `<app dir>/android/app/build.gradle`.
 
-1. Reemplace:
+1. Reemplaza:
 ```
    android {
 ```
-   con la información de la keystore desde su archivo de propiedades:
+   con la información de la keystore desde tu archivo de propiedades:
 ```
    def keystorePropertiesFile = rootProject.file("key.properties")
    def keystoreProperties = new Properties()
@@ -105,12 +105,12 @@ Configure la firma de su app editando el archivo `<app dir>/android/app/build.gr
    android {
 ```
 
-1. Reemplace:
+1. Reemplaza:
 ```
    buildTypes {
        release {
-           // TODO: Agregue su propia configuración de firma para la versión de lanzamiento.
-           // Firmando con las claves de depuración por ahora, así `flutter run --release` funciona.
+           // TODO: Add your own signing config for the release build.
+           // Signing with the debug keys for now, so `flutter run --release` works.
            signingConfig signingConfigs.debug
        }
    }
@@ -132,21 +132,21 @@ Configure la firma de su app editando el archivo `<app dir>/android/app/build.gr
    }
 ```
 
-Las versiones de lanzamiento de su aplicación ahora se firmarán automáticamente.
+Los release build de tu aplicación ahora se firmarán automáticamente.
 
 
 ## Habilitando Proguard
 
 Por defecto, Flutter no ofusca o minimiza el Android host.
-Si usted intenta usar librerías de Java de terceras partes,
-usted puede querer reducir el tamaño del APK o proteger ese código de ingeniería inversa.
+Si pretendes usar librerías de Java de terceras partes,
+querrás reducir el tamaño del APK o proteger ese código de ingeniería inversa.
 
-Para información sobre código Dart de ofuscamiento, vea [Código Dart de Ofuscamiento](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code)
-En el [wiki de Flutter](https://github.com/flutter/flutter/wiki/).
+Para información sobre ofuscación de código Dart, ver [Obfuscating Dart Code](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code)
+En la [wiki de Flutter](https://github.com/flutter/flutter/wiki/).
 
 ### Paso 1 - Configurar Proguard
 
-Cree el archivo `/android/app/proguard-rules.pro` y añada las reglas listada a continuación.
+Crea el archivo `/android/app/proguard-rules.pro` y añade las reglas listadas a continuación.
 
 ```
 #Flutter Wrapper
@@ -160,11 +160,11 @@ Cree el archivo `/android/app/proguard-rules.pro` y añada las reglas listada a 
 
 La configuración anterior solo protege las bibliotecas del motor de Flutter. Cualquier biblioteca adicional (por ejemplo, Firebase) requiere que se agreguen sus propias reglas.
 
-### Paso 2 - Habilite obfuscación y/o minificación
+### Paso 2 - Habilita obfuscación y/o minificación
 
-Abra el archivo `/android/app/build.gradle` y localice la definición `buildTypes`.
-Dentro de la configuración `release` establezca las banderas `minifiyEnabled` y `useProguard`
-a true. Usted tiene que también apuntar ProGuard al archivo que usted ha creado en el paso 1.
+Abre el archivo `/android/app/build.gradle` y localiza la definición `buildTypes`.
+Dentro de la configuración `release` establece las etiquetas `minifiyEnabled` y `useProguard`
+a true. Tienes también que apuntar ProGuard al archivo que has creado en el paso 1.
 
 ```
 android {
@@ -189,30 +189,30 @@ android {
 
 Nota: La ofuscación y la minificación pueden ampliar considerablemente el tiempo de compilación de la aplicación de Android.
 
-## Construyendo una versión de APK
+## Construyendo una release APK
 
-Esta sección describe cómo crear una versión APK. Si completó los pasos de firma en la sección anterior, se firmará la versión APK.
+Esta sección describe cómo crear una versión APK. Si completaste los pasos de firma en la sección anterior, se firmará la release APK.
 
 Usando la línea de comandos:
 
 1. `cd <app dir>` (reemplace `<app dir>` con su directorio de la aplicación).
-1. Ejecute `flutter build apk` (`flutter build` por defecto a `--release`).
+1. Ejecuta `flutter build apk` (`flutter build` por defecto a `--release`).
 
-La versión APK para su aplicación se crea en `<app dir>/build/app/outputs/apk/app-release.apk`.
+La release APK para su aplicación se creó en `<app dir>/build/app/outputs/apk/app-release.apk`.
 
-## Instalación de una versión APK en un dispositivo
+## Instalación de una release APK en un dispositivo
 
-Siga estos pasos para instalar el APK creado en el paso anterior en un dispositivo Android conectado.
+Sigue estos pasos para instalar el APK creado en el paso anterior en un dispositivo Android conectado.
 
 Usando la línea de comando:
 
-1. Conecte su dispositivo Android a su computadora con un cable USB.
-1. `cd <app dir>` donde `<app dir>` es su directorio de la aplicación.
-1. Ejecute `flutter install` .
+1. Conecta su dispositivo Android a su computadora con un cable USB.
+1. `cd <app dir>` donde `<app dir>` es el directorio de tu aplicación.
+1. Ejecuta `flutter install` .
 
 ## Publicación de una APK en Google Play Store
 
-Para obtener instrucciones detalladas sobre la publicación de la versión de lanzamiento de una aplicación en Google Play Store, consulte la [documentación de publicación de Google Play][play].
+Para obtener instrucciones detalladas sobre la publicación de la versión release de una aplicación en Google Play Store, consulta la [documentación de publicación de Google Play][play].
 
 [manifest]: http://developer.android.com/guide/topics/manifest/manifest-intro.html
 [manifesttag]: https://developer.android.com/guide/topics/manifest/manifest-element.html
