@@ -89,8 +89,8 @@ class OrientationList extends StatelessWidget {
       body: OrientationBuilder(
         builder: (context, orientation) {
           return GridView.count(
-          // Crea una grilla con 2 columnas en modo vertical o 3 columnas en
-          // modo horizontal.
+            // Crea una grilla con 2 columnas en modo vertical o 3 columnas en
+            // modo horizontal.
             crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
             // Genera 100 Widgets que muestran su índice en la Lista
             children: List.generate(100, (index) {
