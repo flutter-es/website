@@ -6,7 +6,7 @@ permalink: /cookbook/design/snackbars/
 
 En algunos casos, puede ser útil informar brevemente a nuestros usuarios cuando ciertas acciones
 se llevan a cabo. Por ejemplo, cuando un usuario borra un mensaje de una lista, es posible que 
-desee informarles de que el mensaje ha sido borrado. Puede que incluso queramos darle 
+desee informarles que el mensaje ha sido borrado. Puede que incluso queramos darle 
 una opción para ¡deshacer la acción! 
 
 En Material Design, este es el trabajo de un [SnackBar](https://docs.flutter.io/flutter/material/SnackBar-class.html).
