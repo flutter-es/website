@@ -4,7 +4,7 @@ title: "Exportación de fuentes desde un paquete"
 permalink: /cookbook/design/package-fonts/
 ---
 
-En lugar de declarar una fuente como parte de nuestra aplicación, podemos declarar una fuente como parte de un paquete separado. Esta es una forma conveniente de compartir la misma fuente a través de varios proyectos diferentes o para codificadores que publican sus paquetes en el 
+En lugar de declarar una fuente como parte de nuestra aplicación, podemos declarar una fuente como parte de un paquete separado. Esta es una forma conveniente de compartir la misma fuente a través de varios proyectos diferentes o para desarrolladores que publican sus paquetes en el 
 [sitio web del pub](https://pub.dartlang.org/).  
 
 ## Instrucciones
@@ -31,7 +31,7 @@ awesome_package/
 
 ## 2. Agrega el paquete y la fuente a nuestra aplicación
 
-Ahora podemos consumir el paquete y usar las fuentes que proporciona. Esto implica actualizar `pubspec.yaml` en el directorio raíz de nuestra *app's*. 
+Ahora podemos consumir el paquete y usar las fuentes que proporciona. Esto implica actualizar `pubspec.yaml` en el directorio raíz de nuestra *app*. 
 
 ### Añade el paquete al proyecto
 
