@@ -186,7 +186,7 @@ Para una experiencia de desarrollo más rápida, prueba la funcionalidad hot rel
 Hot reload te permite modificar tu código y ver los cambios sin tener que
 arrancar de nuevo por completo la app. Con el soporte para Flutter de los IDEs
 ['hot reload on save'](/hot-reload/), o desencadenándolo por línea de comandos.
-Para mas información sobre recargas, mira [Hot Reloads vs. Reiniciar por completo la App](https://flutter.io/using-ide/#hot-reloads-vs-full-application-restarts).
+Para mas información sobre recargas, mira [Hot Reloads vs. Reiniciar por completo la App](/using-ide/#hot-reloads-vs-full-application-restarts).
 </aside>
 
 <a name="step-3"></a>
@@ -426,8 +426,8 @@ La segunda captura de pantalla muestra el layout visualmente, mostrando una fila
 **Nota:** La mayoría de las capturas de pantalla en este tutorial son mostrados con
 `debugPaintSizeEnabled` establecido a true por eso puedes ver la representación visual del layout.
 Para más información , mira
-[Depuración visual](https://flutter.io/debugging/#visual-debugging), una sección en 
-[Depurando Apps en Flutter](https://flutter.io/debugging/#visual-debugging).
+[Depuración visual](/debugging/#visual-debugging), una sección en 
+[Depurando Apps en Flutter](/debugging/#visual-debugging).
 </aside>
 
 Aquí está un diagrama del árbol de widgets para este UI:
@@ -1096,7 +1096,7 @@ recomendamos el iPad Pro. Puedes cambiar la orientación a modo landscape usando
 Flutter tiene una rica biblioteca de widgtes de layout, pero aquí estan algunos de 
 los más comúnmente usados. La intención es hacerte avanzar lo más rápido posible, 
 en lugar de abrumarte con una lista completa. Para información sobre otros 
-widgets disponibles, te referimos a [Visión general de Widgets](https://flutter.io/widgets/),
+widgets disponibles, te referimos a [Visión general de Widgets](/widgets/),
 o usa la caja de busqueda en la [documentación de referencia de la API](https://docs.flutter.io/).
 También, las páginas de los widgets en la documentación de la API a menudo hace sugerencias 
 sobre widgets similares que podrían adaptarse mejor a tus necesidades.
