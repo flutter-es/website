@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = 'Lista Larga';
+    final title = 'Long List';
 
     return MaterialApp(
       title: title,
