@@ -17,25 +17,25 @@ kramdown:
 
 exclude: [example, packages, tool, vendor]
 
-# plugins:
-#   - jekyll-redirect-from
+plugins:
+  - jekyll-redirect-from
 
-# ## Site-wide shorthands
+## Site-wide shorthands
 
-# alert:
-#   tip: >-
-#     <aside class="alert alert-success" role="alert" markdown="1">
-#     <i class="fa fa-lightbulb-o"></i> **Tip:**
-#   note: >-
-#     <aside class="alert alert-info" role="alert" markdown="1">
-#     <i class="fa fa-info-circle"></i> **Note:**
-#   important: >-
-#     <aside class="alert alert-warning" role="alert">
-#     <i class="fa fa-warning"></i> **Important:**
-#   warning: >-
-#     <aside class="alert alert-danger" role="alert">
-#     <i class="fa fa-exclamation-circle"></i> **Warning:**
-#   end: </aside>
+alert:
+  tip: >-
+    <aside class="alert alert-success" role="alert" markdown="1">
+    <i class="fa fa-lightbulb-o"></i> **Consejo:**
+  note: >-
+    <aside class="alert alert-info" role="alert" markdown="1">
+    <i class="fa fa-info-circle"></i> **Nota:**
+  important: >-
+    <aside class="alert alert-warning" role="alert">
+    <i class="fa fa-warning"></i> **Importante:**
+  warning: >-
+    <aside class="alert alert-danger" role="alert">
+    <i class="fa fa-exclamation-circle"></i> **Advertencia:**
+  end: </aside>
 
   # callout_danger: '<div class="bs-callout bs-callout-danger">'
   # callout_default: '<div class="bs-callout bs-callout-default">'
@@ -46,3 +46,5 @@ exclude: [example, packages, tool, vendor]
 
   # hr_faded: '<hr class="faded"/>'
   # hr_shaded: '<hr class="shaded"/>'
+
+  codelab-code-url: https://raw.githubusercontent.com/chalin/flutter-codelabs/master
