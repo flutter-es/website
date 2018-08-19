@@ -37,7 +37,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = 'Desvanecer imágenes';
+    final title = 'Fade in images';
 
     return MaterialApp(
       title: title,
@@ -76,9 +76,9 @@ También puedes considerar el uso de assets locales para placeholders. Primero, 
 +    - assets/loading.gif
 ```
 
-(Consulte [Assets e Imágenes](/assets-and-images/) para obtener una guía completa para agregar assets.)
+(Consulta [Assets e Imágenes](/assets-and-images/) para obtener una guía completa para agregar assets.)
 
-Luego, use el constructor [`FadeInImage.assetNetwork`](https://docs.flutter.io/flutter/widgets/FadeInImage/FadeInImage.assetNetwork.html):
+Luego, usa el constructor [`FadeInImage.assetNetwork`](https://docs.flutter.io/flutter/widgets/FadeInImage/FadeInImage.assetNetwork.html):
 
 <!-- skip -->
 ```dart
@@ -100,7 +100,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = 'Desvanecer imágenes';
+    final title = 'Fade in images';
 
     return MaterialApp(
       title: title,
