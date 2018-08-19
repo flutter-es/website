@@ -15,7 +15,7 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-exclude: [example, packages, tool, vendor]
+exclude: [example, packages, tool]
 
 plugins:
   - jekyll-redirect-from
@@ -25,16 +25,16 @@ plugins:
 alert:
   tip: >-
     <aside class="alert alert-success" role="alert" markdown="1">
-    <i class="fa fa-lightbulb-o"></i> **Consejo:**
+    <i class="fa fa-lightbulb-o"></i> **Tip:**
   note: >-
     <aside class="alert alert-info" role="alert" markdown="1">
-    <i class="fa fa-info-circle"></i> **Nota:**
+    <i class="fa fa-info-circle"></i> **Note:**
   important: >-
     <aside class="alert alert-warning" role="alert">
-    <i class="fa fa-warning"></i> **Importante:**
+    <i class="fa fa-warning"></i> **Important:**
   warning: >-
     <aside class="alert alert-danger" role="alert">
-    <i class="fa fa-exclamation-circle"></i> **Advertencia:**
+    <i class="fa fa-exclamation-circle"></i> **Warning:**
   end: </aside>
 
   # callout_danger: '<div class="bs-callout bs-callout-danger">'
@@ -47,4 +47,4 @@ alert:
   # hr_faded: '<hr class="faded"/>'
   # hr_shaded: '<hr class="shaded"/>'
 
-  codelab-code-url: https://raw.githubusercontent.com/chalin/flutter-codelabs/master
+codelab-code-url: https://raw.githubusercontent.com/chalin/flutter-codelabs/master

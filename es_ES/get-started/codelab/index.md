@@ -257,8 +257,8 @@ open source, en [pub.dartlang.org](https://pub.dartlang.org/flutter/).
 Si tu app no esta ejecutando correctamente, busque por errores al teclear. De ser necesario,
 use el código en el siguiente enlace y continuar.
 
-* [pubspec.yaml]({{site.codelab-code-url}}/startup_namer/2_end_of_use_package/pubspec.yaml)
-* [lib/main.dart]({{site.codelab-code-url}}/startup_namer/2_end_of_use_package/lib/main.dart)
+* [pubspec.yaml](https://raw.githubusercontent.com/chalin/flutter-codelabs/master/startup_namer/2_end_of_use_package/pubspec.yaml)
+* [lib/main.dart](https://raw.githubusercontent.com/chalin/flutter-codelabs/master/startup_namer/2_end_of_use_package/lib/main.dart)
 
 ---
 
@@ -376,7 +376,7 @@ cambios sean reflejados en la UI de la app.
 Si tu app no esta corriendo correctamente, puede utilizar este código
 de el siguiente enlace y continuar.
 
-* [lib/main.dart]({{site.codelab-code-url}}/startup_namer/3_end_of_add_stateful_widget/lib/main.dart)
+* [lib/main.dart](https://raw.githubusercontent.com/chalin/flutter-codelabs/master/startup_namer/3_end_of_add_stateful_widget/lib/main.dart)
 
 ---
 
@@ -527,7 +527,7 @@ constructor del  `ListView` permite construir un una lista de carga retrasada, a
 Si tu app no esta funcionando correctamente, puedes ver el código
 en el siguiente enlace y continuar.
 
-* [lib/main.dart]({{site.codelab-code-url}}/startup_namer/4_end_of_infinite_list/lib/main.dart)
+* [lib/main.dart](https://raw.githubusercontent.com/chalin/flutter-codelabs/master/startup_namer/4_end_of_infinite_list/lib/main.dart)
 
 ---
 
