@@ -4,7 +4,7 @@ title: "Trabajando con Pestañas"
 permalink: /cookbook/design/tabs/
 ---
 
-Trabajar con pestañas es un patrón común en las aplicaciones siguiendo las pautas de Material Design. Flutter incluye una forma conveniente de crear diseños de pestañas como parte de la  [biblioteca de materiales](https://docs.flutter.io/flutter/material/material-library.html).
+Trabajar con pestañas es un patrón común en las aplicaciones siguiendo las pautas de Material Design. Flutter incluye una forma conveniente de crear diseños de pestañas como parte de la  [biblioteca Material](https://docs.flutter.io/flutter/material/material-library.html).
 
 ## Instrucciones
 
@@ -95,7 +95,7 @@ class TabBarDemo extends StatelessWidget {
                 Tab(icon: Icon(Icons.directions_bike)),
               ],
             ),
-            title: Text('Demo de Pestañas'),
+            title: Text('Tabs Demo'),
           ),
           body: TabBarView(
             children: [
