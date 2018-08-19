@@ -13,7 +13,7 @@ referencia para ayudar a construir una aplicación.
   * [Usar Themes para compartir estilos de fuentes y colores](/cookbook/design/themes/)
   * [Mostrar SnackBars](/cookbook/design/snackbars/)
   * [Trabajando con Tabs](/cookbook/design/tabs/)
-  * [Usando fuentes propias](/cookbook/design/fonts/)
+  * [Uso de fuentes personalizadas](/cookbook/design/fonts/)
   * [Exportando fuentes de un paquete](/cookbook/design/package-fonts/)
   * [Añadir un Drawer a la pantalla](/cookbook/design/drawer/)
   * [Actualizando el UI basándose en la orientación](/cookbook/design/orientation/)
