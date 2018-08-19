@@ -1,21 +1,20 @@
 ---
 layout: page
-title: "Uso de Themes para compartir colores y estilos de fuente"
+title: "Usar Themes para compartir colores y estilos de fuente"
 permalink: /cookbook/design/themes/
 ---
 
 Para compartir colores y estilos de fuente a través de nuestra aplicación, podemos aprovechar los temas. Hay dos formas de definir temas: App-wide o usando los Widgets 
 `Theme` que definen los colores y estilos de fuente para una parte particular de nuestra aplicación. De hecho, los temas app-wide son simplemente Widgets `Theme` creados en la raíz de nuestras aplicaciones por `MaterialApp`! 
 
-Después de definir un Theme, podemos usarlo dentro de nuestros propios Widgets. Además, los 
-Material Widgets proporcionados por Flutter utilizarán nuestro Theme para establecer los colores de fondo y los estilos de fuente para AppBars, Buttons, Checkboxes, y más.    
+Después de definir un Theme, podemos usarlo dentro de nuestros propios Widgets. Además, los Widgets Material proporcionados por Flutter utilizarán nuestro Theme para establecer los colores de fondo y los estilos de fuente para AppBars, Buttons, Checkboxes, y más.    
 
 ## Creando una app theme
 
 Para compartir un Theme que contenga colores y estilos de fuente en toda nuestra aplicación, podemos proporcionar [`ThemeData`](https://docs.flutter.io/flutter/material/ThemeData-class.html)
 al constructor de `MaterialApp` .
 
-Si no se proporciona ningún `theme` , Flutter creará un tema alternativo bajo la cubierta.
+Si no se proporciona ningún `theme` , Flutter creará un tema alternativo por nosotros.
 
 <!-- skip -->
 ```dart
@@ -34,7 +33,7 @@ para ver todos los colores y fuentes que puede definir.
 
 ## Temas para parte de una aplicación
 
-Si queremos hacer un override del tema app-wide en parte de nuestra aplicación, podemos envolver una sección de nuestra aplicación en un Widget `Theme` .
+Si queremos sobreescribir el tema app-wide en parte de nuestra aplicación, podemos envolver una sección de nuestra aplicación en un Widget `Theme`.
 
 Hay dos formas de abordar esto: crear un `ThemeData` único, o extender el tema padre.
 
@@ -110,7 +109,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appName = 'Temas personalizados';
+    final appName = 'Custom Themes';
 
     return MaterialApp(
       title: appName,
@@ -141,7 +140,7 @@ class MyHomePage extends StatelessWidget {
         child: Container(
           color: Theme.of(context).accentColor,
           child: Text(
-            'Texto con un color de fondo',
+            'Text with a background color',
             style: Theme.of(context).textTheme.title,
           ),
         ),
