@@ -6,7 +6,7 @@ permalink: /cookbook/design/drawer/
 
 En las aplicaciones que emplean Material Design, hay dos opciones principales de navegación: tabs y drawers. Cuando no hay suficiente espacio para sostener las pestañas, los Drawers proporcionan una alternativa práctica. 
 
-En Flutter, podemos usar el Widget [`Drawer`](https://docs.flutter.io/flutter/material/Drawer-class.html) en combinación con un [`Scaffold`](https://docs.flutter.io/flutter/material/Scaffold-class.html)  para ¡crear un diseño con un Material Design Drawer!
+En Flutter, podemos usar el Widget [`Drawer`](https://docs.flutter.io/flutter/material/Drawer-class.html) en combinación con un [`Scaffold`](https://docs.flutter.io/flutter/material/Scaffold-class.html) para ¡crear un diseño con un Material Design Drawer!
 
 ## Instrucciones
 
