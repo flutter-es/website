@@ -12,7 +12,7 @@ Mientras que el constructor predeterminado `ListView` requiere que creemos todos
 
 Primero, necesitaremos una fuente de datos para trabajar. Por ejemplo, su fuente de datos puede ser una lista de mensajes, resultados de búsqueda o productos de una tienda. La mayoría de las veces, estos datos provendrán de internet o de una base de datos. 
 
-Para este ejemplo, generaremos una lista de 10000 Strings  usando el constructor 
+Para este ejemplo, generaremos una lista de 10000 Strings usando el constructor 
 [`List.generate`](https://docs.flutter.io/flutter/dart-core/List/List.generate.html) .
 
 <!-- skip -->
