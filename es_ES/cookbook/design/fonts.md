@@ -55,7 +55,7 @@ flutter:
 
 La `family` determina el nombre de la fuente que podemos usar en la propiedad
 [`fontFamily`](https://docs.flutter.io/flutter/painting/TextStyle/fontFamily.html)
-de un objecto [`TextStyle`](https://docs.flutter.io/flutter/painting/TextStyle-class.html).
+de un objeto [`TextStyle`](https://docs.flutter.io/flutter/painting/TextStyle-class.html).
 
 El `asset` es una ruta al archivo de fuente, relativa al archivo `pubspec.yaml` .
 Estos archivos contienen los contornos de los glifos en la fuente. Al construir nuestra aplicación, estos archivos se incluyen en el paquete de asset de nuestra aplicación.
@@ -82,14 +82,14 @@ Para usar una fuente por defecto, podemos establecer la propiedad `fontFamily` c
 <!-- skip -->
 ```dart
 MaterialApp(
-  title: 'Fuentes personalizadas',
+  title: 'Custom Fonts',
   // Establecer Raleway como la fuente predeterminada de la aplicación
   theme: ThemeData(fontFamily: 'Raleway'),
   home: MyHomePage(),
 );
 ```
 
-Para obtener más información sobre temas, por favor consulta la receta ["Usar temas para compartir colores y estilos de fuente"](/cookbook/design/themes/).
+Para obtener más información sobre temas, por favor consulta la receta ["Usar Themes para compartir estilos de fuentes y colores"](/cookbook/design/themes/).
 
 ## 4. Usa una fuente en un Widget específico
 
@@ -102,7 +102,7 @@ En este ejemplo, aplicaremos la fuente RobotoMono a un único Widget de  `Text`.
 <!-- skip -->
 ```dart
 Text(
-  'Ejemplo Roboto Mono',
+  'Roboto Mono sample',
   style: TextStyle(fontFamily: 'RobotoMono'),
 );
 ```
@@ -158,7 +158,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fuentes personalizadas',
+      title: 'Custom Fonts',
       // Establecer Raleway como la fuente predeterminada de la aplicación
       theme: ThemeData(fontFamily: 'Raleway'),
       home: MyHomePage(),
@@ -171,11 +171,11 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar utilizará la fuente Raleway predeterminada de la aplicación
-      appBar: AppBar(title: Text('Fuentes personalizadas')),
+      appBar: AppBar(title: Text('Custom Fonts')),
       body: Center(
         // Este Widget de texto usará la fuente RobotoMono
         child: Text(
-          'Ejemplo Roboto Mono',
+          'Roboto Mono sample',
           style: TextStyle(fontFamily: 'RobotoMono'),
         ),
       ),
