@@ -67,14 +67,14 @@ Para poder convertir cada elemento en un Widget, emplearemos el constructor
 
 En general, queremos proporcionar una función `builder` que verifique con qué tipo de elemento estamos tratando, y devuelva el Widget apropiado para ese tipo de elemento.
 
-En este ejemplo, utilizar la palabra clave `is` para comprobar el tipo de elemento con el que estamos tratando puede ser útil. Es rápido, y automáticamente lanzará cada elemento al tipo apropiado. ¡Sin embargo, hay diferentes maneras de abordar este problema si usted prefiere otro patrón!
+En este ejemplo puede ser útil utilizar la palabra clave `is` para comprobar el tipo de elemento con el que estamos tratando. Es rápido, y automáticamente lanzará cada elemento al tipo apropiado. ¡Sin embargo, hay diferentes maneras de abordar este problema si usted prefiere otro patrón!
 
 <!-- skip -->
 ```dart
 ListView.builder(
-  // Deje que ListView sepa cuántos elementos necesita para construir
+  // Deja que ListView sepa cuántos elementos necesita para construir
   itemCount: items.length,
-  // Proporcione una función de constructor. ¡Aquí es donde sucede la magia! Vamos a
+  // Proporciona una función de constructor. ¡Aquí es donde sucede la magia! Vamos a
   // convertir cada elemento en un Widget basado en el tipo de elemento que es.
   itemBuilder: (context, index) {
     final item = items[index];
@@ -129,9 +129,9 @@ class MyApp extends StatelessWidget {
           title: Text(title),
         ),
         body: ListView.builder(
-          // Deje que ListView sepa cuántos elementos necesita para construir
+          // Deja que ListView sepa cuántos elementos necesita para construir
           itemCount: items.length,
-          // Proporcione una función de constructor. ¡Aquí es donde sucede la magia! Vamos a
+          // Proporciona una función de constructor. ¡Aquí es donde sucede la magia! Vamos a
           // convertir cada elemento en un Widget basado en el tipo de elemento que es.
           itemBuilder: (context, index) {
             final item = items[index];
