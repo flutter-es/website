@@ -22,13 +22,13 @@ En Material Design, este es el trabajo de un [SnackBar](https://docs.flutter.io/
 Cuando creamos aplicaciones que siguen las directrices de Material Design, queremos dar a nuestras aplicaciones una estructura visual consistente. En este caso, necesitaremos mostrar el SnackBar en la parte inferior de la pantalla, ¡sin solapar otros Widgets importantes, como el `FloatingActionButton`!
 
 El Widget [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html)
-de la [biblioteca de materiales](https://docs.flutter.io/flutter/material/material-library.html) crea esta estructura visual para nosotros y asegura que los Widgets importantes ¡no se superpongan!
+de la [biblioteca Material](https://docs.flutter.io/flutter/material/material-library.html) crea esta estructura visual para nosotros y asegura que los Widgets importantes ¡no se superpongan!
 
 <!-- skip -->
 ```dart
 Scaffold(
   appBar: AppBar(
-    title: Text('Demo de SnackBar'),
+    title: Text('SnackBar Demo'),
   ),
   body: SnackBarPage(), // ¡Lo completaremos a continuación!
 );
@@ -40,7 +40,7 @@ Con el `Scaffold` en su lugar, ¡podemos mostrar un `SnackBar`! Primero necesita
 
 <!-- skip -->
 ```dart
-final snackBar = SnackBar(content: Text('¡Hurra. Un SnackBar!'));
+final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
 
 // Encuentra el Scaffold en el árbol de widgets y ¡úsalo para mostrar un SnackBar!
 Scaffold.of(context).showSnackBar(snackBar);
@@ -54,9 +54,9 @@ Para lograr esto, podemos proporcionar un `action` adicional al Widget `SnackBar
 
 ```dart
 final snackBar = SnackBar(
-  content: Text('¡Hurra! ¡Un SnackBar!'),
+  content: Text('Yay! A SnackBar!'),
   action: SnackBarAction(
-    label: 'Deshacer',
+    label: 'Undo',
     onPressed: () {
       // Algo de código para ¡deshacer el cambio!
     },
@@ -67,8 +67,8 @@ final snackBar = SnackBar(
 ## Ejemplo completo 
 
 Nota: En este ejemplo, mostraremos un SnackBar cuando un usuario pulse un botón.
-Para obtener más información sobre cómo trabajar con las entradas del usuario, por favor consulta la sección  
-[Manipulación de Gestures](/cookbook/#handling-gestures) del Cookbook.
+Para obtener más información sobre cómo trabajar con las entradas del usuario, por favor consulta la sección 
+[Manejando Gestos](/cookbook/#handling-gestures) del Cookbook.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -79,10 +79,10 @@ class SnackBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Demo de SnackBar',
+      title: 'SnackBar Demo',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Demo de SnackBar'),
+          title: Text('SnackBar Demo'),
         ),
         body: SnackBarPage(),
       ),
@@ -97,9 +97,9 @@ class SnackBarPage extends StatelessWidget {
       child: RaisedButton(
         onPressed: () {
           final snackBar = SnackBar(
-            content: Text('¡Hurra! ¡Un SnackBar!'),
+            content: Text('Yay! A SnackBar!'),
             action: SnackBarAction(
-              label: 'Deshacer',
+              label: 'Undo',
               onPressed: () {
                 // Algo de código para ¡deshacer el cambio!
               },
@@ -109,7 +109,7 @@ class SnackBarPage extends StatelessWidget {
           // Encuentra el Scaffold en el árbol de widgets y ¡úsalo para mostrar un SnackBar!
           Scaffold.of(context).showSnackBar(snackBar);
         },
-        child: Text('Mostrar un SnackBar'),
+        child: Text('Show SnackBar'),
       ),
     );
   }
