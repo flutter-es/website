@@ -8,8 +8,8 @@ En algunos casos, puede ser útil leer y escribir archivos en el disco. Esto pue
 ser usado para conservar los datos en los lanzamientos de la aplicación o descargar 
 datos de Internet y guardarlos para su posterior uso fuera de línea.
 
-Para guardar archivos en el disco, necesitaremos combinar el
-[plugin `path_provider`](https://pub.dartlang.org/packages/path_provider) con 
+Para guardar archivos en el disco, necesitaremos combinar el plugin
+[`path_provider`](https://pub.dartlang.org/packages/path_provider) con 
 la biblioteca [`dart:io`](https://docs.flutter.io/flutter/dart-io/dart-io-library.html).
 
   
