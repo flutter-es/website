@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "Exportación de fuentes desde un paquete"
+title: "Exportando fuentes de un paquete"
 permalink: /cookbook/design/package-fonts/
 ---
 
 En lugar de declarar una fuente como parte de nuestra aplicación, podemos declarar una fuente como parte de un paquete separado. Esta es una forma conveniente de compartir la misma fuente a través de varios proyectos diferentes o para desarrolladores que publican sus paquetes en el 
-[sitio web del pub](https://pub.dartlang.org/).  
+[sitio web de pub](https://pub.dartlang.org/).  
 
 ## Instrucciones
 
@@ -65,7 +65,7 @@ para cambiar la apariencia del texto. Para usar paquetes de fuentes, necesitamos
 <!-- skip -->
 ```dart
 Text(
-  'Usando la fuente Raleway del awesome_package',
+  'Using the Raleway font from the awesome_package',
   style: TextStyle(
     fontFamily: 'Raleway',
     package: 'awesome_package',
@@ -115,7 +115,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Paquete de Fuentes',
+      title: 'Package Fonts',
       home: MyHomePage(),
     );
   }
@@ -126,11 +126,11 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar utilizará la fuente Raleway predeterminada de la aplicación
-      appBar: AppBar(title: Text('Paquete de Fuentes')),
+      appBar: AppBar(title: Text('Package Fonts')),
       body: Center(
         // Este widget de texto usará la fuente RobotoMono
         child: Text(
-          'Usando la fuente Raleway del awesome_package',
+          'Using the Raleway font from the awesome_package',
           style: TextStyle(
             fontFamily: 'Raleway',
             package: 'awesome_package',
