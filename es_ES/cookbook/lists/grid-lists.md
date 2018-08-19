@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           title: Text(title),
         ),
         body: GridView.count(
-          // Crea una grilla con 2 columnas. Si cambias el scrollDirection a 
+          // Crea una grilla con 2 columnas. Si cambias el scrollDirection a
           // horizontal, esto produciría 2 filas.
           crossAxisCount: 2,
           // Genera 100 Widgets que muestran su índice en la Lista
