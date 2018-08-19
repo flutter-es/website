@@ -22,7 +22,7 @@ Construirás el layout para la siguiente captura de pantalla:
 
 Esta guía da un paso atrás para explicar el enfoque de Flutter para los layouts
 y muestra como colocar un solo widget en la pantalla.
-Después de una discusión sobre como disponer widgets horizontal y vericalmente,
+Después de una discusión sobre como disponer widgets horizontal y verticalmente,
 algunos de los widgets de layout más comunes son cubiertos.
 
 * [Construyendo un layout](#building)
@@ -114,7 +114,7 @@ restante en la fila. Ajustando la propiedad `crossAxisAlignment` a
 `CrossAxisAlignment.start` posicionamos la columna al principio de la fila.
 
 Poniendo la primera fila de texto dentro de un Container posibilitamos la adicción de padding.
-El segundo hijo en Column , also text, se dibuja gris.
+El segundo hijo en Column , también texto, se dibuja gris.
 
 Los dos últimos elementos en la fila 'title' son un icono estrella, dibujado rojo,
 y un texto "41". Pon la fila entera en un Container y dale un padding de 32 pixels
@@ -174,17 +174,17 @@ class MyApp extends StatelessWidget {
 {% endprettify %}
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-lightbulb-o"> </i> **Truco:**
+<i class="fa fa-lightbulb-o"> </i> **Consejo:**
 Cuando pegas código en tu app, la identación puede estropearse.
  Puedes corregir esto en tu editor de Flutter 
  usando el [soporte de reformateado automático](/formatting/).
 </aside>
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-lightbulb-o"> </i> **Truco:**
+<i class="fa fa-lightbulb-o"> </i> **Consejo:**
 Para una experiencia de desarrollo más rápida, prueba la funcionalidad hot reload de Flutter.
 Hot reload te permite modificar tu código y ver los cambios sin tener que
-arrancar de nuevo por completo la app. Con el soporte para FLutter de los IDEs
+arrancar de nuevo por completo la app. Con el soporte para Flutter de los IDEs
 ['hot reload on save'](/hot-reload/), o desencadenándolo por línea de comandos.
 Para mas información sobre recargas, mira [Hot Reloads vs. Reiniciar por completo la App](https://flutter.io/using-ide/#hot-reloads-vs-full-application-restarts).
 </aside>
@@ -401,7 +401,7 @@ mostrado en las capturas de pantalla. Puedes añadir interactividad a este layou
 
 <b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* Los widgets son clases usadas para contruir UIs.
+* Los widgets son clases usadas para construir UIs.
 * Los widgets son usados por ambos, layout y elementos de la UI.
 * Componer widgets simples para construir widgets complejos.
 
@@ -414,7 +414,7 @@ Pero cosas que no ves son también widgets, como son los rows, columns,
 y grids que organizan, restringen, y alinéan los widgets visibles.
 
 Creas un layout componiendo widgets para construir widgets más complejos.
-Por ejemplo, la captura de pantalla a la izquierda mestra 3 iconos con una etiqueta bajo
+Por ejemplo, la captura de pantalla a la izquierda muestra 3 iconos con una etiqueta bajo
 cada uno:
 
 <img src="images/lakes-icons.png" style="border:1px solid black" alt="layout de ejemplo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/lakes-icons-visual.png" style="border:1px solid black" alt="layout de ejemplo con depuración visual encendida">
@@ -936,7 +936,7 @@ class _MyHomePageState extends State<MyHomePage> {
 {% endprettify %}
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-lightbulb-o"> </i> **Truco:**
+<i class="fa fa-lightbulb-o"> </i> **Consejo:**
 Para minimizar la confusión visual que puede resultar del código para un layout 
 fuertemente anidado, implementa piezas de la UI en variables y funciones.
 </aside>
@@ -1077,7 +1077,7 @@ body: Center(
 </div> <div class="col-md-9" markdown="1">
 
 <aside class="alert alert-success" markdown="1">
-<i class="fa fa-lightbulb-o"> </i> **Truco:**
+<i class="fa fa-lightbulb-o"> </i> **Consejo:**
 El ejemplo Pavlova se ejecuta mejor horizontalmente en un dispositivo ancho, como una tablet.
 Si estas ejecutando este ejemplo en el simulador de iOS, puedes elegir un
 dispositivo diferente usando el menú **Hardware > Device**. Para este ejemplo, 
