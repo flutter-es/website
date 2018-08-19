@@ -4,18 +4,18 @@ title: "Actualizando el UI basándose en la orientación"
 permalink: /cookbook/design/orientation/
 ---
 
-En ciertos casos, puede ser útil actualizar el diseño de una aplicación cuando el usuario rota su pantalla de modo vertical a modo horizontal. Por ejemplo, es posible que queramos mostrar un elemento tras otro en modo vertical, pero colocar esos mismos elementos uno al lado del otro en modo horizontal.
+En ciertos casos, puede ser útil actualizar el diseño de una aplicación cuando el usuario rota su pantalla de modo portrait a modo landscape. Por ejemplo, es posible que queramos mostrar un elemento tras otro en modo portrait, pero colocar esos mismos elementos uno al lado del otro en modo landscape.
 
 En Flutter, podemos construir diferentes diseños dependiendo de una
 [`Orientation`](https://docs.flutter.io/flutter/widgets/Orientation-class.html) dada.
-En este ejemplo, crearemos una lista que muestre 2 columnas en modo vertical y 3 columnas en modo horizontal.
+En este ejemplo, crearemos una lista que muestre 2 columnas en modo portrait y 3 columnas en modo landscape.
 
 ## Instrucciones
 
-  1. Construya un `GridView` con 2 columnas
-  2. Use un `OrientationBuilder` para cambiar el número de columnas
+  1. Construye un `GridView` con 2 columnas
+  2. Usa un `OrientationBuilder` para cambiar el número de columnas
 
-## 1. Construya un `GridView` con 2 columnas
+## 1. Construye un `GridView` con 2 columnas
 
 Primero, necesitaremos una lista de elementos para trabajar. En lugar de utilizar una lista normal, queremos una lista que muestre los elementos en un Grid. Por ahora, crearemos un grid con 2 columnas.
 
@@ -28,23 +28,23 @@ GridView.count(
 );
 ```
 
-Para obtener más información sobre cómo trabajar con `GridViews`, por favor consulte la receta para la [Creación de una de lista de grid](/cookbook/lists/grid-lists/).
+Para obtener más información sobre cómo trabajar con `GridViews`, por favor consulte la receta para la [Creando una lista en un grid](/cookbook/lists/grid-lists/).
 
-## 2. Use un `OrientationBuilder` para cambiar el número de columnas
+## 2. Usa un `OrientationBuilder` para cambiar el número de columnas
 
 Para determinar la `Orientation` actual, podemos usar el Widget 
 [`OrientationBuilder`](https://docs.flutter.io/flutter/widgets/OrientationBuilder-class.html) 
 . El `OrientationBuilder` calcula la `Orientation` actual comparando la anchura y la altura disponibles para el widget padre, y la reconstruye cuando el tamaño del padre cambia.
 
-Usando la `Orientation`, podemos construir una lista que muestre 2 columnas en modo vertical o 3 columnas en modo horizontal.
+Usando `Orientation`, podemos construir una lista que muestre 2 columnas en modo portrait o 3 columnas en modo landscape.
 
 <!-- skip -->
 ```dart
 OrientationBuilder(
   builder: (context, orientation) {
     return GridView.count(
-      // Crea una grid con 2 columnas en modo vertical o 3 columnas en
-      // modo horizontal.
+      // Crea una grid con 2 columnas en modo portrait o 3 columnas en
+      // modo landscape.
       crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
     );
   },
@@ -66,7 +66,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Demo de Orientación';
+    final appTitle = 'Orientation Demo';
 
     return MaterialApp(
       title: appTitle,
@@ -89,14 +89,14 @@ class OrientationList extends StatelessWidget {
       body: OrientationBuilder(
         builder: (context, orientation) {
           return GridView.count(
-            // Crea una grid con 2 columnas en modo vertical o 3 columnas en
-            // modo horizontal.
+            // Crea una grid con 2 columnas en modo portrait o 3 columnas en
+            // modo landscape.
             crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
             // Genera 100 Widgets que muestran su índice en la Lista
             children: List.generate(100, (index) {
               return Center(
                 child: Text(
-                  'Elemento $index',
+                  'Item $index',
                   style: Theme.of(context).textTheme.headline,
                 ),
               );
