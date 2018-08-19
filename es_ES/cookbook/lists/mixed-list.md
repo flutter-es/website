@@ -47,15 +47,15 @@ class MessageItem implements ListItem {
 
 La mayoría de las veces, buscamos datos de Internet o de una base de datos local y los convertimos en una lista de elementos.
  
-Para este ejemplo, generaremos una lista de elementos para trabajar. La lista contendrá un encabezado seguido de cinco mensajes. Limpie, repita.
+Para este ejemplo, generaremos una lista de elementos para trabajar. La lista contendrá un encabezado seguido de cinco mensajes. Y así sucesivamente.
 
 <!-- skip -->
 ```dart
 final items = List<ListItem>.generate(
   1200,
   (i) => i % 6 == 0
-      ? HeadingItem("Encabezado $i")
-      : MessageItem("Remitente $i", "Cuerpo del Mensaje $i"),
+      ? HeadingItem("Heading $i")
+      : MessageItem("Sender $i", "Message body $i"),
 );
 ```
 
@@ -67,7 +67,7 @@ Para poder convertir cada elemento en un Widget, emplearemos el constructor
 
 En general, queremos proporcionar una función `builder` que verifique con qué tipo de elemento estamos tratando, y devuelva el Widget apropiado para ese tipo de elemento.
 
-En este ejemplo puede ser útil utilizar la palabra clave `is` para comprobar el tipo de elemento con el que estamos tratando. Es rápido, y automáticamente lanzará cada elemento al tipo apropiado. ¡Sin embargo, hay diferentes maneras de abordar este problema si usted prefiere otro patrón!
+En este ejemplo puede ser útil usar la palabra clave `is` para comprobar el tipo de elemento con el que estamos tratando. Es rápido, y automáticamente lanzará cada elemento al tipo apropiado. ¡Sin embargo, hay diferentes maneras de abordar este problema si  prefieres otro patrón!
 
 <!-- skip -->
 ```dart
@@ -107,8 +107,8 @@ void main() {
     items: List<ListItem>.generate(
       1000,
       (i) => i % 6 == 0
-          ? HeadingItem("Encabezado $i")
-          : MessageItem("Remitente $i", "Cuerpo del Mensaje $i"),
+          ? HeadingItem("Heading $i")
+          : MessageItem("Sender $i", "Message body $i"),
     ),
   ));
 }
@@ -120,7 +120,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = 'Lista Mixta';
+    final title = 'Mixed List';
 
     return MaterialApp(
       title: title,
