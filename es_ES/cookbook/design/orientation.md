@@ -17,7 +17,7 @@ En este ejemplo, crearemos una lista que muestre 2 columnas en modo vertical y 3
 
 ## 1. Construya un `GridView` con 2 columnas
 
-Primero, necesitaremos una lista de elementos para trabajar. En lugar de utilizar una lista normal, queremos una lista que muestre los elementos en una Grilla. Por ahora, crearemos una grilla con 2 columnas.
+Primero, necesitaremos una lista de elementos para trabajar. En lugar de utilizar una lista normal, queremos una lista que muestre los elementos en un Grid. Por ahora, crearemos un grid con 2 columnas.
 
 <!-- skip -->
 ```dart
@@ -28,7 +28,7 @@ GridView.count(
 );
 ```
 
-Para obtener más información sobre cómo trabajar con `GridViews`, por favor consulte la receta para la [Creación de una de lista de grillas](/cookbook/lists/grid-lists/).
+Para obtener más información sobre cómo trabajar con `GridViews`, por favor consulte la receta para la [Creación de una de lista de grid](/cookbook/lists/grid-lists/).
 
 ## 2. Use un `OrientationBuilder` para cambiar el número de columnas
 
@@ -43,7 +43,7 @@ Usando la `Orientation`, podemos construir una lista que muestre 2 columnas en m
 OrientationBuilder(
   builder: (context, orientation) {
     return GridView.count(
-      // Crea una grilla con 2 columnas en modo vertical o 3 columnas en
+      // Crea una grid con 2 columnas en modo vertical o 3 columnas en
       // modo horizontal.
       crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
     );
@@ -89,7 +89,7 @@ class OrientationList extends StatelessWidget {
       body: OrientationBuilder(
         builder: (context, orientation) {
           return GridView.count(
-            // Crea una grilla con 2 columnas en modo vertical o 3 columnas en
+            // Crea una grid con 2 columnas en modo vertical o 3 columnas en
             // modo horizontal.
             crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
             // Genera 100 Widgets que muestran su índice en la Lista
