@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.photo_album),
-              title: Text('Álbun'),
+              title: Text('Álbum'),
             ),
             ListTile(
               leading: Icon(Icons.phone),
