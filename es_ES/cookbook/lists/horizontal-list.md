@@ -6,7 +6,7 @@ permalink: /cookbook/lists/horizontal-list/
 
 A veces, es posible que desees crear una lista que se desplace horizontalmente en lugar de verticalmente. El widget [`ListView`](https://docs.flutter.io/flutter/widgets/ListView-class.html) admite listas horizontales listas para usar.
 
-Usaremos el constructor estándar `ListView` pasando por una 
+Usaremos el constructor estándar `ListView` pasándole una 
 `scrollDirection` horizontal, que sobrescribirá la dirección vertical predeterminada.
 
 <!-- skip -->
@@ -49,7 +49,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = 'Lista Horizontal';
+    final title = 'Horizontal List';
 
     return MaterialApp(
       title: title,
