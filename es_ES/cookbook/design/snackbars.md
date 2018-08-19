@@ -68,7 +68,7 @@ final snackBar = SnackBar(
 
 Nota: En este ejemplo, mostraremos un SnackBar cuando un usuario pulse un botón.
 Para obtener más información sobre cómo trabajar con las entradas del usuario, por favor consulta la sección 
-[Manejando Gestos](/cookbook/#handling-gestures) del Cookbook.
+[Manejando Gestos](/cookbook/#manejando-gestos) del Cookbook.
 
 ```dart
 import 'package:flutter/material.dart';
