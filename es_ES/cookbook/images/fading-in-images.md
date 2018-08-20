@@ -1,24 +1,20 @@
 ---
 layout: page
-title: "Fade in images with a placeholder"
+title: "Efecto “Fade in” en imágenes con un placeholder"
 permalink: /cookbook/images/fading-in-images/
 ---
 
-When displaying images using the default `Image` widget, you might notice they 
-simply pop onto the screen as they're loaded. This might feel visually jarring
-to your users.
+Al mostrar imágenes usando el widget `Image` predeterminado, es posible que notes que simplemente aparecen en la pantalla a medida que se cargan. Esto puede parecer visualmente molesto para tus usuarios.
 
-Instead, wouldn't it be nice if you could display a placeholder at first, and 
-images would fade in as they're loaded? We can use the [`FadeInImage`](https://docs.flutter.io/flutter/widgets/FadeInImage-class.html) 
-Widget packaged with Flutter for exactly this purpose!
+En vez de eso, ¿no sería bueno si pudieras mostrar un placeholder al principio, y 
+las imágenes se desvanecerían a medida que se cargan? ¡Podemos usar el Widget [`FadeInImage`](https://docs.flutter.io/flutter/widgets/FadeInImage-class.html) 
+ empaquetado con Flutter exactamente para este propósito!
 
-`FadeInImage` works with images of any type: in-memory, local assets, or images 
-from the internet.
+`FadeInImage` funciona con imágenes de cualquier tipo: en memoria, recursos locales o imágenes de Internet.
 
-## In-Memory
+## En Memoria
 
-In this example, we'll use the [transparent_image](https://pub.dartlang.org/packages/transparent_image)
-package for a simple transparent placeholder.
+En este ejemplo, usaremos el paquete [transparent_image](https://pub.dartlang.org/packages/transparent_image) para un simple placeholder transparente.
 
 <!-- skip -->
 ```dart
@@ -28,7 +24,7 @@ FadeInImage.memoryNetwork(
 );
 ```
 
-### Complete example
+### Ejemplo completo
 
 ```dart
 import 'package:flutter/material.dart';
@@ -69,10 +65,9 @@ class MyApp extends StatelessWidget {
 
 ![Fading In Image Demo](/images/cookbook/fading-in-images.gif)
 
-### From Asset Bundle
+### Desde el Asset Bundle
 
-You can also consider using local assets for placeholders. First, add the asset
-to the project’s _pubspec.yaml_ file:
+También puedes considerar el uso de assets locales para placeholders. Primero, agrega el asset al archivo _pubspec.yaml_ del proyecto:
 
 <!-- skip -->
 ```diff
@@ -81,10 +76,9 @@ to the project’s _pubspec.yaml_ file:
 +    - assets/loading.gif
 ```
 
-(See [Assets and Images](/assets-and-images/) for a full guide to adding assets.)
+(Consulta [Assets e Imágenes](/assets-and-images/) para obtener una guía completa para agregar assets.)
 
-Then, use the [`FadeInImage.assetNetwork`](https://docs.flutter.io/flutter/widgets/FadeInImage/FadeInImage.assetNetwork.html)
-constructor:
+Luego, usa el constructor [`FadeInImage.assetNetwork`](https://docs.flutter.io/flutter/widgets/FadeInImage/FadeInImage.assetNetwork.html):
 
 <!-- skip -->
 ```dart
@@ -94,7 +88,7 @@ FadeInImage.assetNetwork(
 );
 ```
 
-### Complete example
+### Ejemplo completo
 
 ```dart
 import 'package:flutter/material.dart';
@@ -127,4 +121,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-<img alt="Demo of asset fading in" height="566" src="/images/cookbook/fading-in-asset-demo.gif" width="318" />
+<img alt="Demostración de desvanecimiento de assets" height="566" src="/images/cookbook/fading-in-asset-demo.gif" width="318" />

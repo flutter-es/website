@@ -1,28 +1,27 @@
 ---
 layout: page
-title: "Working with cached images"
+title: "Trabajando con imágenes en caché"
 permalink: /cookbook/images/cached-images/
 ---
 
-In some cases, it can be handy to cache images as they're downloaded from the 
-web so they can be used offline. For this purpose, we'll employ the 
+En algunos casos, puede ser útil almacenar en caché las imágenes a medida que se descargan de la web para que puedan usarse sin conexión. Para este propósito, emplearemos el paquete  
 [`cached_network_image`](https://pub.dartlang.org/packages/cached_network_image)
-package.
+.
 
-In addition to caching, the cached_image_network package also supports 
-placeholders and fading images in as they're loaded! 
+Además del almacenamiento en caché, el paquete cached_image_network también admite  
+placeholders e imágenes que se van desvaneciendo a medida que se cargan.
 
 <!-- skip -->
 ```dart
 CachedNetworkImage(
-  imageUrl: 'https://github.com/flutter/website/blob/master/src/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+  imageUrl: 'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
 );
 ```
 
-## Adding a placeholder
+## Agrega un placeholder
 
-The `cached_network_image` package allows us to use any Widget as a placeholder! 
-In this example, we'll display a spinner while the image loads.
+¡El paquete `cached_network_image` nos permite usar cualquier Widget como placeholder! 
+En este ejemplo, mostraremos un spinner mientras se carga la imagen.
 
 <!-- skip -->
 ```dart
@@ -32,7 +31,7 @@ CachedNetworkImage(
 );
 ``` 
 
-## Complete example
+## Ejemplo completo
 
 <!-- skip -->
 ```dart
@@ -46,7 +45,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = 'Cached Images';
+    final title = 'Imágenes en caché';
 
     return MaterialApp(
       title: title,
