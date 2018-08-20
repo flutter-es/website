@@ -63,10 +63,10 @@ Después, añade la imagen al ejemplo:
 
 * Crea un directorio `images` en el raíz del proyecto.
 * Añade
- [`lake.jpg`](https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg).
+ [`lake.jpg`](https://github.com/flutter/website/blob/master/src/_includes/code/layout/lakes/images/lake.jpg).
   (Nota: `wget` no funcionará para guardar este archivo binario.)
 * Actualiza el fichero
-  [`pubspec.yaml`](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/pubspec.yaml)
+  [`pubspec.yaml`](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/pubspec.yaml)
   para incluir una etiqueta `assets`. Esto hace que la imagen este disponible para tu código.
 
 <hr>
@@ -125,7 +125,7 @@ Aquí está el código que implementa la fila 'title'.
 <aside class="alert alert-info" markdown="1">
 **Nota:**
 Si tienes problemas, puedes verificar tu código en
-[`lib/main.dart`](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/main.dart)
+[`lib/main.dart`](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/main.dart)
 en GitHub.
 </aside>
 
@@ -322,7 +322,7 @@ Esta imagen está [disponible
 online](https://images.unsplash.com/photo-1471115853179-bb1d604434e0?dpr=1&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=583&amp;q=80&amp;cs=tinysrgb&amp;crop=)
 bajo licencia Creative Commons, pero es grande y lenta de obtener.
 En el [Paso 0](#step-0) incluiste la imagen en el proyecto actualizando el 
-[fichero pubspec,](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/pubspec.yaml)
+[fichero pubspec,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/pubspec.yaml)
 ahora puedes referenciarla desde tu código:
 
 <!-- code/layout/lakes/main.dart -->
@@ -385,9 +385,9 @@ return MaterialApp(
 //...
 {% endprettify %}
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/main.dart)<br>
-**Imagen:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/lakes/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/lakes/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/main.dart)<br>
+**Imagen:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/lakes/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/pubspec.yaml)
 
 !Esto es¡ Cuando la app hace hot reload, deberías ver el mismo layout
 mostrado en las capturas de pantalla. Puedes añadir interactividad a este layout siguiendo 
@@ -427,7 +427,7 @@ La segunda captura de pantalla muestra el layout visualmente, mostrando una fila
 `debugPaintSizeEnabled` establecido a true por eso puedes ver la representación visual del layout.
 Para más información , mira
 [Depuración visual](/debugging/#visual-debugging), una sección en 
-[Depurando Apps en Flutter](/debugging/#visual-debugging).
+[Depurando Apps en Flutter](/debugging/).
 </aside>
 
 Aquí está un diagrama del árbol de widgets para este UI:
@@ -635,8 +635,8 @@ y el texto a gris oscuro para imintar una app Material.
 
 <img src="images/hello-world.png" style="border:1px solid black" alt="captura de pantalla de un fondo blanco con 'Hello World' en gris.">
 
-**Código Dart** (Material app): [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/hello-world/main.dart)<br>
-**Código Dart** (widgets-only app): [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/widgets-only/main.dart)
+**Código Dart** (Material app): [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/hello-world/main.dart)<br>
+**Código Dart** (widgets-only app): [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/widgets-only/main.dart)
 
 <hr>
 
@@ -729,7 +729,7 @@ ofrecen una variedad de constantes para controlar el alineamiento.
 **Nota:** Cuando añades imágenes a tu proyecto,
 necesitas actualizar el fichero pubspec para acceder a ellas&mdash;este
 ejemplo usa `Image.asset` para mostrar las imágenes. Para más información,
-mira este ejemplo del [fichero pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row/pubspec.yaml),
+mira este ejemplo del [fichero pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row/pubspec.yaml),
 o [Añadir Assets e imágenes en Flutter](/assets-and-images).
 No necesitas hacer esto si esta referenciando imágenes online usando
 `Image.network`.
@@ -748,9 +748,9 @@ libre equitativamente entre, después y antes de cada imagen.
 
 <center><img src="images/row-spaceevenly-visual.png" style="border:1px solid black" alt="una fila mostrando 3 imágenes repartidas equitativamente en la fila"></center>
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row/main.dart)<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/row/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row/main.dart)<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/row/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row/pubspec.yaml)
 
 </div> </div>
 
@@ -764,9 +764,9 @@ libre equitativamente entre, por encima, y por debajo de cada imagen.
 
 {% include includelines filename="code/layout/column/main.dart" start=40 count=8 %}
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/column/main.dart)<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/column/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/column/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/column/main.dart)<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/column/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/column/pubspec.yaml)
 
 </div> <div class="col-md-3" markdown="1">
 
@@ -807,9 +807,9 @@ de ancho que los otros dos widgets, establece el factor _flex_ del widget centra
 
 <img src="images/row-expanded-visual.png" style="border:1px solid black" alt="una fila de 3 imágenes con la imagen del cenro el doble de ancho que las otras">
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row-expanded/main.dart)<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/row-expanded/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row-expanded/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row-expanded/main.dart)<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/row-expanded/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row-expanded/pubspec.yaml)
 
 </div> </div>
 
@@ -827,9 +827,9 @@ a cada widget.
 
 <img src="images/row-expanded-2-visual.png" style="border:1px solid black" alt="una fila de 3 imágenes que son demasiado anchas, pero cada una está restringida para coger solo 1/3 del espacio disponible de su fila">
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row-expanded-2/main.dart)<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/row-expanded-2/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/row-expanded-2/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row-expanded-2/main.dart)<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/row-expanded-2/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row-expanded-2/pubspec.yaml)
 
 </div> </div>
 
@@ -868,9 +868,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 <img src="images/packed.png" style="border:1px solid black" alt="una fila de 5 estrellas, empaquetadas junstas en el medio de una fila">
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/packed/main.dart)<br>
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/packed/main.dart)<br>
 **Iconos:** [Icons class](https://docs.flutter.io/flutter/material/Icons-class.html)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/packed/pubspec.yaml)
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/packed/pubspec.yaml)
 
 </div> </div>
 
@@ -1041,7 +1041,7 @@ La imagen de la Pavlova es de
 y esta disponible bajo la licencia Creative Commons.
 Puedes insertar una imagen de la red usando `Image.network` pero,
 para este ejemplo, la imagen es guardada en un directorio de imágenes en el proyecto,
-añadido al [fichero pubspec,](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/pavlova/pubspec.yaml)
+añadido al [fichero pubspec,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/pavlova/pubspec.yaml)
 y accedida usando `Images.asset`. Para más información, mira
 [Añadir Assets e imágenes en Flutter](/assets-and-images).
 
@@ -1070,9 +1070,9 @@ body: Center(
 
 <div class="row"> <div class="col-md-3" markdown="1">
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/pavlova/main.dart)<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/pavlova/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/pavlova/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/pavlova/main.dart)<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/pavlova/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/pavlova/pubspec.yaml)
 
 </div> <div class="col-md-9" markdown="1">
 
@@ -1164,9 +1164,9 @@ Cada imagen usa un Container para añadir un borde redondeado gris y márgenes.
 El Column, que contiene las filas de imágenes,
 usa un Container para cambiar el color de fondo a gris claro.
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/container/main.dart), snippet below<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/container/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/container/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/main.dart), snippet below<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/container/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/pubspec.yaml)
 
 </div> <div class="col-md-6" markdown="1">
 
@@ -1215,7 +1215,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           // ...
           // [[highlight]]Mira la definición de la segunda fila en GitHub:[[/highlight]]
-          // [[highlight]]https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/container/main.dart[[/highlight]]
+          // [[highlight]]https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/main.dart[[/highlight]]
         ],
       ),
     );
@@ -1261,9 +1261,9 @@ ocupa una celda (por ejemplo, es la entrada de la columna "calorias" para la fil
 <img src="images/gridview-extent.png" style="border:1px solid black" alt="un grid de 3 columnas de fotos">
 
 Usa `GridView.extent` para crear un grid con elmentos de 150 píxeles de ancho máximo.<br>
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/grid/main.dart), resumido abajo<br>
-**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/grid/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/grid/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/grid/main.dart), resumido abajo<br>
+**Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/grid/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/grid/pubspec.yaml)
 
 </div> <div class="col-md-6" markdown="1">
 
@@ -1340,9 +1340,9 @@ es demasiado largo para su _render box_.
 
 Usa un ListView para mostrar una lista de negocios usando ListTiles.
 Un Divider separa los teatros de los restaurantes.<br>
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/listview/main.dart), resumido abajo<br>
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/listview/main.dart), resumido abajo<br>
 **Iconos:** [Icons class](https://docs.flutter.io/flutter/material/Icons-class.html)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/listview/pubspec.yaml)
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/listview/pubspec.yaml)
 
 </div> <div class="col-md-6" markdown="1">
 
@@ -1383,7 +1383,7 @@ List<Widget> list = <Widget>[
   ),
   // ...
   // [[highlight]]Mira el resto de la definición de la columna en GitHub:[[/highlight]]
-  // [[highlight]]https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/listview/main.dart[[/highlight]]
+  // [[highlight]]https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/listview/main.dart[[/highlight]]
 ];
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -1426,9 +1426,9 @@ Los widgets pueden solapar completa o parcialmente el widget base.
 Usa Stack para solapar un Container (que muestra su widget Text en un fondo negro 
 tráslucido) encima de un Avatar Circular.
 Stack aplica un offset al texto usando la propiedad `alignment` y Alignments.<br>
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/stack/main.dart), resumido abajo<br>
-**Imágen:** [imágenes](https://github.com/flutter/website/tree/master/_includes/code/layout/stack/images)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/stack/pubspec.yaml)
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/stack/main.dart), resumido abajo<br>
+**Imágen:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/stack/images)<br>
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/stack/pubspec.yaml)
 
 
 </div> <div class="col-md-6" markdown="1">
@@ -1520,9 +1520,9 @@ Especificar un valor no soportado deshabilita completamente la sombra.
 Un Card conteniendo 3 ListTiles y dimensionado envolviendolo con un SizedBox.
 Un Divider sepra el primer y el segundo ListTiles.
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/card/main.dart), resumido abajo<br>
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/card/main.dart), resumido abajo<br>
 **Iconos:** [Icons class](https://docs.flutter.io/flutter/material/Icons-class.html)<br>
-**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/_includes/code/layout/card/pubspec.yaml)
+**Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/card/pubspec.yaml)
 
 </div> <div class="col-md-6" markdown="1">
 
