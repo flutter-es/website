@@ -29,8 +29,8 @@ dependencies:
   
 ## 2. Realiza una solicitud de red
 
-En este ejemplo, buscaremos una publicación de muestra de 
-[JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) usado el método 
+En este ejemplo, buscaremos un Post de muestra de 
+[JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) usando el método 
 [`http.get`](https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html) .
 
 <!-- skip -->
@@ -40,28 +40,27 @@ Future<http.Response> fetchPost() {
 }
 ```
 
-The `http.get` method returns a `Future` that contains a `Response`. 
+El método `http.get` devuelve un `Future` que contiene un `Response`. 
 
-  * [`Future`](https://docs.flutter.io/flutter/dart-async/Future-class.html) is 
-  a core Dart class for working with async operations. It is used to represent a 
-  potential value or error that will be available at some time in the future.
-  * The `http.Response` class contains the data received from a successful http 
-  call.  
+  * [`Future`](https://docs.flutter.io/flutter/dart-async/Future-class.html) es 
+  una clase del core de Dart para trabajar con operaciones asíncronas. Es usado para representar un 
+  valor potencial o un error que estará disponible en algún momento en el futuro.
+  * La clase `http.Response` contiene los datos recibidos en una llamada http satisfactoria.  
 
-## 3. Convert the response into a custom Dart object
+## 3. Convierte la respuesta en un objeto personalizado de Dart
 
-While it's easy to make a network request, working with a raw 
-`Future<http.Response>` isn't very convenient. To make our lives easier, we can 
-convert the `http.Response` into our own Dart object.
+Mientras que es fácil realizar una solicitud de red, trabajar con un 
+`Future<http.Response>` crudo no es muy conveniente. Para hacer nuestra vida más sencilla, podemos 
+convertir la `http.Response` en nuestro propio objeto Dart.
 
-### Create a `Post` class
+### Crea una clase `Post`
 
-First, we'll need to create a `Post` class that contains the data from our 
-network request. It will also include a factory constructor that allows us to 
-create a `Post` from json.
+Primero, necesitaremos crear una clase `Post` que contiene los datos de nuestra 
+solicitud de red. También incluirá un constructor de factoría que nos permite 
+crear un `Post` desde un json.
 
-Converting JSON by hand is only one option. For more information, please see the 
-full article on [JSON and serialization](/json). 
+Convertir JSON a mano es solo una opción. Para más información, por favor vea el 
+artículo completo en [JSON y serialización](/json). 
 
 <!-- skip -->
 ```dart
@@ -84,16 +83,16 @@ class Post {
 }
 ```
 
-### Convert the `http.Response` to a `Post`
+### Convierte la `http.Response` en un `Post`
 
-Now, we'll update the `fetchPost` function to return a `Future<Post>`. To do so,
-we'll need to:
+Ahora, actualizaremos la función `fetchPost` para devolver un `Future<Post>`. Para hacerlo,
+necesitaremos:
 
-  1. Convert the response body into a json `Map` with the `dart:convert`
-  package.
-  2. If the server returns an "OK" response with a status code of 200, convert 
-  the json `Map` into a `Post` using the `fromJson` factory.
-  3. If the server returns an unexpected response, throw an error
+  1. Convertir el body de la respuesta en un `Map` json con el paquete `dart:convert`.
+
+  2. Si el servidor devuelve una respuesta "OK" con un status code de 200, convierte 
+  el `Map` json en un `Post` usando el constructor de factoría `fromJson`.
+  3. Si el servidor devuelve una respuesta inesperada, lanza un error
 
 <!-- skip -->
 ```dart
@@ -102,31 +101,30 @@ Future<Post> fetchPost() async {
       await http.get('https://jsonplaceholder.typicode.com/posts/1');
 
   if (response.statusCode == 200) {
-    // If server returns an OK response, parse the JSON
+    // Si el servidor devuelve una repuesta OK, parseamos el JSON
     return Post.fromJson(json.decode(response.body));
   } else {
-    // If that response was not OK, throw an error.
+    // Si esta respuesta no fue OK, lanza un error.
     throw Exception('Failed to load post');
   }
 }
 ```
 
-Hooray! Now we've got a function that we can call to fetch a Post from the 
-internet!
+Hurra! Ahora tenemos una función a la que podemos llamar para obtener un Post desde internet!
 
-## 4. Fetch and Display the data
+## 4. Obtiene y muestra los datos
 
-In order to fetch the data and display it on screen, we can use the
-[`FutureBuilder`](https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html)
-widget! The `FutureBuilder` Widget comes with Flutter and makes it easy to work
-with async data sources.
+Para obtener los datos y mostrarlos en la pantalla, podemos usar el widget 
+[`FutureBuilder`](https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html)! 
+El widget `FutureBuilder` viene con Flutter y hace que sea fácil trabajar 
+con fuentes de datos asíncronas.
 
-We must provide two parameters:
+Debemos proporcionar dos parámetros:
 
-  1. The `Future` we want to work with. In our case, we'll call our
-  `fetchPost()` function.
-  2. A `builder` function that tells Flutter what to render, depending on the
-  state of the `Future`: loading, success, or error.
+  1. El `Future` con el que queremos trabajar. En nuestro caso, llamaremos a nuestra 
+  función `fetchPost()`.
+  2. Una función `builder` que dice a Flutter que reproducir, dependiendo del 
+  estado del `Future`: loading, success, o error.
 
 <!-- skip -->
 ```dart
@@ -139,21 +137,20 @@ FutureBuilder<Post>(
       return Text("${snapshot.error}");
     }
 
-    // By default, show a loading spinner
+    // Por defecto, muestra un loading spinner
     return CircularProgressIndicator();
   },
 );
 ```
 
-## Testing
+## Pruebas
 
-For information on how to test this functionality, please see the following 
-recipes:
+Para más información sobre como probar esta funcionalidad, por favor vea la siguiente receta:
 
-  * [Introduction to unit testing](/cookbook/testing/unit-test/)
-  * [Mock dependencies using Mockito](/cookbook/testing/mocking/) 
+  * [Introducción a las pruebas unitarias](/cookbook/testing/unit-test/)
+  * [Simular dependencias usando Mockito](/cookbook/testing/mocking/) 
 
-## Complete example
+## Ejemplo completo
 
 ```dart
 import 'dart:async';
@@ -167,10 +164,10 @@ Future<Post> fetchPost() async {
       await http.get('https://jsonplaceholder.typicode.com/posts/1');
 
   if (response.statusCode == 200) {
-    // If the call to the server was successful, parse the JSON
+    // Si el servidor devuelve una repuesta OK, parseamos el JSON
     return Post.fromJson(json.decode(response.body));
   } else {
-    // If that call was not successful, throw an error.
+    // Si esta respuesta no fue OK, lanza un error.
     throw Exception('Failed to load post');
   }
 }
@@ -217,7 +214,7 @@ class MyApp extends StatelessWidget {
                 return Text("${snapshot.error}");
               }
 
-              // By default, show a loading spinner
+              // Por defecto, muestra un loading spinner
               return CircularProgressIndicator();
             },
           ),

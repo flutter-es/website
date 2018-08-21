@@ -1,34 +1,33 @@
 ---
 layout: page
-title: "Making authenticated requests"
+title: "Crendo peticiones autentificadas"
 permalink: /cookbook/networking/authenticated-requests/
 ---
 
-In order to fetch data from many web services, you need to provide 
-authorization. There are many ways to do this, but perhaps the most common 
-requires using the `Authorization` HTTP header.
+Para obtener datos de muchos web services, necesitas proporcionar 
+autentificación. Hay muchas maneras para hacer esto, pero tal vez la más común 
+requiere el uso del encabezado HTTP `Authorization`.
 
-## Add Authorization Headers
+## Añade el encabezado Authorization
 
-The [`http`](https://pub.dartlang.org/packages/http) package provides a 
-convenient way to add headers to your requests. You can also take advantage of 
-the `dart:io` package for common `HttpHeaders`.
+El paquete [`http`](https://pub.dartlang.org/packages/http) provée una manera 
+conveniente de agregar cabeceras a tus peticiones. También puedes aprovechar el 
+paquete `dart:io` para `HttpHeaders` comunes.
 
 <!-- skip -->
 ```dart
 Future<http.Response> fetchPost() {
   return http.get(
     'https://jsonplaceholder.typicode.com/posts/1',
-    // Send authorization headers to your backend
+    // Envia headers de autentificación a tu backend
     headers: {HttpHeaders.AUTHORIZATION: "Basic your_api_token_here"},
   );
 }
 ```
 
-## Complete example
+## Ejemplo completo
 
-This example builds upon the [Fetching Data from the Internet](/cookbook/networking/fetch-data/) 
-recipe.
+Este ejemplo se basa en la receta [Obtener datos desde internet](/cookbook/networking/fetch-data/).
 
 ```dart
 import 'dart:async';

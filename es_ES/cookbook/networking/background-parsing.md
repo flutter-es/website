@@ -1,33 +1,34 @@
 ---
 layout: page
-title: "Parsing JSON in the background"
+title: "Analizando un JSON en segundo plano"
 permalink: /cookbook/networking/background-parsing/
 ---
 
-By default, Dart apps do all of their work on a single thread. In many cases, 
-this model simplifies coding and is fast enough that it does not result in 
-poor app performance or stuttering animations, often called "jank."
+Por defecto, las aplicaciones Dart hacen todo su trabajo en un solo hilo. En la mayoría de los casos, 
+este modelo simplifica la programación y es lo suficientemente rápido para no resultar en 
+un mal rendimiento de la app o en animaciones a saltos, a menudo llamadas "jank."
 
-However, we may need to perform an expensive computation, such as parsing a 
-very large JSON document. If this work takes more than 16 milliseconds, our 
-users will experience jank.
+Sin embargo, es posible que tengamos que realizar un cálculo costoso, como analizar un 
+documento JSON muy largo. Si este trabajo toma más de 16 milisegundos, nuestros 
+usuarios experimentarán "jank".
 
-To avoid jank, we need to perform expensive computations like this in the 
-background. On Android, this would mean scheduling work on a different thread. 
-In Flutter, we can use a separate [Isolate](https://docs.flutter.io/flutter/dart-isolate/Isolate-class.html).
+Para evitar el "jank", necesitamos realizar operaciones costosas computacionalmente como esta en 
+segundo plano. En Android, esto significaría programar el trabajo en un hilo diferente. 
+En Flutter, podemos usar una clase [Isolate](https://docs.flutter.io/flutter/dart-isolate/Isolate-class.html)
+separada.
 
-## Directions
+## Instrucciones
 
-  1. Add the `http` package
-  2. Make a network request using the `http` package
-  3. Convert the response into a List of Photos
-  4. Move this work to a separate isolate
+  1. Añade el paquete `http`
+  2. Haz una petición de red usando el paquete `http`
+  3. Convierte la respuesta en una lista de fotos
+  4. Mueve este trabajo a una clase Isolate separada
   
-## 1. Add the `http` package
+## 1. Añade el paquete `http`
 
-First, we'll want to add the [`http`](https://pub.dartlang.org/packages/http) 
-package to our project. The `http` package makes it easier to perform network 
-requests, such as fetching data from a JSON endpoint.
+Primero, vamos a querer agregar el paquete [`http`](https://pub.dartlang.org/packages/http) 
+a nuestro proyecto. El paquete `http` hace más fácil realizar peticiones de 
+red , como obtener datos desde un "JSON endpoint".
 
 ```yaml
 dependencies:
@@ -36,10 +37,9 @@ dependencies:
   
 ## 2. Make a network request
 
-In this example, we'll fetch a JSON large document that contains a list of 5000 
-photo objects from the [JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) 
-using the [`http.get`](https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html) 
-method. 
+En este ejemplo, obtendremos un documento JSON grande que contiene una lista de 5000 
+objetos foto de [JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) 
+usando el metodo [`http.get`](https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html). 
 
 <!-- skip -->
 ```dart
@@ -48,20 +48,20 @@ Future<http.Response> fetchPhotos(http.Client client) async {
 }
 ```
 
-Note: We're providing an `http.Client` to the function in this example. This
-will make the function easier to test and use in different environments!
+Nota: Estamos proporcionando un `http.Client` a la función en este ejemplo. Esto hará
+que la función sea mas fácil de probar y usar en diferentes entornos!
 
-## 3. Parse and Convert the json into a List of Photos
+## 3. Analiza y convierte la respuesta en una lista de fotos
 
-Next, following the guidance from the [Fetch data from the internet](/cookbook/networking/fetch-data/)
-recipe, we'll want to convert our `http.Response` into a list of Dart objects.
-This will make the data easier to work with in the future.
+A continuación, siguiendo la guía de la receta [Obtener datos desde internet](/cookbook/networking/fetch-data/), 
+querremos convertir nuestra `http.Response` en una lista de objetos Dart.
+Esto hará más fácil trabajar con los datos en el futuro.
 
-### Create a `Photo` class
+### Crea una clase `Photo`
 
-First, we'll need to create a `Photo` class that contains data about a photo. 
-We will also include a `fromJson` factory to make it easy to create a `Photo` 
-starting with a json object.
+Primero, necesitaremos crear una clase `Photo` que contenga datos acerca de una foto. 
+También incluiremos un método factoría `fromJson` para hacer mas fácil crear una `Photo` 
+partiendo de un objeto json.
 
 <!-- skip -->
 ```dart
@@ -82,13 +82,13 @@ class Photo {
 }
 ```
 
-### Convert the response into a List of Photos
+### Convierte la respuesta en un List de Photos
 
-Now, we'll update the `fetchPhotos` function so it can return a 
-`Future<List<Photo>>`. To do so, we'll need to:
+Ahora, actualizaremos la función `fetchPhotos` para que pueda devolver un 
+`Future<List<Photo>>`. Para hacer esto, necesitaremos:
 
-  1. Create a `parsePhotos` that converts the response body into a `List<Photo>`
-  2. Use the `parsePhotos` function in the `fetchPhotos` function
+  1. Crea un método `parsePhotos` que convierta el body de la respuesta en un `List<Photo>`
+  2. Usa la función `parsePhotos` en la función `fetchPhotos`
 
 <!-- skip -->
 ```dart
@@ -107,17 +107,17 @@ Future<List<Photo>> fetchPhotos(http.Client client) async {
 }
 ```
 
-## 4. Move this work to a separate isolate
+## 4. Mueve este trabajo a una clase Isolate separada
 
-If you run the `fetchPhotos` function on a slower phone, you may notice the app 
-freezes for a brief moment as it parses and converts the json. This is jank, 
-and we want to be rid of it!
+Si ejecutas la función `fetchPhotos` en un teléfono lento, puedes notar que la app 
+se congela por un breve momento cuando esta analizando y convirtiendo el json. Esto es un jank, 
+y queremos deshacernos de esto!
 
-So how can we do that? By moving the parsing and conversion to a background
-isolate using the [`compute`](https://docs.flutter.io/flutter/foundation/compute.html) 
-function provided by Flutter. The `compute` function will run expensive 
-functions in a background isolate and return the result. In this case, we want 
-to run the `parsePhotos` function in the background!
+Entonces ¿Cómo podemos hacer esto? Moviendo el análisis y conversión a un segundo plano aislado 
+usando la función [`compute`](https://docs.flutter.io/flutter/foundation/compute.html) 
+proporcionada por Flutter. La función `compute` puede ejecutar costosas funciones en un 
+segundo plano aislado y devolver el resultado. En este caso, queremos ejecutar 
+la función `parsePhotos` en segundo plano!
 
 <!-- skip -->
 ```dart
@@ -130,16 +130,16 @@ Future<List<Photo>> fetchPhotos(http.Client client) async {
 }
 ```
 
-## Notes on working with Isolates
+## Notas sobre el trabajo con Isolates
 
-Isolates communicate by passing messages back and forth. These messages can
-be primitive values, such as `null`, `num`, `bool`, `double`, or `String`, or 
-simple objects such as the `List<Photo>` in this example.
+Isolates se comunican pasando mensajes de un lado a otro. Los mensajes pueden 
+ser valores primitivos, como son `null`, `num`, `bool`, `double`, o `String`, o
+objetos simples como es el `List<Photo>` en este ejemplo.
 
-You may experience errors if you try to pass more complex objects, such as 
-a `Future` or `http.Response` between isolates.
+Puedes experimentar errores si intentas pasar objetos más complejos, como es 
+un `Future` o `http.Response` entre _isolates_.
 
-## Complete example
+## Ejemplo completo
 
 ```dart
 import 'dart:async';
@@ -153,11 +153,11 @@ Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response =
       await client.get('https://jsonplaceholder.typicode.com/photos');
 
-  // Use the compute function to run parsePhotos in a separate isolate
+  // Usa la función compute para ejecutar parsePhotos en un isolate separado
   return compute(parsePhotos, response.body);
 }
 
-// A function that will convert a response body into a List<Photo>
+// Una función que convertirá el body de la respuesta en un List<Photo>
 List<Photo> parsePhotos(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
 
