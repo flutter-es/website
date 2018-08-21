@@ -40,7 +40,7 @@
     "description": "Un widget que muestra una imagen.",
     "categories": [
       "Básicos",
-      "Assets, Imágenes, y Iconos"
+      "Assets, Imágenes, e Iconos"
     ],
     "subcategories": [
       "Mostrando información"
@@ -64,7 +64,7 @@
     "description": "Un ícono de Material Design.",
     "categories": [
       "Básicos",
-      "Assets, Imágenes, y Iconos"
+      "Assets, Imágenes, e Iconos"
     ],
     "subcategories": [
       "Mostrando información"
@@ -261,7 +261,7 @@
     "description": "Tocar un campo de texto (TextField) coloca el cursor y muestra el teclado. El widget TextField implementa este componente.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/TextField-class.html",
     "image": "<img alt='' src='https://material-design.storage.googleapis.com/publish/material_v_9/0B7WCemMG6e0VbURLNTM0N0R6eUE/components_text_fields.png'>"
@@ -271,7 +271,7 @@
     "description": "Las casillas de verificación (Checkbox) permiten al usuario seleccionar múltiples opciones de un conjunto. El widget Checkbox implementa este componente.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/Checkbox-class.html",
     "image": "<img alt='' src='https://storage.googleapis.com/material-design/publish/material_v_9/0Bx4BSt6jniD7T2xGbGo0cUlPVG8/components_switches_check1.png'>"
@@ -281,7 +281,7 @@
     "description": "Utilizar los Radio Botones permiten al usuario seleccionar una opción de un conjunto. Utilice los botones de opción para selección exclusiva si cree que el usuario necesita ver todas las opciones disponibles una al lado de la otra.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/Radio-class.html",
     "image": "<img alt='' src='https://storage.googleapis.com/material-design/publish/material_v_9/0Bx4BSt6jniD7Z1NaaXh2ZkpDRkE/components_switches_radio1.png'>"
@@ -291,7 +291,7 @@
     "description": "Los interruptores de encendido/apagado alternan el estado de una opción de configuración única. El widget Switch implementa este componente.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/Switch-class.html",
     "image": "<img alt='' src='https://storage.googleapis.com/material-design/publish/material_v_9/0Bx4BSt6jniD7NDg4aGIzVXYxVEE/components_switches_switch1.png'>"
@@ -301,7 +301,7 @@
     "description": "Sliders permiten que los usuarios seleccionen entre un rango de valores moviendo el control deslizante.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/Slider-class.html",
     "image": "<img alt='' src='https://material-design.storage.googleapis.com/publish/material_v_9/0B7WCemMG6e0VTmJrQUYzajFIclE/components_sliders.png'>"
@@ -311,7 +311,7 @@
     "description": "Los Date pickers usan una ventana de diálogo para seleccionar una sola fecha en el móvil. Los Time pickers de tiempo usan un diálogo para seleccionar un tiempo individual ( en formato horas:minutos) en el móvil.",
     "categories": [],
     "subcategories": [
-      "Entradas y selección"
+      "Entradas y selecciones"
     ],
     "link": "https://docs.flutter.io/flutter/material/showDatePicker.html",
     "image": "<img alt='' src='https://material-design.storage.googleapis.com/publish/material_v_9/0B7WCemMG6e0VY2h4WElGdEhPb2c/components_pickers.png'>"
@@ -920,7 +920,7 @@
     "name": "RawImage",
     "description": "Un widget que muestra una dart:ui.Image directamente.",
     "categories": [
-      "Assets, Imágenes, y Iconos"
+      "Assets, Imágenes, e Iconos"
     ],
     "subcategories": [
     ],
@@ -931,7 +931,7 @@
     "name": "AssetBundle",
     "description": "Los Asset bundles contienen recursos, como imágenes y cadenas de texto, que pueden ser utilizados por una aplicación. El acceso a estos recursos es asíncrono, por lo que se pueden cargar de forma transparente a través de una red (por ejemplo, desde un NetworkAssetBundle) o desde el sistema de archivos local sin bloquear la interfaz de usuario de la aplicación.",
     "categories": [
-      "Assets, Imágenes, y Iconos"
+      "Assets, Imágenes, e Iconos"
     ],
     "subcategories": [
     ],

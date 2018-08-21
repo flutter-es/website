@@ -1,7 +1,7 @@
 [
   {
     "name": "Básicos",
-    "description": "Wigets que definitivamente debes conocer antes de construir tu primera app con FLutter.",
+    "description": "Wigets que definitivamente debes conocer antes de construir tu primera app con Flutter.",
     "priority": "high",
     "id":"basics"
   },
@@ -16,7 +16,7 @@
         "name": "Botones"
       },
       {
-        "name": "Entradas y selección"
+        "name": "Entradas y selecciones"
       },
       {
         "name": "Dialogs, alerts, y panels"
@@ -60,7 +60,7 @@
     "id":"text"
   },
   {
-    "name": "Assets, Imágenes, y Iconos",
+    "name": "Assets, Imágenes, e Iconos",
     "description": "Gestiona assets, muestra imágenes e iconos.",
     "id":"assets"
   },
