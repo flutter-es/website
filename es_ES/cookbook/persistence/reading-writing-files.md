@@ -6,7 +6,7 @@ permalink: /cookbook/persistence/reading-writing-files/
 
 En algunos casos, puede ser útil leer y escribir archivos en el disco. Esto puede 
 ser usado para conservar los datos en los lanzamientos de la aplicación o descargar 
-datos de Internet y guardarlos para su posterior uso fuera de línea.
+datos de internet y guardarlos para su posterior uso fuera de línea.
 
 Para guardar archivos en el disco, necesitaremos combinar el plugin
 [`path_provider`](https://pub.dartlang.org/packages/path_provider) con 
@@ -79,7 +79,7 @@ simplemente almacenaremos el número entero como una cadena.
 Future<File> writeCounter(int counter) async {
   final file = await _localFile;
   
-  // Write the file
+  // Escribir el archivo
   return file.writeAsString('$counter');
 }
 ``` 
@@ -95,12 +95,12 @@ Future<int> readCounter() async {
   try {
     final file = await _localFile;
 
-    // Read the file
+    // Leer el archivo
     String contents = await file.readAsString();
 
     return int.parse(contents);
   } catch (e) {
-    // If we encounter an error, return 0
+    // Si encontramos un error, regresamos 0
     return 0;
   }
 }
@@ -121,7 +121,7 @@ archivo de prueba. Esta función se ejecutará antes de que se ejecuten las prue
 <!-- skip -->
 ```dart
 setUpAll(() async {
-  // Create a temporary directory to work with
+  // Crea un directorio temporal para trabajar
   final directory = await Directory.systemTemp.createTemp();
   
   // Mock out the MethodChannel for the path_provider plugin
@@ -150,7 +150,7 @@ import 'package:path_provider/path_provider.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: 'Reading and Writing Files',
+      title: 'Leyendo y escribiendo archivos',
       home: FlutterDemo(storage: CounterStorage()),
     ),
   );
@@ -172,12 +172,12 @@ class CounterStorage {
     try {
       final file = await _localFile;
 
-      // Read the file
+      // Leer archivo
       String contents = await file.readAsString();
 
       return int.parse(contents);
     } catch (e) {
-      // If we encounter an error, return 0
+      // Si encontramos un error, regresamos 0
       return 0;
     }
   }
@@ -185,7 +185,7 @@ class CounterStorage {
   Future<File> writeCounter(int counter) async {
     final file = await _localFile;
 
-    // Write the file
+    // Escribir archivo
     return file.writeAsString('$counter');
   }
 }
@@ -217,7 +217,7 @@ class _FlutterDemoState extends State<FlutterDemo> {
       _counter++;
     });
 
-    // write the variable as a string to the file
+    // escribe las variables como texto en el archivo
     return widget.storage.writeCounter(_counter);
   }
 
