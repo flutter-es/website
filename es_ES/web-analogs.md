@@ -157,7 +157,7 @@ var container = Container( // grey box
 Para especificar el ancho de un widget [Container](https://docs.flutter.io/flutter/widgets/Container-class.html), utiliza su propiedad `width`. Este es un ancho fijo, a diferencia de la propiedad CSS Max-width que ajusta el ancho del contenedor hasta un valor máximo.
 Para imitar ese efecto Flutter, usa las propiedades `constraints` del Container.
 
-Cree un nuevo widget [BoxConstraints](https://docs.flutter.io/flutter/rendering/BoxConstraints-class.html) con un `minWidth` o `maxWidth`.
+Crea un nuevo widget [BoxConstraints](https://docs.flutter.io/flutter/rendering/BoxConstraints-class.html) con un `minWidth` o `maxWidth`.
 
 En el caso de los contenedores anidados, si el ancho de los padres es menor que el ancho del hijo, el Contenedor hijo se dimensiona a sí mismo para que coincida con el padre.
 
@@ -343,7 +343,7 @@ var container = Container( // gray box
 
 Para escalar un widget arriba o abajo, anidarlo en un widget [Transform](https://docs.flutter.io/flutter/widgets/Transform-class.html). Use las propiedades `alignment` y `origin` del widget Transform para especificar el origen (fulcrum) de la transformación en términos relativos o absolutos respectivamente.
 
-Para una operacion de escalamiento simple a lo largo del eje x cree un nuevo objeto de identidad [Matrix4](https://docs.flutter.io/flutter/vector_math_64/Matrix4-class.html) y utilice su método scale() para especificar el factor de escala.
+Para una operacion de escalamiento simple a lo largo del eje x crea un nuevo objeto de identidad [Matrix4](https://docs.flutter.io/flutter/vector_math_64/Matrix4-class.html) y utilice su método scale() para especificar el factor de escala.
 
 Cuando se escala un widget primario, los widgets secundarios se escalan en consecuencia.
 <div class="lefthighlight">
@@ -402,12 +402,12 @@ var container = Container( // gray box
 ### Aplicando linear gradient
 
 Para aplicar linear gradient a un background de un widget, anidarlo en un widget [Container](https://docs.flutter.io/flutter/widgets/Container-class.html)
-Entonces use la propiedad `decoration` del widget Container cree un objeto [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html) , y use la propiedad `gradient` de BoxDecoration para transformar el relleno del background.
+Entonces use la propiedad `decoration` del widget Container crea un objeto [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html), y usa la propiedad `gradient` de BoxDecoration para transformar el relleno del background.
  
 El "ángulo" del gradient se basa en los valores de alineación (x, y):
 
-* Si los valores x iniciales y finales son iguales, el gradiente es vertical (0° | 180°).
-* Si los valores y de inicio y fin son iguales, el gradiente es horizontal (90° | 270°).
+* Si los valores de "x" iniciales y finales son iguales, el gradiente es vertical (0° | 180°).
+* Si los valores de "y" iniciales y finales son iguales, el gradiente es horizontal (90° | 270°).
 
 #### Vertical gradient
 
@@ -524,7 +524,7 @@ Los siguientes ejemplos muestran cómo crear y personalizar formas.
 
 ### Redondeo de esquinas
 
-Para redondear esquinas de un shape, use la propiedad `borderRadius` de un objeto [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html). Cree un objeto [BorderRadius](https://docs.flutter.io/flutter/painting/BorderRadius-class.html) que especifica los radios para redondear cada esquina.
+Para redondear esquinas de un shape, use la propiedad `borderRadius` de un objeto [BoxDecoration](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html). Crea un objeto [BorderRadius](https://docs.flutter.io/flutter/painting/BorderRadius-class.html) que especifica los radios para redondear cada esquina.
 
 <div class="lefthighlight">
 {% prettify css %}
