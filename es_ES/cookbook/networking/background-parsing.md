@@ -38,8 +38,8 @@ dependencies:
 ## 2. Make a network request
 
 En este ejemplo, obtendremos un documento JSON grande que contiene una lista de 5000 
-objetos foto de [JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) 
-usando el metodo [`http.get`](https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html). 
+objetos fotográficos desde la [JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) 
+usando el método [`http.get`](https://docs.flutter.io/flutter/package-http_http/package-http_http-library.html). 
 
 <!-- skip -->
 ```dart
@@ -54,14 +54,14 @@ que la función sea mas fácil de probar y usar en diferentes entornos!
 ## 3. Analiza y convierte la respuesta en una lista de fotos
 
 A continuación, siguiendo la guía de la receta [Obtener datos desde internet](/cookbook/networking/fetch-data/), 
-querremos convertir nuestra `http.Response` en una lista de objetos Dart.
-Esto hará más fácil trabajar con los datos en el futuro.
+queremos convertir nuestra `http.Response` en una lista de objetos Dart.
+Esto facilitará trabajar con tales objetos en el futuro.
 
 ### Crea una clase `Photo`
 
 Primero, necesitaremos crear una clase `Photo` que contenga datos acerca de una foto. 
-También incluiremos un método factory `fromJson` para hacer mas fácil crear una `Photo` 
-partiendo de un objeto json.
+También incluiremos un método `fromJson` del tipo factory para facilitar la creación de un objeto `Photo` 
+comenzando con un objeto json.
 
 <!-- skip -->
 ```dart
