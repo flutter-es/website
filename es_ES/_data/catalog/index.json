@@ -1,0 +1,115 @@
+[
+  {
+    "name": "Básicos",
+    "description": "Wigets que definitivamente debes conocer antes de construir tu primera app con FLutter.",
+    "priority": "high",
+    "id":"basics"
+  },
+  {
+    "name": "Material Components",
+    "description": "Visuales, funcionales, y motion-rich widgets implementando las <a href=\"https://material.io/guidelines/material-design/introduction.html\">Material Design guidelines</a>.",
+    "subcategories": [
+      {
+        "name": "Estructura de la app y navegación"
+      },
+      {
+        "name": "Botones"
+      },
+      {
+        "name": "Entradas y selección"
+      },
+      {
+        "name": "Dialogs, alerts, y panels"
+      },
+      {
+        "name": "Mostrando información"
+      },
+      {
+        "name": "Layout",
+        "description": "Mira también <a href=\"/widgets/catalog/layout/\">widgets generales de layout</a> en Flutter (como filas, columnas, y más)."
+      }
+    ],
+    "id":"material"
+  },
+  {
+    "name": "Cupertino (widgets estilo iOS)",
+    "description": "Widgets bellos y de alta fidelidad para el actual lenguaje de diseño de iOS.",
+    "id":"cupertino"
+  },
+  {
+    "name": "Layout",
+    "description": "Organiza otros widgets, columnas, filas, grids, y muchos otros layouts.",
+    "subcategories": [
+      {
+        "name": "Widgets de un solo hijo",
+        "description": "Estos widgets toman un solo hijo y manipulan su layout."
+      },
+      {
+        "name": "Widgets de múltiples hijos",
+        "description":"Estos widgets toman múltiples hijos y organizan estos de diferentes maneras."
+      },
+      {
+        "name": "Ayudas a layouts"
+      }
+    ],
+    "id":"layout"
+  },
+  {
+    "name": "Texto",
+    "description": "Muestra y da estilo a texto.",
+    "id":"text"
+  },
+  {
+    "name": "Assets, Imágenes, y Iconos",
+    "description": "Gestiona assets, muestra imágenes e iconos.",
+    "id":"assets"
+  },
+  {
+    "name": "Input",
+    "description": "Obtén entradas del usuario, además de con los widgets de entrada de Material Components y Cupertino.",
+    "id":"input"
+  },
+  {
+    "name": "Animación y Movimiento",
+    "description": "Dale animaciones a tu app. Revisa <a href=\"/animations/\">Animaciones</a> en Flutter para una visión general.",
+    "id":"animation"
+  },
+  {
+    "name": "Modelos de Interacción",
+    "description": "Responde eventos touch y lleva a los usuarios a vistas diferentes.",
+    "subcategories": [
+      {
+        "name": "Interacciones Touch"
+      },
+      {
+        "name": "Rutas"
+      }
+    ],
+    "id":"interaction"
+  },
+  {
+    "name": "Estilos",
+    "description": "Gestiona el theme de tu app, haz tu app adaptativa a los tamaños de pantalla, o añade padding.",
+    "id":"styling"
+  },
+  {
+    "name": "Pintado y efectos",
+    "description": "Estos widgets aplican efectos visuales a sus hijos sin cambiar su layout, tamaño o posición.",
+    "id":"painting"
+  },
+  {
+    "name": "Asincronía",
+    "description": "Patrón asíncrono para tu aplicación Flutter.",
+    "id":"async"
+  },
+  {
+    "name": "Scrolling",
+    "description": "Scroll en múltiples widget como hijos del padre.",
+    "id":"scrolling"
+  },
+  {
+    "name": "Accesibilidad",
+    "description": "Haz tu app accesible. (Esto es un trabajo en proceso.)",
+    "id":"accessibility"
+  }
+]
