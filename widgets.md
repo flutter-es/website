@@ -18,7 +18,7 @@ puedes también ver todos los widgets en el<a href="/widgets/widgetindex/">índi
 		    <h3 class="catalog-category-title"><a class="action-link" href="/widgets/{{section.id}}">{{section.name}}</a></h3>
 		    <p>{{section.description}}</p>
 		    <div class="card-action">
-		        <a class="action-link" href="/widgets/{{section.id}}">VISITAR</a>
+		        <a class="action-link" href="/widgets/{{section.id}}">VISITA</a>
 		    </div>
 		</div>
 		
