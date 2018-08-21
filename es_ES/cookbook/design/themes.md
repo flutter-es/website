@@ -33,7 +33,7 @@ para ver todos los colores y fuentes que puede definir.
 
 ## Temas para parte de una aplicación
 
-Si queremos sobreescribir el tema app-wide en parte de nuestra aplicación, podemos envolver una sección de nuestra aplicación en un Widget `Theme`.
+Si queremos sobrescribir el tema app-wide en parte de nuestra aplicación, podemos envolver una sección de nuestra aplicación en un Widget `Theme`.
 
 Hay dos formas de abordar esto: crear un `ThemeData` único, o extender el tema padre.
 
