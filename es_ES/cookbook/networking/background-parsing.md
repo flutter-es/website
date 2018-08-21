@@ -132,8 +132,8 @@ Future<List<Photo>> fetchPhotos(http.Client client) async {
 
 ## Notas sobre el trabajo con Isolates
 
-Isolates se comunican pasando mensajes de un lado a otro. Los mensajes pueden 
-ser valores primitivos, como son `null`, `num`, `bool`, `double`, o `String`, o
+Los Isolates se comunican pasando mensajes de un lado a otro. Los mensajes pueden 
+ser valores primitivos, como son `null`, `num`, `bool`, `double`, o `String`, u
 objetos simples como es el `List<Photo>` en este ejemplo.
 
 Puedes experimentar errores si intentas pasar objetos más complejos, como es 

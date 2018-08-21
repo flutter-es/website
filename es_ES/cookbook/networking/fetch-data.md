@@ -10,9 +10,9 @@ Flutter provéen de herramientas para este tipo de trabajo!
 ## Instrucciones
 
   1. Añade el paquete `http`
-  2. Realiza una solicitud de red usando el paquete `http`
+  2. Realiza una petición de red usando el paquete `http`
   3. Convierte la respuesta en un objeto personalizado en Dart
-  4. Obtiene y muestra los datos en Flutter
+  4. Obtiene y muestra los datos con Flutter
   
 ## 1. Añade el paquete `http`
 
