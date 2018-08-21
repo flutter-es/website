@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Crendo peticiones autentificadas"
+title: "Creando peticiones autentificadas"
 permalink: /cookbook/networking/authenticated-requests/
 ---
 

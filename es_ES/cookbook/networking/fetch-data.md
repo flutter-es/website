@@ -56,7 +56,7 @@ convertir la `http.Response` en nuestro propio objeto Dart.
 ### Crea una clase `Post`
 
 Primero, necesitaremos crear una clase `Post` que contiene los datos de nuestra 
-solicitud de red. También incluirá un constructor de factoría que nos permite 
+solicitud de red. También incluirá un constructor factory que nos permite 
 crear un `Post` desde un json.
 
 Convertir JSON a mano es solo una opción. Para más información, por favor vea el 
@@ -91,7 +91,7 @@ necesitaremos:
   1. Convertir el body de la respuesta en un `Map` json con el paquete `dart:convert`.
 
   2. Si el servidor devuelve una respuesta "OK" con un status code de 200, convierte 
-  el `Map` json en un `Post` usando el constructor de factoría `fromJson`.
+  el `Map` json en un `Post` usando el constructor factory `fromJson`.
   3. Si el servidor devuelve una respuesta inesperada, lanza un error
 
 <!-- skip -->

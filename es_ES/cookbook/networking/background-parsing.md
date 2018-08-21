@@ -6,7 +6,7 @@ permalink: /cookbook/networking/background-parsing/
 
 Por defecto, las aplicaciones Dart hacen todo su trabajo en un solo hilo. En la mayoría de los casos, 
 este modelo simplifica la programación y es lo suficientemente rápido para no resultar en 
-un mal rendimiento de la app o en animaciones a saltos, a menudo llamadas "jank."
+un mal rendimiento de la app o en animaciones a saltos, a menudo llamadas "jank".
 
 Sin embargo, es posible que tengamos que realizar un cálculo costoso, como analizar un 
 documento JSON muy largo. Si este trabajo toma más de 16 milisegundos, nuestros 
@@ -26,9 +26,9 @@ separada.
   
 ## 1. Añade el paquete `http`
 
-Primero, vamos a querer agregar el paquete [`http`](https://pub.dartlang.org/packages/http) 
+Primero, agregaremos el paquete [`http`](https://pub.dartlang.org/packages/http) 
 a nuestro proyecto. El paquete `http` hace más fácil realizar peticiones de 
-red , como obtener datos desde un "JSON endpoint".
+red, como obtener datos desde un "JSON endpoint".
 
 ```yaml
 dependencies:
@@ -60,7 +60,7 @@ Esto hará más fácil trabajar con los datos en el futuro.
 ### Crea una clase `Photo`
 
 Primero, necesitaremos crear una clase `Photo` que contenga datos acerca de una foto. 
-También incluiremos un método factoría `fromJson` para hacer mas fácil crear una `Photo` 
+También incluiremos un método factory `fromJson` para hacer mas fácil crear una `Photo` 
 partiendo de un objeto json.
 
 <!-- skip -->
@@ -92,7 +92,7 @@ Ahora, actualizaremos la función `fetchPhotos` para que pueda devolver un
 
 <!-- skip -->
 ```dart
-// A function that will convert a response body into a List<Photo>
+// Una función que convertirá el body de la respuesta en un List<Photo>
 List<Photo> parsePhotos(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
 
@@ -125,7 +125,7 @@ Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response =
       await client.get('https://jsonplaceholder.typicode.com/photos');
 
-  // Use the compute function to run parsePhotos in a separate isolate
+  // Usa la función compute para ejecutar parsePhotos en un isolate separado
   return compute(parsePhotos, response.body);
 }
 ```

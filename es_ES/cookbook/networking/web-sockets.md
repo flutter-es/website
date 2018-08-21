@@ -5,7 +5,7 @@ permalink: /cookbook/networking/web-sockets/
 ---
 
 Además de las peticiones normales HTTP, podemos conectarnos a servidores usando WebSockets. 
-WebSockets permite una comuncación de dos vias con el servidor sin usar [polling](https://es.wikipedia.org/wiki/Pollin).
+WebSockets permite una comuncación de dos vias con el servidor sin usar [polling](https://es.wikipedia.org/wiki/Polling).
 
 En este ejemplo, conectaremos a un [servidor de pruebas proporcionado por 
 websocket.org](http://www.websocket.org/echo.html). Este servidor simplemente nos devolverá 
