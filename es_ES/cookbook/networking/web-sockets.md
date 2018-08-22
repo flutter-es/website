@@ -5,7 +5,7 @@ permalink: /cookbook/networking/web-sockets/
 ---
 
 Además de las peticiones normales HTTP, podemos conectarnos a servidores usando WebSockets. 
-WebSockets permite una comuncación de dos vias con el servidor sin usar [polling](https://es.wikipedia.org/wiki/Polling).
+WebSockets permite una comuncación de dos vias con el servidor sin ["polling"](https://es.wikipedia.org/wiki/Polling).
 
 En este ejemplo, conectaremos a un [servidor de pruebas proporcionado por 
 websocket.org](http://www.websocket.org/echo.html). Este servidor simplemente nos devolverá 
@@ -58,8 +58,8 @@ StreamBuilder(
 
 ### ¿Cómo funciona esto?
 
-El `WebSocketChannel` proporciona un [`Stream`](https://docs.flutter.io/flutter/dart-async/Stream-class.html)
-de mensajes desde el servidor. 
+El `WebSocketChannel` proporciona un [`Stream`](https://docs.flutter.io/flutter/dart-async/Stream-class.html) 
+de mensajes desde el servidor.
 
 La clase `Stream` es una parte fundamental del paquete `dart:async`. Este 
 proporciona una manera de escuchar eventos asíncronos desde 
@@ -73,7 +73,7 @@ recibe un evento usando la función `builder` proporcionada!
 
 ## 3. Envía datos al servidor
 
-Para enviar datos al servidor, usaremos el método `add` de la propiedad `sink` proporcionada 
+Para enviar datos al servidor, agregaremos mensajes con el método `add` al receptor `sink` proporcionada 
 por el `WebSocketChannel`.
 
 <!-- skip -->
@@ -91,7 +91,7 @@ fuente de datos.
 
 ## 4. Cierra la conexión al WebSocket
 
-Después de que hayamos usado el WebSocket, querremos cerrar la conexión! Para hacerlo, 
+Después de que hayamos usado el WebSocket, queremos cerrar la conexión! Para hacerlo, 
 podemos cerrar el `sink`.
 
 <!-- skip -->
@@ -170,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _sendMessage,
         tooltip: 'Send message',
         child: Icon(Icons.send),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ), // Esta coma final hace al auto-formateo más agradable a los métodos de compilación.
     );
   }
 

@@ -27,7 +27,7 @@ dependencies:
   http: <latest_version>
 ```
   
-## 2. Realiza una solicitud de red
+## 2. Realiza una petición de red
 
 En este ejemplo, buscaremos un Post de muestra de 
 [JSONPlaceholder REST API](https://jsonplaceholder.typicode.com/) usando el método 
@@ -49,14 +49,14 @@ El método `http.get` devuelve un `Future` que contiene un `Response`.
 
 ## 3. Convierte la respuesta en un objeto personalizado de Dart
 
-Mientras que es fácil realizar una solicitud de red, trabajar con un 
+Mientras que es fácil realizar una petición de red, trabajar con un 
 `Future<http.Response>` crudo no es muy conveniente. Para hacer nuestra vida más sencilla, podemos 
 convertir la `http.Response` en nuestro propio objeto Dart.
 
 ### Crea una clase `Post`
 
 Primero, necesitaremos crear una clase `Post` que contiene los datos de nuestra 
-solicitud de red. También incluirá un constructor factory que nos permite 
+petición de red. También incluirá un constructor factory que nos permite 
 crear un `Post` desde un json.
 
 Convertir JSON a mano es solo una opción. Para más información, por favor vea el 
@@ -91,7 +91,7 @@ necesitaremos:
   1. Convertir el body de la respuesta en un `Map` json con el paquete `dart:convert`.
 
   2. Si el servidor devuelve una respuesta "OK" con un status code de 200, convierte 
-  el `Map` json en un `Post` usando el constructor factory `fromJson`.
+  el `Map` json en un `Post` usando el método `fromJson` de tipo factory.
   3. Si el servidor devuelve una respuesta inesperada, lanza un error
 
 <!-- skip -->
@@ -112,7 +112,7 @@ Future<Post> fetchPost() async {
 
 Hurra! Ahora tenemos una función a la que podemos llamar para obtener un Post desde internet!
 
-## 4. Obtiene y muestra los datos
+## 4. Obtén y muestra los datos con Flutter
 
 Para obtener los datos y mostrarlos en la pantalla, podemos usar el widget 
 [`FutureBuilder`](https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html)! 
@@ -164,7 +164,7 @@ Future<Post> fetchPost() async {
       await http.get('https://jsonplaceholder.typicode.com/posts/1');
 
   if (response.statusCode == 200) {
-    // Si el servidor devuelve una repuesta OK, parseamos el JSON
+    // Si el servidor devuelve una repuesta OK, analizaremos el JSON
     return Post.fromJson(json.decode(response.body));
   } else {
     // Si esta respuesta no fue OK, lanza un error.
