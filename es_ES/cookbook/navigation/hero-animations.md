@@ -20,7 +20,7 @@ En este ejemplo, mostraremos la misma imagen en ambas pantallas. Quisiéramos an
 
 *Nota:* Este ejemplo se basa en las recetas
 [Navegar a una nueva pantalla y volver](/cookbook/navigation/navigation-basics/) 
-y [Manejando pulsos ](/cookbook/gestures/handling-taps/). 
+y [Manejando gestos Tap](/cookbook/gestures/handling-taps/). 
 
 ```dart
 class MainScreen extends StatelessWidget {
