@@ -29,7 +29,7 @@ un dispositivo Android ejecutando Android 4.1 (API nivel 16) o superior.
 tu dispositivo Android conectado.
 
 Por defecto, Flutter utiliza la versión SDK de Android donde se encuentren las herramientas `adb`. Si
-quieres que Flutter utilice alguna instalación diferente de el SDK de Android, deberás configurar
+quieres que Flutter utilice alguna instalación diferente del SDK de Android, deberás configurar
 la variable de entorno `ANDROID_HOME` en el directorio de instalación.
 
 ### Configurar el emulador de Android
