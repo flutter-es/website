@@ -2,7 +2,7 @@
 
 Se puede actualizar la variable de PATH para la sesión actual solo para la linea de comandos, 
 como se muestra en [Obtener Flutter SDK](./#get-sdk). Probablemente necesitarás 
-actualizar esta variable permanentemente, de esta manera poder ejecutar el comando `flutter`
+actualizar esta variable permanentemente, de esta manera podrás ejecutar el comando `flutter`
 en cualquier sesión de terminal.
 
 Los pasos para modificar esta variables permanentemente para todas las sesiones de terminal para el equipo.
