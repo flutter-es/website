@@ -46,9 +46,9 @@ algunos de los widgets de layout más comunes son cubiertos.
 * [Recursos](#resources)
 
 <a name="building"></a>
-## Contruyendo un layout
+## Construyendo un layout
 
-Si buscas tener una "visión general" para entender el mecánismo de los layouts,
+Si buscas tener una "visión general" para entender el mecanismo de los layouts,
 empieza con [Enfoque de los layouts en Flutter](#approach).
 
 <a name="step-0"></a>
@@ -114,7 +114,7 @@ restante en la fila. Ajustando la propiedad `crossAxisAlignment` a
 `CrossAxisAlignment.start` posicionamos la columna al principio de la fila.
 
 Poniendo la primera fila de texto dentro de un Container posibilitamos la adicción de padding.
-El segundo hijo en Column , también texto, se dibuja gris.
+El segundo hijo en Column, también texto, se dibuja gris.
 
 Los dos últimos elementos en la fila 'title' son un icono estrella, dibujado rojo,
 y un texto "41". Pon la fila entera en un Container y dale un padding de 32 pixels
@@ -186,16 +186,16 @@ Para una experiencia de desarrollo más rápida, prueba la funcionalidad hot rel
 Hot reload te permite modificar tu código y ver los cambios sin tener que
 arrancar de nuevo por completo la app. Con el soporte para Flutter de los IDEs
 ['hot reload on save'](/hot-reload/), o desencadenándolo por línea de comandos.
-Para mas información sobre recargas, mira [Hot Reloads vs. Reiniciar por completo la App](/using-ide/#hot-reloads-vs-full-application-restarts).
+Para más información sobre recargas, mira [Hot Reloads vs. Reiniciar por completo la App](/using-ide/#hot-reloads-vs-full-application-restarts).
 </aside>
 
 <a name="step-3"></a>
 ### Paso 3: Implementa la fila 'button'
 
 La sección 'button' contiene 3 columnas que usan el mismo layout&mdash;un 
-icono sobre una flia de texto. Las columnas en esta fila están espaciadas uniformemente,
-y el texto y los iconos estan dibujados con el color primario,
-que está establecido ázul en el método `build()` de la app:
+icono sobre una fila de texto. Las columnas en esta fila están espaciadas uniformemente,
+y el texto y los iconos están dibujados con el color primario,
+que está establecido azul en el método `build()` de la app:
 
 <!-- code/layout/lakes/main.dart -->
 <!-- skip -->
@@ -216,7 +216,7 @@ class MyApp extends StatelessWidget {
 {% endprettify %}
 
 Dado que el código para construir cada fila será casi idéntico,
-es mas eficiente crear una función anidada, como `buildButtonColumn()`,
+es más eficiente crear una función anidada, como `buildButtonColumn()`,
 que toma un Icon y un Text, y devuelve una columna con estos widgets
 dibujados en el color primario.
 
@@ -260,7 +260,7 @@ separándolo del icono.
 
 Construye la fila que contiene estas columnas llamando a la función y 
 pasando el [icon](https://docs.flutter.io/flutter/material/Icons-class.html)
-y el texto específico de cada columna. Alinéa las columnas a lo largo de su
+y el texto específico de cada columna. Alinea las columnas a lo largo de su
 eje principal usando `MainAxisAlignment.spaceEvenly` para organizar el espacio
  libre equitativamente antes, entre y después de cada columna.
 
@@ -292,7 +292,7 @@ class MyApp extends StatelessWidget {
 Define la sección de texto, que es bastante larga, como una variable.
 Pon el texto en un Container para habilitar el poder añadir 32 pixels de padding
 a lo largo de cada borde. La propiedad `softwrap` indica como deberá romperse el texto 
-en saltos de linea suaves, como puntos o comas.
+en saltos de línea suaves, como puntos o comas.
 
 <!-- code/layout/lakes/main.dart -->
 <!-- skip -->
@@ -411,7 +411,7 @@ El núcleo del mecanismo de layout de Flutter son los widgets. En Flutter, casi
 todo es un widget&mdash;incluso los modelos de layout son widgets.
 Las imágenes, iconos, y texto que ves en una aplicación Flutter son todos widgets.
 Pero cosas que no ves son también widgets, como son los rows, columns,
-y grids que organizan, restringen, y alinéan los widgets visibles.
+y grids que organizan, restringen, y alinean los widgets visibles.
 
 Creas un layout componiendo widgets para construir widgets más complejos.
 Por ejemplo, la captura de pantalla a la izquierda muestra 3 iconos con una etiqueta bajo
@@ -478,7 +478,7 @@ hijos son alineados vertical u horizontalmente, y cuanto espacio deberían ocupa
   un widget de la biblioteca Material Components, que provée un banner por defecto,
   un color de background, y tiene una API para añadir drawers, snack bars,
   y bottom sheets.
-* Si lo prefieres, puedes contruir una aplicacion que solo use widgets standard de 
+* Si lo prefieres, puedes construir una aplicación que solo use widgets standard de 
   la biblioteca de widgets.
 
 </div>
@@ -591,7 +591,7 @@ puedes personalizar widgets existentes,
 o puedes construir tu propio conjunto de widgets personalizados.
 </aside>
 
-Para una app no basada en Material, puedes puedes añadir el widget Center al método `build()`
+Para una app no basada en Material, puedes añadir el widget Center al método `build()`
 de la app:
 
 <!-- code/layout/widgets-only/main.dart -->
@@ -623,9 +623,9 @@ class MyApp extends StatelessWidget {
 {% endprettify %}
 
 Note que, por defecto, las aplicaciones que no usan Material no tienen un AppBar, título,
-o color de fondo. Si tu quieres estas características en una aplicación que no usa Material,
-tienes que construirlas tu mismo. Esta app cambia el color de fondo a blanco
-y el texto a gris oscuro para imintar una app Material.
+o color de fondo. Si tú quieres estas características en una aplicación que no usa Material,
+tienes que construirlas tú mismo. Esta app cambia el color de fondo a blanco
+y el texto a gris oscuro para imitar una app Material.
 
 </li>
 
@@ -643,7 +643,7 @@ y el texto a gris oscuro para imintar una app Material.
 <a name="rows-and-columns"></a>
 ## Layout de múltiples widgets horizontal y verticalmente
 
-Uno de los patrónes de layout más comúnes es organizar los widgets vertical
+Uno de los patrones de layout más comunes es organizar los widgets vertical
 u horizontalmente. Puedes usar un widget Row para organizar widgets horizontalmente,
 and a Column widget to arrange widgets vertically.
 
@@ -651,8 +651,8 @@ and a Column widget to arrange widgets vertically.
 
 <b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* Row y Column son dos de los patrones de layout más comunmente usados.
-* Ámbos, Row y Column, toman una lista de widgets hijos.
+* Row y Column son dos de los patrones de layout más comúnmente usados.
+* Ambos, Row y Column, toman una lista de widgets hijos.
 * Un widget hijo puede ser así mismo un Row, Column, u otro widget complejo.
 * Puedes especificar como un Row o un Column alinea sus hijos, vertical
   y horizontalmente.
@@ -666,13 +666,13 @@ and a Column widget to arrange widgets vertically.
 * [Alineando widgets](#alignment)
 * [Dimensionando widgets](#sizing)
 * [Empaquetando widgets](#packing)
-* [Anidand filas y columnas](#nesting)
+* [Anidando filas y columnas](#nesting)
 
 Para crear una fila o una columna en Flutter, añades una lista de widgets hijos a un 
 widget [Row](https://docs.flutter.io/flutter/widgets/Row-class.html) o
 [Column](https://docs.flutter.io/flutter/widgets/Column-class.html).
 A su vez, cada hijo puede ser en sí mismo una fila o una columna, y así sucesivamente.
-El ejemplo siguiente mustra como es posible anidar filas o columnas dentro de otras filas o columnas.
+El ejemplo siguiente muestra como es posible anidar filas o columnas dentro de otras filas o columnas.
 
 Este layout esta orginzado como un Row. La fila contiene dos hijos:
 una columna en la izquierda, y una imagen en la derecha:
@@ -684,18 +684,18 @@ El árbol de widgets de la columna izquierda anida filas y columnas.
 
 <center><img src="images/pavlova-left-column-diagram.png" alt="diagrama mostrando una columna izquierda dividida en sus sub-filas y sub-columnas"></center><br>
 
-Implementarás algo del codigo del layout de Pavlova en
+Implementarás algo del código del layout de Pavlova en
 [Anidando filas y columnas](#nesting).
 
 <aside class="alert alert-info" markdown="1">
 **Nota:** Row y Column son widgets primarios básicos para hacer layouts
 horizontales y verticales&mdash;estos widgets de bajo nivel permiten una 
-personalización máxima. Flutter también ofrece widgets especializados de alo nivel,
+personalización máxima. Flutter también ofrece widgets especializados de alto nivel,
 que deben ser suficientes para tus necesidades. Por ejemplo, en lugar de un Row
 quizás prefieras 
 [ListTile](https://docs.flutter.io/flutter/material/ListTile-class.html),
 un widget fácil de usar con propiedades para iconos delanteros y traseros,
-y hasta 3 lineas de texto. En lugar de Column, quizás prefieras
+y hasta 3 líneas de texto. En lugar de Column, quizás prefieras
 [ListView](https://docs.flutter.io/flutter/widgets/ListView-class.html),
 un layout similar a una columna que permite automáticamente el scroll si su contenido 
 es demasiado largo para el espacio disponible. Par más información,
@@ -731,11 +731,11 @@ necesitas actualizar el fichero pubspec para acceder a ellas&mdash;este
 ejemplo usa `Image.asset` para mostrar las imágenes. Para más información,
 mira este ejemplo del [fichero pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/row/pubspec.yaml),
 o [Añadir Assets e imágenes en Flutter](/assets-and-images).
-No necesitas hacer esto si esta referenciando imágenes online usando
+No necesitas hacer esto si estas referenciando imágenes online usando
 `Image.network`.
 </aside>
 
-En el siguiente ejemplo , cada una de las 3 imágenes tiene 100 píxeles de ancho.
+En el siguiente ejemplo, cada una de las 3 imágenes tiene 100 píxeles de ancho.
 El _render box_ (en este caso, la pantalla entera) tiene más de 300 píxeles de ancho,
 entonces fijando la alineación en el _main axis_ a `spaceEvenly` divides el espacio horizontal 
 libre equitativamente entre, después y antes de cada imagen.
@@ -756,7 +756,7 @@ libre equitativamente entre, después y antes de cada imagen.
 
 Las columnas trabajan de la misma manera que las filas. El siguiente ejemplo muestra una columna 
 de 3 imágenes, cada una tiene 100 píxeles de alto. La altura del _render box_
-(en este caso, la pantalla entera) tiene mas de 300 píxeles, entonces 
+(en este caso, la pantalla entera) tiene más de 300 píxeles, entonces 
 fijando el _main axis_ a `spaceEvenly` divides el espacio vertical
 libre equitativamente entre, por encima, y por debajo de cada imagen.
 
@@ -781,7 +781,7 @@ la pantalla del dispositivo:
 
 <center><img src="images/layout-too-large.png" style="border:1px solid black" alt="una fila que es demasiado ancha, mostrando una tira roja a lo largo de su borde derecho"></center>
 
-Los widgets pueden ser dimensionados para caber dento de una fila o una columna usando un widget Expanded, 
+Los widgets pueden ser dimensionados para caber dentro de una fila o una columna usando un widget Expanded, 
 que es descrito en la sección [Dimensionando widgets](#sizing) más abajo.
 </aside>
 
@@ -837,7 +837,7 @@ a cada widget.
 ### Empaquetando widgets
 
 Por defecto, una fila o columna ocupa tanto espacio a lo largo de su _main axis_ 
-como sea posible, pero si quieres empaquetar a los hijos mas juntos,
+como sea posible, pero si quieres empaquetar a los hijos más juntos,
 establece su `mainAxisSize` a `MainAxisSize.min`. El siguiente ejemplo 
 usa esta propiedad para empaquetas los iconos estrella juntos.
 
@@ -866,7 +866,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 </div> <div class="col-md-3" markdown="1">
 
-<img src="images/packed.png" style="border:1px solid black" alt="una fila de 5 estrellas, empaquetadas junstas en el medio de una fila">
+<img src="images/packed.png" style="border:1px solid black" alt="una fila de 5 estrellas, empaquetadas juntas en el medio de una fila">
 
 **Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/packed/main.dart)<br>
 **Iconos:** [Icons class](https://docs.flutter.io/flutter/material/Icons-class.html)<br>
@@ -884,7 +884,7 @@ sección enmarcada del siguiente layout:
 <img src="images/pavlova-large-annotated.png" style="border:1px solid black" alt="una captura de pantallas de la app pavlova, con las filas de puntuaciones e iconos remarcados en rojo">
 
 La sección remarcada está implementada como dos filas. La fila de puntuaciones contiene 
-cinco estrellas y el numero de opiniones. La fila de iconos contiene tres columnas 
+cinco estrellas y el número de opiniones. La fila de iconos contiene tres columnas 
 de iconos y texto.
 
 El árbol de widgets para la fila de puntuaciones:
@@ -942,7 +942,7 @@ fuertemente anidado, implementa piezas de la UI en variables y funciones.
 </aside>
 
 La fila de iconos, bajo la fila de puntuaciones, contiene 3 columnas; cada columna contiene 
-un icono y dos lineas de texto, como puedes ver en el árbol de widgets:
+un icono y dos líneas de texto, como puedes ver en el árbol de widgets:
 
 <img src="images/widget-tree-pavlova-icon-row.png" alt="un árbol de nodes para los widgets en la fila de iconos">
 
@@ -966,7 +966,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     // DefaultTextStyle.merge te permite crear un estilo de texto
-    // por defecto que es herededo por este hijo y sus subsiguientes hijos.
+    // por defecto que es heredado por este hijo y sus subsiguientes hijos.
     var iconList = DefaultTextStyle.merge(
       style: descTextStyle,
       child: Container(
@@ -1004,7 +1004,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 {% endprettify %}
 
-La variable `leftColumn` contiene las filas de puntuaciones e iconos, y tambien tiene 
+La variable `leftColumn` contiene las filas de puntuaciones e iconos, y también tiene 
 el título y el texto que describe la Pavlova:
 
 <!-- code/layout/pavlova/main.dart -->
@@ -1097,7 +1097,7 @@ Flutter tiene una rica biblioteca de widgtes de layout, pero aquí estan algunos
 los más comúnmente usados. La intención es hacerte avanzar lo más rápido posible, 
 en lugar de abrumarte con una lista completa. Para información sobre otros 
 widgets disponibles, te referimos a [Visión general de Widgets](/widgets/),
-o usa la caja de busqueda en la [documentación de referencia de la API](https://docs.flutter.io/).
+o usa la caja de búsqueda en la [documentación de referencia de la API](https://docs.flutter.io/).
 También, las páginas de los widgets en la documentación de la API a menudo hace sugerencias 
 sobre widgets similares que podrían adaptarse mejor a tus necesidades.
 
@@ -1164,13 +1164,13 @@ Cada imagen usa un Container para añadir un borde redondeado gris y márgenes.
 El Column, que contiene las filas de imágenes,
 usa un Container para cambiar el color de fondo a gris claro.
 
-**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/main.dart), snippet below<br>
+**Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/main.dart), resumido abajo<br>
 **Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/container/images)<br>
 **Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/container/pubspec.yaml)
 
 </div> <div class="col-md-6" markdown="1">
 
-<img src="images/container.png" alt="una caputra de pantalla mostrando 2 filas, cada una conteniendo 2 imágenes; las imágenes tienen un borde gris redondeado y un color de fondo gris claro">
+<img src="images/container.png" alt="una captura de pantalla mostrando 2 filas, cada una conteniendo 2 imágenes; las imágenes tienen un borde gris redondeado y un color de fondo gris claro">
 
 </div> </div>
 
@@ -1240,7 +1240,7 @@ este habilita el scroll automáticamente.
 * Detecta cuando el contenido de la columna sobrepasa el _render box_ y automaticamente 
   proporciona scroll
 * Construye tu propio grid personalizado, o usa uno de los grids proveidos:
-  * `GridView.count` permite especificar el numero de columnas
+  * `GridView.count` permite especificar el número de columnas
   * `GridView.extent` permite especificar el ancho máximo en pixels de un elemento
 {% comment %}
 * Usa `MediaQuery.of(context).orientation` para crear un grid que cambia su layout 
@@ -1249,7 +1249,7 @@ este habilita el scroll automáticamente.
 
 <aside class="alert alert-info" markdown="1">
 **Nota:** Cuando mostramos una lista bidimensional en la que nos importa que fila y columna 
-ocupa una celda (por ejemplo, es la entrada de la columna "calorias" para la fila de "aguacate"), usa 
+ocupa una celda (por ejemplo, es la entrada de la columna "calorías" para la fila de "aguacate"), usa 
 [Table](https://docs.flutter.io/flutter/widgets/Table-class.html) o
 [DataTable](https://docs.flutter.io/flutter/material/DataTable-class.html).
 </aside>
@@ -1260,7 +1260,7 @@ ocupa una celda (por ejemplo, es la entrada de la columna "calorias" para la fil
 
 <img src="images/gridview-extent.png" style="border:1px solid black" alt="un grid de 3 columnas de fotos">
 
-Usa `GridView.extent` para crear un grid con elmentos de 150 píxeles de ancho máximo.<br>
+Usa `GridView.extent` para crear un grid con elementos de 150 píxeles de ancho máximo.<br>
 **Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/grid/main.dart), resumido abajo<br>
 **Imágenes:** [imágenes](https://github.com/flutter/website/tree/master/src/_includes/code/layout/grid/images)<br>
 **Pubspec:** [pubspec.yaml](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/grid/pubspec.yaml)
@@ -1327,10 +1327,10 @@ es demasiado largo para su _render box_.
 
 #### Resumen de ListView:
 
-* Una columna especializada en organrzar listas de cajas
+* Una columna especializada en organizar listas de cajas
 * Puede organizarse horizontal o verticalmente
 * Detecta cuando su contenido no puede ajustarse y proporciona la capacidad de hacer scroll
-* Menos configurable que un Column, pero mas fácil de usar y dar soporte al scroll
+* Menos configurable que un Column, pero más fácil de usar y dar soporte al scroll
 
 #### Ejemplos de ListView:
 
@@ -1413,7 +1413,7 @@ Los widgets pueden solapar completa o parcialmente el widget base.
 
 * Usado para widgets que se sobreponen sobre otro widget
 * El primer widget en la lista de hijos es el widget base;
-  los hijos subsiguientes son sonrepuestos encima de este widget base
+  los hijos subsiguientes son sobrepuestos encima de este widget base
 * El contenido de un Stack's no puede hacer scroll
 * Puedes elegir recortar los hijos que excedan el _render box_
 
@@ -1433,9 +1433,9 @@ Stack aplica un offset al texto usando la propiedad `alignment` y Alignments.<br
 
 </div> <div class="col-md-6" markdown="1">
 
-<img src="images/stack-flutter-gallery.png" style="border:1px solid black" alt="una imagen con un gradiente gris sobre el; encima del gradiente están las herramientas pintadas en blanco">
+<img src="images/stack-flutter-gallery.png" style="border:1px solid black" alt="una imagen con un gradiente gris sobre él encima del gradiente están las herramientas pintadas en blanco">
 
-Usa Stack para sobrponer un gradiente encima de la imagen. El gradiente asegura 
+Usa Stack para sobreponer un gradiente encima de la imagen. El gradiente asegura 
 que el color de los iconos de la barra de herramientas se distinguen de la imagen.<br>
 **Código Dart:** [contacts_demo.dart](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/contacts_demo.dart)
 de la [Flutter
@@ -1492,7 +1492,7 @@ En Flutter, un Card presenta esquinas ligeramente redondeadas
 y arroja una sombra, dándole un efecto 3D.
 Cambiando la propiedad `elevation` de Card
 te permite controlar el efecto de la sombra arrojada.
-Fijando la elavación a 24.0, por ejemplo, visualmente levanta el Card desde 
+Fijando la elevación a 24.0, por ejemplo, visualmente levanta el Card desde 
 la superficie y provoca que la sombra se vuelva más dispersa.
 Para una lista de los valores soportados por `elevation`, mira
 [Elevation y
@@ -1517,8 +1517,8 @@ Especificar un valor no soportado deshabilita completamente la sombra.
 
 <img src="images/card.png" style="border:1px solid black" alt="un Card conteniendo 3 ListTiles">
 
-Un Card conteniendo 3 ListTiles y dimensionado envolviendolo con un SizedBox.
-Un Divider sepra el primer y el segundo ListTiles.
+Un Card conteniendo 3 ListTiles y dimensionado envolviéndolo con un SizedBox.
+Un Divider separa el primer y el segundo ListTiles.
 
 **Código Dart:** [main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/card/main.dart), resumido abajo<br>
 **Iconos:** [Icons class](https://docs.flutter.io/flutter/material/Icons-class.html)<br>
