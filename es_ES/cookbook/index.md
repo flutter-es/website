@@ -13,7 +13,7 @@ referencia para ayudar a construir una aplicación.
   * [Usar Themes para compartir estilos de fuentes y colores](/cookbook/design/themes/)
   * [Mostrar SnackBars](/cookbook/design/snackbars/)
   * [Trabajando con Tabs](/cookbook/design/tabs/)
-  * [Usando fuentes propias](/cookbook/design/fonts/)
+  * [Uso de fuentes personalizadas](/cookbook/design/fonts/)
   * [Exportando fuentes de un paquete](/cookbook/design/package-fonts/)
   * [Añadir un Drawer a la pantalla](/cookbook/design/drawer/)
   * [Actualizando el UI basándose en la orientación](/cookbook/design/orientation/)
@@ -82,7 +82,13 @@ referencia para ayudar a construir una aplicación.
   * [Introducción a las pruebas de Widgets](/cookbook/testing/widget-test-introduction/)
   * [Encontrando Widgets en una prueba de Widgets](/cookbook/testing/widget-test-finders/)
   * [Pulsar y Arrastrar en una prueba de Widgets](/cookbook/testing/widget-test-tap-drag/)
-    
-## Manteimiento de la App
+
+### Tests de integración
+  
+  * [Introducción a los test de integración](/cookbook/testing/integration-test-introduction/)
+  * [Haciendo scroll en test de integración](/cookbook/testing/integration-test-scrolling/)
+  * [Perfiles de rendimiento en test de integración](/cookbook/testing/integration-test-profiling/)  
+
+## Mantenimiento de la App
 
   * [Reportar errores a un servicio](/cookbook/maintenance/error-reporting/)

@@ -31,7 +31,8 @@ Image.network(
 
 El constructor predeterminado de `Image.network` no maneja una funcionalidad más avanzada, como el desvanecimiento de imágenes después de cargarlas o el almacenamiento en caché de las imágenes en el dispositivo una vez que se han descargado. Para lograr estas tareas, por favor consulte las siguientes recetas:
 
-  * [Fundido en imágenes con un marcador de posición](/cookbook/images/fading-in-images/)
+  * [Efecto “Fade in” en imágenes con un placeholder](/cookbook/images/fading-in-images/)
+
   * [Trabajando con imágenes en caché](/cookbook/images/cached-images/) 
 
 ## Ejemplo completo
@@ -44,7 +45,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var title = 'Imágenes Web';
+
+    var title = 'Web Images';
 
     return MaterialApp(
       title: title,
