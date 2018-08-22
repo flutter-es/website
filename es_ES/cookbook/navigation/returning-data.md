@@ -212,7 +212,7 @@ class SelectionButton extends StatelessWidget {
       MaterialPageRoute(builder: (context) => SelectionScreen()),
     );
 
-    // ¡Después de que la pantalla de selección devuelva un resultado, muéstralo en 
+    // ¡Después de que la pantalla de selección devuelva un resultado, muéstralo en
     // un Snackbar!
     Scaffold.of(context).showSnackBar(SnackBar(content: Text("$result")));
   }
