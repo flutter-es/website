@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Widgets Catalog
+title: Catálogo de Widgets
 permalink: /widgets/
 ---
 
-Create beautiful apps faster with Flutter's
-collection of visual, structural, platform,
-and interactive widgets.
+Crea hermosas aplicaciones rápidamente con la
+colección de widgets visuales, estructurales,
+de plataforma e interactivos de Flutter.
 
-<p>In addition to browsing widgets by category, 
-you can also see all the widgets in the <a href="/widgets/widgetindex/">Flutter widget index</a>.</p>
+<p>Además de navegar por los widgets por categoría, 
+puedes también ver todos los widgets en el<a href="/widgets/widgetindex/">índice de widgets de Flutter</a>.</p>
 
 <ul class="cards">
 {% for section in site.data.catalog.index %}
@@ -18,7 +18,7 @@ you can also see all the widgets in the <a href="/widgets/widgetindex/">Flutter 
 		    <h3 class="catalog-category-title"><a class="action-link" href="/widgets/{{section.id}}">{{section.name}}</a></h3>
 		    <p>{{section.description}}</p>
 		    <div class="card-action">
-		        <a class="action-link" href="/widgets/{{section.id}}">VISIT</a>
+		        <a class="action-link" href="/widgets/{{section.id}}">VISITA</a>
 		    </div>
 		</div>
 		
