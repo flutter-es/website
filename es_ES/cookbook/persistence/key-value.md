@@ -16,9 +16,9 @@ almacenamiento persistente para datos simples.
 ## Instrucciones
 
   1. Añadir la dependencia
-  2. Guardar Dato
-  3. Leer Dato
-  4. Remover Dato
+  2. Guardar Datos
+  3. Leer Datos
+  4. Remover Datos
 
 ## 1. Añadir la dependencia
 
@@ -32,7 +32,7 @@ dependencies:
   shared_preferences: "<la versión más reciente>"
 ```
 
-## 2. Guardar Dato
+## 2. Guardar Datos
 
 Para persistir los datos, podemos usar los métodos setter proporcionados por la clase 
 `SharedPreferences`. Los métodos Setter están disponibles para varios tipos primitivos, 
@@ -50,7 +50,7 @@ final prefs = await SharedPreferences.getInstance();
 prefs.setInt('counter', counter);
 ```
 
-## 3. Leer dato
+## 3. Leer datos
 
 Para leer datos, podemos usar el método getter apropiado provisto por el
 `SharedPreferences` clase. Para cada setter hay un getter correspondiente.
@@ -64,7 +64,7 @@ final prefs = await SharedPreferences.getInstance();
 final counter = prefs.getInt('counter') ?? 0;
 ```
 
-## 4. Remover dato
+## 4. Remover datos
 
 Para eliminar datos, podemos usar el método `remove`.
 
