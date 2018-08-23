@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Navegar con rutas con nombre"
+title: "Navegar a rutas con nombre"
 permalink: /cookbook/networking/named-routes/
 ---
 
@@ -19,7 +19,7 @@ Para trabajar con rutas con nombre, podemos usar la función
   1. Crea 2 pantallas
   2. Define las rutas
   3. Navega a la segunda pantalla usando `Navigator.pushNamed`
-  4. Devuelvete a la primer pantalla usando `Navigator.pop`
+  4. Regresa a la primera pantalla usando `Navigator.pop`
 
 ## 1. Crea 2 pantallas
 
@@ -88,15 +88,15 @@ MaterialApp(
 );
 ```   
 
-Nota: Al usar `initialRoute`,asegúrate de no definir una propiedad `home` .   
+Nota: Al usar `initialRoute`, asegúrate de no definir una propiedad `home` .   
 
-## 3. Navega a la segunda pantalla usando
+## 3. Navega a la segunda pantalla
 
 Con nuestros Widgets y rutas en su lugar, ¡podemos comenzar a navegar! En este caso, usaremos la función
 [`Navigator.pushNamed`](https://docs.flutter.io/flutter/widgets/Navigator/pushNamed.html)
-. Esto le dice a Flutter que cree el Widget definido en nuestra tabla de rutas y que abra la pantalla.
+. Esto le dice a Flutter que construya el Widget definido en nuestra tabla de rutas y que abra la pantalla.
 
-En el método `build` de nuestro Widget  `FirstScreen` , actualizaremos el callback `onPressed`:
+En el método `build` de nuestro Widget `FirstScreen` , actualizaremos el callback `onPressed`:
 
 <!-- skip -->
 ```dart
@@ -107,7 +107,7 @@ onPressed: () {
 }
 ``` 
 
-## 4. Devuelvete a la primer pantalla
+## 4. Regresa a la primera pantalla
 
 Para volver a la primera página, podemos usar la función 
 [`Navigator.pop`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html).
