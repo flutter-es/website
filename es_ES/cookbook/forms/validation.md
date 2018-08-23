@@ -34,7 +34,7 @@ class MyCustomForm extends StatefulWidget {
 }
 
 // Define una clase de estado correspondiente. Esta clase contendrá los datos
-// relacionados con la forma.
+// relacionados con el formulario.
 class MyCustomFormState extends State<MyCustomForm> {
   // Crea una clave global que identificará de manera única el widget Form 
   // y nos permita validar el formulario
