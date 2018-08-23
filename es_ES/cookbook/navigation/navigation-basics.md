@@ -66,12 +66,12 @@ class SecondScreen extends StatelessWidget {
 
 Para navegar a una nueva pantalla, necesitaremos usar el método 
 [`Navigator.push`](https://docs.flutter.io/flutter/widgets/Navigator/push.html) 
-. El método `push`  agregará una `Route` a la pila de rutas administradas por el Navegador!
+. El método `push` agregará una `Route` a la pila de rutas administradas por el Navigator!
 
 El método `push` requiere una `Route`, pero ¿de dónde viene la `Route`? 
 Podemos crear la nuestra, o usar el [`MaterialPageRoute`](https://docs.flutter.io/flutter/material/MaterialPageRoute-class.html). El `MaterialPageRoute` es muy práctico, ya que pasa a la nueva pantalla mediante una animación específica de la plataforma. 
 
-En el método `build` de nuestro Widget `FirstScreen`,actualizaremos el callback `onPressed`:
+En el método `build` de nuestro Widget `FirstScreen`, actualizaremos el callback `onPressed`:
 
 <!-- skip -->
 ```dart
