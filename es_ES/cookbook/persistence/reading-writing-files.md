@@ -28,7 +28,7 @@ lo tanto, debemos preguntarnos: ¿Dónde deberíamos almacenar esta información
 
 El plugin [`path_provider`](https://pub.dartlang.org/packages/path_provider) 
 proporciona una forma independiente de la plataforma para acceder a las ubicaciones de 
-uso común en el sistema de archivos del dispositivo. El complemento actualmente admite 
+uso común en el sistema de archivos del dispositivo. El plugin actualmente admite 
 el acceso a dos ubicaciones del sistema de archivos:
 
   * *Directorio temporal:* Un directorio temporal (caché) que el sistema puede borrar 
@@ -125,7 +125,7 @@ setUpAll(() async {
   // Crea un directorio temporal para trabajar
   final directory = await Directory.systemTemp.createTemp();
   
-  // Mock out the MethodChannel for the path_provider plugin
+  // Simula el MethodChannel para el plugin path_provider
   const MethodChannel('plugins.flutter.io/path_provider')
       .setMockMethodCallHandler((MethodCall methodCall) async {
     // Si estamos obteniendo el directorio de documentos de la app, en su lugar, regresaremos
