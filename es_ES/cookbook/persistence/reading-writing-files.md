@@ -58,7 +58,8 @@ Future<String> get _localPath async {
 
 Una vez que sepamos dónde almacenar el archivo, tendremos que crear una referencia a la 
 ubicación completa del archivo. Podemos usar la clase [`File`](https://docs.flutter.io/flutter/dart-io/File-class.html) 
-de la biblioteca [dart:io](https://docs.flutter.io/flutter/dart-io/dart-io-library.html) para lograr esto.
+de la biblioteca [dart:io](https://docs.flutter.io/flutter/dart-io/dart-io-library.html)
+para lograr esto.
 
 <!-- skip -->
 ```dart
