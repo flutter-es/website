@@ -1,31 +1,25 @@
 ---
 layout: page
-title: "Handling changes to a text field"
+title: "Manejando cambios en un campo de texto"
 permalink: /cookbook/forms/text-field-changes/
 ---
 
-In some cases, it can be handy to run a callback function every time the text
-in a text field changes. For example, we might want to build a search screen 
-with autocomplete functionality. In this case, we would want to update the 
-results as the user types.
+En algunos casos, puede ser útil ejecutar una función callback cada vez que cambia el texto en un campo de texto. Por ejemplo, es posible que deseemos crear una pantalla de búsqueda con la funcionalidad de autocompletar. En este caso, quisiéramos actualizar los resultados a medida que el usuario escribe.
 
-How can we run a callback function every time the text changes? With Flutter, 
-we have two options:
+¿Cómo podemos ejecutar una función callback cada vez que cambia el texto? Con Flutter, tenemos dos opciones:
 
-  1. Supply an `onChanged` callback to a `TextField`
-  2. Use a `TextEditingController`
+  1. Proporciona un `onChanged` callback a un `TextField`
+  2. Usa un `TextEditingController`
 
-## 1. Supply an `onChanged` callback to a `TextField`
+## 1. Proporciona un `onChanged` callback a un `TextField`
 
-The simplest approach is to supply an 
+El enfoque más simple es proporcionar un 
 [`onChanged`](https://docs.flutter.io/flutter/material/TextField/onChanged.html) 
-callback to a 
+callback a un 
 [`TextField`](https://docs.flutter.io/flutter/material/TextField-class.html). 
-Whenever the text changes, the callback will be invoked. One downside to this 
-approach is it does not work with `TextFormField` Widgets.
+Siempre que el texto cambie, se invocará el callback. Una desventaja de este enfoque es que no funciona con Widgets `TextFormField` .
 
-In this example, we will print the current value of the text field to the 
-console every time the text changes.
+En este ejemplo, imprimiremos el valor actual del campo de texto en la consola cada vez que cambie el texto.
 
 <!-- skip -->
 ```dart
@@ -36,68 +30,63 @@ TextField(
 );
 ```
 
-## 2. Use a `TextEditingController`
+## 2. Usa un `TextEditingController`
 
-A more powerful, but more elaborate approach, is to supply a
+Un enfoque más poderoso, pero más elaborado, es suministrar un
 [`TextEditingController`](https://docs.flutter.io/flutter/widgets/TextEditingController-class.html)
-as the 
+como propiedad del 
 [`controller`](https://docs.flutter.io/flutter/material/TextField/controller.html)
-property of the `TextField` or a `TextFormField`.
+de `TextField` o de un `TextFormField`.
 
-To be notified when the text changes, we can listen to the controller using its
-[`addListener`](https://docs.flutter.io/flutter/foundation/ChangeNotifier/addListener.html)
-method.
+Para recibir una notificación cuando el texto cambie, podemos escuchar al controlador usando su método 
+[`addListener`](https://docs.flutter.io/flutter/foundation/ChangeNotifier/addListener.html).
 
-### Directions
+### Instrucciones
 
-  - Create a `TextEditingController`
-  - Supply the `TextEditingController` to a `TextField`
-  - Create a function to print the latest value
-  - Listen to the controller for changes
+  - Crea un `TextEditingController`
+  - Proporciona el `TextEditingController` a un `TextField`
+  - Crea una función para imprimir el último valor
+  - Escucha al controlador por cambios
 
-### Create a `TextEditingController`
+### Crea un `TextEditingController`
 
-First, we'll need to create a `TextEditingController`. In the subsequent steps,
-we will supply the `TextEditingController` to a `TextField`. Once we've wired
-these two classes together, we can listen for changes to the text field!
+Primero, necesitaremos crear un `TextEditingController`. En los pasos siguientes, suministraremos el `TextEditingController` a un `TextField`. Una vez que hayamos conectado estas dos clases juntas, podremos escuchar los cambios en el campo de texto.
 
 <!-- skip -->
 ```dart
-// Define a Custom Form Widget
+// Define un Widget de formulario personalizado
 class MyCustomForm extends StatefulWidget {
   @override
   _MyCustomFormState createState() => _MyCustomFormState();
 }
 
-// Define a corresponding State class. This class will hold the data related to
-// our Form.
+// Define una clase de estado correspondiente. Esta clase contendrá los datos relacionados
+// con nuestro formulario.
 class _MyCustomFormState extends State<MyCustomForm> {
-  // Create a text controller. We will use it to retrieve the current value
-  // of the TextField!
+  // Crea un controlador de texto. Lo usaremos para recuperar el valor actual 
+  // del TextField!
   final myController = TextEditingController();
 
   @override
   void dispose() {
-    // Clean up the controller when the Widget is removed from the Widget tree
+    // Limpia el controlador cuando el widget se elimine del árbol de widgets
     myController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // We will fill this out in the next step!
+    // Lo completaremos en el siguiente paso!
   }
 }
 ```
 
-Note: Please remember to `dispose` the `TextEditingController` when it is no
-longer needed. This will ensure we discard any resources used by the object.
+Nota: Por favor recuerda hacer el `dispose` al `TextEditingController` cuando ya no sea necesario. Esto asegurará que descartemos cualquier recurso utilizado por el objeto.
 
-### Supply the `TextEditingController` to a `TextField`
+### Proporciona el `TextEditingController` a un `TextField`
 
-In order to work, the `TextEditingController` must be supplied to either a 
-`TextField` or a `TextFormField`. Once it's wired up, we can begin listening
-for changes to the text field. 
+Para funcionar, el `TextEditingController` se debe suministrar a un 
+`TextField` o a un `TextFormField`. Una vez que está conectado, podemos comenzar a escuchar los cambios en el campo de texto. 
 
 <!-- skip -->
 ```dart
@@ -106,13 +95,11 @@ TextField(
 );
 ```
 
-### Create a function to print the latest value
+### Crea una función para imprimir el último valor
 
-Now, we'll need a function that should run every time the text changes! In this
-example, we'll create a method that prints out the current value of the text
-field.
+Ahora, necesitaremos una función que debería ejecutarse cada vez que cambie el texto. En este ejemplo, crearemos un método que imprime el valor actual del campo de texto.
 
-This method will live inside our `_MyCustomFormState` class.
+Este método vivirá dentro de nuestra clase `_MyCustomFormState` .
 
 <!-- skip -->
 ```dart
@@ -121,16 +108,15 @@ _printLatestValue() {
 }
 ```
 
-### Listen to the controller for changes
+### Escucha al controlador por cambios
 
-Finally, we need to listen to the `TextEditingController` and run the 
-`_printLatestValue` method whenever the text changes. We will use the 
-[`addListener`](https://docs.flutter.io/flutter/foundation/ChangeNotifier/addListener.html)
-method to achieve this task.
+Finalmente, tenemos que escuchar el `TextEditingController` y ejecutar el método 
+`_printLatestValue`  cada vez que el texto cambie. Utilizaremos el método 
+[`addListener`](https://docs.flutter.io/flutter/foundation/ChangeNotifier/addListener.html)  para lograr esta tarea.
 
-In this example, we will begin listening for changes when the
-`_MyCustomFormState` class is initialized, and stop listening when the
-`_MyCustomFormState` is disposed.
+En este ejemplo, comenzaremos a escuchar los cambios cuando se inicializa la clase 
+`_MyCustomFormState` , y dejaremos de escuchar cuando se elimine 
+`_MyCustomFormState` .
 
 <!-- skip -->
 ```dart
@@ -139,23 +125,23 @@ class _MyCustomFormState extends State<MyCustomForm> {
   void initState() {
     super.initState();
 
-    // Start listening to changes 
+    // Comienza a escuchar los cambios 
     myController.addListener(_printLatestValue);
   }
 
   @override
   void dispose() {
-    // Stop listening to text changes
+    // Deja de escuchar los cambios de texto
     myController.removeListener(_printLatestValue);
     
-    // Clean up the controller when the Widget is removed from the Widget tree
+    // Limpie el controlador cuando el widget se elimine del árbol de widgets
     myController.dispose();
     super.dispose();
   }
 }
 ```
 
-## Complete example
+## Ejemplo completo
 
 ```dart
 import 'package:flutter/material.dart';
@@ -172,17 +158,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Define a Custom Form Widget
+// Define un widget de formulario personalizado
 class MyCustomForm extends StatefulWidget {
   @override
   _MyCustomFormState createState() => _MyCustomFormState();
 }
 
-// Define a corresponding State class. This class will hold the data related to
-// our Form.
+// Define una clase de estado correspondiente. Esta clase contendrá los datos relacionados 
+// con nuestro formulario.
 class _MyCustomFormState extends State<MyCustomForm> {
-  // Create a text controller. We will use it to retrieve the current value
-  // of the TextField!
+  // Crea un controlador de texto. Lo usaremos para recuperar el valor actual
+  // del TextField!
   final myController = TextEditingController();
 
   @override
@@ -194,7 +180,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
 
   @override
   void dispose() {
-    // Clean up the controller when the Widget is removed from the Widget tree
+    // Limpia el controlador cuando el widget se elimine del árbol de widgets
     myController.removeListener(_printLatestValue);
     myController.dispose();
     super.dispose();
