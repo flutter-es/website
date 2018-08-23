@@ -4,7 +4,7 @@ title: "Devolver datos desde una pantalla"
 permalink: /cookbook/navigation/returning-data/
 ---
 
-En algunos casos, es posible que queramos devolver los datos de una nueva pantalla. Por ejemplo, digamos que empujamos una nueva pantalla que presenta dos opciones para un usuario. Cuando el usuario pulsa sobre una opción, queremos informar a nuestra primera pantalla de la selección del usuario para que pueda actuar sobre esa información!
+En algunos casos, es posible que queramos devolver datos desde una nueva pantalla. Por ejemplo, digamos que mostramos una nueva pantalla que presenta dos opciones para un usuario. Cuando el usuario pulsa sobre una opción, queremos informar a nuestra primera pantalla de la selección del usuario para que pueda actuar sobre esa información!
 
 ¿Cómo podemos lograr esto? Usando [`Navigator.pop`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html)!
 
@@ -74,7 +74,7 @@ class SelectionButton extends StatelessWidget {
 
 Ahora, necesitaremos construir una pantalla de selección! Contendrá dos botones. Cuando un usuario pulsa un botón, debe cerrar la pantalla de selección y dejar que la pantalla de inicio sepa qué botón se pulsó!
 
-Por ahora, definiremos la IU y descubriremos cómo devolver los datos en el siguiente paso.
+Por ahora, definiremos la UI y descubriremos cómo devolver los datos en el siguiente paso.
 
 ```dart
 class SelectionScreen extends StatelessWidget {
@@ -116,10 +116,10 @@ class SelectionScreen extends StatelessWidget {
 
 ## 4. Cuando un botón es pulsado, cierra la pantalla de selección
 
-Ahora, queremos actualizar la devolución de llamada `onPressed` para nuestros dos botones! Para devolver los datos a la primera pantalla, necesitaremos usar el método 
+Ahora, queremos actualizar callback `onPressed` para nuestros dos botones! Para devolver los datos a la primera pantalla, necesitaremos usar el método 
 [`Navitator.pop`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html).
 
-`Navigator.pop` acepta un segundo argumento opcional llamado `result`.  Si proporcionamos un resultado, ¡será devuelto al `Future` en nuestro SelectionButton!
+`Navigator.pop` acepta un segundo argumento opcional llamado `result`. Si proporcionamos un resultado, ¡será devuelto al `Future` en nuestro SelectionButton!
 
 ### Yep button
 
