@@ -128,8 +128,8 @@ setUpAll(() async {
   // Mock out the MethodChannel for the path_provider plugin
   const MethodChannel('plugins.flutter.io/path_provider')
       .setMockMethodCallHandler((MethodCall methodCall) async {
-    // If we're getting the apps documents directory, return the path to the
-    // temp directory on our test environment instead.
+    // Si estamos obteniendo el directorio de documentos de la app, en su lugar, regresaremos
+    // la ruta de el directorio temporal de nuestro entorno de prueba.
     if (methodCall.method == 'getApplicationDocumentsDirectory') {
       return directory.path;
     }
