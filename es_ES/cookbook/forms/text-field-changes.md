@@ -164,7 +164,7 @@ class MyCustomForm extends StatefulWidget {
   _MyCustomFormState createState() => _MyCustomFormState();
 }
 
-// Define una clase de estado correspondiente. Esta clase contendrá los datos relacionados 
+// Define una clase de estado correspondiente. Esta clase contendrá los datos relacionados
 // con nuestro formulario.
 class _MyCustomFormState extends State<MyCustomForm> {
   // Crea un controlador de texto. Lo usaremos para recuperar el valor actual
