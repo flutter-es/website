@@ -14,7 +14,7 @@ En esta receta, veremos cómo recuperar el texto que un usuario ha escrito en un
 
 ## 1. Crea un `TextEditingController`
 
-Para recuperar el texto que un usuario ha digitado en un campo de texto, necesitamos crear un [`TextEditingController`](https://docs.flutter.io/flutter/widgets/TextEditingController-class.html).
+Para recuperar el texto que un usuario ha escrito en un campo de texto, necesitamos crear un [`TextEditingController`](https://docs.flutter.io/flutter/widgets/TextEditingController-class.html).
 Luego proporcionaremos `TextEditingController` a un `TextField` en los siguientes pasos.
 
 Una vez que se proporciona un `TextEditingController` a un `TextField` o `TextFormField`,
