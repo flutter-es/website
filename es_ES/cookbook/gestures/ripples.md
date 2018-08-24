@@ -10,7 +10,7 @@ Flutter proporciona el widget [`InkWell`](https://docs.flutter.io/flutter/materi
 
 ## Instrucciones
 
-  1. Crea un Widget que deseemos pulsar
+  1. Crea un Widget que deseamos pulsar
   2. Envuélvelo en un widget `InkWell` para administrar los tap callbacks y las animaciones ripple 
  
 <!-- skip -->
