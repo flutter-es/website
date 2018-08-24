@@ -99,7 +99,7 @@ class DetailScreen extends StatelessWidget {
 Con nuestra `DetailScreen` en su lugar, ¡estamos listos para realizar la Navigation! En nuestro caso, queremos navegar a `DetailScreen` cuando un usuario pulse en una tarea pendiente de nuestra lista. Cuando lo hagamos, también queremos pasar la tarea pendiente a `DetailScreen`. 
 
 Para lograr esto, escribiremos un callback [`onTap`](https://docs.flutter.io/flutter/material/ListTile/onTap.html) 
- para nuestro Widget `ListTile` . Dentro de nuestro callback `onTap` , una vez más emplearemos el método [`Navigator.push`](https://docs.flutter.io/flutter/widgets/Navigator/push.html).
+ para nuestro Widget `ListTile`. Dentro de nuestro callback `onTap`, una vez más emplearemos el método [`Navigator.push`](https://docs.flutter.io/flutter/widgets/Navigator/push.html).
 
 <!-- skip -->
 ```dart
