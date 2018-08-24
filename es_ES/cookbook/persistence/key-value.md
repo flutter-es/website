@@ -22,7 +22,7 @@ almacenamiento persistente para datos simples.
 
 ## 1. Añadir la dependencia
 
-Antes que empecemos, necesitamos añadir el plugin [shared_preferences](https://pub.dartlang.org/packages/shared_preferences) 
+Antes de empezar, necesitamos añadir el plugin [shared_preferences](https://pub.dartlang.org/packages/shared_preferences) 
 a nuestro archivo `pubspec.yaml`:
 
 ```yaml
@@ -52,7 +52,7 @@ prefs.setInt('counter', counter);
 
 ## 3. Leer datos
 
-Para leer datos, podemos usar el método getter apropiado provisto por el
+Para leer datos, podemos usar el método Getter apropiado provisto por el
 `SharedPreferences` clase. Para cada setter hay un getter correspondiente.
 Por ejemplo, podemos usar los métodos `getInt`, `getBool`, y `getString`.
 
@@ -82,7 +82,7 @@ Si bien es fácil y conveniente usar el almacenamiento de clave-valor, tiene lim
 - Solo se pueden usar tipos primitivos: `int`, `double`, `bool`, `string` y `stringList`
 - No está diseñado para almacenar una gran cantidad de datos.
 
-Para obtener más información acerca de las Preferencias compartidas en Android, visite
+Para obtener más información acerca de las preferencias compartidas en Android, visite
 [Documentación de preferencias compartidas](https://developer.android.com/guide/topics/data/data-storage.html#pref)
 en el sitio web de desarrolladores de Android.
 
