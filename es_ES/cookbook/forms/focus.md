@@ -6,7 +6,7 @@ permalink: /cookbook/forms/focus/
 
 Cuando se selecciona un campo de texto y se acepta la entrada, se dice que tiene  "focus." En general, los usuarios pueden hacer focus a los campos de texto al tocarlos, y los desarrolladores pueden hacer focus a los campos de texto usando las herramientas descritas en esta receta. 
 
-Administrar el focus, es una herramienta fundamental para crear formularios con un flujo intuitivo. Por ejemplo, supongamos que tenemos una pantalla de búsqueda con un campo de texto. Cuando el usuario navega hacia la pantalla de búsqueda, podemos hacer focus al campo de texto del término de búsqueda. Esto le permite al usuario comenzar a digitar tan pronto como la pantalla esté visible, ¡sin necesidad de tocar manualmente en el campo de texto!
+Administrar el focus, es una herramienta fundamental para crear formularios con un flujo intuitivo. Por ejemplo, supongamos que tenemos una pantalla de búsqueda con un campo de texto. Cuando el usuario navega hacia la pantalla de búsqueda, podemos hacer focus al campo de texto del término de búsqueda. Esto le permite al usuario comenzar a escribir tan pronto como la pantalla esté visible, ¡sin necesidad de tocar manualmente en el campo de texto!
 
 En esta receta, aprenderemos cómo hacer focus a un campo de texto tan pronto como sea visible, así como también a hacer focus a un campo de texto cuando se pulsa un botón.
 
@@ -21,7 +21,7 @@ TextField(
 );
 ```
 
-Para obtener más información sobre el manejo de entradas y la creación de campos de texto, por favor consulta la sección 
+Para obtener más información sobre el manejo de entradas y la creación de campos de texto, por favor consulta la 
 [Sección de formularios del cookbook](/cookbook#formularios).
 
 ## Focus a un campo de texto cuando se pulsa un botón
