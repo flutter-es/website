@@ -6,7 +6,7 @@ permalink: /cookbook/gestures/handling-taps/
 
 No solo queremos mostrar información a nuestros usuarios, queremos que nuestros usuarios interactúen con nuestras aplicaciones. Entonces, ¿cómo respondemos a acciones fundamentales como tapping y dragging? ¡Usaremos el widget [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)!
 
-Digamos que queremos hacer un botón personalizado que muestre un snackbar cuando hagamos tapped. ¿Cómo enfocaríamos esto?
+Digamos que queremos hacer un botón personalizado que muestre un snackbar cuando hagamos tap. ¿Cómo enfocaríamos esto?
 
 ## Instrucciones
 
@@ -17,7 +17,7 @@ Digamos que queremos hacer un botón personalizado que muestre un snackbar cuand
 ```dart
 // Nuestro GestureDetector envuelve nuestro botón
 GestureDetector(
-  // Cuando el child reciba un tapped, muestra un snackbar 
+  // Cuando el hijo reciba un tap, muestra un snackbar 
   onTap: () {
     final snackBar = SnackBar(content: Text("Tap"));
 
@@ -85,7 +85,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // Nuestro GestureDetector envuelve nuestro botón
     return GestureDetector(
-      // Cuando el child reciba un tapped, muestra un snackbar
+      // Cuando el hijo reciba un tap, muestra un snackbar
       onTap: () {
         final snackBar = SnackBar(content: Text("Tap"));
 
