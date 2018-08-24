@@ -8,10 +8,10 @@ En algunos casos, puede ser útil ejecutar una función callback cada vez que ca
 
 ¿Cómo podemos ejecutar una función callback cada vez que cambia el texto? Con Flutter, tenemos dos opciones:
 
-  1. Proporciona un `onChanged` callback a un `TextField`
+  1. Proporciona un callback `onChanged` a un `TextField`
   2. Usa un `TextEditingController`
 
-## 1. Proporciona un `onChanged` callback a un `TextField`
+## 1. Proporciona un callback `onChanged` a un `TextField`
 
 El enfoque más simple es proporcionar un 
 [`onChanged`](https://docs.flutter.io/flutter/material/TextField/onChanged.html) 
