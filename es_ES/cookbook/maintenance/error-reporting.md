@@ -36,7 +36,7 @@ Para obtener un DSN, por favor:
 ## 2. Importa el paquete Sentry
 
 A continuación, necesitaremos importar el paquete [`sentry`](https://pub.dartlang.org/packages/sentry) en nuestra app. El paquete 
-sentry nos fcilitará el envío de informes  al servicio de seguimiento de errores de Sentry.
+sentry nos facilitará el envío de informes al servicio de seguimiento de errores de Sentry.
 
 ```yaml
 dependencies:
@@ -63,7 +63,7 @@ bool get isInDebugMode {
   bool inDebugMode = false;
   
   // Las expresiones assert solo se evalúan durante el desarrollo. Ellas son ignoradas
-  // en production. Por lo tanto, este código solo convertirá `inDebugMode` a true
+  // en producción. Por lo tanto, este código solo convertirá `inDebugMode` a true
   // en nuestros entornos de desarollo!
   assert(inDebugMode = true);
   
