@@ -100,7 +100,7 @@ RaisedButton(
 );
 ```
 
-### How does this work?
+### ¿Cómo funciona esto?
 
 Para validar el formulario, necesitaremos usar el `_formKey` creado en el paso 1. Podemos usar el método `_formKey.currentState` para acceder a 
 [`FormState`](https://docs.flutter.io/flutter/widgets/FormState-class.html),
