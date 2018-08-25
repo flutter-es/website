@@ -135,7 +135,7 @@ están disponibles opciones adicionales de dependencias:
   ```
 
 * Dependencia **Git** de un paquete en una carpeta: por defecto Pub asume que 
-  el paquete está ubicado en el directorio ráiz del repositorio Git. Si este no es el caso,
+  el paquete está ubicado en el directorio raíz del repositorio Git. Si este no es el caso,
   puedes especificar la ubicación con el argumento `path` , ej.:
   ```
   dependencies:
@@ -149,19 +149,19 @@ están disponibles opciones adicionales de dependencias:
   rama, o etiqueta. Para más detalles, mira el 
   [Pub Dependencies article](https://www.dartlang.org/tools/pub/dependencies).
 
-## Examples
+## Ejemplos
 
-### Example: Using the CSS Colors package {#css-example}
+### Ejemplo: Usando el paquete CSS Colors {#css-example}
 
-The [`css_colors`](https://pub.dartlang.org/packages/css_colors) package defines
-color constants for the CSS colors, allowing you to use them wherever the
-Flutter framework expects the `Color` type.
+El paquete [`css_colors`](https://pub.dartlang.org/packages/css_colors) define 
+constantes para los colores CSS, permitiéndote usar esto en cualquier lugar que 
+el framework de Flutter espere un argumento de tipo `Color`.
 
-To use this package:
+Para usar este paquete:
 
-1. Create a new project called 'cssdemo'
+1. Crea un nuevo proyecto llamado 'cssdemo'
 
-1. Open `pubspec.yaml`, and replace:
+1. Abre `pubspec.yaml`, y reemplaza:
    ```
    dependencies:
      flutter:
@@ -176,51 +176,51 @@ To use this package:
      css_colors: ^1.0.0
    ```
 
-1. Run `flutter packages get` in the terminal, or click 'Packages get' in IntelliJ
+1. Ejecuta `flutter packages get` en el terminal, o haz clic en 'Packages get' en IntelliJ
 
-1. Open `lib/main.dart` and replace its full contents with:
+1. Abre `lib/main.dart` y reemplaza todo su contenido con:
 
-```dart
-import 'package:css_colors/css_colors.dart';
-import 'package:flutter/material.dart';
+    ```dart
+    import 'package:css_colors/css_colors.dart';
+    import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+    void main() {
+      runApp(MyApp());
+    }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DemoPage(),
-    );
-  }
-}
+    class MyApp extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          home: DemoPage(),
+        );
+      }
+    }
 
-class DemoPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Container(color: CSSColors.orange));
-  }
-}
-```
+    class DemoPage extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(body: Container(color: CSSColors.orange));
+      }
+    }
+    ```
 
-1. Run the app. When you click the 'Show Flutter homepage' you should see the
-phone's default browser open, and the Flutter homepage appear.
+1. Ejecuta la app.
 
 
-### Example: Using the URL Launcher package to launch the browser {#url-example}
+### Ejemplo: Usando el paquete URL Launcher para lanzar el navegador {#url-example}
 
-The [URL Launcher](https://pub.dartlang.org/packages/url_launcher) plugin package
-enables you to open the default browser on the mobile platform to display a
-given URL. It demonstrates how packages may also contain platform-specific code
-(we call these packages 'plugins'). It is supported on both Android and iOS.
+El paquete del plugin [URL Launcher](https://pub.dartlang.org/packages/url_launcher) 
+te permite abrir el navegador por defecto en la plataforma móvil para mostrar una 
+URL dada. Esto demuestra como los paquetes pueden también contener código específico 
+de plataforma (nosotros llamamos a estos paquetes 'plugins'). Este es soportado tanto
+en Android como en iOS.
 
-To use this plugin:
+Para usar este plugin:
 
-1. Create a new project called 'launchdemo'
+1. Crea un proyecto nuevo llamado 'launchdemo'
 
-1. Open `pubspec.yaml`, and replace:
+1. Abre `pubspec.yaml`, y reemplaza:
    ```
    dependencies:
      flutter:
@@ -235,44 +235,46 @@ To use this plugin:
      url_launcher: ^0.4.1
    ```
 
-1. Run `flutter packages get` in the terminal, or click 'Packages get' in IntelliJ
+1. Ejecuta `flutter packages get` en el terminal, o haz clic en 'Packages get' en IntelliJ
 
-1. Open `lib/main.dart` and replace its full contents with:
+1. Abre `lib/main.dart` y reemplaza su contenido completo con:
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+    ```dart
+    import 'package:flutter/material.dart';
+    import 'package:url_launcher/url_launcher.dart';
 
-void main() {
-  runApp(MyApp());
-}
+    void main() {
+      runApp(MyApp());
+    }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DemoPage(),
-    );
-  }
-}
+    class MyApp extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          home: DemoPage(),
+        );
+      }
+    }
 
-class DemoPage extends StatelessWidget {
-  launchURL() {
-    launch('https://flutter.io');
-  }
+    class DemoPage extends StatelessWidget {
+      launchURL() {
+        launch('https://flutter.io');
+      }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: RaisedButton(
-          onPressed: launchURL,
-          child: Text('Show Flutter homepage'),
-        ),
-      ),
-    );
-  }
-}
-```
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: Center(
+            child: RaisedButton(
+              onPressed: launchURL,
+              child: Text('Show Flutter homepage'),
+            ),
+          ),
+        );
+      }
+    }
+    ```
 
-1. Run the app (or stop and restart it, if you already had it running before adding the plugin). When you click the 'Show Flutter homepage' you should see the phone's default browser open, and the Flutter homepage appear.
+1. Ejecuta la app (o párala y reiníciala, si ya la estabas ejecutando antes de añadir el plugin). Cuando haces clic
+en 'Show Flutter homepage' deberias ver el navegador predeterminado del teléfono abierto, y aparecer la homepage
+de Flutter.
