@@ -1,135 +1,132 @@
 ---
 layout: page
-title: Using Packages
+title: Usando Paquetes
 permalink: /using-packages/
 ---
 
-Flutter supports using shared packages contributed by other developers to the
-Flutter and Dart ecosystems. This allows you to quickly build your app without
-having to develop everything from scratch.
+Flutter soporta el uso de paquetes compartidos, aportados por otros 
+desarrolladores al ecosistema de Flutter y Dart. Esto te permite construir tu app
+rápidamente sin tener que desarrollar todo desde cero.
 
-Existing packages enable many use cases, for example, making network requests
-([`http`](/cookbook/networking/fetch-data/)), custom navigation/route handling
-([`fluro`](https://pub.dartlang.org/packages/fluro)), integration with device
-APIs (like [`url_launcher`](https://pub.dartlang.org/packages/url_launcher) &
-[`battery`](https://pub.dartlang.org/packages/battery)), and using third-party
-platform SDKs (like
+Los paquetes existentes posibilitan muchos casos de uso, por ejemplo, crear peticiones de red 
+([`http`](/cookbook/networking/fetch-data/)), manejo personalizado de navegacion/enrutado 
+([`fluro`](https://pub.dartlang.org/packages/fluro)), integración con APIs del dispositivo 
+(como [`url_launcher`](https://pub.dartlang.org/packages/url_launcher) &
+[`battery`](https://pub.dartlang.org/packages/battery)), y usar SDKs de plataforma de terceras
+partes (como 
 [Firebase](https://github.com/flutter/plugins/blob/master/FlutterFire.md)).
 
-If you are looking to develop a new package, please see [developing packages](/developing-packages/).
+Si estás buscando desarrollar un nuevo paquete, por favor mira [desarrollando paquetes](/developing-packages/).
 
-If you are looking to add assets, images, or fonts, whether stored in files or
-packages, please see [Assets & Images](https://flutter.io/assets-and-images/).
+Si estas buscando añadir assets, imaágenes, o fuentes, ya sea almacenados en archivos o 
+paquetes, porfavor mira [Assets & Imágenes](https://flutter.io/assets-and-images/).
 
 * TOC
 {:toc}
 
-## Using packages
+## Usando paquetes
 
-### Searching for packages
+### Buscando paquetes
 
-Packages are published to the *[Pub](https://pub.dartlang.org)* package repository.
+Los paquetes son publicados el repositorio de paquetes *[Pub](https://pub.dartlang.org)*.
 
-The [Flutter landing page](https://pub.dartlang.org/flutter/) displays
-top packages that are compatible with Flutter (i.e., that declare dependencies
-generally compatible with Flutter), and supports searching among all published packages.
+La [landing page de Flutter](https://pub.dartlang.org/flutter/) muestra los paquetes 'top' 
+que son compatibles con Flutter (ej., que declaran dependencias generales compatibles 
+con Flutter), y admite la búsqueda entre todos los paquetes publicados.
 
-### Adding a package dependency to an app
+### Añadiendo un paquete a las dependencias de una app
 
-To add a package 'css_colors' to an app:
+Para añadir un paquete 'css_colors' a una app:
 
-1. Depend on it
-   * Open the `pubspec.yaml` file located inside your app folder, and add
-     `css_colors:` under `dependencies`.
+1. Depende de él
+   * Abre el fichero `pubspec.yaml` localizado dentro de la carpeta de la app, y añade 
+   `css_colors:` debajo de `dependencies`.
 
-1. Install it
-   * From the terminal: Run `flutter packages get`<br/>
+1. Instálalo
+   * Desde la terminal: Ejecuta `flutter packages get`<br/>
    **OR**
-   * From Android Studio/IntelliJ: Click 'Packages Get' in the action ribbon at the top of `pubspec.yaml`
-   * From VS Code: Click 'Get Packages' located in right side of the action ribbon at the top of `pubspec.yaml`
+   * Desde Android Studio/IntelliJ: Haz clic en 'Packages Get' en la barra de acciones encima de `pubspec.yaml`
+   * Desde VS Code: Haz clic en 'Get Packages' localizado en la parte derecha de la barra de acciones encima de `pubspec.yaml`
 
-1. Import it
-   * Add a corresponding `import` statement in your Dart code.
+1. Impórtalo
+   * Añade la declaración `import` correspondiente en tu código Dart.
 
-1. Stop and restart the app, if necessary
-   * If the package brings platform-specific code (Java/Kotlin for Android, Swift/Objective-C for iOS), that code
-     must be built into your app. Hot reload and hot restart do this only for the Dart code of the package, so you
-     may have to do a full restart of the app to avoid errors like `MissingPluginException` when using the package.
+1. Para y reinicia la app, si es necesario
+   * Si el paquete trae código especifico de la plataforma (Java/Kotlin para Android, Swift/Objective-C para iOS), 
+   este código debe ser compilado dentro de tu app. Hot reload y hot restart hace esto solo para el código Dart
+   del paquete, puede que tenga que hacer un reinicio completo de la app para evitar errores del tipo `MissingPluginException` cuando usa el paquete.
 
-The
-['Installing'](https://pub.dartlang.org/packages/css_colors#-installing-tab-)
-tab available on any package page on Pub is a handy reference for these steps.
+La pestaña 
+['installing'](https://pub.dartlang.org/packages/css_colors#-installing-tab-)
+disponible en cada paqueteen Pub es una referencia útil para estos pasos.
 
-For a complete example, see [CSS Colors example](#css-example) below.
+Para un ejemplo completo, mira [CSS Colors example](#css-example) más abajo.
 
-## Developing new packages
+## Desarrollando nuevos paquetes
 
-Should a package not be available for your specific use case, you can [develop new
-custom packages](https://flutter.io/developing-packages/).
+Si un paquete no está disponible para su caso específico de uso, puedes [desarrollar un nuevo paquete
+personalizado](https://flutter.io/developing-packages/).
 
-## Managing package dependencies & versions
+## Gestionando dependencias de paquetes & versiones
 
-### Package versions
+### Versiones de paquetes
 
-All packages have a version number, specified in their `pubspec.yaml` file. Pub
-displays the current version of a package next to it's name (for example, see
-the [url_launcher](https://pub.dartlang.org/packages/url_launcher) package), as
-well as a list of all prior versions ([url_launcher
+Todos los paquets tienen un núnmero de versión, especificado specified en su fichero `pubspec.yaml`. Pub 
+muestra la versión actual del paquete a continuación de su nombre (por ejemplo, mira el paquete 
+[url_launcher](https://pub.dartlang.org/packages/url_launcher)), así como una lista de todas las 
+versiones anteriores ([url_launcher
 versions](https://pub.dartlang.org/packages/url_launcher#-versions-tab-)).
 
-When a package is added to `pubspec.yaml` using the shorthand form `plugin1:`
-this is interpreted as `plugin1: any`, i.e. any version of the package may be
-used. To ensure your app does not break when a package is updated, we recommend
-specifying a version range using one of the following formats:
+Cuando un paquete es añadido a `pubspec.yaml` usando la forma abreviada `plugin1:`
+esto es interpretado como `plugin1: any`, es decir cualquier versión del paquete  puede 
+usarse. Para asegurar que tu app no se rompe cuando un paquete es actualizado, recomendamos 
+especificar un rango de versiones usando uno de los siguientes formatos:
 
-* Range constraints: Specify a minimum and maximim version, e.g.:
+* Restricciones de rango: Especifica una version mínima y máxima, ej.:
   ```
   dependencies:
     url_launcher: '>=0.1.2 <0.2.0'
   ```
 
-* Range constraint with [*caret syntax*](https://www.dartlang.org/tools/pub/dependencies#caret-syntax):
-  Similar to a regular range constraints
+* Restricciones de rango con [*caret syntax*](https://www.dartlang.org/tools/pub/dependencies#caret-syntax):
+  Similar a una restricción de rango de expresión regular
   ```
   dependencies:
     collection: '^0.1.2'
   ```
 
-For additional details, see the [Pub versioning guide](https://www.dartlang.org/tools/pub/versioning).
+Para detalles adicionales, mire la [Pub versioning guide](https://www.dartlang.org/tools/pub/versioning).
 
-### Updating package dependencies
+### Actualizando las dependencias de paquetes
 
-When you run `flutter packages get` ('Packages Get' in IntelliJ) for the first
-time after adding a package, Flutter saves the concrete package version found in
-the `pubspec.lock`
-[lockfile](https://www.dartlang.org/tools/pub/glossary#lockfile). This ensures
-that you get the same version again if you, or another developer on your team,
-run `flutter packages get`.
+Cuando ejecutas `flutter packages get` ('Packages Get' en IntelliJ) por primera 
+vez después de añadir un paquete, Flutter guarda la version concreta encontrada en 
+el [lockfile](https://www.dartlang.org/tools/pub/glossary#lockfile) `pubspec.lock`. 
+Esto asegura que se obtiene la misma versión de nuevo si tu, u otro desarrollador en
+tu equipo, ejecuta `flutter packages get`.
 
-If you want to upgrade to a new version of the package, for example to use new
-features in that package, run `flutter packages upgrade` ('Upgrade dependencies'
-in IntelliJ). This will retrieve the highest available version of the package,
-which is allowed by the version constraint you have specified in `pubspec.yaml`.
+Si quieres actualizar a una nueva versión del paquete, por ejemplo para usar nuevas 
+funcionalidades en este paquete, ejecuta `flutter packages upgrade` ('Upgrade dependencies'
+en IntelliJ). Esto obtendrá la versión más alta disponible del paquete,
+que sea permitida por las restricciones que hayas especificado en `pubspec.yaml`.
 
-### Dependencies on unpublished packages
+### Dependencias de paquetes no publicados
 
-Packages can be used even when not published on Pub. For private plugins not
-intended for public publishing, or for packages not yet ready for publishing,
-additional dependency options are avaialble:
+Los paquetes pueden ser usados aunque no estén publicados en Pub. Para plugins privados 
+no destinados a publicarlos de forma pública, o para paquetes aún no listos para publicar, 
+están disponibles opciones adicionales de dependencias:
 
-* **Path** dependency: A Flutter app can depend on a plugin via a file system
-  `path:` dependency. The path can be either relative, or absolute. For example, to
-  depend on a plugin 'plugin1' located in a directory next to the app, use this
-  syntax:
+* Dependencia **Path**: Una aplicación Flutter puede depender de un plugin, vía una dependencia `path:`, 
+  del sistema de ficheros. El path puede ser relativo o absoluto. Por ejemplo, para 
+  depender de un plugin 'plugin1' localizado en un directorio al anexo a la app, usa esta sintaxis:
   ```
   dependencies:
     plugin1:
       path: ../plugin1/
   ```
 
-* **Git** dependency: You can also depend on a package stored in a Git
-  repository. If the package is located in the root of the repo, use this
-  syntax:
+* Dependencia **Git**: Puedes depender también de un paquete almacenado en un repositorio Git. 
+  Si el paquete esta ubicado en la raíz del repositorio, usa esta sintaxis:
   ```
   dependencies:
     plugin1:
@@ -137,9 +134,9 @@ additional dependency options are avaialble:
         url: git://github.com/flutter/plugin1.git
   ```
 
-* **Git** dependency on a package in a folder: By default Pub assumes the
-  package is located in the root of the Git repository. If that is not the case,
-  you can specify the location with the `path` argument, e.g.:
+* Dependencia **Git** de un paquete en una carpeta: por defecto Pub asume que 
+  el paquete está ubicado en el directorio ráiz del repositorio Git. Si este no es el caso,
+  puedes especificar la ubicación con el argumento `path` , ej.:
   ```
   dependencies:
     package1:
@@ -148,8 +145,8 @@ additional dependency options are avaialble:
         path: packages/package1        
   ```
 
-  Finally, you can use the `ref` argument to pin the dependency to a specific git commit,
-  branch, or tag. For more details, see the
+  Finalmente, puedes usar el argumento `ref` para fijar la dependencia un commit específico de git,
+  rama, o etiqueta. Para más detalles, mira el 
   [Pub Dependencies article](https://www.dartlang.org/tools/pub/dependencies).
 
 ## Examples
