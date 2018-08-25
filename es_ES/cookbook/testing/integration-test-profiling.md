@@ -29,8 +29,7 @@ Por favor sigue las instrucciones de esa receta para crear una aplicación, inst
 
 A continuación, debemos registrar el rendimiento de la aplicación a medida que se hace scroll en la lista. Para lograr esta tarea, podemos usar el método
 [`traceAction`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver/traceAction.html) proporcionado por la clase 
-[`FlutterDriver`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html)
-.
+[`FlutterDriver`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html).
 
 Este método ejecuta la función proporcionada y registra un
 [`Timeline`](https://docs.flutter.io/flutter/flutter_driver/Timeline-class.html)
