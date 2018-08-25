@@ -21,7 +21,7 @@ más bien con un estilo flexible de paso de mensajes:
  Android de tu app, usando platform channel.
 
 * El *host* escucha el platform channel, y recibe el mensaje. Esto entonces
- permite llamar a cualquier numero de APIs específicas de plataforma -- usando el 
+ permite llamar a cualquier número de APIs específicas de plataforma -- usando el 
  lenguaje de programación nativo -- y devuelve una respuesta al *cliente*, la parte 
  Flutter de tu app.
 
@@ -56,7 +56,7 @@ La _standard platform channels_ usa un codec de mensaje standard que soporta
 serialización binaria eficiente de valores similares a JSON simples, como booleans,
 numbers, Strings, byte buffers, y List y Maps de estos (mira
 [`StandardMessageCodec`](https://docs.flutter.io/flutter/services/StandardMessageCodec-class.html))
-para detalles. La serialización y desserialización de estos valores hacia y desde los 
+para detalles. La serialización y deserialización de estos valores hacia y desde los 
 mensajes ocurre automáticamente cuando envías y recibes valores.
 
 La siguiente tabla muestra como son recibidos los valores Dart en la plataforma y viceversa:
@@ -81,7 +81,7 @@ La siguiente tabla muestra como son recibidos los valores Dart en la plataforma 
 
 Lo siguiente demuestra como llamar una API especifica de plataforma para obtener y 
 mostrar el nivel de batería actual. Usa la API `BatteryManager` de Android, y
-la API `device.batteryLevel` de iOS, via un único mensaje de plataforma,
+la API `device.batteryLevel` de iOS, vía un único mensaje de plataforma,
 `getBatteryLevel`.
 
 El ejemplo añade el código especifico de plataforma dentro del método main de la app. Si 
@@ -90,7 +90,7 @@ de creación del proyecto es ligeramente diferente (mira [desarrollando
 paquetes](/developing-packages/#plugin)), pero el código del platform channel se escribe de
 la misma manera.
 
-*Nota*: El código fuente ejecutable completo para este ejemplo, esta disponible en 
+*Nota*: El código fuente ejecutable completo para este ejemplo, está disponible en 
 [`/examples/platform_channel/`](https://github.com/flutter/flutter/tree/master/examples/platform_channel)
 para Android con Java y iOS con Objective-C. Para iOS con Swift, mira
 [`/examples/platform_channel_swift/`](https://github.com/flutter/flutter/tree/master/examples/platform_channel_swift).
@@ -161,7 +161,7 @@ Usamos el resultado devuelto para actualizar el estado de nuestro interfaz de us
   }
 ```
 
-Finalmente, reemplazamos el método `build` de la plantilla para contener un pequeño interfaz 
+Finalmente, reemplazamos el método `build` de la plantilla para contener una pequeña interfaz 
 de usuario que muestra el estado de la batería en un string, y un botón para refrescar el valor.
 
 <!-- skip -->
@@ -234,7 +234,7 @@ public class MainActivity extends FlutterActivity {
 }
 ```
 
-A continuación, añadimos el código actual Android en Java, que usa la API Android battery  para 
+A continuación, añadimos el código actual Android en Java, que usa la API Android battery para 
 obtener el nivel de la batería. Este código es exactamente el mismo que habrías escrito 
 en una app nativa Android.
 
@@ -349,8 +349,8 @@ class MainActivity() : FlutterActivity() {
 }
 ```
 
-A continuación, añadimos el código actual Kotilin de Android que usa la API Android battery para 
-obtener el nivel de batería. Este code es exactamente el mismo que escribirías 
+A continuación, añadimos el código actual Kotlin de Android que usa la API Android battery para 
+obtener el nivel de batería. Este código es exactamente el mismo que escribirías 
 en una app Android nativa.
 
 Primero, añade los imports necesarios al principio del fichero:
@@ -416,7 +416,7 @@ with:
 
 Deberías poder ejecutar tu app en Android. Si estas usando el emulador de Android, 
 puedes ajustar el nivel de batería en el panel Extended Controls 
-accesible desde el botón `...` button el la barra de herramientas.
+accesible desde el botón `...` en la barra de herramientas.
 
 ### Paso 4a: Añade la implementación específica de la plataforma iOS usando Objective-C {#example-objc}
 
@@ -479,7 +479,7 @@ Añade lo siguiente como un nuevo método en la clase `AppDelegate`, justo antes
 
 Finalmente, completamos el método `setMethodCallHandler` añadido anteriormente. Necesitamos 
 manejar un único método de plataforma, `getBatteryLevel`, entonces probamos esto en el 
-argumento `call`. La implementacion de este método de plataforma simplemente llama al 
+argumento `call`. La implementación de este método de plataforma simplemente llama al 
 código iOS que escribimos en el paso anterior, y pasa de vuelta una respuesta para ambos 
 casos, éxito y error, usando el argumento `result`. En cambio, si se llama 
 un método desconocido, reportaremos esto. Reemplaza:
@@ -502,7 +502,7 @@ un método desconocido, reportaremos esto. Reemplaza:
 }];
 ```
 
-Ahora deberiás poder ejecutar la app en iOS. Si estas usando el simulador de iOS, 
+Ahora deberías poder ejecutar la app en iOS. Si estas usando el simulador de iOS, 
 nota que este no soporta la API battery, y la app mostrara 'battery info unavailable'.
 
 ### Paso 4b: Añade la implementación específica de la plataforma iOS usando Swift {#example-swift}
@@ -531,7 +531,7 @@ que usa Objective-C:
 navigator.
 
 
-A continuación, sobreescribe la función `application` y crea un `FlutterMethodChannel`
+A continuación, sobrescribe la función `application` y crea un `FlutterMethodChannel`
 atado al _channel name_ `samples.flutter.io/battery`:
 
 ```swift
@@ -576,7 +576,7 @@ private func receiveBatteryLevel(result: FlutterResult) {
 
 Finalmente, completamos el método `setMethodCallHandler` añadido anteriormente. Necesitamos 
 manejar un único método de plataforma, `getBatteryLevel`, entonces probamos esto en el 
-argumento `call`. La implementacion de este método de plataforma simplemente llama al 
+argumento `call`. La implementación de este método de plataforma simplemente llama al 
 código iOS que escribimos en el paso anterior, y pasa de vuelta una respuesta para ambos 
 casos, éxito y error, usando el argumento `result`. En cambio, si se llama 
 un método desconocido, reportaremos esto. Reemplaza:
@@ -599,7 +599,7 @@ nota que este no soporta la API battery, y la app mostrara 'battery info unavail
 
 Si esperas usar tu código específico de plataforma en múltiples aplicaciones Flutter, 
 puede ser útil separar el código en un plugin de plataforma situado en un directorio
-fuera de tu apliación. Mira [deserrollando paquetes](/developing-packages/) 
+fuera de tu aplicación. Mira [deserrollando paquetes](/developing-packages/) 
 para los detalles.
 
 ## Publica código específico de plataforma como un paquete {#publish}
@@ -610,7 +610,7 @@ para los detalles.
 
 ## Custom channels y codecs
 
-Además de `MethodChannel` mencionado anteriormente , también puedes usar el básico 
+Además de `MethodChannel` mencionado anteriormente, también puedes usar el básico 
 [`BasicMessageChannel`][BasicMessageChannel], que soporta paso de mensajes asíncronos
 básicos, usando un codec de mensajes personalizado. Además, puedes usar las clases 
 especializadas [`BinaryCodec`][BinaryCodec], [`StringCodec`][StringCodec], y
