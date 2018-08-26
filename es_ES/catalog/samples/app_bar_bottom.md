@@ -23,7 +23,7 @@ Cualquier widget con un PreferredSize puede aparecer en la parte inferior de un 
   </div>
 </p>
 
-Tipicamente un widget bottom de un AppBar es un TabBar sin embargo, cualquier widget con un PreferredSize puede ser utilizado. En esta app, el widget bottom de un app bar es un
+Típicamente un widget bottom de un AppBar es un TabBar sin embargo, cualquier widget con un PreferredSize puede ser utilizado. En esta app, el widget bottom de un app bar es un
 TabPageSelector que muestra la posición relativa de la página seleccionada en el
 TabBarView de la app. Los botones de flecha en el toolbar forman parte de la app
 bar y seleccionan la página anterior o la siguiente.
