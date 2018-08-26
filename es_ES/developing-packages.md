@@ -13,7 +13,7 @@ Los paquetes permiten la creación de código modular que puede ser compartido f
 paquete mínimo consiste en:
 
 * Un fichero `pubspec.yaml`: Un fichero de metadatos que declara el nombre del paquete,
-  version, autor, etc.
+  versión, autor, etc.
 
 * Un directorio `lib` conteniendo el código público del paquete, como mínimo un 
   único fichero `<package-name>.dart`.
@@ -65,9 +65,9 @@ en [Dart library package](https://www.dartlang.org/guides/libraries/create-libra
 ## Desarrollar paquetes de plugin {#plugin}
 
 Si quieres desarrollar un paquete que hace llamadas a APIs específicas de plataforma, 
-necesitas desarrollar un paquete de plugin. Un paquete de plugin es una version especiliazada 
+necesitas desarrollar un paquete de plugin. Un paquete de plugin es una versión especializada 
 de un paquete Dart, que además del contenido descrito anteriormente también contiene
-implementaciones especificas de plataforma, escritas para Android (código Java o Kotlin) 
+implementaciones específicas de plataforma, escritas para Android (código Java o Kotlin) 
 o para iOS (código Objective-C o Swift), o para ambas. La API se conecta con las
 implementaciones específicas de plataforma usando [platform channels](/platform-channels/).
 
@@ -106,7 +106,7 @@ flutter create --template=plugin -i swift -a kotlin hello
 ### Paso 2: Implementa el paquete {#edit-plugin-package}
 
 Como un paquete de plugin, contiene código de diversas plataformas escritos en múltiples 
-lenguajes de programación, son necesarios algunos pasos especificos para asegurar una 
+lenguajes de programación, son necesarios algunos pasos específicos para asegurar una 
 experiencia adecuada.
 
 #### Paso 2a: Define la API del paquete (.dart)
@@ -115,7 +115,7 @@ La API del paquete de plugin es definida en código Dart. Abre la carpeta princi
 en tu [editor Flutter] favorito(/get-started/editor/). Localiza el fichero 
 `lib/hello.dart`.
 
-#### Paso 2b: Añade el código de la platafoma Android (.java/.kt)
+#### Paso 2b: Añade el código de la plataforma Android (.java/.kt)
 
 Te recomendamos que edites el código Android usando Android Studio.
 
@@ -151,7 +151,7 @@ A continuación,
 1. Lanza Xcode
 1. Selecciona 'File > Open', y selecciona el fichero `hello/example/ios/Runner.xcworkspace`.
 
-El código de la plataforma iOS de tu plugin esta ubicado en `Pods/Development
+El código de la plataforma iOS de tu plugin está ubicado en `Pods/Development
 Pods/hello/Classes/` en Project Navigator.
 
 Puedes ejecutar la app de ejemplo presionando el botón &#9654;.
@@ -173,7 +173,7 @@ Es una práctica recomendada añadir la siguiente documentación a todos los paq
 
 ### Documentación de API
 
-Cuando publicas un paquete, la documentación de la API es generada y publicada automaticamente a 
+Cuando publicas un paquete, la documentación de la API es generada y publicada automáticamente a 
 dartdocs.org, mira por ejemplo la [documentación de device_info](https://www.dartdocs.org/documentation/device_info/0.0.4/index.html).
 
 Si quieres generar documentación de la API localmente en tu máquina de desarrollo 
@@ -184,7 +184,7 @@ Si quieres generar documentación de la API localmente en tu máquina de desarro
    `cd ~/dev/mypackage`
 
 1. Di a la herramienta de documentación donde esta el SDK de Flutter (
-  cambialo para reflejar donde lo has ubicado):
+  cámbialo para reflejar donde está ubicado):
 
    `export FLUTTER_ROOT=~/dev/flutter` (en macOS o Linux)
 
@@ -239,7 +239,7 @@ proyecto Dart.
 
 Pero si `hello` resulta ser un paquete de _plugin_ cuyo código específico de plataforma 
 necesita acceso al código específico de plataforma de la API expuesta por `url_launcher`, 
-tambien necesitas añadir declaraciones de dependencia adecuadas a tus archivos de compilación 
+también necesitas añadir declaraciones de dependencia adecuadas a tus archivos de compilación 
 específicos de plataforma, como mostramos abajo.
 
 ### Android
@@ -254,7 +254,7 @@ android {
 }
 ```
 Ahora puedes hacer `import io.flutter.plugins.urllauncher.UrlLauncherPlugin` y acceder a la clase 
-`UrlLauncherPlugin` en el código fuent en `hello/android/src`.
+`UrlLauncherPlugin` en el código fuente en `hello/android/src`.
 
 ### iOS
 
@@ -276,13 +276,13 @@ antes que versiones especificas cuando especificamos las dependencias.
 
 ```yaml
 dependencies:
-  url_launcher: ^0.4.2    # Bien, cuaquiera 0.4.x with x >= 2 valdrá.
+  url_launcher: ^0.4.2    # Bien, cualquiera 0.4.x with x >= 2 valdrá.
   image_picker: '0.1.1'   # No tan bien, solo 0.1.1 valdrá.
 ```
 
 Si `algun_paquete` declara las dependencias anteriores y `otro_paquete` declara una dependencia con 
 `url_launcher` compatible, como `'0.4.5'` o `^0.4.0`, `pub` podrá resolver este problema automáticamente. 
-Algo similar se aplica a las depedencias específicas de plataforma, en paquetes de plugin, en [Gradle modules](https://docs.gradle.org/current/userguide/dependency_management.html#sub:dynamic_versions_and_changing_modules)
+Algo similar se aplica a las dependencias específicas de plataforma, en paquetes de plugin, en [Gradle modules](https://docs.gradle.org/current/userguide/dependency_management.html#sub:dynamic_versions_and_changing_modules)
 y/o [Cocoa pods](https://guides.cocoapods.org/syntax/podspec.html#dependency).
 
 Incluso si `algun_paquete` y `otro_paquete` declaran versiones incompatibles para `url_launcher`, aún puede
@@ -290,7 +290,7 @@ ser que estos usen `url_launcher` de maneras compatibles. Entonces el conflicto 
 una sobrescritura de dependencia al fichero `pubspec.yaml` en `hello`, forzando a usar una versión en 
 particular:
 
-Forzando el uso de la version `0.4.3` de `url_launcher` en `hello/pubspec.yaml`:
+Forzando el uso de la versión `0.4.3` de `url_launcher` en `hello/pubspec.yaml`:
 ```yaml
 dependencies:
   some_package:
@@ -299,11 +299,11 @@ dependency_overrides:
   url_launcher: '0.4.3'
 ```
 
-Si la dependencia conflictiva no es en si misma un paquete, sino una biblioteca específica de Android 
-como `guava`, la declarción de sobrescritura de dependencia debe ser añadida en cambio, a la lógica de compilado de 
+Si la dependencia conflictiva no es en sí misma un paquete, sino una biblioteca específica de Android 
+como `guava`, la declaración de sobrescritura de dependencia debe ser añadida en cambio, a la lógica de compilado de 
 Gradle en su lugar.
 
-Fozando el uso de la version `23.0` de `guava` en `hello/android/build.gradle`:
+Forzando el uso de la versión `23.0` de `guava` en `hello/android/build.gradle`:
 ```groovy
 configurations.all {
     resolutionStrategy {
