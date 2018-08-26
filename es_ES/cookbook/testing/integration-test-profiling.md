@@ -59,7 +59,7 @@ El `TimelineSummary` puede realizar dos tareas que facilitan la revisión de los
 
   1. Puedes escribir un documento json en el disco que resuma los datos contenidos en el `Timeline`. Este resumen incluye información sobre la cantidad de 
   frames con saltos, los tiempos que fueron los más lentos y más.
-  2. Puedes guardar el `Timeline` completo como un archivo json en el disco. Este archivo se puede abrir con las herramientas de trace del navegador Chrome que se encontran en 
+  2. Puedes guardar el `Timeline` completo como un archivo json en el disco. Este archivo se puede abrir con las herramientas de trace del navegador Chrome que se encuentran en 
   [chrome://tracing](chrome://tracing).
 
 <!-- skip -->
@@ -73,7 +73,7 @@ summary.writeSummaryToFile('scrolling_summary', pretty: true);
 
 // Opcionalmente, escribe todo el timeline al disco en formato json. Este
 // archivo se puede abrir con las herramientas trace del navegador Chrome 
-// que se encontran en chrome://tracing.
+// que se encuentran en chrome://tracing.
 summary.writeTimelineToFile('scrolling_timeline', pretty: true);
 ```
 
