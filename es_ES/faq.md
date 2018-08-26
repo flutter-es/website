@@ -285,19 +285,11 @@ Flutter debería poder ejecutar la mayoría del código Dart que no se importa (
 
 ### ¿Cómo de grande es el motor de Flutter?
 
-En junio de 2017, medimos el tamaño de una aplicación mínima de Flutter
-(sin componentes de materiales, solo un único widget de "centro", construido con
-`flutter build apk`), incluido y
-comprimido como un lanzamiento APK, para ser aproximadamente 6.7MB.
+En Agosto de 2018, medimos el tamaño de una app Flutter mínima, (sin Material Components, solamente un único widget Center, construido con el sistema de builds de apks de flutter), empaquetado y comprimido como una release APK, tiene aproximadamente 4.7 MB.
 
-Para esta aplicación simple,
-el motor central es aproximadamente 3.3MB (comprimido),
-el código framework + app es de aproximadamente 1.25MB (comprimido),
-el archivo LICENSE (contenido en app.flx) es 55k (comprimido),
-el código Java necesario (classes.dex) es 40k (comprimido),
-y hay aproximadamente 2,1 MB de datos de la UCI (comprimidos).
+Para este app simple, el core engine tiene aproximadamente 3.2MB(comprimido), el framework + el código de la app tiene aproximadamente 840KB (comprimidos), el archivo LICENSE tiene 55KB (comprimido), el código Java necesario (casses.dex) tienen 57KB (comprimido), y hay aproximadamente 533KB (comprimidos) de ICU data.
 
-Por supuesto, YMMV, y le recomendamos que mida su propia aplicación,
+Por supuesto, su experiencia puede ser diferente, y le recomendamos que mida su propia aplicación,
 ejecutando `flutter build apk` y mirando `app/outputs/apk/app-release.apk`.
 
 ## Capacidades
@@ -308,24 +300,23 @@ Puedes esperar un excelente rendimiento. Flutter es diseñado para ayudar a los 
 
 ### ¿Qué tipo de ciclos de desarrollador puedo esperar? ¿Cuánto tiempo entre editar y actualizar? {# hot-reload}
 
-Flutter implementa un ciclo de desarrollador _hot reload_. Puedes esperar
-tiempos de recarga por segundo, en un dispositivo o emulador/simulador.
+Flutter implementa un ciclo de desarrollo _hot reload_. Puedes esperar tiempos de recarga por debajo de un segundo,, en un dispositivo o emulador/simulador.
 
 El hot reload de Flutter es _stateful_, lo que significa que el estado de la aplicación se conserva después de una recarga. Esto significa que puede iterar rápidamente en una pantalla anidada profundamente en su aplicación, sin iniciar desde la pantalla de inicio después de cada recarga.
 
 ### ¿En que se diferencia 'hot reload' de 'hot restart'?
 
-Hot Reload funciona inyectando archivos actualizados de código fuente en la Dart VM en ejecución (Máquina virtual). Esto incluye no solo agregar nuevas clases, sino también agregar métodos y campos para clases existentes, y cambio de funciones existentes. Unos pocos tipos de cambios de código no pueden ser hot realoaded:
+Hot Reload funciona inyectando archivos actualizados de código fuente en la Dart VM en ejecución (Máquina virtual). Esto incluye no solo agregar nuevas clases, sino también agregar métodos y campos para clases existentes, y cambio de funciones existentes. Unos pocos tipos de cambios de código no pueden ser actualizados mediante hot reload:
 
 * Inicializadores variables globales.
 * Inicializadores de campo estáticos.
 * El método `main ()` de la aplicación.
 
-Consulte [Using Hot Reload](/hot-reload/) para obtener detalles adicionales.
+Usando [Using Hot Reload](/hot-reload/) para obtener detalles adicionales.
 
 ### ¿Dónde puedo desplegar mi aplicación Flutter?
 
-Puede compilar e desplegar su aplicación Flutter en iOS y Android.
+Puede compilar y desplegar su aplicación Flutter en iOS y Android.
 
 ### ¿Qué dispositivos y versiones de sistema operativo ejecuta Flutter?
 
@@ -334,10 +325,10 @@ iOS 8 o más nuevo.
 
 Hardware móvil: dispositivos iOS (iPhone 4S o posterior) y dispositivos Android ARM.
 
-Nota Flutter actualmente no es compatible con la construcción de x86 Android
+Nota Flutter actualmente no es compatible con la construcción para x86 de Android
 (problema [#9253](https://github.com/flutter/flutter/issues/9253)) directamente, sin embargo, las aplicaciones creadas para ARMv7 o ARM64 funcionan bien (a través de la emulación ARM en muchos dispositivos Android x86.
 
-Apoyamos el desarrollo de aplicaciones de Flutter con dispositivos Android e iOS, como así como con los emuladores de Android y el simulador de iOS.
+Admitimos el desarrollo de aplicaciones de Flutter con dispositivos Android e iOS, así como con los emuladores de Android y el simulador de iOS.
 
 Probamos en una variedad de teléfonos de gama baja a gama alta pero aún no tenemos una garantía oficial de compatibilidad de dispositivos.
 
@@ -351,55 +342,50 @@ No. No estamos trabajando para proporcionar una versión web de Flutter.
 
 Nos enfocamos en los casos de uso móvil primero. Sin embargo, Flutter es de código abierto y alentamos a la comunidad a utilizar Flutter de diversas maneras interesantes.
 
-### ¿Puedo usar Flutter dentro de mi aplicación nativa existente??
+### ¿Puedo usar Flutter dentro de mi aplicación nativa existente?
 
 Sí, puedes insertar una vista de Flutter en tu aplicación existente de Android o iOS, sin embargo nuestras herramientas no están actualmente optimizadas para este caso de uso (ver [este problema](https://github.com/flutter/flutter/issues/14821) para detalles).
 
 Dos demostraciones actuales de esto son por ejemplo [platform_view](https://github.com/flutter/flutter/tree/master/examples/platform_view)
 y [flutter_view](https://github.com/flutter/flutter/tree/master/examples/flutter_view). Alguna documentación inicial está disponible en la página wiki
-[Agrega Flutter a las aplicaciones existentes](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps).
+[Add Flutter to existing apps](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps).
 
 ### ¿Puedo acceder a servicios de plataforma y API como sensores y almacenamiento local?
 
-Sí. Flutter ofrece a los desarrolladores acceso inmediato a _some_ plataforma específica servicios y API del sistema operativo. Sin embargo, queremos evitar el
-"problema del mínimo común denominador" con la mayoría de las API multiplataforma, por lo que no intentamos construir API multiplataforma para todos los servicios y API nativos.
+Sí. Flutter ofrece a los desarrolladores acceso inmediato a algunos servicios especificos de la plataforma y API del sistema operativo. Sin embargo, queremos evitar el "problema del mínimo común denominador" con la mayoría de las API multiplataforma, por lo que no intentamos construir API multiplataforma para todos los servicios y API nativos.
 
 Varios servicios de plataforma y API tienen [paquetes listos para usar](https://pub.dartlang.org/flutter/) disponible en el repositorio Pub. Usar un paquete existente [es fácil](/using-packages/).
 
-Finalmente, alentamos a los desarrolladores a utilizar el paso de sistemas de mensajes asíncronos de Flutter para crear sus propias integraciones con [plataforma y APIs de terceros](/platform-channels/). Los desarrolladores pueden exponer tanto o tan poco de la plataforma API según lo necesiten, y construya capas de abstracciones que se ajusten mejor para su proyecto.
+Finalmente, alentamos a los desarrolladores a utilizar el paso de sistemas de mensajes asíncronos de Flutter para crear sus propias integraciones con la [APIs de plataformas y de terceros](/platform-channels/). Los desarrolladores pueden exponer tanto o tan poco de la plataforma API según lo necesiten, y construir capas de abstracción que se ajusten mejor para su proyecto.
 
 ### ¿Puedo ampliar y personalizar los widgets incluidos?
 
 Absolutamente. El sistema de widgets de Flutter fue diseñado para ser fácilmente personalizable.
 
-En lugar de tener cada widget proporciona una gran cantidad de parámetros, Flutter
-abraza la composición. Los widgets están formados por widgets más pequeños que puedes
-reutilice y combine de maneras novedosas para hacer widgets personalizados. Por ejemplo, más bien que subclasificar un widget de botón genérico, RaisedButton combina un Material widget con un widget GestureDetector. El widget Material proporciona el visual el diseño y el widget GestureDetector proporcionan el diseño de interacción.
+En lugar de proporcionar a cada widget una gran cantidad de parámetros, Flutter adopta la composición. 
+Los widgets están formados por widgets más pequeños que puedes reutilizar y combinar de maneras novedosas para hacer widgets personalizados. Por ejemplo, en lugar de crear subclases de un botón genérico, RaisedButton combina un widget Material con un widget GestureDetector. El widget Material proporciona el diseño visual y el widget GestureDetector proporciona el diseño de interacción.
 
 Para crear un botón con un diseño visual personalizado, puede combinar widgets que
-implemente su diseño visual con un GestureDetector, que proporciona diseño de interacción. Por ejemplo, CupertinoButton sigue este enfoque y combina un GestureDetector con varios otros widgets que implementan diseño visual.
+implemente su diseño visual con un GestureDetector, que proporciona diseño de interacción. Por ejemplo, CupertinoButton sigue este enfoque y combina un GestureDetector con varios otros widgets que implementan este diseño visual.
 
-La composición le brinda el máximo control sobre el diseño visual y de interacción
-de sus widgets mientras que también permite una gran cantidad de reutilización de código. En el framework, hemos descompuesto widgets complejos en piezas que implementan por separado el diseño visual, de interacción y de movimiento. Sin embargo, puedes volver a mezclar estos widgets si te gusta crear tus propios widgets personalizados que tengan un rango completo de expresión.
+La composición le brinda el máximo control sobre el diseño visual y de interacción de sus widgets mientras que también permite una gran cantidad de reutilización de código. En el framework, hemos descompuesto widgets complejos en piezas que implementan por separado el diseño visual, de interacción y de movimiento. Sin embargo, puedes volver a mezclar estos widgets si te gusta crear tus propios widgets personalizados que tengan un rango completo de expresión.
 
-### ¿Por qué querría compartir el código de diseño en iOS y Android?
+### ¿Por qué querría compartir el código de layout entre iOS y Android?
 
-Puede optar por implementar diferentes diseños de aplicaciones para iOS y Android.
+Puede optar por implementar diferentes layouts de aplicaciones para iOS y Android.
 Los desarrolladores son libres de verificar el sistema operativo móvil en tiempo de ejecución y renderizar diferentes diseños, aunque encontramos que esta práctica es rara.
 
-Cada vez más, vemos diseños y diseños de aplicaciones móviles evolucionando
-para ser más impulsado por la marca y unificado en todas las plataformas. Esto implica una gran motivación para compartir el diseño y el código de UI en iOS y
-Android.
+Cada vez más, vemos que los layouts y diseños de aplicaciones móviles evolucionan para ser más cercanos a la marca y unificado entre plataformas. Esto implica una gran motivación para compartir el layout y el código de UI en iOS y Android.
 
-La identidad de marca y la personalización del diseño estético de la aplicación es ahora volviéndose más importante que adherirse estrictamente a la plataforma tradicional estética. Por ejemplo, los diseños de aplicaciones a menudo requieren fuentes personalizadas, colores, formas, movimiento y más para transmitir claramente su identidad de marca.
+La identidad de marca y la personalización del diseño estético de la aplicación esta ahora volviéndose más importante que adherirse estrictamente a la estética tradicional de la plataforma. Por ejemplo, los diseños de aplicaciones a menudo requieren fuentes personalizadas, colores, formas, movimiento y más para transmitir claramente su identidad de marca.
 
 También vemos patrones de diseño comunes implementados en iOS y Android.
 Por ejemplo, ahora se puede encontrar naturalmente el patrón de "barra de navegación inferior" a través de iOS y Android. Parece que hay una convergencia de ideas de diseño a través de plataformas móviles.
 
-### ¿Puedo interoperar con el lenguaje de programación predeterminado de mi plataforma móvil?
+### ¿Puedo interactuar con el lenguaje de programación predeterminado de mi plataforma móvil?
 
 Sí, Flutter admite llamar a la plataforma, incluida la integración con Java o Kotlin.
-código en Android y código ObjectiveC o Swift en iOS. Esto está habilitado a través del estilo de paso flexible de mensajes donde una aplicación Flutter puede enviar y recibir mensajes a la plataforma móvil usando un [`BasicMessageChannel`](https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html).
+código en Android y código ObjectiveC o Swift en iOS. Esto está habilitado a través del estilo de mensajes flexibles donde una aplicación Flutter puede enviar y recibir mensajes a la plataforma móvil usando un [`BasicMessageChannel`](https://docs.flutter.io/flutter/services/BasicMessageChannel-class.html).
 
 Obtenga más información sobre cómo acceder a servicios de plataforma y de terceros en Flutter con [canales de plataforma](/platform-channels/).
 
@@ -407,7 +393,7 @@ Aquí hay un [proyecto de ejemplo](https://github.com/flutter/flutter/tree/maste
 
 ### ¿Flutter viene con un sistema de reflection/mirrors?
 
-No en este momento. Debido a que las aplicaciones de Flutter están compiladas previamente para iOS y tamaño binario siempre es una preocupación con las aplicaciones móviles, desactivamos dart: mirrors. Somos curiosos para qué puede necesitar reflection/mirrors, por favor avísenos
+No en este momento. Debido a que las aplicaciones de Flutter están precompiladas para iOS, y el tamaño binario siempre es una preocupación con las aplicaciones móviles, desactivamos dart: mirrors. Somos curiosos para qué puede necesitar reflection/mirrors, por favor avísenos
 [flutter-dev@googlegroups.com](mailto:flutter-dev@googlegroups.com).
 
 ### ¿Cómo hago la internacionalización (i18n), la localización (l10n) y la accesibilidad (a11y) en Flutter?
@@ -418,13 +404,12 @@ Aprenda más sobre a11y en el [documentación de accesibilidad](/accessibility/)
 
 ### ¿Cómo escribo aplicaciones paralelas y/o concurrentes para Flutter?
 
-Flutter admite aislamientos. Los aislamientos son heaps separados en VM de Flutter, y
-pueden ejecutarse en paralelo (generalmente implementados como hilos separados). Aislados comunicarse enviando y recibiendo mensajes asíncronos. Flutter no tiene
+Flutter admite Isolates, Los Isolates son heaps separados en VM de Flutter y pueden ejecutarse en paralelo (generalmente implementados como hilos separados). Isolates se comunican enviando y recibiendo mensajes asíncronos. Flutter no tiene
 actualmente una solución de paralelismo de memoria compartida, aunque estamos evaluando soluciones para esto.
 
-Echa un vistazo al [ejemplo de usar aislamientos con Flutter](https://github.com/flutter/flutter/blob/master/examples/layers/services/isolate.dart).
+Echa un vistazo al [ejemplo de uso de isolates con Flutter](https://github.com/flutter/flutter/blob/master/examples/layers/services/isolate.dart).
 
-### ¿Puedo ejecutar el código de Dart en el fondo de una aplicación de Flutter?
+### ¿Puedo ejecutar el código de Dart en segundo plano de una aplicación de Flutter?
 
 El código en ejecución en segundo plano tiene API específicas de plataforma debido a
 diferencias en el soporte para la ejecución de fondo en cada uno de las plataformas para Android e iOS.
@@ -449,10 +434,9 @@ Por lo general, los activos que incluyen imágenes, archivos de sonido, fuentes,
 Varias herramientas en los ecosistemas de Android e iOS pueden ayudarlo a comprender
 qué hay dentro de tu APK o IPA.
 
-Además, asegúrate de crear un _release build_ de su APK o IPA con las herramientas de Flutter. Una compilación de lanzamiento es usualmente _mucho_ más pequeña
-que un _debug build_.
+Además, asegúrate de crear un _release build_ de su APK o IPA con las herramientas de Flutter. Un release build es usualmente _mucho_ más pequeña que un _debug build_.
 
-Obtenga más información sobre cómo crear una [versión de lanzamiento de su aplicación de Android](https://flutter.io/android-release/), y creando un [lanzamiento de versión de su aplicación iOS](https://flutter.io/ios-release/).
+Obtenga más información sobre cómo crear un [release build de su aplicación de Android](https://flutter.io/android-release/), y creando un [lanzamiento de versión de su aplicación iOS](https://flutter.io/ios-release/).
 
 ### ¿Las aplicaciones de Flutter se ejecutan en Chromebooks?
 
@@ -461,46 +445,41 @@ Estamos rastreando [problemas relacionados con la ejecución de Flutter en Chrom
 
 ## Framework
 
-### ¿Por qué el método build() está en estado, no en StatefulWidget?
+### ¿Por qué el método build() esta en State, no en StatefulWidget?
 
 Poniendo un método `Widget build (BuildContext context)` en State
 en lugar de poner un método `Widget build(BuildContext context, State state)`
 en StatefulWidget les da a los desarrolladores más flexibilidad con
 subclases StatefulWidget. Puedes leer una [discusión más detallada sobre los documentos API para State.build](https://docs.flutter.io/flutter/widgets/State/build.html).
 
-### ¿Dónde está el lenguaje markup de Flutter? ¿Por qué Flutter no tiene una sintaxis de markup?
+### ¿Dónde está el lenguaje marcado de Flutter? ¿Por qué Flutter no tiene una sintaxis de marcado?
 
-Las IU de Flutter están construidas con un lenguaje imperativo, orientado a objetos (Dart, el mismo lenguaje utilizado para construir el framework de Flutter). Flutter
-no se envía con un markup declarativo.
+Las IU de Flutter están construidas con un lenguaje imperativo, orientado a objetos (Dart, el mismo lenguaje utilizado para construir el framework de Flutter). Flutter no se envía con un marcado declarativo.
 
 Encontramos que las IU construidas dinámicamente con código permiten
 más flexibilidad. Por ejemplo, nos ha resultado difícil
-para un sistema de markup rígido expresar y producir
+para un sistema de marcado rígido expresar y producir
 widgets personalizados con comportamientos a la medida.
 
-También hemos descubierto que nuestro "code-first" permite mejores funciones como
-adaptaciones de hot reload y entorno dinámico.
+También hemos encontrado que nuestro enfoque "primero-código" permite mejor funcionalidades como hot reload y adaptaciones dinámicas de entorno.
 
-Es posible crear un lenguaje personalizado que sea entonces convertido en widgets sobre la marcha. Debido a que los métodos de compilación son "just code", puede hacer cualquier cosa, incluso interpretar el markup y convertirlo en widgets.
+Es posible crear un lenguaje personalizado que sea entonces convertido en widgets sobre la marcha. Porque los métodos de construcción son "solo código", pueden hacer cualquier cosa, incluido interpretar el marcado y convertirlo en widgets.
 
 ### Mi aplicación tiene una banner/cinta de depuración en la esquina superior derecha. ¿Por qué estoy viendo eso?
 
 Por defecto, el comando `flutter run` usa la configuración de compilación de depuración.
 
-La configuración de depuración ejecuta su código Dart en una máquina virtual (máquina virtual) habilitando un ciclo de desarrollo rápido con [carga en caliente](#hot-reload) (las versiones de lanzamiento son compilado usando el estándar [Android](#run-android) y [iOS](#run-ios) cadenas de herramientas).
+La configuración de depuración ejecuta su código Dart en una VM (máquina virtual) habilitando un ciclo de desarrollo rápido con [hot reload](#hot-reload) (os release builds son compilados usando las herramientas standard de [Android](#run-android) e [iOS](#run-ios) cadenas de herramientas).
 
-La configuración de depuración también verifica todas las afirmaciones, lo que ayuda a detectar errores temprano durante el desarrollo, pero impone un costo de tiempo de ejecución. El banner "Debug" indica que estas comprobaciones están habilitadas. Puede ejecutar su aplicación sin estos comprueba usando el indicador `--profile` o` --release` para `flutter run`.
+La configuración de depuración también verifica todas los asserts, lo que ayuda a detectar errores temprano durante el desarrollo, pero impone un costo de tiempo de ejecución. El banner "Debug" indica que estas comprobaciones están habilitadas. Puede ejecutar su aplicación sin estos checks `--profile` o` --release` para `flutter run`.
 
-Si está utilizando el plugin Flutter para IntelliJ, puede iniciar la aplicación en
-perfil o modo de liberación usando las entradas del menú **Run > Flutter Run en modo Profile** or **Release Mode**.
+Si está utilizando el plugin Flutter para IntelliJ, puede iniciar la aplicación profile o release mode usando las entradas del menú **Run > Flutter Run en modo Profile** or **Release Mode**.
 
 ### ¿Qué paradigma de programación usa el framework de Flutter?
 
 Flutter es un entorno de programación multi-paradigma. Muchas técnicas de programación desarrollado en las últimas décadas se utilizan en Flutter. Usamos cada uno donde creemos que las fortalezas de la técnica lo hacen especialmente adecuado. Sin un orden en particular:
 
-* Composición: el paradigma principal utilizado por Flutter es el de usar
-objetos pequeños con alcances estrechos de comportamiento, compuestos juntos para
-obtener efectos más complicados. La mayoría de los widgets en la biblioteca de widgets de Flutter está construida de esta manera. Por ejemplo, la clase Material
+* Composición: el paradigma principal utilizado por Flutter es el de usar objetos pequeños con alcances estrechos de comportamiento, compuestos juntos para obtener efectos más complicados. La mayoría de los widgets en la biblioteca de widgets de Flutter está construida de esta manera. Por ejemplo, la clase Material
 [FlatButton](https://docs.flutter.io/flutter/material/FlatButton-class.html)
 se construye usando una clase [MaterialButton](https://docs.flutter.io/flutter/material/MaterialButton-class.html), que a su vez se construye utilizando
 un [IconTheme](https://docs.flutter.io/flutter/widgets/IconTheme-class.html),
@@ -515,10 +494,10 @@ El [Material](https://docs.flutter.io/flutter/material/Material-class.html)
 esta construido usando un [AnimatedDefaultTextStyle](https://docs.flutter.io/flutter/widgets/AnimatedDefaultTextStyle-class.html),
 un [NotificationListener](https://docs.flutter.io/flutter/widgets/NotificationListener-class.html),
 y un [AnimatedPhysicalModel](https://docs.flutter.io/flutter/widgets/AnimatedPhysicalModel-class.html).
-Y así. Son widgets todo el camino.
+Y así. Son widgets todo momento.
 
 * Programación funcional: las aplicaciones completas pueden construirse solo con
-[StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html), que son esencialmente funciones que describen cómo los argumentos se asignan a otras funciones, cayendo en primitivas que computan layouts o gráficos de pintura. (Tales aplicaciones no pueden tener estado fácilmente, por lo que normalmente no son interactivas.)
+[StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html), que son esencialmente funciones que describen cómo los argumentos se asignan a otras funciones, cayendo en primitivas computan layouts o pintan gráficos. (Tales aplicaciones no pueden tener estado fácilmente, por lo que normalmente no son interactivas.)
 Por ejemplo, el [Icon](https://docs.flutter.io/flutter/widgets/Icon-class.html)
 widget es esencialmente una función que mapea sus argumentos
 ([color](https://docs.flutter.io/flutter/widgets/Icon/color.html),
@@ -533,43 +512,38 @@ incluyendo toda la jerarquía de clase de
 que hace un uso intensivo del estilo funcional (map, reduce, where, etc.), es
 frecuentemente utilizado para procesar listas de valores en el framework.
 
-* Programación event-driven: las interacciones del usuario están representadas por objetos de eventos que se envían a callbacks registradas con controladores de eventos. Actualizaciones de pantalla son activados por un mecanismo de callback similar. La clase [Listenable](https://docs.flutter.io/flutter/foundation/Listenable-class.html), que se utiliza como base del sistema de animación, formatea un modelo de suscripción para eventos con múltiples oyentes.
+* Programación dirigida por eventos: las interacciones del usuario están representadas por objetos de eventos que se envían a callbacks registradas con manejadores de eventos. Las actualizaciones de pantalla son activados por un mecanismo de callback similar. La clase [Listenable](https://docs.flutter.io/flutter/foundation/Listenable-class.html), que se utiliza como base del sistema de animación, formaliza un modelo de suscripción para eventos con múltiples oyentes.
 
 * Programación orientada a objetos basada en clases: la mayoría de las API del Framework se construyen usando clases con herencia. Usamos un enfoque por el cual definimos API de muy alto nivel en nuestras clases base, luego especialícelas iterativamente en subclases. Por ejemplo, nuestros objetos de renderizado tienen una clase base ([RenderObject](https://docs.flutter.io/flutter/rendering/RenderObject-class.html)) eso es agnóstico con respecto al sistema de coordenadas, y luego tenemos una subclase ([RenderBox](https://docs.flutter.io/flutter/rendering/RenderBox-class.html)) que introduce la opinión de que la geometría debe basarse en el cartesiano sistema de coordenadas (x/ancho y/ alto).
 
-* Programación orientada a objetos basada en prototipos: la clase [ScrollPhysics](https://docs.flutter.io/flutter/widgets/ScrollPhysics-class.html) se instancia para componer la física que se aplica al desplazamiento dinámicamente en tiempo de ejecución. Esto permite que el sistema componga, por ejemplo, paginación física con física específica de plataforma, sin que la plataforma tenga que ser seleccionado en tiempo de compilación.
+* Programación orientada a objetos basada en prototipos: la clase [ScrollPhysics](https://docs.flutter.io/flutter/widgets/ScrollPhysics-class.html) encadena instancias para componer la fisica que aplica para hacer scroll dinámico en tiempo de ejecución. Esto permite que el sistema componga, por ejemplo, paginación física con física específica de plataforma, sin que la plataforma tenga que ser seleccionado en tiempo de compilación.
 
 * Programación imperativa: programación imperativa directa, por lo general emparejado con estado encapsulado dentro de un objeto, se usa donde proporciona la solución más intuitiva. Por ejemplo, las pruebas están escritas en un estilo imperativo, primero describiendo la situación bajo prueba, luego enumerando las invariantes que la prueba debe coincidir, luego avanzar el reloj o insertar eventos según sea necesario para la prueba.
 
-* Programación reactiva: el widget y los árboles de elementos a veces se describen como reactivo, porque las nuevas entradas proporcionadas en el constructor de un widget son inmediatamente propagado como cambios a widgets de nivel inferior por el método de compilación del widget, y los cambios realizados en los widgets inferiores (p. ej., en respuesta a la entrada del usuario) se propagan copia de seguridad del árbol a través de controladores de eventos. Aspectos de reactivos funcionales y
-imperativo-reactivo están presentes en el marco, en función de las necesidades de la
-widgets. Widgets con métodos de compilación que consisten en solo una expresión
-describir cómo el widget reacciona a los cambios en su configuración son funcionales
-widgets reactivos (por ejemplo, la clase Material [Divider](https://docs.flutter.io/flutter/material/Divider-class.html)). Widgets cuyos métodos de compilación construyen una lista de hijos a lo largo de varias declaraciones, que describen cómo reacciona el widget a los cambios en su configuración, son widgets reactivos imperativos (por ejemplo, la clase [Chip](https://docs.flutter.io/flutter/material/Chip-class.html)).
+* Programación reactiva: el widget y los árboles de elementos a veces se describen como reactivo, porque las nuevas entradas proporcionadas en el constructor de un widget son inmediatamente propagado como cambios a widgets de nivel inferior por el método de compilación del widget, y los cambios realizados en los widgets inferiores (p. ej., en respuesta a la entrada del usuario) se propagan de vuelta hacia arriba del árbol vía manejadores de eventos. Aspectos de ambos enfoques, el funcional-reactivo y el imperativo-reactivo están presentes en el framework, dependiendo de las necesidades de los widgets. Widgets con un método build que consiste en solo una expresión describiendo como el widget reacciona a cambios en su configuración son widgets funcionales reactivos (por ejemplo, la clase Material [Divider](https://docs.flutter.io/flutter/material/Divider-class.html)). Widgets cuyos métodos build construyen una lista de hijos sobre varias declaraciones, describiendo como el widget reacciona a los cambios en su configuración , son widgets imperativos reactivos (ejemplo, la clase [Chip](https://docs.flutter.io/flutter/material/Chip-class.html)).
 
-* Programación declarativa: los métodos de compilación de widgets suelen ser una única expresión con múltiples niveles de constructores anidados, escritos utilizando un subconjunto declarativo de Dart. Tales expresiones anidadas podrían ser mecánicamente transformado hacia o desde cualquier lenguaje de markup expresivo adecuado. Por ejemplo, el widget [UserAccountsDrawerHeader](https://docs.flutter.io/flutter/material/UserAccountsDrawerHeader-class.html) tiene un método de compilación larga (más de 20 líneas), que consiste en una sola expresión anidada. Esto también se puede combinar con el estilo imperativo para construir UI eso sería más difícil de describir en un enfoque puramente declarativo.
+* Programación declarativa: los métodos de compilación de widgets suelen ser una única expresión con múltiples niveles de constructores anidados, escritos utilizando un subconjunto declarativo de Dart. Tales expresiones anidadas podrían ser mecánicamente transformado hacia o desde cualquier lenguaje de marcado expresivo adecuado. Por ejemplo, el widget [UserAccountsDrawerHeader](https://docs.flutter.io/flutter/material/UserAccountsDrawerHeader-class.html) tiene un método de compilación larga (más de 20 líneas), que consiste en una sola expresión anidada. Esto también se puede combinar con el estilo imperativo para construir UI eso sería más difícil de describir en un enfoque puramente declarativo.
 
-* Programación genérica: los tipos pueden usarse para ayudar a los desarrolladores a captar errores tempranos en la programación. El framework de Flutter utiliza programación genérica para ayudar en esto. Por ejemplo, la clase [State](https://docs.flutter.io/flutter/widgets/State-class.html) es parametrizada en términos del tipo de su widget asociado, de modo que el analizador Dart puede detectar desajustes entre estados y widgets. Del mismo modo, la clase [GlobalKey](https://docs.flutter.io/flutter/widgets/GlobalKey-class.html) toma un parámetro de tipo para que pueda acceder al estado de un widget remoto en un tipo de manera segura (utilizando la comprobación de tiempo de ejecución), la interfaz [Route](https://docs.flutter.io/flutter/widgets/Route-class.html) es parametrizada con el tipo que se espera que use cuando [popped](https://docs.flutter.io/flutter/widgets/Navigator/pop.html), y colecciones tales como [List](https://docs.flutter.io/flutter/dart-core/List-class.html), [Map](https://docs.flutter.io/flutter/dart-core/Map-class.html), y [Set](https://docs.flutter.io/flutter/dart-core/Set-class.html) todas son parametrizadas de modo que los elementos no coincidentes se puedan detectar temprano durante análisis o en tiempo de ejecución durante la depuración.
+* Programación genérica: los tipos pueden usarse para ayudar a los desarrolladores a captar errores tempranos en la programación. El framework de Flutter utiliza programación genérica para ayudar en esto. Por ejemplo, la clase [State](https://docs.flutter.io/flutter/widgets/State-class.html) es parametrizada en términos del tipo de su widget asociado, de modo que el analizador Dart puede detectar desajustes entre estados y widgets. Del mismo modo, la clase [GlobalKey](https://docs.flutter.io/flutter/widgets/GlobalKey-class.html) toma un parámetro de tipo para que pueda acceder al estado de un widget remoto en un tipo de manera segura (utilizando la comprobación de tiempo de ejecución), la interfaz [Route](https://docs.flutter.io/flutter/widgets/Route-class.html) es parametrizada con el tipo que se espera que use cuando [se usa el método pop](https://docs.flutter.io/flutter/widgets/Navigator/pop.html), y colecciones tales como [List](https://docs.flutter.io/flutter/dart-core/List-class.html), [Map](https://docs.flutter.io/flutter/dart-core/Map-class.html), y [Set](https://docs.flutter.io/flutter/dart-core/Set-class.html) todas son parametrizadas de modo que los elementos no coincidentes se puedan detectar temprano durante análisis o en tiempo de ejecución durante la depuración.
 
 * Programación concurrente: Flutter hace un uso intensivo de [Future](https://docs.flutter.io/flutter/dart-async/Future-class.html) y otras API asíncronas. Por ejemplo, el sistema de animación informa cuando la animación se completa al completar un futuro. El sistema de carga de imagen de manera similar utiliza futuros para informar cuando se completa una carga.
 
-* Programación de restricción: el sistema de disposición en Flutter usa una forma débil de programación de restricciones para determinar la geometría de una escena. Restricciones (para cajas cartesianas, un ancho mínimo y máximo y un mínimo y máximo altura) se pasan de padres a hijos, y el hijo selecciona una geometría resultante (por ejemplo, para cajas cartesianas, un tamaño, específicamente un ancho y una altura) que cumple con esas restricciones. Al usar esta técnica, Flutter generalmente puede diseñar una escena completa con un solo pase.
+* Programación de restricción: el sistema de layout en Flutter usa una forma débil de programación de restricciones para determinar la geometría de una escena. Constraints (ej para cajas cartesianas, una anchura mínima y máxima y una altura mínima y máxima) se pasan de padres a hijos, y el hijo selecciona una geometría resultante (ej., para cajas cartesianas, una dimensión, escifícamente un ancho y un alto) que cumple con esas restricciones. Al usar esta técnica, Flutter usualmente, puede crear el layout de una escena en una sola pasada.
 
 ## Proyecto
 
 ### ¿Donde puedo obtener soporte?
 
 Si crees que has encontrado un error, por favor archívalo en nuestro
-[rastreador de problemas](https://github.com/flutter/flutter/issues). Nosotros te animamos a usar [Stack Overflow](https://stackoverflow.com/tags/flutter) para preguntas tipo "HOWTO". Para discusiones, por favor, únete a nuestra lista de correo en [flutter-dev@googlegroups.com](mailto:flutter-dev@googlegroups.com).
+[issue tracker](https://github.com/flutter/flutter/issues). Nosotros te animamos a usar [Stack Overflow](https://stackoverflow.com/tags/flutter) para preguntas tipo "HOWTO". Para discusiones, por favor, únete a nuestra lista de correo en [flutter-dev@googlegroups.com](mailto:flutter-dev@googlegroups.com).
 
 ### ¿Cómo me involucro?
 
-Flutter es de código abierto, y te animamos a contribuir. Puedes comenzar por
-simplemente presentando problemas para solicitudes de características y errores en nuestro [rastreador de problemas](https://github.com/flutter/flutter/issues).
+Flutter es de código abierto, y te animamos a contribuir. Puedes empezar simplemente rellenando issues de bugs o requiriendo funcionalidades en nuestro [issue tracker](https://github.com/flutter/flutter/issues).
 
 Le recomendamos que se una a nuestra lista de correo en [flutter-dev@googlegroups.com](mailto:flutter-dev@googlegroups.com) y déjanos saber cómo estás usando Flutter y qué te gustaría hacer con él.
 
-Si eres interesado en contribuir con el código, puede comenzar leyendo nuestra
+Si estas interesado en contribuir con el código, puede comenzar leyendo nuestra
 [Guía de contribución](https://github.com/flutter/flutter/blob/master/CONTRIBUTING.md) y mirar nuestra lista de [temas fáciles de inicio](https://github.com/flutter/flutter/issues?q=is%3Aopen+is%3Aissue+label%3A%22easy+fix%22).
 
 ### Flutter es de código abierto?
