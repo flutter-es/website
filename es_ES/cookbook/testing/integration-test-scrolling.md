@@ -25,7 +25,7 @@ En esta receta, aprenderemos a hacer scroll por una lista de elementos para veri
 En esta receta, vamos a construir una aplicación que muestra una larga lista de elementos. Para mantener esta receta centrada en las pruebas, usaremos la aplicación que creamos en la receta 
 [Trabajando con listas grandes](/cookbook/lists/long-lists/). Si no estás seguro de cómo trabajar con listas de contenido, por favor consulta esa receta para obtener una introducción.
 
-Como hicimos en la receta [Introducción a los test de integración](/cookbook/testing/integration-test-introduction/), también agregaremos Keys a los widgets  con los que queremos interactuar dentro de nuestras pruebas de integración.
+Como hicimos en la receta [Introducción a los test de integración](/cookbook/testing/integration-test-introduction/), también agregaremos Keys a los widgets con los que queremos interactuar dentro de nuestras pruebas de integración.
 
 ```dart
 import 'package:flutter/foundation.dart';
