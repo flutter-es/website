@@ -15,7 +15,7 @@ Todas las apps de ejemplo listadas aquí usan la clase AnimatedList de Flutter d
    </a>
     <div class="col-md-9">
       <p>
-        Un AnimatedList que muestra una lista de tarjetas que permanecen sincronizadas con un ListModel específico de la aplicación.Cuando se agrega o quita un elemento del modelo, la tarjeta correspondiente se anima dentro o fuera de la vista.
+        Un AnimatedList que muestra una lista de tarjetas que permanecen sincronizadas con un ListModel específico de la aplicación. Cuando se agrega o quita un elemento del modelo, la tarjeta correspondiente se anima dentro o fuera de la vista.
       </p>
       <p>
         Esta aplicación presenta las siguientes clases: AnimatedList, AnimatedListState.
