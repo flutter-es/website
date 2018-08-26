@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
               title: Text(
                 '${items[index]}',
                 // Agrega una clave al Text Widget para cada elemento. Esto nos permite
-                // buscar un elemento en particular en la lista y vericar que el
+                // buscar un elemento en particular en la lista y verificar que el
                 // texto es correcto
                 key: Key('item_${index}_text'),
               ),
@@ -165,7 +165,7 @@ void main() {
         dyScroll: -300.0,
       );
 
-      // Verifica que el elmento contenga el texto correcto
+      // Verifica que el elemento contenga el texto correcto
       expect(
         await driver.getText(itemFinder),
         'Item 50',
