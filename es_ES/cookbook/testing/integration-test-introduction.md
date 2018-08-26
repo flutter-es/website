@@ -6,7 +6,7 @@ permalink: /cookbook/testing/integration-test-introduction/
 
 Las pruebas unitarias y las pruebas de widgets son útiles para probar clases individuales, funciones o widgets. Sin embargo, generalmente no prueban cómo las piezas individuales trabajan juntas, como un todo, o capturan el rendimiento de una aplicación que se ejecuta en un dispositivo real. Estas tareas se realizan con *tests de integración*.
 
-Los tests de integracion funcionan como un par: primero, hacen el deploy a una aplicación instrumentada en un dispositivo o emulador real y luego "conducen" la aplicación desde una suite de tests separados, verificando para asegurarse de que todo esté correcto en el camino.
+Los tests de integración funcionan como un par: primero, hacen el deploy a una aplicación instrumentada en un dispositivo o emulador real y luego "conducen" la aplicación desde una suite de tests separados, verificando para asegurarse de que todo esté correcto en el camino.
 
 Para crear este par de prueba, podemos usar el paquete 
 [flutter_driver](https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html). Proporciona herramientas para crear aplicaciones instrumentadas e impulsar esas aplicaciones desde una suite de tests.
@@ -20,7 +20,7 @@ En esta receta, aprenderemos cómo hacer un test a una app counter. Demostrará 
   3. Crea los archivos de test
   4. Instrumenta la app
   5. Escribe el test de integración
-  6. Ejecuta el test de integración
+  6. Ejecuta el test de integración</n>
   
 ### 1. Crea una app para el test
 
@@ -114,7 +114,7 @@ dev_dependencies:
     
 ### 3. Crea los archivos de test
 
-A diferencia de los tests de unidad y los widgets de test, las suits de test de integración no se ejecutan en el mismo proceso en el que la app esta siendo probada. Por lo tanto, necesitamos crear dos archivos que residan en el mismo directorio. Por convención, el directorio se llama `test_driver`.
+A diferencia de los tests de unidad y los widgets de test, las suits de test de integración no se ejecutan en el mismo proceso en el que la app está siendo probada. Por lo tanto, necesitamos crear dos archivos que residan en el mismo directorio. Por convención, el directorio se llama `test_driver`.
 
   1. El primer archivo contiene una versión "instrumentada" de la app. La instrumentación nos permite "conducir" la aplicación y registrar perfiles de rendimiento desde la suite de test. A este archivo se le puede dar cualquier nombre que tenga sentido. Para este ejemplo, crea un archivo llamado `test_driver/app.dart`.
   2. El segundo archivo contiene la suite test, que controla la aplicación y verifica que funcione como se esperaba. La suite de test puede registrar perfiles de rendimiento. 
