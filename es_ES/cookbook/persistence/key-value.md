@@ -60,7 +60,7 @@ Por ejemplo, podemos usar los métodos `getInt`, `getBool`, y `getString`.
 ```dart
 final prefs = await SharedPreferences.getInstance();
 
-// Intenta leer datos de la tecla del contador. Si no existe, retorna 0.
+// Intenta leer datos de la clave del contador. Si no existe, retorna 0.
 final counter = prefs.getInt('counter') ?? 0;
 ```
 
