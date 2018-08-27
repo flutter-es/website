@@ -9,7 +9,7 @@ colección de widgets visuales, estructurales,
 de plataforma e interactivos de Flutter.
 
 <p>Además de navegar por los widgets por categoría, 
-puedes también ver todos los widgets en el<a href="/widgets/widgetindex/">índice de widgets de Flutter</a>.</p>
+puedes también ver todos los widgets en el<a href="/widgets/widgetindex/"> índice de widgets de Flutter</a>.</p>
 
 <ul class="cards">
 {% for section in site.data.catalog.index %}
