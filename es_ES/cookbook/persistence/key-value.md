@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Almacenamiento de datos clave-valor en el disco"
+title: "Almacenando datos clave-valor en disco"
 permalink: /cookbook/persistence/key-value/
 ---
 
@@ -82,8 +82,8 @@ Si bien es fácil y conveniente usar el almacenamiento de clave-valor, tiene lim
 - Solo se pueden usar tipos primitivos: `int`, `double`, `bool`, `string` y `stringList`
 - No está diseñado para almacenar una gran cantidad de datos.
 
-Para obtener más información acerca de las preferencias compartidas en Android, visite
-[Documentación de preferencias compartidas](https://developer.android.com/guide/topics/data/data-storage.html#pref)
+Para obtener más información acerca de Preferencias Compartidas en Android, visite
+[Cómo utilizar preferencias compartidas](https://developer.android.com/guide/topics/data/data-storage.html#pref)
 en el sitio web de desarrolladores de Android.
 
 ## Prueba de soporte
