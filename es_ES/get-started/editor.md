@@ -4,9 +4,9 @@ title: "Empezar: Configurar Editor"
 permalink: /get-started/editor/
 ---
 
-Usted puede construir apps con Flutter utilizando cualquier editor de texto combinando con nuestras
+Puedes construir apps con Flutter utilizando cualquier editor de texto combinado con nuestras
 herramientas en línea de comando. De cualquier manera, recomendamos utilizar alguno de nuestros plugin para una
-mejor experiencia. Con nuestros plugins de edición, usted podrá auto completar código, sintaxis resaltada, asistencia al editar widgets, apoyo para ejecutar & depurar, y más. 
+mejor experiencia. Con nuestros plugins de edición, podrás auto completar código, sintaxis resaltada, asistencia al editar widgets, apoyo para ejecutar & depurar, y más. 
 
 Siga los siguientes pasos para agregar un complemento al editor para Androind Studio, IntelliJ 
 o VS Code. Si quiere utilizar un editor diferente, está bien, simplemente salte al 
@@ -46,7 +46,7 @@ Flutter es compatible por dos plugins:
 Para instalar:
 
    1. Inicie Android Studio.
-   1. Abra preferecias de complementos (**Preferences>Plugins** en macOS,
+   1. Abra preferencias de complementos (**Preferences>Plugins** en macOS,
       **File>Settings>Plugins** en Windows & Linux).
    1. Seleccione **Browse repositories…**,  elige el complemento de Flutter y presione
       `install`.
@@ -63,7 +63,7 @@ Para instalar:
 
 ### Instalar VS Code
 
-  * [VS Code](https://code.visualstudio.com/), La versión estable mas reciente.
+  * [VS Code](https://code.visualstudio.com/), La versión estable más reciente.
 
 ### Instalar el complemento de Flutter 
 

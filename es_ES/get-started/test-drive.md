@@ -42,7 +42,7 @@ Dentro del directorio del proyecto, el código de tu app, esta en `lib/main.dart
       ![Main IntelliJ toolbar](/images/intellij/main-toolbar.png)
    1. En el **target selector**, selecciona un dispositivo android para ejecutar la app.
       Si ninguno esta en la lista como disponible, selecciona **Tools> Android > AVD Manager** y
-      crea uno ahí mismo. Para mas detalle, vea [Administrando
+      crea uno ahí mismo. Para más detalle, vea [Administrando
       AVDs](https://developer.android.com/studio/run/managing-avds.html).
    1. Clic en el **Run icon** en la barra de herramientas, seleccionar **Run >
       Run** del menú.
@@ -54,7 +54,7 @@ Dentro del directorio del proyecto, el código de tu app, esta en `lib/main.dart
 
 Flutter ofrece un ciclo de desarrollo rápido con _hot reaload_, la habilidad de recargar 
 el código en una app ejecutando en vivo sin reiniciar o perder el estado de la app. simplemente
-hace un cambio a tu código fuente, diciéndole a tu IDE o herramienta de linea de comandos que
+hace un cambio a tu código fuente, diciéndole a tu IDE o herramienta de línea de comandos que
 quieres recargar, y ver los cambio en tu simulador, emulador, o dispositivo.
 
   1. Cambia el texto<br>`'You have pushed the button this many times:'`
@@ -108,7 +108,7 @@ Dentro del directorio del proyecto, el código de tu app esta en `lib/main.dart`
 
 Flutter ofrece un ciclo de desarrollo rápido con _hot reload_, la habilidad de recargar 
 el código en una app ejecutando en vivo sin reiniciar o perder el estado de la app. simplemente
-hace un cambio a tu código fuente, diciéndole a tu IDE o herramienta de linea de comandos que
+hace un cambio a tu código fuente, diciéndole a tu IDE o herramienta de línea de comandos que
 quieres recargar, y ver los cambio en tu simulador, emulador, o dispositivo.
 
   1. Cambia el texto<br>`'You have pushed the button this many times:'`

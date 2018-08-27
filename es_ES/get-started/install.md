@@ -4,7 +4,7 @@ title: "Empezar: Instalación"
 permalink: /get-started/install/
 ---
 
-Por favor selecciona el sistema operativo en el cual se instalara Flutter:
+Por favor selecciona el sistema operativo en el cual se instalará Flutter:
 
 <div class="homepage__button_row">
   <a href="/setup-windows" class="get-started-button">Instalación en Windows</a>
@@ -12,7 +12,7 @@ Por favor selecciona el sistema operativo en el cual se instalara Flutter:
   <a href="/setup-linux" class="get-started-button">Instalación en Linux</a>
 </div>
 
-{% include note.html content="_Si usted se encuentra en china, por favor lea
-[este articulo](https://github.com/flutter/flutter/wiki/Using-Flutter-in-China)
+{% include note.html content="_Si usted se encuentra en china, por favor leé
+[este artículo](https://github.com/flutter/flutter/wiki/Using-Flutter-in-China)
 primero_." 
 %}
