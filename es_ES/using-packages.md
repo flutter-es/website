@@ -9,7 +9,7 @@ desarrolladores al ecosistema de Flutter y Dart. Esto te permite construir tu ap
 rápidamente sin tener que desarrollar todo desde cero.
 
 Los paquetes existentes posibilitan muchos casos de uso, por ejemplo, crear peticiones de red 
-([`http`](/cookbook/networking/fetch-data/)), manejo personalizado de navegacion/enrutado 
+([`http`](/cookbook/networking/fetch-data/)), manejo personalizado de navegación/enrutado 
 ([`fluro`](https://pub.dartlang.org/packages/fluro)), integración con APIs del dispositivo 
 (como [`url_launcher`](https://pub.dartlang.org/packages/url_launcher) &
 [`battery`](https://pub.dartlang.org/packages/battery)), y usar SDKs de plataforma de terceras
@@ -18,8 +18,8 @@ partes (como
 
 Si estás buscando desarrollar un nuevo paquete, por favor mira [desarrollando paquetes](/developing-packages/).
 
-Si estas buscando añadir assets, imaágenes, o fuentes, ya sea almacenados en archivos o 
-paquetes, porfavor mira [Assets & Imágenes](https://flutter.io/assets-and-images/).
+Si estas buscando añadir assets, imágenes, o fuentes, ya sea almacenados en archivos o 
+paquetes, por favor mira [Assets & Imágenes](https://flutter.io/assets-and-images/).
 
 * TOC
 {:toc}
@@ -71,7 +71,7 @@ personalizado](https://flutter.io/developing-packages/).
 
 ### Versiones de paquetes
 
-Todos los paquets tienen un núnmero de versión, especificado specified en su fichero `pubspec.yaml`. Pub 
+Todos los paquetes tienen un número de versión, especificado en su fichero `pubspec.yaml`. Pub 
 muestra la versión actual del paquete a continuación de su nombre (por ejemplo, mira el paquete 
 [url_launcher](https://pub.dartlang.org/packages/url_launcher)), así como una lista de todas las 
 versiones anteriores ([url_launcher
@@ -82,7 +82,7 @@ esto es interpretado como `plugin1: any`, es decir cualquier versión del paquet
 usarse. Para asegurar que tu app no se rompe cuando un paquete es actualizado, recomendamos 
 especificar un rango de versiones usando uno de los siguientes formatos:
 
-* Restricciones de rango: Especifica una version mínima y máxima, ej.:
+* Restricciones de rango: Especifica una versión mínima y máxima, ej.:
   ```
   dependencies:
     url_launcher: '>=0.1.2 <0.2.0'
@@ -100,9 +100,9 @@ Para detalles adicionales, mire la [Pub versioning guide](https://www.dartlang.o
 ### Actualizando las dependencias de paquetes
 
 Cuando ejecutas `flutter packages get` ('Packages Get' en IntelliJ) por primera 
-vez después de añadir un paquete, Flutter guarda la version concreta encontrada en 
+vez después de añadir un paquete, Flutter guarda la versión concreta encontrada en 
 el [lockfile](https://www.dartlang.org/tools/pub/glossary#lockfile) `pubspec.lock`. 
-Esto asegura que se obtiene la misma versión de nuevo si tu, u otro desarrollador en
+Esto asegura que se obtiene la misma versión de nuevo si tú, u otro desarrollador en
 tu equipo, ejecuta `flutter packages get`.
 
 Si quieres actualizar a una nueva versión del paquete, por ejemplo para usar nuevas 
@@ -126,7 +126,7 @@ están disponibles opciones adicionales de dependencias:
   ```
 
 * Dependencia **Git**: Puedes depender también de un paquete almacenado en un repositorio Git. 
-  Si el paquete esta ubicado en la raíz del repositorio, usa esta sintaxis:
+  Si el paquete está ubicado en la raíz del repositorio, usa esta sintaxis:
   ```
   dependencies:
     plugin1:
@@ -276,5 +276,5 @@ Para usar este plugin:
     ```
 
 1. Ejecuta la app (o párala y reiníciala, si ya la estabas ejecutando antes de añadir el plugin). Cuando haces clic
-en 'Show Flutter homepage' deberias ver el navegador predeterminado del teléfono abierto, y aparecer la homepage
+en 'Show Flutter homepage' deberías ver el navegador predeterminado del teléfono abierto, y aparecer la homepage
 de Flutter.
