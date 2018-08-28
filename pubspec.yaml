@@ -15,4 +15,4 @@ dev_dependencies:
   shared_preferences: 0.4.1
   transparent_image: 0.1.0
   css_colors: 1.0.1
-  web_socket_channel: 1.0.7
+  web_socket_channel: 1.0.9
