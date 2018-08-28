@@ -36,14 +36,11 @@ redibujar hasta que se invalide usando `setNeedsDisplay()`.
 Además, a diferencia de `UIView`, los widgets de Flutter son ligeros, en parte debido
 a su inmutabilidad. Porque no son puntos de vista en sí mismos, y no están dibujando nada directamente, sino que son una descripción de la UI y su semántica que se "inflan" en objetos de vistas reales.
 
-Flutter incluye la librería [Material Components](https://material.io/develop/flutter/). Estos son los widgets que implementan las Material Design guidelines
-[Material Design guidelines](https://material.io/design/). El diseño de Material Design es un
-sistema de diseño flexible [optimizado para todas las
-plataformas](https://material.io/design/platform-guidance/cross-platform-adaptation.html#cross-platform-guidelines),
+Flutter incluye la librería [Material Components](https://material.io/develop/flutter/). Estos son los widgets que implementan las [Material Design guidelines](https://material.io/design/). El diseño de Material Design es un sistema de diseño flexible [optimizado para todas las plataformas](https://material.io/design/platform-guidance/cross-platform-adaptation.html#cross-platform-guidelines),
 incluyendo iOS.
 
 Pero Flutter es lo suficientemente flexible y expresivo como para implementar cualquier lenguaje de diseño.
-En iOS, puedes utilizar los widgets Cupertino [Cupertino widgets](https://flutter.io/widgets/cupertino/)
+En iOS, puedes utilizar los [Cupertino widgets](https://flutter.io/widgets/cupertino/)
 para producir una interfaz que se parezca al
 [Lenguaje de diseño iOS de Apple](https://developer.apple.com/design/resources/).
 
@@ -65,12 +62,12 @@ Por ejemplo, en iOS, esto es similar a colocar un `UIImageView` con
 su logo como la `image`. Si el logotipo no cambia durante el tiempo de ejecución,
 usa un `StatelessWidget` en Flutter.
 
-Desea cambiar dinámicamente la interfaz de usuario basándose en los datos recibidos después de hacer una
+Si deseas cambiar dinámicamente la interfaz de usuario basándose en los datos recibidos después de hacer una
 llamada HTTP, utiliza un `StatefulWidget`. Después de que la llamada HTTP se haya
 completado, avisa al framework de Flutter que el `State` del widget ha sido 
 actualizado, para que pueda actualizar la interfaz de usuario.
 
-La diferencia importante entre stateless y stateful widgets es que `StatefulWidget`s tiene un objeto `State` que almacena el estado de los datos  y los transporta a través de los rebuilds del árbol de widgets, para que no se pierdan.
+La diferencia importante entre stateless y stateful widgets es que `StatefulWidget`s tiene un objeto `State` que almacena el estado de los datos y los transporta a través de los rebuilds del árbol de widgets, para que no se pierdan.
 
 Si tienes dudas, recuerda esta regla: si un widget cambia fuera de
 el método `build` (debido a las interacciones de los usuarios en tiempo de ejecución, por ejemplo), es stateful.
@@ -264,7 +261,7 @@ En iOS, creas una animación llamando al método
 `animate(withDuration:animations:)` en una vista. En Flutter,
 usa la biblioteca de animación para incluir widgets dentro de un widget animado.
 
-En Flutter, usa un doble espaciado entre un `AnimationController` y `Animation<double>`
+En Flutter, usa un `AnimationController` y `Animation<double>`
 que puede pausar, buscar, detener e invertir la animación. Requiere un `Ticker`
 que señala cuando ocurre la sincronización y produce una interpolación lineal entre
 0 y 1 en cada fotograma mientras está en marcha. A continuación, crea una o más
@@ -280,7 +277,7 @@ Cuando construyas el árbol de widgets, asigna la `Animation` a una propiedad an
 de un widget, como la opacidad de una `FadeTransition`, y dile al controlador que inicie la animación
 
 El siguiente ejemplo muestra cómo escribir un `FadeTransition` que desvanece el widget
-en un logotipo al pulsar el botón  `FloatingActionButton`:
+en un logotipo al pulsar el botón `FloatingActionButton`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -507,7 +504,7 @@ localización, podrías hacer lo siguiente:
 Map coordinates = await Navigator.of(context).pushNamed('/location');
 {% endprettify %}
 
-Y luego, dentro de tu ruta de'location', una vez que el usuario haya seleccionado su
+Y luego, dentro de tu ruta de 'location', una vez que el usuario haya seleccionado su
 localización, haces `pop()` en pila con la respuesta:
 
 <!-- skip -->
@@ -517,7 +514,7 @@ Navigator.of(context).pop({"lat":43.821757,"long":-79.226392});
 
 ## ¿Cómo puedo navegar a otra aplicación?
 
-En iOS, para enviar al usuario a otra aplicación, utilizas un esquema de URL específico.. Para las aplicaciones a nivel de sistema, el esquema
+En iOS, para enviar al usuario a otra aplicación, utilizas un esquema de URL específico. Para las aplicaciones a nivel de sistema, el esquema
 depende de la aplicación. Para implementar esta funcionalidad en Flutter,
 crear una integración de plataforma nativa, o utiliza un plugin existente, como es url_launcher
 [plugin](#plugins), tales como [`url_launcher`](https://pub.dartlang.org/packages/url_launcher).
@@ -537,7 +534,7 @@ UIViewController* viewController = [UIApplication sharedApplication].keyWindow.r
 Si eso no hace lo que quieres, puedes crear tu propio  
 [plarform channel](/platform-channels/) para invocar código iOS arbitrario.
 
-# ¿Asincronicidad o asincronía?
+# ¿Hilos o Asincronicidad?
 
 ## ¿Cómo se puede escribir código asíncrono?
 
@@ -564,7 +561,7 @@ loadData() async {
 }
 {% endprettify %}
 
-Una vez que la llamada de red. que estamos esperando con `await`, se completa, actualiza el UI llamando a `setState()`, que desencadena un rebuild del widget y actualiza los datos.
+Una vez que la llamada de red que estamos esperando con `await`, se completa, actualiza el UI llamando a `setState()`, que desencadena un rebuild del widget y actualiza los datos.
 
 El siguiente ejemplo carga datos de forma asincrónica y los visualiza en un `ListView`:
 
@@ -1592,7 +1589,7 @@ class SampleApp extends StatelessWidget {
 
 ## ¿Cómo se crea un theme para una aplicación?
 
-De inicio, Flutter, Flutter viene con una atractiva implementación de Material Design, que se encarga de un montón de necesidades de estilos y creación de themes que normalmente harías.
+De inicio, Flutter viene con una atractiva implementación de Material Design, que se encarga de un montón de necesidades de estilos y creación de themes que normalmente harías.
 
 Para aprovechar al máximo los Material Components en tu app, declare un widget de primer nivel, MaterialApp, como punto de entrada a su aplicación. MaterialApp es un widget de conveniencia que incluye una serie de widgets que son comúnmente requeridos para aplicaciones que implementan Material Design. Se basa en una WidgetsApp añadiendo funcionalidad específica de Material.
 
