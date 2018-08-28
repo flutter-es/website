@@ -83,7 +83,7 @@ if [ "$TRAVIS_EVENT_TYPE" = "push" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
 
   npm install --global firebase-tools
   # firebase -P flutter-es --token "$FIREBASE_TOKEN" --non-interactive deploy
-  firebase deploy --token "$FIREBASE_TOKEN"
+  firebase deploy --project flutter-es --token "$FIREBASE_TOKEN"
 
 fi
 
