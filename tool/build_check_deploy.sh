@@ -131,7 +131,7 @@ if [[ -n $PUB_CMD ]]; then
 fi
 
 echo "ANALYZING _includes/code/*:"
-"$flutter" analyze --no-current-package src/_includes/code/
+"$flutter" analyze --no-current-package _includes/code/
 
 echo "EXTRACTING code snippets from the markdown:"
 "$dart" --preview-dart-2 tool/extract.dart
