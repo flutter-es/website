@@ -18,7 +18,7 @@ env:
     - TZ=US/Pacific # normalize build timestamp
   matrix:
     - TASK="./tool/check-examples.sh"
-    - TASK="rake checklinks" # Run jekyll build and check links
+    # - TASK="rake checklinks" # Run jekyll build and check links
 
 before_install:
   - rvm install 2.4.3
