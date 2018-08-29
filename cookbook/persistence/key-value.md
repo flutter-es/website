@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _incrementCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
+      _counter = prefs.getInt('counter') ?? 0;
       _counter++;
       prefs.setInt('counter', _counter);
     });
