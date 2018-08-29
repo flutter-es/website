@@ -122,7 +122,7 @@ if [[ -n $PUB_CMD ]]; then
   "$flutter" packages $PUB_CMD
 
   # Analyze the stand-alone sample code files
-  for sample in src/_includes/code/*/*; do
+  for sample in _includes/code/*/*; do
     if [[ -d "${sample}" ]]; then
       echo "Run flutter packages $PUB_CMD on ${sample}"
       "$flutter" packages $PUB_CMD ${sample}
