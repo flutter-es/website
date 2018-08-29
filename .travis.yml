@@ -24,6 +24,8 @@ before_install:
   - rvm install 2.4.3
   - rvm use 2.4.3
   - chmod +x ./tool/check-examples.sh
+  - chmod +x ./tool/build_check_deploy.sh
+
   - ./tool/before_install.sh
   
 
