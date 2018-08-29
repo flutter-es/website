@@ -4,9 +4,9 @@ title: "Catálogo de Muestra"
 permalink: /catalog/samples/
 ---
 
-Este catalogo lista las aplicaciones que demuestran cómo implementar patrones comunes de diseño móvil con Flutter. Cada ejemplo demuestra cómo se pueden juntar algunos widgets de Flutter para implementar una interfaz de usuario significativa. Los ejemplos son cortos - sólo un archivo de Dart - pero son aplicaciones completas. Deberían ser fáciles de probar y ajustar con su editor IDE/código favorito.
+Este catálogo lista las aplicaciones que demuestran cómo implementar patrones comunes de diseño móvil con Flutter. Cada ejemplo demuestra cómo se pueden juntar algunos widgets de Flutter para implementar una interfaz de usuario útil. Los ejemplos son cortos - sólo un archivo de Dart - pero son aplicaciones completas. Deberían ser fáciles de probar y ajustar con tu editor favorito.
 
-Si hay otras aplicaciones de muestra que le gustaría ver, apreciaríamos saber de usted en nuestro [Canal Gitter](https://gitter.im/flutter/flutter) o en la [lista de correo](https://groups.google.com/d/forum/flutter-dev).
+Si hay otras aplicaciones de muestra que te gustaría ver, apreciaríamos saber de tí en nuestro [Canal Gitter](https://gitter.im/flutter/flutter) o en la [lista de correo](https://groups.google.com/d/forum/flutter-dev).
 
 ---
 
