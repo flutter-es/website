@@ -8,12 +8,16 @@ build
 node_modules
 .jekyll-metadata
 
-# Dart ignores.
+# Dart and Flutter ignores.
+.flutter-plugins
 .packages
 .pub/
 pubspec.lock
 packages
 example/*.dart
+
+src/_includes/code/**/android/
+src/_includes/code/**/ios/
 
 .idea/
 .vscode/
