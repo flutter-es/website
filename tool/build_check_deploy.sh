@@ -137,10 +137,10 @@ echo "EXTRACTING code snippets from the markdown:"
 "$dart" --preview-dart-2 tool/extract.dart
 
 echo "ANALYZING extracted code snippets:"
-"$flutter" analyze --no-current-package example.g/
+"$flutter" analyze --no-current-package example/
 
 echo "DARTFMT check of extracted code snippets:"
-check_formatting example.g/*.dart
+check_formatting example/*.dart
 
 if [[ -n $BUILD ]]; then
   echo "BUILDING site:"
