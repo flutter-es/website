@@ -1,14 +1,14 @@
 ## Obtener el SDK de Flutter {#get-sdk}
 
 1. Descarga el siguiente paquete de instalación para obtener la versión beta más reciente de 
-Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la pagina [archivo 
+Flutter SDK (para otros lanzamientos, y paquetes viejos, véase la página [archivo 
 SDK](/sdk-archive/) page.):
 {% if page.url contains "linux" %}
     * [(cargando...)](#){:.download-latest-link-linux}
 {% else %}
     * [(cargando...)](#){:.download-latest-link-macos}
 {% endif %}<br><br>
-1. Extraer el archivo en la locación deseada, ej.:
+1. Extraer el archivo en la ubicación deseada, ej.:
     {% commandline %}
     cd ~/development
 {% if page.url contains "linux" %}
@@ -42,7 +42,7 @@ flutter doctor
 Este comando verifica tu ambiente y muestra un reporte en la terminal de windows.
 El SDK de Dart esta empaquetado con Flutter, no es necesario instalar Dart por separado.
 Verifica la salida con cuidad para otros programas que pudieras necesitar o para 
-desempeñar otras tareas mas adelante (mostradas en texto en **negrita**).
+desempeñar otras tareas más adelante (mostradas en texto en **negrita**).
 
 Por ejemplo:
 <pre>
@@ -58,7 +58,7 @@ La siguiente sección describe cómo desempeñar estas tareas y finalizar el pro
 Una vez que tenga instalado cualquiera de las dependencias faltantes, ejecute el comando `flutter doctor`
 de nuevo para verificar que todo se ha configurado correctamente.
 
-Las herramientas de Flutter usan Google Analytics para anónimamente reportar estadística de 
+Las herramientas de Flutter usan Google Analytics para anónimamente reportar estadísticas de 
 características de uso y reportes básicos de fallas. Estos datos son utilizados para ayudar 
 a mejorar las herramientas de flutter con el tiempo.
 Analytics no envía cada ejecución o cualquier ejecución dentro del `flutter config`,

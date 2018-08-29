@@ -18,7 +18,7 @@ Android SDK Build-Tools, Las cuales son requeridas por Flutter cuando se desarro
 
 ### Configurar tu dispositivo Android
 
-Prepare la ejecución y pruebas de app de Flutter en un dispositivo de Android, necesitará
+Prepara la ejecución y pruebas de app de Flutter en un dispositivo de Android, necesitará
 un dispositivo Android ejecutando Android 4.1 (API nivel 16) o superior.
 
 1. Habilita **Opciones de desarrollador** y **Depurador por USB** en tu dispositivo. Instrucciones detalladas
@@ -29,24 +29,24 @@ un dispositivo Android ejecutando Android 4.1 (API nivel 16) o superior.
 tu dispositivo Android conectado.
 
 Por defecto, Flutter utiliza la versión SDK de Android donde se encuentren las herramientas `adb`. Si
-quieres que Flutter utilice alguna instalación diferente de el SDK de Android, deberás configurar
+quieres que Flutter utilice alguna instalación diferente del SDK de Android, deberás configurar
 la variable de entorno `ANDROID_HOME` en el directorio de instalación.
 
 ### Configurar el emulador de Android
 
 Prepare la ejecución y pruebas de app de Flutter en el emulador de Android, siguiendo estos pasos:
 
-1. Habilite [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html) en su equipo.
-1. Abra **Android Studio>Tools>Android>AVD Manager** y seleccione
+1. Habilita [VM acceleration](https://developer.android.com/studio/run/emulator-acceleration.html) en tu equipo.
+1. Abra **Android Studio>Tools>Android>AVD Manager** y selecciona
 **Create Virtual Device**. (El submenú **Android** está presente solo
 cuando se encuentra dentro de un proyecto de Android.)
 1. Elija un dispositivo y seleccione **Next**.
-1. Seleccione una o mas imágenes del sistema que quiera emular,
-   y seleccione **Next**. Una imagen _x86_ o _x86\_64_ es recomendada.
-1. Dentro de Emulated Performance, seleccione **Hardware - GLES 2.0** para habilitarlo
+1. Selecciona una o más imágenes del sistema que quieres emular,
+   y selecciona **Next**. Una imagen _x86_ o _x86\_64_ es recomendada.
+1. Dentro de Emulated Performance, selecciona **Hardware - GLES 2.0** para habilitarlo
 [aceleración de hardware](https://developer.android.com/studio/run/emulator-acceleration.html).
-1. Verifique que la configuración de AVD es correcta, y seleccione **Finish**.
+1. Verifica que la configuración de AVD es correcta, y selecciona **Finish**.
 
    Para mayor detalle de los pasos de arriba, vea [Administrando AVDs](https://developer.android.com/studio/run/managing-avds.html).
-1. En el Administrador de Dispositivos Virtuales de Android (AVD) , de clic en la barra de herramienta **Run**.
-   El emulador iniciara el arranque y mostrara el lienzo (canvas) por defecto para la versión del SO y dispositivo seleccionado.
+1. En el Administrador de Dispositivos Virtuales de Android (AVD), da clic en la barra de herramienta **Run**.
+   El emulador iniciará el arranque y mostrara el lienzo (canvas) por defecto para la versión del SO y dispositivo seleccionado.
