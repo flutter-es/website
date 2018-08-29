@@ -20,7 +20,7 @@ Future<http.Response> fetchPost() {
   return http.get(
     'https://jsonplaceholder.typicode.com/posts/1',
     // Envia headers de autentificación a tu backend
-    headers: {HttpHeaders.AUTHORIZATION: "Basic your_api_token_here"},
+    headers: {HttpHeaders.authorizationHeader: "Basic your_api_token_here"},
   );
 }
 ```
