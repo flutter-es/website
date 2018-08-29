@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-FB_PROJ=$1
-: ${FB_PROJ:=default}
+if [ "$TRAVIS_EVENT_TYPE" = "push" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
+  # Deploy pushes to master to Firebase hosting.
+  echo "Deploying to Firebase."
 
-echo "================ Deploy to Firebase ($FB_PROJ) ========================"
-firebase deploy --non-interactive --token "$FIREBASE_TOKEN" --project $FB_PROJ
+  firebase -P flutter-es --token "$FIREBASE_TOKEN" --non-interactive deploy
+
+fi

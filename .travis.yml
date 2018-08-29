@@ -31,15 +31,15 @@ before_install:
 
 script: $TASK
 
-# deploy:
-#   - provider: script
-#     script:
-#       - ! type -t firebase && npm install --global firebase-tools@4.0.3
-#       - ./tool/deploy-firebase.sh
-#     skip_cleanup: true
-#     on:
-#       repo: flutter-es/website
-#       branch: master
+deploy:
+  - provider: script
+    script:
+      - ! type -t firebase && npm install --global firebase-tools@4.0.3
+      - ./tool/deploy-firebase.sh
+    skip_cleanup: true
+    on:
+      repo: flutter-es/website
+      branch: master
 
 # Only run Travis jobs for named branches (to avoid double builds for each PR)
 branches:
