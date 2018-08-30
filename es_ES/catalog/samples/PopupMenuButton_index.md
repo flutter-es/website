@@ -15,7 +15,7 @@ Todas las aplicaciones de ejemplo listadas aquí usan la clase Flutter PopupMenu
    </a>
     <div class="col-md-9">
       <p>
-        Una AppBar típica con un título, acciones y un menú desplegable de desbordamiento.
+        Una AppBar típica con un título, acciones y un menú desplegable sobrepuesto.
       </p>
       <p>
         Esta aplicación incluye las siguientes clases: AppBar, IconButton, PopupMenuButton, Scaffold.
