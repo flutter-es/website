@@ -1,63 +1,43 @@
 ---
 layout: page
-title: "Performance profiling with integration tests"
+title: "Perfiles de rendimiento en test de integración"
 permalink: /cookbook/testing/integration-test-profiling/
 ---
 
-When it comes to mobile apps, performance is critical to user experience. Users
-expect apps to have smooth scrolling and meaningful animations free of
-stuttering or skipped frames, known as "jank." How can we ensure our apps are
-free of jank on a wide variety of devices? 
+Cuando se trata de aplicaciones móviles, el rendimiento es fundamental para la experiencia del usuario. Los usuarios esperan que las aplicaciones tengan un desplazamiento suave y animaciones útiles sin el efecto stuttering o saltos de frames, lo que se conoce como "jank." ¿Cómo podemos asegurarnos que nuestras aplicaciones están libres de jank en una amplia variedad de dispositivos?
 
-There are two options: first, we could manually test the app on different
-devices. While that approach might work for a smaller app, it will become more
-cumbersome as an app grows in size. Alternatively, we can run an integration
-test that performs a specific task and record a performance timeline. Then, we
-can examine the results to determine whether or not a specific section of our
-app needs to be improved.
+Hay dos opciones: primero, podríamos probar manualmente la aplicación en diferentes dispositivos. Si bien ese enfoque podría funcionar para una aplicación más pequeña, se volverá más engorroso a medida que la aplicación crezca en tamaño. Alternativamente, podemos realizar un test de integración que realice una tarea específica y registrar un timeline de rendimiento. Luego, podemos examinar los resultados para determinar si una sección específica de nuestra aplicación necesita ser mejorada o no.
 
-In this recipe, we'll learn how to write a test that records a performance
-timeline while performing a specific task and saves a summary of the results to 
-a local file.
+En esta receta, aprenderemos a escribir un test que registre un timeline de rendimiento mientras se realiza una tarea específica y se guarda un resumen de los resultados en un archivo local.
 
-### Directions
+### Instrucciones
 
-  1. Write a test that scrolls through a list of items
-  2. Record the performance of the app
-  3. Save the results to disk
-  4. Run the test
-  5. Review the results
+  1. Escribe un test que haga scroll a través de una lista de elementos
+  2. Registra el rendimiento de la aplicación
+  3. Guarda los resultados en el disco
+  4. Ejecuta el test
+  5. Revisa los resultados
 
-### 1. Write a test that scrolls through a list of items
+### 1. Escribe un test que haga scroll a través de una lista de elementos
 
-In this recipe, we'll record the performance of an app as it scrolls through a
-list of items. In order to focus on performance profiling, this recipe builds 
-upon the 
-[Scrolling in integration tests](/cookbook/testing/integration-test-scrolling/)
-recipe.
+En esta receta, registraremos el rendimiento de una aplicación a medida que se desplaza por una lista de elementos. Para centrarse en la creación de perfiles de rendimiento, esta receta se basa en la receta 
+[Haciendo scroll en test de integración](/cookbook/testing/integration-test-scrolling/).
 
-Please follow the instructions in that recipe to create an app, instrument the
-app, and write a test to verify everything works as expected.
+Por favor sigue las instrucciones de esa receta para crear una aplicación, instrumentarla y escribir un test para verificar que todo funcione como se espera.
 
-### 2. Record the performance of the app
+### 2. Registra el rendimiento de la aplicación
 
-Next, we need to record the performance of the app as it scrolls through the
-list. To achieve this task, we can use the
-[`traceAction`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver/traceAction.html)
-method provided by the
-[`FlutterDriver`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html)
-class.
+A continuación, debemos registrar el rendimiento de la aplicación a medida que se hace scroll en la lista. Para lograr esta tarea, podemos usar el método
+[`traceAction`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver/traceAction.html) proporcionado por la clase 
+[`FlutterDriver`](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html).
 
-This method runs the the provided function and records a
+Este método ejecuta la función proporcionada y registra un
 [`Timeline`](https://docs.flutter.io/flutter/flutter_driver/Timeline-class.html)
-with detailed information about the performance of the app. In this example, we
-provide a function that scrolls through the list of items, ensuring a specific
-item is displayed. When the function completes, the `traceAction` method returns
-a `Timeline`.
+con información detallada sobre el rendimiento de la aplicación. En este ejemplo, proporcionamos una función que hace scroll en la lista de elementos, asegurando que se muestre un elemento específico. Cuando la función finalice, el método `traceAction` devuelve un `Timeline`.
 
 <!-- skip -->
 ```dart
-// Record a performance timeline as we scroll through the list of items
+// Registra un timeline de rendimiento a medida que avanzamos por la lista de elementos
 final timeline = await driver.traceAction(() async {
   await driver.scrollUntilVisible(
     listFinder,
@@ -69,64 +49,51 @@ final timeline = await driver.traceAction(() async {
 });
 ```
 
-### 3. Save the results to disk
+### 3. Guarda los resultados en el disco
 
-Now that we've captured a performance timeline, we need a way to review it! 
-The `Timeline` object provides detailed information about all of the events that
-took place, but it does not provide a convenient way to review the results.
+Ahora que hemos capturado un timeline de rendimiento, ¡necesitamos una manera de revisarlo! El objeto `Timeline` proporciona información detallada sobre todos los eventos que tuvieron lugar, pero no proporciona una manera conveniente de revisar los resultados.
 
-Therefore, we can convert the `Timeline` into a
+Por lo tanto, podemos convertir el `Timeline` en un
 [`TimelineSummary`](https://docs.flutter.io/flutter/flutter_driver/TimelineSummary-class.html).
-The `TimelineSummary` can perform two tasks that make it easier to review the
-results:
+El `TimelineSummary` puede realizar dos tareas que facilitan la revisión de los resultados:
 
-  1. It can write a json document on disk that summarizes the data contained 
-  within the `Timeline`. This summary includes information about the number of 
-  skipped frames, slowest build times, and more.
-  2. It can save the complete `Timeline` as a json file on disk. This file can 
-  be opened with the Chrome browser's tracing tools found at 
+  1. Puedes escribir un documento json en el disco que resuma los datos contenidos en el `Timeline`. Este resumen incluye información sobre la cantidad de frames saltados, los tiempos más lentos en ejecución de los métodos build, y más..
+  2. Puedes guardar el `Timeline` completo como un archivo json en el disco. Este archivo se puede abrir con las herramientas de trace del navegador Chrome que se encuentran en 
   [chrome://tracing](chrome://tracing).
 
 <!-- skip -->
 ```dart
-// Convert the Timeline into a TimelineSummary that's easier to read and
-// understand.
+// Convierte el timeline en un TimelineSummary que sea más fácil de leer y
+// entender.
 final summary = new TimelineSummary.summarize(timeline);
 
-// Then, save the summary to disk
+// Luego, guarda el resumen en el disco
 summary.writeSummaryToFile('scrolling_summary', pretty: true);
 
-// Optionally, write the entire timeline to disk in a json format. This
-// file can be opened in the Chrome browser's tracing tools found by
-// navigating to chrome://tracing.
+// Opcionalmente, escribe todo el timeline al disco en formato json. Este
+// archivo se puede abrir con las herramientas trace del navegador Chrome 
+// que se encuentran en chrome://tracing.
 summary.writeTimelineToFile('scrolling_timeline', pretty: true);
 ```
 
-### 4. Run the test
+### 4. Ejecuta el test
 
-After we've configured our test to capture a performance `Timeline` and save a 
-summary of the results to disk, we can run the test with the following command:
+Después de configurar nuestro test para capturar el `Timeline` de rendimiento y guardar un resumen de los resultados en el disco, podemos ejecutar el test con el siguiente comando:
 
 ```
 flutter drive --target=test_driver/app.dart
 ```
 
-### 5. Review the results
+### 5. Revisa los resultados
 
-After the test completes successfully, the `build` directory at the root of 
-the project contains two files:
+Después de finalizar el test con éxito, el directorio `build`, en la raíz del proyecto, contiene dos archivos::
 
-  1. `scrolling_summary.timeline_summary.json` contains the summary. Open
-  the file with any text editor to review the information contained within.
-  With a more advanced setup, we could save a summary every time the test 
-  runs and create a graph of the results.
-  2. `scrolling_timeline.timeline.json` contains the complete timeline data.
-  Open the file using the Chrome browser's tracing tools found at 
-  [chrome://tracing](chrome://tracing). The tracing tools provide a 
-  convenient interface for inspecting the timeline data in order to discover 
-  the source of a performance issue.
+  1. `scrolling_summary.timeline_summary.json` contiene el resumen. Abra el archivo con cualquier editor de texto para revisar la información contenida en él. Con una configuración más avanzada, podríamos guardar un resumen cada vez que se ejecute el test y crear un gráfico de los resultados.
+  2. `scrolling_timeline.timeline.json` contiene la información completa del timeline.
+  Abra el archivo usando las herramientas trace del navegador Chrome encontradas en 
+  [chrome://tracing](chrome://tracing). Esas herramientas proporcionan una interfaz conveniente para inspeccionar los datos del timeline con el fin de descubrir el origen de un problema de rendimiento.
 
-#### Summary Example
+#### Ejemplo de resumen
 
 ```json
 {
@@ -150,7 +117,7 @@ the project contains two files:
 }
 ```
 
-### Complete example
+### Ejemplo completo
 
 ```dart
 import 'package:flutter_driver/flutter_driver.dart';
@@ -174,7 +141,7 @@ void main() {
       final listFinder = find.byValueKey('long_list');
       final itemFinder = find.byValueKey('item_50_text');
 
-      // Record a performance profile as we scroll through the list of items
+      // Graba un perfil de rendimiento a medida que hacemos scroll en la lista de elementos
       final timeline = await driver.traceAction(() async {
         await driver.scrollUntilVisible(
           listFinder,
@@ -185,16 +152,16 @@ void main() {
         expect(await driver.getText(itemFinder), 'Item 50');
       });
 
-      // Convert the Timeline into a TimelineSummary that's easier to read and
-      // understand.
+      // Convierte el timeline en un TimelineSummary que sea más fácil de leer y
+      // entender.
       final summary = new TimelineSummary.summarize(timeline);
 
-      // Then, save the summary to disk
+      // Luego, guarda el resumen en el disco
       summary.writeSummaryToFile('scrolling_summary', pretty: true);
 
-      // Optionally, write the entire timeline to disk in a json format. This
-      // file can be opened in the Chrome browser's tracing tools found by
-      // navigating to chrome://tracing.
+      // Opcionalmente, escribe todo el timeline al disco en formato json. Este
+      // archivo se puede abrir con las herramientas trace del navegador Chrome encontradas
+      // en chrome://tracing.
       summary.writeTimelineToFile('scrolling_timeline', pretty: true);
     });
   });
