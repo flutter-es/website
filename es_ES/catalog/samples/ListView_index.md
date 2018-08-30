@@ -1,10 +1,10 @@
 ---
 layout: page
-title: "ListView Sample Apps"
+title: "Apps de Ejemplo ListView"
 permalink: /catalog/samples/ListView_index/
 ---
 
-All of the sample apps listed here use the Flutter ListView class in an interesting way. The <a href="/catalog/samples/">Sample App Catalog</a> page lists all of the sample apps.
+Todas las aplicaciones de ejemplo listadas aquí usan la clase Flutter ListView de una manera interesante. La página <a href="/catalog/samples/">Catálogo de Muestra</a> muestra todas las aplicaciones de ejemplo.
 
 <div class="container-fluid">
   <div class="row" style="margin-bottom: 32px">
@@ -15,13 +15,13 @@ All of the sample apps listed here use the Flutter ListView class in an interest
    </a>
     <div class="col-md-9">
       <p>
-        ExpansionTiles can be used to produce two-level or multi-level lists.
+        ExpansionTiles se pueden utilizar para producir listas dos niveles o multinivel.
       </p>
       <p>
-        This app features the following classes: ExpansionTile, ListView.
+        Esta aplicación incluye las siguientes clases: ExpansionTile, ListView.
       </p>
       <p>
-        <a href="/catalog/samples/expansion-tile-sample/">Learn more</a>.
+        <a href="/catalog/samples/expansion-tile-sample/">Aprende más</a>.
       </p>
     </div>
   </div>
