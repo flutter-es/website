@@ -1,12 +1,12 @@
 ---
 layout: page
-title: "Sample App Catalog"
+title: "Catálogo de Muestra"
 permalink: /catalog/samples/
 ---
 
-This catalog lists applications that demonstrate how to implement common mobile design patterns with Flutter. Each sample demonstrates how a few Flutter widgets can be put together to implement a meaningful user interface. The samples are short - just one Dart file - but they're complete applications. They should be easy to try out and tweak with your favorite IDE/code editor.
+Este catálogo lista las aplicaciones que demuestran cómo implementar patrones comunes de diseño móvil con Flutter. Cada ejemplo demuestra cómo se pueden juntar algunos widgets de Flutter para implementar una interfaz de usuario útil. Los ejemplos son cortos - sólo un archivo de Dart - pero son aplicaciones completas. Deberían ser fáciles de probar y ajustar con tu editor favorito.
 
-If there are other sample apps that you'd like to see we'd appreciate hearing from you on our [Gitter channel](https://gitter.im/flutter/flutter) or [mailing list](https://groups.google.com/d/forum/flutter-dev).
+Si hay otras aplicaciones de muestra que te gustaría ver, apreciaríamos saber de tí en nuestro [Canal Gitter](https://gitter.im/flutter/flutter) o en la [lista de correo](https://groups.google.com/d/forum/flutter-dev).
 
 ---
 
@@ -19,15 +19,13 @@ If there are other sample apps that you'd like to see we'd appreciate hearing fr
    </a>
     <div class="col-md-9">
       <p>
-        An AnimatedList that displays a list of cards which stay
-in sync with an app-specific ListModel. When an item is added to or removed
-from the model, the corresponding card animates in or out of view.
+        Una AnimatedList que muestra una lista de tarjetas que permanecen sincronizadas con un ListModel específico de la app. Cuando se agrega o quita un elemento del modelo, la tarjeta correspondiente se anima dentro o fuera de la vista.
       </p>
       <p>
-        This app features the following classes: AnimatedList, AnimatedListState.
+        Esta aplicación incluye las siguientes clases: AnimatedList, AnimatedListState.
       </p>
       <p>
-        <a href="/catalog/samples/animated-list/">Learn more</a>.
+        <a href="/catalog/samples/animated-list/">Aprende más</a>.
       </p>
     </div>
   </div>
@@ -40,13 +38,13 @@ from the model, the corresponding card animates in or out of view.
    </a>
     <div class="col-md-9">
       <p>
-        Any widget with a PreferredSize can appear at the bottom of an AppBar.
+        Cualquier widget con un PreferredSize puede aparecer en la parte inferior de una AppBar.
       </p>
       <p>
-        This app features the following classes: AppBar, PreferredSize, TabBarView, TabController.
+        Esta aplicación incluye las siguientes clases: AppBar, PreferredSize, TabBarView, TabController.
       </p>
       <p>
-        <a href="/catalog/samples/app-bar-bottom/">Learn more</a>.
+        <a href="/catalog/samples/app-bar-bottom/">Aprende más</a>.
       </p>
     </div>
   </div>
@@ -59,13 +57,13 @@ from the model, the corresponding card animates in or out of view.
    </a>
     <div class="col-md-9">
       <p>
-        A typical AppBar with a title, actions, and an overflow dropdown menu.
+        Una AppBar típica con un título, acciones y un menú desplegable de desbordamiento.
       </p>
       <p>
-        This app features the following classes: AppBar, IconButton, PopupMenuButton, Scaffold.
+        Esta aplicación incluye las siguientes clases: AppBar, IconButton, PopupMenuButton, Scaffold.
       </p>
       <p>
-        <a href="/catalog/samples/basic-app-bar/">Learn more</a>.
+        <a href="/catalog/samples/basic-app-bar/">Aprende más</a>.
       </p>
     </div>
   </div>
@@ -78,13 +76,13 @@ from the model, the corresponding card animates in or out of view.
    </a>
     <div class="col-md-9">
       <p>
-        ExpansionTiles can be used to produce two-level or multi-level lists.
+        ExpansionTiles se pueden utilizar para producir listas nivel-dos o multi-nivel.
       </p>
       <p>
-        This app features the following classes: ExpansionTile, ListView.
+        Esta aplicación incluye las siguientes clases: ExpansionTile, ListView.
       </p>
       <p>
-        <a href="/catalog/samples/expansion-tile-sample/">Learn more</a>.
+        <a href="/catalog/samples/expansion-tile-sample/">Aprende más</a>.
       </p>
     </div>
   </div>
