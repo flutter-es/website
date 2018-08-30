@@ -15,7 +15,7 @@ Todas las aplicaciones de ejemplo listadas aquí usan la clase Flutter ListView 
    </a>
     <div class="col-md-9">
       <p>
-        ExpansionTiles se pueden utilizar para producir listas nivel-dos o multi-nivel.
+        ExpansionTiles se pueden utilizar para producir listas dos niveles o multinivel.
       </p>
       <p>
         Esta aplicación incluye las siguientes clases: ExpansionTile, ListView.
