@@ -1,46 +1,35 @@
 ---
 layout: page
-title: "Introduction to Integration testing"
+title: "Introducción a los test de integración"
 permalink: /cookbook/testing/integration-test-introduction/
 ---
 
-Unit tests and Widget tests are handy for testing individual classes, functions,
-or Widgets. However, they generally don't test how individual pieces work
-together as a whole or capture the performance of an application running on a
-real device. These tasks are performed with *integration tests*.
+Las pruebas unitarias y las pruebas de widgets son útiles para probar clases individuales, funciones o widgets. Sin embargo, generalmente no prueban cómo las piezas individuales trabajan juntas, como un todo, o capturan el rendimiento de una aplicación que se ejecuta en un dispositivo real. Estas tareas se realizan con *tests de integración*.
 
-Integration tests work as a pair: first, deploy an instrumented application to a
-real device or emulator and then "drive" the application from a separate test
-suite, checking to make sure everything is correct along the way.
+Los tests de integración funcionan como un par: primero, hacen el deploy a una aplicación instrumentada en un dispositivo o emulador real y luego "conducen" la aplicación desde una suite de tests separados, verificando para asegurarse de que todo esté correcto en el camino.
 
-To create this test pair, we can use the 
-[flutter_driver](https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html) 
-package. It provides tools to create instrumented apps and drive those apps
-from a test suite.
+Para crear este par de prueba, podemos usar el paquete 
+[flutter_driver](https://docs.flutter.io/flutter/flutter_driver/flutter_driver-library.html). Proporciona herramientas para crear aplicaciones instrumentadas e impulsar esas aplicaciones desde una suite de tests.
 
-In this recipe, we'll learn how to test a counter app. It will demonstrate
-how to setup integration tests, how to verify specific text is displayed by the 
-app, how to tap on specific Widgets, and how to run integration tests. 
+En esta receta, aprenderemos cómo hacer un test a una app counter. Demostrará cómo configurar los test de integración, cómo verificar que la aplicación muestre un texto específico, cómo hacer tap sobre widgets específicos, y como ejecutar los test de integración. 
 
-### Directions
+### Instrucciones
 
-  1. Create an app to test
-  2. Add the `flutter_driver` dependency
-  3. Create the test files
-  4. Instrument the app
-  5. Write the integration tests
-  6. Run the integration test
+  1. Crea una app para el test
+  2. Agrega la dependencia `flutter_driver` 
+  3. Crea los archivos de test
+  4. Instrumenta la app
+  5. Escribe el test de integración
+  6. Ejecuta el test de integración</n>
   
-### 1. Create an app to test
+### 1. Crea una app para el test
 
-First, we'll create an app that we can test! In this example, we'll test the 
-counter app produced by the `flutter create` command. This app allows
-a user to tap on a button to increase a counter.
+¡Primero, crearemos una aplicación a la que le podamos hacer el test! En este ejemplo, haremos el test a la app counter producida por el comando `flutter create`. Esta app permite a un usuario hacer tap sobre un botón para aumentar un contador.
 
-Furthermore, we'll also need to provide a
-[`ValueKey`](https://docs.flutter.io/flutter/foundation/ValueKey-class.html) to
-the `Text` and `FloatingActionButton` Widgets. This allows us to identify 
-and interact with these specific Widgets inside the test suite. 
+Además, también tendremos que proporcionar una
+[`ValueKey`](https://docs.flutter.io/flutter/foundation/ValueKey-class.html) a
+los widgets `Text` y `FloatingActionButton`. Esto nos permite identificar 
+e interactuar con estos Widgets específicos dentro de la suite de tests. 
 
 ```dart
 import 'package:flutter/material.dart';
@@ -90,9 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              // Provide a Key to this specific Text Widget. This allows us
-              // to identify this specific Widget from inside our test suite and
-              // read the text.
+              // Proporciona una Key a este widget Text específico. Esto nos permite
+              // identificar este widget específico desde adentro de nuestra suite de test y
+              // leer el texto.
               key: Key('counter'),
               style: Theme.of(context).textTheme.display1,
             ),
@@ -100,8 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        // Provide a Key to this the button. This allows us to find this
-        // specific button and tap it inside the test suite.
+        // Proporciona una Key para el botón. Esto nos permite encontrar este
+        // botón específico y hacerle tap dentro de la suite de test.
         key: Key('increment'),
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -112,11 +101,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-### 2. Add the `flutter_driver` dependency
+### 2. Agrega la dependencia `flutter_driver`
 
-Next, we'll need the `flutter_driver` package to write integration tests. We 
-can add the `flutter_driver` dependency to the `dev_dependencies` section of 
-our apps's `pubspec.yaml` file. 
+A continuación, necesitaremos el paquete `flutter_driver` para escribir el test de integración. Podemos agregar la dependencia `flutter_driver` a la sección 
+`dev_dependencies` del archivo `pubspec.yaml` de nuestras apps. 
 
 ```yaml
 dev_dependencies:
@@ -124,24 +112,15 @@ dev_dependencies:
     sdk: flutter
 ```
     
-### 3. Create the test files
+### 3. Crea los archivos de test
 
-Unlike unit and widget tests, integration test suites do not run in the same 
-process as the app being tested. Therefore, we need to create two files that 
-reside in the same directory. By convention, the directory is named 
-`test_driver`.
+A diferencia de los test unitarios y los test de widgets, las suits de test de integración no se ejecutan en el mismo proceso en el que la app está siendo probada. Por lo tanto, necesitamos crear dos archivos que residan en el mismo directorio. Por convención, el directorio se llama `test_driver`.
 
-  1. The first file contains an "instrumented" version of the app. The
-  instrumentation allows us to "drive" the app and record performance profiles
-  from a test suite. This file can be given any name that makes sense. For this
-  example, create a file called `test_driver/app.dart`.
-  2. The second file contains the test suite, which drives the app and verifies
-  it works as expected. The test suite can also record performance profiles. 
-  The name of the test file must correspond to the name of the file that 
-  contains the instrumented app, with `_test` added at the end. Therefore, 
-  create a second file called `test_driver/app_test.dart`.
+  1. El primer archivo contiene una versión "instrumentada" de la app. La instrumentación nos permite "conducir" la aplicación y registrar perfiles de rendimiento desde la suite de test. A este archivo se le puede dar cualquier nombre que tenga sentido. Para este ejemplo, crea un archivo llamado `test_driver/app.dart`.
+  2. El segundo archivo contiene la suite test, que controla la aplicación y verifica que funcione como se esperaba. La suite de test puede registrar perfiles de rendimiento. 
+  El nombre del archivo de test debe corresponderse con el nombre del archivo que contiene la app instrumentada, con `_test` agregado al final. Por lo tanto, cree un segundo archivo llamado `test_driver/app_test.dart`.
   
-This leaves us with the following directory structure:
+Esto nos deja con la siguiente estructura de directorio:
 
 ```
 counter_app/
@@ -153,14 +132,14 @@ counter_app/
 ``` 
  
 
-### 4. Instrument the app
+### 4. Instrumenta la app
 
-Now, we can instrument the app. This will involve two steps:
+Ahora, podemos instrumentar la app. Esto implicará dos pasos:
 
-  1. Enable the flutter driver extensions
-  2. Run the app
+  1. Habilitar las extensiones del driver de flutter
+  2. Ejecutar la app
 
-We will add this code inside the `flutter_driver/app.dart` file.
+Agregaremos este código dentro del archivo `flutter_driver/app.dart`.
 
 <!-- skip -->
 ```dart
@@ -168,49 +147,47 @@ import 'package:flutter_driver/driver_extension.dart';
 import 'package:counter_app/main.dart' as app;
 
 void main() {
-  // This line enables the extension
+  // Esta línea permite la extensión
   enableFlutterDriverExtension();
 
-  // Call the `main()` function of your app or call `runApp` with any widget you 
-  // are interested in testing.
+  // Llama la función `main()` de nuestra app o llama a `runApp` con cualquier widget
+  // en el que estés interesado en realizarle el test.
   app.main();
 }
 ```
 
-### 5. Write the tests
+### 5. Escribe el test de integración
 
-Now that we have an instrumented app, we can write tests for it! This
-will involve four steps:
+Ahora que tenemos una app instrumentada, ¡podemos escribir tests para ella! Esto implicará cuatro pasos:
 
-  1. Create
+  1. Crea
   [`SeralizableFinders`](https://docs.flutter.io/flutter/flutter_driver/CommonFinders-class.html)
-  to locate specific Widgets
-  2. Connect to the app before our tests run in the `setUpAll` function
-  3. Test the important scenarios
-  4. Disconnect from the app in the `teardownAll` function after our tests
-  complete
+  para localizar widgets específicos
+  2. Conéctate a la app antes de que nuestros tests ejecuten la función `setUpAll`
+  3. Realiza el test a los escenarios importantes 
+  4. Desconéctate desde la app en la función `teardownAll` al completar nuestros tests
  
 ```dart
-// Imports the Flutter Driver API
+// Importa la Flutter Driver API
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('Counter App', () {
-    // First, define the Finders. We can use these to locate Widgets from the
-    // test suite. Note: the Strings provided to the `byValueKey` method must
-    // be the same as the Strings we used for the Keys in step 1.
+    // Primero, define los Finders. Podemos usarlos para localizar Widgets desde
+    // la suite de test. Nota: los Strings proporcionados al método `byValueKey`
+    // deben ser los mismos que los Strings utilizados para las Keys del paso 1.
     final counterTextFinder = find.byValueKey('counter');
     final buttonFinder = find.byValueKey('increment');
 
     FlutterDriver driver;
 
-    // Connect to the Flutter driver before running any tests
+    // Conéctate al driver de Flutter antes de ejecutar cualquier test
     setUpAll(() async {
       driver = await FlutterDriver.connect();
     });
 
-    // Close the connection to the driver after the tests have completed
+    // Cierra la conexión con el driver después de que se hayan completado los tests
     tearDownAll(() async {
       if (driver != null) {
         driver.close();
@@ -218,35 +195,33 @@ void main() {
     });
 
     test('starts at 0', () async {
-      // Use the `driver.getText` method to verify the counter starts at 0.
+      // Usa el método `driver.getText` para verificar que el contador comience en 0.
       expect(await driver.getText(counterTextFinder), "0");
     });
 
     test('increments the counter', () async {
-      // First, tap on the button
+      // Primero, realiza un tap sobre el botón
       await driver.tap(buttonFinder);
 
-      // Then, verify the counter text has been incremented by 1
+      // Luego, verifica que el contador de texto ha sido incrementado en 1
       expect(await driver.getText(counterTextFinder), "1");
     });
   });
 }
 ```
 
-### 6. Run the tests
+### 6. Ejecuta el test de integración
 
-Now that we have an instrumented app and a test suite, we can run the tests!
-First, be sure to launch an Android Emulator, iOS Simulator, or connect your 
-computer to a real iOS / Android device.
+Ahora que tenemos una aplicación instrumentada y una suite de test, ¡podemos realizar los tests! En primer lugar, asegúrate de iniciar un emulador de Android, Simulador de iOS, o conectar tu ordenador a un dispositivo real iOS / Android.
 
-Then, run the following command from the root of the project:
+Luego, ejecuta el siguiente comando desde la raíz del proyecto:
 
 ```
 flutter drive --target=test_driver/app.dart
 ```
 
-This command:
+Este comando:
 
-  1. builds the `--target` app and installs it on the emulator / device
-  2. launches the app
-  3. runs the `app_test.dart` test suite located in `test_driver/` folder
+  1. construye la app `--target` y la instala en el emulator / device
+  2. lanza la app
+  3. ejecuta la suite de test `app_test.dart` localizada en el folder `test_driver/`
