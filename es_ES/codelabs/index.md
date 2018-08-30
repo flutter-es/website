@@ -7,13 +7,13 @@ permalink: /codelabs/
 
 #### [Escribe tu primer App Flutter, parte 1](https://codelabs.developers.google.com/codelabs/first-flutter-app-pt1/)
 
-Crea una aplicación móvil simple que genere nombres propuestos para una startup. En la primera parte, usarás un paquete que devuelve pares de palabras al azar y las inserta en una lista de scrolling infinito.
+Crea una aplicación móvil simple que genere nombres propuestos para una startup. En la primera parte, usarás un paquete que devuelve palabras pares al azar y las inserta en una lista de scroll infinito.
 
 #### [Escribe tu primer App Flutter, parte 2](https://codelabs.developers.google.com/codelabs/first-flutter-app-pt2/)
 
-Crea una aplicación móvil sencilla que genere nombres propuestos para una startup. En la segunda parte, extenderás el ejemplo desde la primera parte para permitir que el usuario seleccione los pares de palabras favoritos, y agregarás una segunda página "Favoritos guardados" donde los usuarios podrán ver los nombres seleccionados. Finalmente, cambiarás el color del tema de la aplicación.
+Crea una aplicación móvil sencilla que genere nombres propuestos para una startup. En la segunda parte, extenderás el ejemplo desde la primera parte para permitir que el usuario seleccione las palabras pares favoritas, y agregarás una segunda página "Favoritos guardados" donde los usuarios podrán ver los nombres seleccionados. Finalmente, cambiarás el color del tema de la aplicación.
 
-#### [Construye interfaces de usuario hermosas con Flutter](https://codelabs.developers.google.com/codelabs/flutter)
+#### [Construye interfaces de usuario fantásticas con Flutter](https://codelabs.developers.google.com/codelabs/flutter)
 
 Una "primera inmersión" más profunda que "Escribe tu primer App Flutter." En este codelab crearás una aplicación de chat que incluye una simple animación, y personaliza la interfaz de usuario para iOS y Android.
 
@@ -45,7 +45,7 @@ Termina tu app de e-commerce añadiendo un fondo con un menú que filtra los pro
 Para obtener una lista completa de los codelabs de flutter disponibles, consulta la sección
 [Categoría de Flutter](https://codelabs.developers.google.com/?cat=Flutter)
 en [Google Developers](https://codelabs.developers.google.com/).
-Si el enlace anterior no funciona para ti, intenta con
+Si el enlace anterior no funciona, intenta con
 [este espejo de los codelabs de Flutter](https://codelabs.flutter-io.cn/).
 
 {% comment %}
