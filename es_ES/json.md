@@ -1,118 +1,119 @@
 ---
 layout: page
-title: JSON and serialization
+title: JSON y serialización
 permalink: /json/
 ---
 
-It is hard to think of a mobile app that doesn't need to communicate with a
-web server or easily store structured data at some point. When making
-network-connected apps, the chances are that it needs to consume some good old
-JSON, sooner or later.
+Es difícil imaginar una aplicación móvil que no necesite comunicarse con un 
+web server o que no tenga que almacenar fácilmente datos estructurados en algún 
+momento. Cuando creamos apps conectadas a la red, lo más probable es que tengas que 
+consumir algún JSON, tarde o temprano.
 
-This guide looks into ways of using JSON with Flutter. It covers which
-JSON solution to use in different scenarios, and why.
+Esta guía va sobre las maneras de usar JSON con Flutter. Cubre que 
+solución JSON usar en diferentes escenarios, y porqué.
 
 <aside class="alert alert-info" markdown="1">
-**Terminology:** _Encoding_ and _serialization_ are the same thing&mdash;turning
-a data structure into a string. _Decoding_ and _deserialization_ are the
-opposite process&mdash;turning a string into a data structure.
-However, _serialization_ also commonly refers to the entire process of
-translating data structures to and from a more easily readable format.
+**Terminología:** _Codificar_ y _serializar_ son la misma cosa&mdash;convertir 
+una estructura de datos en una cadena de texto. _Descodificar_ y _deserializar_ son el 
+proceso opuesto&mdash;convertir una cadena en una estructura de datos.
+Sin embargo, la _serialización_ también se refiere comúnmente a todo el proceso de 
+trasladar estructuras de datos hacia y desde un formato más fácil de leer.
 
-To avoid confusion, this doc uses "serialization" when referring to the
-overall process, and "encoding" and "decoding" when specifically
-referring to those processes.
+Para evitar confusiones, este documento usa "serialización" cuando se hace referencia al 
+proceso general, y "codificar" y "descodificar" cuando se hace referencia específicamente 
+a estos procesos.
 </aside>
 
 * TOC Placeholder
 {:toc}
 
-## Which JSON serialization method is right for me?
+## ¿Cual método de serialización JSON es el adecuado para mí?
 
-This article covers two general strategies for working with JSON:
+Este artículo cubre dos estrategias generales para trabajar con JSON:
 
-* Manual serialization
-* Automated serialization using code generation
+* Serialización manual
+* Serialización automática usando auto-generación de código
 
-Different projects come with different complexities and use cases. For smaller
-proof-of-concept projects or quick prototypes, using code generators might be
-overkill. For apps with several JSON models with more complexity, encoding
-by hand can quickly become tedious, repetitive, and lend itself to many
-small errors.
+Diferentes proyectos tienen diferente complejidad y casos de uso. Para proyectos 
+pequeños de prueba de concepto o prototipos rápidos, usar auto-generación de código puede ser
+exagerado. Para apps con varios modelos JSON con mas complejidad, codificar 
+a mano puede volverse rápidamente tedioso, repetitivo, y se presta a muchos 
+pequeños errores.
 
-### Use manual serialization for smaller projects
+### Usar serialización manual para pequeños proyectos
 
-Manual JSON decoding refers to using the built-in JSON decoder in
-`dart:convert`. It involves passing the raw JSON string to the `json.decode()`
-method, and then looking up the values you need in the `Map<String, dynamic>`
-the method returns. It has no external dependencies or particular setup process,
-and it's good for a quick proof of concept.
+La decodificación manual de JSON se refiere a usar el decodificador JSON incluido en 
+`dart:convert`. Esto implica pasar una cadena JSON en bruto a el método `json.decode()` 
+, y luego buscar los valores que necesita en el `Map<String, dynamic>` que devuelve el 
+método. Esto no tiene dependencias externas ni un proceso de configuración, 
+y esto es bueno para una prueba de concepto rápida.
 
-Manual decoding does not perform well when your project becomes bigger.
-Writing decoding logic by hand can become hard to manage and error-prone.
-If you have a typo when accessing an nonexistent JSON
-field, your code throws an error during runtime.
+La decodificación manual no funciona bien cuando su proyecto se hace más grande. 
+Escribir lógica de decodificación a mano puede convertirse en difícil de manejar 
+y ser propenso a errores.
+Si tienes un error tipográfico accediendo a un campo inexistente del JSON, tu 
+código lanzará un error en tiempo de ejecución.
 
-If you do not have many JSON models in your project and are looking to test a
-concept quickly, manual serialization might be the way you want to start.
-For an example of manual encoding, see
-[Serializing JSON manually using dart:convert](#manual-encoding).
+Si no tienes muchos modelos JSON en tu proyecto y estás buscando probar un 
+concepto rápidamente, la serialización manual puede ser el camino por él que empezar.
+Para un ejemplo de codificación manual, mira
+[Serialización manual de JSON usando dart:convert](#manual-encoding).
 
-### Use code generation for medium to large projects
+### Usar auto-generación de código para proyectos medianos o grandes
 
-JSON serialization with code generation means having an external library
-generate the encoding boilerplate for you. After some initial setup,
-you run a file watcher that generates the code from your model classes.
-For example,
-[json_serializable](https://pub.dartlang.org/packages/json_serializable) and
+La serialización JSON con auto-generación de código significa tener una biblioteca externa 
+que genera el _boilerplate_ de codificación para tí. 
+Después de alguna configuración inicial,
+ejecutas un _file watcher_ que genera el código para las clases de tu modelo.
+Por ejemplo,
+[json_serializable](https://pub.dartlang.org/packages/json_serializable) y
 [built_value](https://pub.dartlang.org/packages/built_value)
-are these kinds of libraries.
+son de este tipo de bibliotecas.
 
-This approach scales well for a larger project. No hand-written
-boilerplate is needed, and typos when accessing JSON fields are caught at
-compile-time. The downside with code generation is that it requires some
-initial setup. Also, the generated source files may produce visual clutter
-in your project navigator.
+Esta aproximación escala mejor para un proyecto grande. Ningún _boilerplate_ 
+escrito a mano es necesario, y los errores tipográficos cuando se accede 
+a los campos del JSON son capturados en tiempo de compilación. 
+La desventaja con la auto-generación de código es que esta necesita alguna 
+configuración inicial. También, el fichero fuente generado puede producir 
+desorden visual en tu navegador del proyecto.
 
-You might want to use generated code for JSON serialization when you have a
-medium or a larger project. To see an example of code generation based JSON
-encoding, see
-[Serializing JSON using code generation libraries](#code-generation).
+Es posible que desees usar auto-generación de código para serializar JSON 
+cuando tengas proyectos medianos o grandes. Para ver un ejemplo de auto-generación 
+de código basada en codificación de JSON, mira
+[Serializar un JSON usando bibliotecas de auto-generación](#code-generation).
 
-## Is there a GSON/Jackson/Moshi equivalent in Flutter?
+## Hay algo equivalente a GSON/Jackson/Moshi en Flutter?
 
-The simple answer is no.
+La respuesta simple es no.
 
-Such a library would require using runtime reflection, which is disabled in
-Flutter. Runtime reflection interferes with _tree shaking_, which Dart has
-supported for quite a long time. With tree shaking, you can “shake off” unused
-code from your release builds. This optimizes the app's size significantly.
+Estas librerías necesitarían usar reflexión en tiempo de ejecución, que está desactivada en 
+Flutter. La reflexión en tiempo de ejecución interfiere con _tree shaking_, que es soportado 
+por Dart desde hace bastante tiempo. Con _tree shaking_, puedes hacer “shake off” del 
+código no utilizado de tus release builds. Esto optimiza significativamente el tamaño de la app.
 
-Since reflection makes all code implicitly used by default, it makes tree
-shaking difficult. The tools cannot know what parts are unused at runtime, so
-the redundant code is hard to strip away. App sizes cannot be easily optimized
-when using reflection.
+Como la reflexión hace que todo el código se usado de forma implícita por defecto, esto hace 
+el tree shaking difícil. La herramientas no pueden conocer que partes del código no son usadas 
+en tiempo de ejecución, entonces es difícil eliminar el código redundante. El tamaño de la app 
+no puede ser fácilmente optimizado cuando se usa reflexión.
 
 <aside class="alert alert-info" markdown="1">
-**What about dartson?**
+**¿Qué hay acerca de dartson?**
 
-The [dartson](https://pub.dartlang.org/packages/dartson) library uses runtime
-reflection, which makes it not compatible with Flutter.
+La biblioteca [dartson](https://pub.dartlang.org/packages/dartson) usa reflexión en tiempo 
+de ejecución, lo que la hace incompatible con Flutter.
 </aside>
 
-Although you cannot use runtime reflection with Flutter, some libraries give
-you similarly easy to use APIs but are based on code generation instead. This
-approach is covered in more detail in the [code generation
-libraries](#code-generation) section.
+Aunque no puedes usar reflexión en tiempo de ejecución con Flutter, algunas bibliotecas te dan 
+APIs similares, fáciles de usar, pero están basadas en auto-generación de código en su lugar. Esta 
+aproximación es cubierta con más detalle en la sección [bibliotecas de auto-generación de código](#code-generation).
 
 <a name="manual-encoding"></a>
-## Serializing JSON manually using dart:convert
+## Serialización manual de JSON usando dart:convert
 
-Basic JSON encoding in Flutter is very simple. Flutter has a built-in
-`dart:convert` library that includes a straightforward JSON encoder and
-decoder.
+La codificación básica de un JSON es muy simple en Flutter. Flutter tiene la biblioteca 
+`dart:convert` que incluye un sencillo codificador y decodificador JSON.
 
-Here is an example JSON for a simple user model.
+Aquí hay un ejemplo de un JSON para un modelo sencillo.
 
 ```json
 {
@@ -121,14 +122,12 @@ Here is an example JSON for a simple user model.
 }
 ```
 
-With `dart:convert`, you can encode this JSON model in two ways.
+Con `dart:convert`, puedes codificar este modelo JSON de dos maneras.
 
-### Serializing JSON inline
+### Serializar un JSON en línea
 
-By looking at [the dart:convert JSON
-documentation](https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html),
-you'll see that you can decode the JSON by calling the `json.decode` method,
-with the JSON string as the method argument.
+Mirando en [la documentación JSON de dart:convert](https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html), verás que puedes decodificar el JSON llamando al método `json.decode`,
+con la cadena JSON como argumento del método.
 
 <!-- skip -->
 ```dart
@@ -138,29 +137,29 @@ print('Howdy, ${user['name']}!');
 print('We sent the verification link to ${user['email']}.');
 ```
 
-Unfortunately, `json.decode()` merely returns a `Map<String, dynamic>`, meaning
-that you do not know the types of the values until runtime. With this approach,
-you lose most of the statically typed language features: type safety,
-autocompletion and most importantly, compile-time exceptions. Your code will
-become instantly more error-prone.
+Desafortunadamente, `json.decode()` simplemente devuelve un `Map<String, dynamic>`, significando 
+que no conoces los tipos de valores hasta el tiempo de ejecución. Con esta aproximación, 
+pierdes la mayoría de las características del tipado estático del lenguaje: seguridad de tipos,
+autocompletado y mucho mas importante, las excepciones en tiempo de compilación. Tu código 
+será mas propenso a los errores instantáneamente.
 
-For example, whenever you access the `name` or `email` fields, you could quickly
-introduce a typo. A typo that the compiler doesn't know about since the
-JSON lives in a map structure.
+Por ejemplo, cuando accedes a los campos `name` o `email`, podrías rápidamente 
+introducir un error tipográfico. Un error tipográfico que el compilador no conoce 
+desde que el JSON vive en una estructura de mapa.
 
-### Serializing JSON inside model classes
+### Serializar un JSON en una clase modelo
 
-Combat the previously mentioned problems by introducing a plain model
-class, called `User` in this example. Inside the `User` class, you'll find:
+Combate los problemas mencionados previamente introduciendo una clase de modelo plana, 
+llamada `User` en este ejemplo. Dentro de la clase `User`, encontrarás:
 
-* A `User.fromJson` constructor, for constructing a new `User` instance from a
-  map structure.
-* A `toJson` method, which converts a `User` instance into a map.
+* Un constructor `User.fromJson`, para construir una nueva instancia de `User` desde una 
+  estructura de mapa.
+* Un método `toJson`, que convierte una instancia `User` en un mapa.
 
-With this approach, the _calling code_ can have type safety,
-autocompletion for the `name` and `email` fields, and compile-time exceptions.
-If you make typos or treat the fields as `int`s instead of `String`s,
-the app won't compile, instead of crashing at runtime.
+Con esta aproximación, el _código llamable_, puede tener seguridad de tipos, 
+autocompletado para los campos `name` y `email`, y excepciones en tiempo de compilación.
+Si cometes errores tipográficos o tratas los campos como `int` en lugar de `String`,
+la app no compilará, en lugar de fallar en tiempo de ejecución.
 
 **user.dart**
 
@@ -184,8 +183,8 @@ class User {
 }
 ```
 
-The responsibility of the decoding logic is now moved inside the model
-itself. With this new approach, you can decode a user easily.
+La responsabilidad de la lógica de decodificación esta ahora situada dentro del propio modelo. 
+Con esta aproximación, puedes decodificar un usuario fácilmente.
 
 <!-- skip -->
 ```dart
@@ -196,74 +195,71 @@ print('Howdy, ${user.name}!');
 print('We sent the verification link to ${user.email}.');
 ```
 
-To encode a user, pass the `User` object to the `json.encode` method.
-You don't need to call the `toJson` method, since `json.encode`
-already does it for you.
+Para codificar un usuario, pasa el objeto `User` al método `json.encode`.
+No necesitas llamar al método `toJson`, porque `json.encode`
+ya hace esto por ti.
 
 <!-- skip -->
 ```dart
 String json = json.encode(user);
 ```
 
-With this approach, the calling code doesn't have to worry about JSON
-serialization at all. However, the model class still definitely has to.
-In a production app, you would want to ensure that the serialization
-works properly. In practice, the `User.fromJson` and `User.toJson`
-methods both need to have unit tests in place to verify correct behavior.
+Con esta aproximación, el código _llamable_ no tiene que preocuparse acerca de la 
+serialización JSON para nada. Sin embargo, la clase modelo definitivamente debe hacerlo.
+En una app en producción, querrás asegurarte que la serialización trabaja correctamente. 
+En la practica, los métodos `User.fromJson` y `User.toJson` 
+necesitan ambos tener test unitarios para verificar un comportamiento correcto.
 
-However, real-world scenarios are not usually that simple.
-It's unlikely that you would use such small JSON responses.
-Nested JSON objects are also commonly used.
+Sin embargo, los escenarios del mundo real no son normalmente tan simples.
+Es poco probable que use respuestas JSON tan pequeñas.
+También se usan habitualmente Objetos JSON anidados.
 
-It would be nice if there were something that handled the JSON encoding
-and decoding for you.  Luckily, there is!
+Sería bueno que hubiese algo que manejar la codificación y decodificación JSON por ti. 
+Afortunadamente , lo hay!
 
 <a name="code-generation"></a>
-## Serializing JSON using code generation libraries
+## Serializar JSON usando librerías de auto-generación de código
 
-Although there are other libraries available, this guide uses the
-[json_serializable
-package](https://pub.dartlang.org/packages/json_serializable),
-an automated source code generator that generates the JSON serialization
-boilerplate for you.
+Aunque hay otras bibliotecas disponibles, esta guía usa el 
+[paquete json_serializable](https://pub.dartlang.org/packages/json_serializable),
+un generador de código automatizado que genera el _boilerplate_ del JSON serializado por ti.
 
-Since the serialization code is not handwritten or maintained manually
-anymore, you minimize the risk of having JSON serialization exceptions at
-runtime.
+Dado que el código de serialización no esta más, escrito ni mantenido manualmente, 
+minimizas el riesgo de tener excepciones por la serialización JSON en tiempo de ejecución.
 
-### Setting up json_serializable in a project
+### Configurando json_serializable en un proyecto
 
-To include `json_serializable` in your project, you need one regular
-dependency, and two _dev dependencies_. In short, _dev dependencies_
-are dependencies that are not included in our app source code&mdash;they
-are only used in the development environment.
+Para incluir `json_serializable` en tu proyecto, necesitas una dependencia regular, 
+y dos _dev dependencies_. Abreviando, _dev dependencies_
+son dependencias que no están incluidas en el código fuente de tu app&mdash;estas 
+solo son usadas en el entorno de desarrollo.
 
-The latest versions of these required dependencies can be seen by following
-[the pubspec file](https://raw.githubusercontent.com/dart-lang/json_serializable/master/example/pubspec.yaml)
-in the JSON serializable example.
+Las últimas versiones de estas dependencias requeridas pueden verse 
+en el siguiente [fichero pubspec](https://raw.githubusercontent.com/dart-lang/json_serializable/master/example/pubspec.yaml)
+en el ejemplo de serialización JSON.
 
 **pubspec.yaml**
 
 ```yaml
 dependencies:
-  # Your other regular dependencies here
+  # Tus otras dependencias regulares aquí
   json_annotation: ^0.2.3
 
 dev_dependencies:
-  # Your other dev_dependencies here
+  # Tus otras dev_dependencies aquí
   build_runner: ^0.9.0
   json_serializable: ^0.5.4
 ```
 
-Run `flutter packages get` inside your project root folder (or click
-**Packages Get** in your editor) to make these new dependencies available
-in your project.
+Ejecuta `flutter packages get` dentro de la carpeta raíz de tu proyecto (o haz clic
+en **Packages Get** en tu editor) para hacer estas nuevas dependencias diponibles 
+en tu proyecto.
 
-### Creating model classes the json_serializable way
+### Creando las clases del modelo a la manera de json_serializable
 
-The following shows how to convert the `User` class to a `json_serializable`
-one. For the sake of simplicity, this code uses the simplified JSON model
-from the previous samples.
+Lo siguiente muestra como convertir una clase `User` en una clase `json_serializable`. 
+En aras de la simplicidad, este código usa el modelo JSON simplificado de los ejemplos 
+previos.
 
 **user.dart**
 
@@ -271,113 +267,107 @@ from the previous samples.
 {% prettify dart %}
 import 'package:json_annotation/json_annotation.dart';
 
-/// This allows the `User` class to access private members in
-/// the generated file. The value for this is *.g.dart, where
-/// the star denotes the source file name.
+/// Esto permite a la clase `User` acceder a las propiedades privadas 
+/// en el fichero generado. El valor para esto es *.g.dart, donde 
+/// el asterisco denota el nombre del fichero fuente.
 part '[[highlight]]user[[/highlight]].g.dart';
 
-/// An annotation for the code generator to know that this class needs the
-/// JSON serialization logic to be generated.
+/// Una anotación para el auto-generador de código para que sepa que en esta clase
+/// necesita generarse lógica de serialización JSON.
 [[highlight]]@JsonSerializable()[[/highlight]]
 
-/// Every json_serializable class must have the serializer mixin.
-/// It makes the generated toJson() method to be usable for the class.
-/// The mixin's name follows the source class, in this case, User.
+/// Todas las clases json_serializable deben tener el serializer mixin.
+/// Esto hace que sea usable el método toJson() para la clase.
+/// Los nombres de los mixin siguen al de la clase fuente, en este caso, User.
 class User extends Object with _$[[highlight]]User[[/highlight]]SerializerMixin {
   User(this.name, this.email);
 
   String name;
   String email;
 
-  /// A necessary factory constructor for creating a new User instance
-  /// from a map. Pass the map to the generated _$UserFromJson constructor.
-  /// The constructor is named after the source class, in this case User.
+  /// Un método constructor de tipo factory es necesario para crear una nueva instancia User
+  /// desde un mapa. Pasa el mapa al constructor auto-generado _$UserFromJson.
+  /// El constructor es nombrado despues de la clase fuente, en este caso User.
   factory User.fromJson(Map<String, dynamic> json) => _$[[highlight]]User[[/highlight]]FromJson(json);
 }
 {% endprettify %}
 
-With this setup, the source code generator generates code for encoding
-and encoding the `name` and `email` fields from JSON.
+Con esta configuración, el auto-generador de código fuente, genera código para codifiar 
+y decodificar los campos `name` y `email` desde JSON.
 
-If needed, it is also easy to customize the naming strategy. For example, if the
-API returns objects with _snake\_case_, and you want to use
-_lowerCamelCase_ in your models,
-you can use the `@JsonKey` annotation with a name parameter:
+Si se necesita, es tambien fácil de personalizar la estrategia de nombrado. Por ejemplo, si la 
+API devuelve objetos con with _snake\_case_, y to quieres usar _lowerCamelCase_ en tus modelos,
+puedes usar la anotación `@JsonKey` con un parámetro nombre:
 
 <!-- skip -->
 ```dart
-/// Tell json_serializable that "registration_date_millis" should be
-/// mapped to this property.
+/// Dice a json_serializable como "registration_date_millis" debe ser
+/// mapeado para este proyecto.
 @JsonKey(name: 'registration_date_millis')
 final int registrationDateMillis;
 ```
 
-### Running the code generation utility
+### Ejecutando la utilidad de auto-generación de código
 
-When creating `json_serializable` classes the first time, you'll get errors
-similar to what is shown in the image below.
+Cuando creas las clases `json_serializable` por primera vez, obtendras errores 
+similares a los mostrados en la imagen abajo.
 
-![IDE warning when the generated code for a model class does not exist
-yet.](/images/json/ide_warning.png)
+![Warning del IDE cuando el código auto-generado para una clase modelo no existe aún.](/images/json/ide_warning.png)
 
-These errors are entirely normal and are simply because the generated code for
-the model class does not exist yet. To resolve this, run the code
-generator that generates the serialization boilerplate.
+Estos errores son completamente normales y es simplemente porque el código auto-generado para 
+la clase modelo no existe aún. Para resolver esto, ejecuta el auto-generador 
+de código que genera los _boilerplate_ de serialización.
 
-There are two ways of running the code generator.
+Hay dos maneras de ejecutar el auto-generador de código.
 
-#### One-time code generation
+#### Auto-generación de código una única vez
 
-By running `flutter packages pub run build_runner build` in the project root,
-you generate JSON serialization code for your models whenever they are needed.
-This triggers a one-time build that goes through the source files, picks the
-relevant ones, and generates the necessary serialization code for them.
+Ejecutando `flutter packages pub run build_runner build` en la raíz del proyecto,
+generas el código de serialización JSON para tus modelos, siempre que sea necesario.
+Esto desencadena una única compilación que pasa por los ficheros fuente, elige los 
+relevantes, y genera el código de serialización necesario para ellos.
 
-While this is convenient, it would be nice if you did not have to run the
-build manually every time you make changes in your model classes.
+Si bien, esto es conveniente, seria bueno no tener que ejecutar la compilación 
+manualmente cada vez que haces cambios en tus clases modelo.
 
-#### Generating code continuously
+#### Auto-generación contínua de código
 
-A _watcher_ makes our source code generation process more convenient. It
-watches changes in our project files and automatically builds the necessary
-files when needed. Start the watcher by running
-`flutter packages pub run build_runner watch` in the project root.
+Un _watcher_ hace nuestro proceso de auto-generación de código mas conveniente. Este 
+observa cambios en los ficheros de nuestro proyecto y compila automáticamente los 
+archivos necesarios cuando se necesita. Inicia el watcher ejecutando 
+`flutter packages pub run build_runner watch` en la raíz del proyecto.
 
-It is safe to start the watcher once and leave it running in the background.
+Es seguro ejecutar el watcher una vez y dejarlo funcionando en segundo plano.
 
-### Consuming json_serializable models
+### Consumiendo modelos json_serializable
 
-To decode a JSON string the `json_serializable` way,
-you do not have actually to make any changes to our previous code.
+Para decodificar una cadena JSON a la manera de `json_serializable`, 
+no tienes que hacer ningún cambio a tu código anterior.
 
 <!-- skip -->
 ```dart
 Map userMap = json.decode(json);
 var user = User.fromJson(userMap);
 ```
-The same goes for encoding. The calling API is the same as before.
+Lo mismo ocurre para codificar. La API a llamar es la misma que antes.
 
 <!-- skip -->
 ```dart
 String json = json.encode(user);
 ```
 
-With `json_serializable`, you can forget any manual JSON serialization in the
-`User` class. The source code generator creates a file called `user.g.dart`,
-that has all the necessary serialization logic. You no longer have
-to write automated tests to ensure that the serialization works&mdash;it's
-now _the library's responsibility_ to make sure the serialization works
-appropriately.
+Con `json_serializable`, puedes olvidarte de cualquier serialización manua en la clase 
+`User`. El auto-generador de código fuente crea un fichero llamado `user.g.dart`,
+que tiene toda la lógica de serialización necesaria. Ya no tienes que 
+que escribir más, pruebas automatizadas para asegurar que la serailización 
+funciona&mdash;ahora es _responsabiliad de la biblioteca_ asegurar que la serialización 
+funciona apropiadamente.
 
-## Further references
+## Referencias adicionales
 
-For more information, see the following resources:
+Para más información, mira los siguientes recursos:
 
-* [JsonCodec
-  documentation](https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html)
-* [The
-  json_serializable package in Pub](https://pub.dartlang.org/packages/json_serializable)
-* [json_serializable
-  examples in GitHub](https://github.com/dart-lang/json_serializable/blob/master/example/lib/example.dart)
-* [Discussion
-  about dart:mirrors in Flutter](https://github.com/flutter/flutter/issues/1150)
+* [Documentación JsonCodec](https://api.dartlang.org/stable/dart-convert/JsonCodec-class.html)
+* [El paquete json_serializable en Pub](https://pub.dartlang.org/packages/json_serializable)
+* [Ejemplos de json_serializable en GitHub](https://github.com/dart-lang/json_serializable/blob/master/example/lib/example.dart)
+* [Discusion sobre about dart:mirrors en Flutter](https://github.com/flutter/flutter/issues/1150)
