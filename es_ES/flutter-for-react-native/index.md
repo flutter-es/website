@@ -1450,9 +1450,9 @@ navegar hasta la ruta especificada.
 Navigator.of(context).pushNamed('/a');
 ```
 
-También puede usar el método push de `Navigator` que agrega la [`route`](https://docs.flutter.io/flutter/widgets/Route-class.html) dada a la historia del navegante que más estrechamente encierra el 
+También puedes usar el método push de `Navigator` que agrega la [`route`](https://docs.flutter.io/flutter/widgets/Route-class.html) dada a la historia del navegador que delimita más estrechamente  el 
 [`context`](https://docs.flutter.io/flutter/widgets/BuildContext-class.html) dado, y las transiciones hacia él. En el siguiente ejemplo, el widget [`MaterialPageRoute`](https://docs.flutter.io/flutter/material/MaterialPageRoute-class.html)
-es una ruta modal que reemplaza toda la pantalla con una transición adaptable a la plataforma. Toma un [`WidgetBuilder`](https://docs.flutter.io/flutter/widgets/WidgetBuilder.html) como parámetro requerido.
+es una ruta modal que sustituye toda la pantalla por una transición adaptada a la plataforma. Toma un [`WidgetBuilder`](https://docs.flutter.io/flutter/widgets/WidgetBuilder.html) como un parámetro requerido.
 
 <!-- skip -->
 ```Dart
@@ -1511,7 +1511,7 @@ Se necesita un `TabController` para coordinar la selección de tabs entre un `Ta
 
 El [TickerProvider](https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html) es una interfaz implementada por clases que pueden vender objetos [`Ticker`](https://docs.flutter.io/flutter/scheduler/Ticker-class.html). Los Tickers pueden ser utilizados por cualquier objeto que deba ser notificado siempre que se active un frame, pero se utilizan más comúnmente de forma indirecta a través de un 
 [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html). Los 
-`AnimationControllers` requieren de un `TickerProvider` para obtener su `Ticker`. Su estás creando un AnimationController desde un estado, puedes usar la clase
+`AnimationControllers` requieren de un `TickerProvider` para obtener su `Ticker`. Si estás creando un AnimationController desde un estado, puedes usar la clase
  [`TickerProviderStateMixin`](https://docs.flutter.io/flutter/widgets/TickerProviderStateMixin-class.html) o la clase [`SingleTickerProviderStateMixin`](https://docs.flutter.io/flutter/widgets/SingleTickerProviderStateMixin-class.html) para obtener un `TickerProvider` adecuado.
 
 El widget [`Scaffold`](https://docs.flutter.io/flutter/material/Scaffold-class.html) envuelve un nuevo widget `TabBar` y crea dos tabs.
