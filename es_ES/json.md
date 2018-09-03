@@ -36,7 +36,7 @@ Este artículo cubre dos estrategias generales para trabajar con JSON:
 
 Diferentes proyectos tienen diferente complejidad y casos de uso. Para proyectos 
 pequeños de prueba de concepto o prototipos rápidos, usar auto-generación de código puede ser
-exagerado. Para apps con varios modelos JSON con mas complejidad, codificar 
+exagerado. Para apps con varios modelos JSON con más complejidad, codificar 
 a mano puede volverse rápidamente tedioso, repetitivo, y se presta a muchos 
 pequeños errores.
 
@@ -140,8 +140,8 @@ print('We sent the verification link to ${user['email']}.');
 Desafortunadamente, `json.decode()` simplemente devuelve un `Map<String, dynamic>`, significando 
 que no conoces los tipos de valores hasta el tiempo de ejecución. Con esta aproximación, 
 pierdes la mayoría de las características del tipado estático del lenguaje: seguridad de tipos,
-autocompletado y mucho mas importante, las excepciones en tiempo de compilación. Tu código 
-será mas propenso a los errores instantáneamente.
+autocompletado y mucho más importante, las excepciones en tiempo de compilación. Tu código 
+será más propenso a los errores instantáneamente.
 
 Por ejemplo, cuando accedes a los campos `name` o `email`, podrías rápidamente 
 introducir un error tipográfico. Un error tipográfico que el compilador no conoce 
@@ -156,7 +156,7 @@ llamada `User` en este ejemplo. Dentro de la clase `User`, encontrarás:
   estructura de mapa.
 * Un método `toJson`, que convierte una instancia `User` en un mapa.
 
-Con esta aproximación, el _código llamable_, puede tener seguridad de tipos, 
+Con esta aproximación, el _calling code_, puede tener seguridad de tipos, 
 autocompletado para los campos `name` y `email`, y excepciones en tiempo de compilación.
 Si cometes errores tipográficos o tratas los campos como `int` en lugar de `String`,
 la app no compilará, en lugar de fallar en tiempo de ejecución.
@@ -207,7 +207,7 @@ String json = json.encode(user);
 Con esta aproximación, el código _llamable_ no tiene que preocuparse acerca de la 
 serialización JSON para nada. Sin embargo, la clase modelo definitivamente debe hacerlo.
 En una app en producción, querrás asegurarte que la serialización trabaja correctamente. 
-En la practica, los métodos `User.fromJson` y `User.toJson` 
+En la práctica, los métodos `User.fromJson` y `User.toJson` 
 necesitan ambos tener test unitarios para verificar un comportamiento correcto.
 
 Sin embargo, los escenarios del mundo real no son normalmente tan simples.
@@ -215,7 +215,7 @@ Es poco probable que use respuestas JSON tan pequeñas.
 También se usan habitualmente Objetos JSON anidados.
 
 Sería bueno que hubiese algo que manejar la codificación y decodificación JSON por ti. 
-Afortunadamente , lo hay!
+Afortunadamente, ¡lo hay!
 
 <a name="code-generation"></a>
 ## Serializar JSON usando librerías de auto-generación de código
@@ -287,15 +287,15 @@ class User extends Object with _$[[highlight]]User[[/highlight]]SerializerMixin 
 
   /// Un método constructor de tipo factory es necesario para crear una nueva instancia User
   /// desde un mapa. Pasa el mapa al constructor auto-generado _$UserFromJson.
-  /// El constructor es nombrado despues de la clase fuente, en este caso User.
+  /// El constructor es nombrado después de la clase fuente, en este caso User.
   factory User.fromJson(Map<String, dynamic> json) => _$[[highlight]]User[[/highlight]]FromJson(json);
 }
 {% endprettify %}
 
-Con esta configuración, el auto-generador de código fuente, genera código para codifiar 
+Con esta configuración, el auto-generador de código fuente, genera código para codificar 
 y decodificar los campos `name` y `email` desde JSON.
 
-Si se necesita, es tambien fácil de personalizar la estrategia de nombrado. Por ejemplo, si la 
+Si se necesita, es también fácil de personalizar la estrategia de nombrado. Por ejemplo, si la 
 API devuelve objetos con with _snake\_case_, y to quieres usar _lowerCamelCase_ en tus modelos,
 puedes usar la anotación `@JsonKey` con un parámetro nombre:
 
@@ -309,7 +309,7 @@ final int registrationDateMillis;
 
 ### Ejecutando la utilidad de auto-generación de código
 
-Cuando creas las clases `json_serializable` por primera vez, obtendras errores 
+Cuando creas las clases `json_serializable` por primera vez, obtendrás errores 
 similares a los mostrados en la imagen abajo.
 
 ![Warning del IDE cuando el código auto-generado para una clase modelo no existe aún.](/images/json/ide_warning.png)
@@ -327,12 +327,12 @@ generas el código de serialización JSON para tus modelos, siempre que sea nece
 Esto desencadena una única compilación que pasa por los ficheros fuente, elige los 
 relevantes, y genera el código de serialización necesario para ellos.
 
-Si bien, esto es conveniente, seria bueno no tener que ejecutar la compilación 
+Si bien, esto es conveniente, sería bueno no tener que ejecutar la compilación 
 manualmente cada vez que haces cambios en tus clases modelo.
 
 #### Auto-generación contínua de código
 
-Un _watcher_ hace nuestro proceso de auto-generación de código mas conveniente. Este 
+Un _watcher_ hace nuestro proceso de auto-generación de código más conveniente. Este 
 observa cambios en los ficheros de nuestro proyecto y compila automáticamente los 
 archivos necesarios cuando se necesita. Inicia el watcher ejecutando 
 `flutter packages pub run build_runner watch` en la raíz del proyecto.
@@ -356,11 +356,11 @@ Lo mismo ocurre para codificar. La API a llamar es la misma que antes.
 String json = json.encode(user);
 ```
 
-Con `json_serializable`, puedes olvidarte de cualquier serialización manua en la clase 
+Con `json_serializable`, puedes olvidarte de cualquier serialización manual en la clase 
 `User`. El auto-generador de código fuente crea un fichero llamado `user.g.dart`,
-que tiene toda la lógica de serialización necesaria. Ya no tienes que 
+que tiene toda la lógica de serialización necesaria. Ya no tienes 
 que escribir más, pruebas automatizadas para asegurar que la serailización 
-funciona&mdash;ahora es _responsabiliad de la biblioteca_ asegurar que la serialización 
+funciona&mdash;ahora es _responsabilidad de la biblioteca_ asegurar que la serialización 
 funciona apropiadamente.
 
 ## Referencias adicionales
