@@ -303,7 +303,7 @@ es uno de los métodos más costosos en el framework Flutter. Es útil cuando se
 Flutter Inspector no parece soportar esto?]
 {% endcomment %}
 
-Una vez que el switch esté habilitado, ejecuta la aplicación y busca cualquier imagen que este delineada con un cuadro parpadeante. La caja parpadea de frame a frame si un nuevo frame se está renderizando.  Por ejemplo, tal vez tenga un grupo de objetos con opacidades que se renderizan utilizando `saveLayer`. En este caso, probablemente sea más eficaz aplicar una opacidad a cada widget individual, en lugar de un widget padre más arriba en el árbol de widgets. Lo mismo ocurre con otras operaciones potencialmente costosas, como acoplamiento o sombras.
+Una vez que el switch esté habilitado, ejecuta la aplicación y busca cualquier imagen que este delineada con un cuadro parpadeante. La caja parpadea de frame a frame si un nuevo frame se está renderizando. Por ejemplo, tal vez tenga un grupo de objetos con opacidades que se renderizan utilizando `saveLayer`. En este caso, probablemente sea más eficaz aplicar una opacidad a cada widget individual, en lugar de un widget padre más arriba en el árbol de widgets. Lo mismo ocurre con otras operaciones potencialmente costosas, como acoplamiento o sombras.
 
 <aside class="alert alert-info" markdown="1">
 **Nota:** Opacidad, acoplamiento, y sombras no son, por sí mismas, una mala idea.
