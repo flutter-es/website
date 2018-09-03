@@ -1,0 +1,96 @@
+- name: Alibaba
+  description: >
+    La aplicación de Alibaba incorpora Flutter para potenciar partes de su app.
+  screenshot: /showcase/images/v4_alibaba.png
+  learn_more_link: https://www.alibaba.com/
+
+- name: Google AdWords
+  description: >
+    La aplicación Google AdWords te ayuda a mantener tus campañas publicitarias sin problemas
+    — no importa a dónde te lleve tu negocio.
+  screenshot: /showcase/images/v3_adwords.png
+  learn_more_link: https://play.google.com/store/apps/details?id=com.google.android.apps.adwords
+
+- name: AppTree
+  description: >
+    AppTree proporciona una plataforma low-code de aplicaciones empresariales para marcas
+    como McDonalds, Stanford, Wayfair & Fermilab.
+  screenshot: /showcase/images/v3_apptree.png
+  learn_more_link: https://www.apptreerevolution.com/
+
+- name: Topline
+  description: >
+    La aplicación más nueva de Abbey Road Studios para la captura rápida de ideas de canciones.
+  screenshot: /showcase/images/v3_abbey_road_toplineapp_screenshot.png
+  android_download: https://play.google.com/store/apps/details?id=com.abbeyroadandroid
+
+- name: Birch Finance
+  description: >
+   Aplicación de recompensas de tarjeta de crédito para administrar y optimizar sus tarjetas existentes.
+  screenshot: /showcase/images/v3_birch.png
+  android_download: https://play.google.com/store/apps/details?id=com.birch
+  learn_more_link: https://birchfinance.com/
+
+- name: Reflectly
+  description: >
+    Un excelente diario y una aplicación de atención plena impulsada por la inteligencia artificial. 
+  screenshot: /showcase/images/reflectly.png
+  android_download: https://play.google.com/store/apps/details?id=com.reflectlyApp
+  ios_download: https://itunes.apple.com/us/app/reflectly-mindfulness-journal/id1241229134
+  learn_more_link: http://reflect.ly/
+
+- name: Google Greentea
+  description: >
+    Una aplicación interna de gestión de clientes utilizada de forma generalizada por los departamentos de ventas de Google
+    que proporciona una amplia visualización para el seguimiento de los objetivos de ventas.
+  screenshot: /showcase/images/v3_greentea.png
+
+- name: Hamilton Musical
+  description: >
+    Aplicación oficial del exitoso musical de Broadway, Hamilton.
+    Incluye loterías diarias, noticias y videos exclusivos,
+    un juego de preguntas y respuestas, tienda de mercancías y más.
+  screenshot: /showcase/images/v3_hamliton.png
+  android_download: https://play.google.com/store/apps/details?id=com.hamilton.app
+  ios_download: https://itunes.apple.com/us/app/hamilton-the-official-app/id1255231054?mt=8
+  learn_more_link: https://blog.goposse.com/rise-up-the-story-of-how-the-hamilton-app-uses-flutter-to-do-more-for-its-fans-1d9cd76f95f1
+
+- name: Hookle
+  description: >
+    Herramienta para compartir publicaciones, monitorear la actividad social y administrar múltiples
+    cuentas de redes sociales en un solo lugar.
+  screenshot: /showcase/images/v3_hookle.png
+  android_download: https://play.google.com/store/apps/details?id=net.hookle
+  ios_download: https://itunes.apple.com/us/app/hookle/id1330557977
+  learn_more_link: https://www.hookle.net
+
+- name: OfflinePal
+  description: >
+    OfflinePal recolecta actividades en un solo lugar, desde conciertos y teatros,
+    hasta excursiones de montaña y atracciones turísticas.
+  screenshot: /showcase/images/v3_offlinepal.png
+  learn_more_link: https://www.youtube.com/watch?v=0guDC2S6EeY
+
+- name: VivaBem UOL
+  description: >
+    Videos de meditación guiada. UOL also provides news and information
+    UOL también ofrece noticias e información sobre salud y bienestar de los especialistas.
+  screenshot: /showcase/images/v3_vivabem.png
+  ios_download: https://itunes.apple.com/br/app/vivabem-medita%C3%A7%C3%A3o/id1376295130
+  android_download: https://play.google.com/store/apps/details?id=br.com.uol.uolvivabem
+  learn_more_link: https://vivabem.uol.com.br/equilibrio/
+
+- name: BetaBubs
+  description: >
+    Aplicación de Chat, de solo emojis, para niños con el control de los padres.
+  screenshot: /showcase/images/v3_betabubs.png
+  ios_download: https://itunes.apple.com/us/app/betabubs-play-emojis/id1363316057
+  android_download: https://play.google.com/store/apps/details?id=com.betabubs.playemojis
+  
+- name: Coach Yourself
+  description: >
+    Una aplicación de meditación para el mercado de lengua alemana con el entrenador Ramin Raygan.
+  screenshot: /showcase/images/v3_CoachYourself.png
+  android_download: https://play.google.com/store/apps/details?id=eu.coach_yourself.app
+  ios_download: https://itunes.apple.com/us/app/coach-yourself/id1372759980
+
