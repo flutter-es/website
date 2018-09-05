@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: "Agregando Interactividad a Tu App Flutter"
+title: "Añade Interactividad a Tu App Flutter"
 
 permalink: /tutorials/interactive/
 ---
@@ -138,7 +138,7 @@ son ejemplos de widgets stateful, los cuales son subclases de
 
 En esta sección, crearás un widget stateful personalizado.
 Reemplazarás dos widgets stateless&mdash;la estrella rellena de rojo y el 
-contador numerico junto a ella&mdash;con un único stateful widget 
+contador numérico junto a ella&mdash;con un único stateful widget 
 personalizado que administra una fila con dos widgets hijos: un IconButton
 y un Text.
 
@@ -263,7 +263,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-lightbulb-o"> </i> **Consejo:**
-Coloca el Text en un SizedBox y configurar su anchura previene un "salto" perceptible 
+Colocar el Text en un SizedBox y configurar su anchura previene un "salto" perceptible 
 cuando el texto cambia entre los valores 40 y 41&mdash;esto 
 de otro modo ocurriría porque estos valores tienen diferentes anchos.
 </aside>
@@ -319,7 +319,7 @@ class MyApp extends StatelessWidget {
 ### ¿Problemas?
 
 Si no puedes hacer que el código se ejecute, mira en tu IDE por posibles errores.
-[Debugando Apps en Flutter](https://flutter.io/debugging/) puede ayudar.
+[Depurar Apps en Flutter](/debugging/) puede ayudar.
 Si sigues sin encontrar el problema,
 comprueba tu código con el ejemplo "interactive Lakes" en GitHub.
 
@@ -335,7 +335,7 @@ El resto de esta página cubre varias maneras en que puede ser administrado el e
 y lista otros widgets interactivos disponibles.
 
 <a name="managing-state"></a>
-## Admnistrar el estado
+## Administrar el estado
 
 <div class="whats-the-point" markdown="1">
 
@@ -786,10 +786,10 @@ lo más sencillo es usar uno de los widgets prefabricados. Aquí está una lista
 
 Los siguientes recursos pueden ayudar cuando añades interactividad a tu app.
 
-* [Manejando gestos](https://flutter.io/widgets-intro/#handling-gestures),
-  una sección en [Un Tour por el Framework de Widgets de Flutter](https://flutter.io/widgets-intro/)<br>
+* [Manejando gestos](/widgets-intro/#manejar-gestos),
+  una sección en [Un Tour por el Framework de Widgets de Flutter](/widgets-intro/)<br>
   Como crear un botón y hacer que responda a las entradas.
-* [Gestos en Flutter](https://flutter.io/gestures/)<br>
+* [Gestos en Flutter](/gestures/)<br>
   Una descripción del mecanismo de gestos de Flutter.
 * [Documentación de la API de Flutter API](https://docs.flutter.io/)<br>
   Referencia para todas las bibliotecas de Flutter.
