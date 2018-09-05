@@ -73,7 +73,7 @@
 
 - name: VivaBem UOL
   description: >
-    Videos de meditación guiada. UOL also provides news and information
+    Videos de meditación guiada. 
     UOL también ofrece noticias e información sobre salud y bienestar de los especialistas.
   screenshot: /showcase/images/v3_vivabem.png
   ios_download: https://itunes.apple.com/br/app/vivabem-medita%C3%A7%C3%A3o/id1376295130
