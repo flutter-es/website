@@ -92,7 +92,7 @@ por Dart desde hace bastante tiempo. Con _tree shaking_, puedes hacer “shake o
 código no utilizado de tus release builds. Esto optimiza significativamente el tamaño de la app.
 
 Como la reflexión hace que todo el código se usado de forma implícita por defecto, esto hace 
-el tree shaking difícil. La herramientas no pueden conocer que partes del código no son usadas 
+el tree shaking difícil. Las herramientas no pueden conocer que partes del código no son usadas 
 en tiempo de ejecución, entonces es difícil eliminar el código redundante. El tamaño de la app 
 no puede ser fácilmente optimizado cuando se usa reflexión.
 
@@ -204,7 +204,7 @@ ya hace esto por ti.
 String json = json.encode(user);
 ```
 
-Con esta aproximación, el código _llamable_ no tiene que preocuparse acerca de la 
+Con esta aproximación, el código ejecutable no tiene que preocuparse acerca de la 
 serialización JSON para nada. Sin embargo, la clase modelo definitivamente debe hacerlo.
 En una app en producción, querrás asegurarte que la serialización trabaja correctamente. 
 En la práctica, los métodos `User.fromJson` y `User.toJson` 
@@ -252,7 +252,7 @@ dev_dependencies:
 ```
 
 Ejecuta `flutter packages get` dentro de la carpeta raíz de tu proyecto (o haz clic
-en **Packages Get** en tu editor) para hacer estas nuevas dependencias diponibles 
+en **Packages Get** en tu editor) para hacer estas nuevas dependencias disponibles 
 en tu proyecto.
 
 ### Creando las clases del modelo a la manera de json_serializable
