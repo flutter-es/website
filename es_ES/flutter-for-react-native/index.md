@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Flutter para React Native devs
+title: Flutter para desarrolladores React Native
 permalink: /flutter-for-react-native/
 ---
 
@@ -17,11 +17,11 @@ Este documento puede usarse como un cookbook recorriéndolo aleatoriamente y enc
 
 ## Introducción a Dart para desarrolladores de JavaScript
 
-Al igual que React Native, Flutter utiliza vistas al estilo reactive. Sin embargo, mientras que RN transita a los widgets nativos, Flutter compila todo el camino hacia el código nativo. Flutter controla cada píxel de la pantalla, lo que evita problemas de rendimiento causados por la necesidad de un JavaScript bridge.
+Al igual que React Native, Flutter utiliza vistas al estilo reactive. Sin embargo, mientras que RN transpila a los widgets nativos, Flutter compila siempre a código nativo. Flutter controla cada píxel de la pantalla, lo que evita problemas de rendimiento causados por la necesidad de un JavaScript bridge.
 
 Dart es un lenguaje fácil de aprender y ofrece las siguientes características:
-* Proporciona un lenguaje de programación escalable y open source para crear apps web, de servidor y móviles.
-* Proporciona un lenguaje de herencia único orientado a objetos que utiliza una sintaxis estilo C que se compila en AOT en nativo.
+* Proporciona un lenguaje de programación escalable y open source para crear aplicaciones web, de servidor y de móvil.
+* Proporciona un lenguaje orientado a objetos de herencia simple que usa una sintaxis estilo C que se compila AOT en nativo.
 * Transcompila opcionalmente en JavaScript.
 * Soporta interfaces y clases abstractas.
 
@@ -1089,7 +1089,7 @@ El método `build` de un widget sin estado se llama típicamente en sólo tres
 Un [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html) es un widget que cambia de estado. Utiliza el `setState`
 para gestionar los cambios de estado de un `StatefulWidget`. Una llamada a `setState`
  le dice al framework Flutter que algo ha cambiado en un estado, que
-  hace que una aplicación ejecute de nuevo el método `build` para que la aplicación pueda reflejar el cambio.
+ hace que una aplicación ejecute de nuevo el método `build` para que la aplicación pueda reflejar el cambio.
 
 El estado es la información que se puede leer sincrónicamente cuando se construye un widget y puede cambiar durante la vida útil del widget. Es responsabilidad del implementador del widget asegurarse de que el estado sea notificado rápidamente cuando el estado cambie. Utiliza `StatefulWidget` cuando un widget puede cambiar dinámicamente. Por ejemplo, el estado del widget cambia escribiendo en un formulario o moviendo un deslizador. O bien, puede cambiar con el tiempo, tal vez una fuente de datos actualice la interfaz de usuario.
 
@@ -1184,7 +1184,7 @@ En Flutter, los widgets son Stateful o Stateless dependiendo de si
 En Flutter, hay tres maneras principales de gestionar el estado:
 * El widget gestiona su propio estado
 * El widget padre gestiona el estado del widget
-* Un enfoque mix-and-match
+* Un enfoque intermedio
 
 Al decidir qué enfoque utilizar, ten en cuenta los siguientes principios:
 * Si el estado en cuestión son datos de usuario, por ejemplo, el modo marcado o no marcado de una casilla de verificación, o la posición de un deslizador, entonces el estado se gestiona mejor con el widget padre.
@@ -1509,7 +1509,7 @@ Se necesita un `TabController` para coordinar la selección de tabs entre un `Ta
 `TickerProvider` para activar la notificación siempre que un frame active un cambio de estado. El `TickerProvider` es `vsync`. Pasa el argumento 
 `vsync: this` al constructor `TabController` cada vez que crees un nuevo `TabController`.
 
-El [TickerProvider](https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html) es una interfaz implementada por clases que pueden vender objetos [`Ticker`](https://docs.flutter.io/flutter/scheduler/Ticker-class.html). Los Tickers pueden ser utilizados por cualquier objeto que deba ser notificado siempre que se active un frame, pero se utilizan más comúnmente de forma indirecta a través de un 
+El [TickerProvider](https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html) es una interfaz implementada por clases que pueden despachar objetos [`Ticker`](https://docs.flutter.io/flutter/scheduler/Ticker-class.html). Los Tickers pueden ser utilizados por cualquier objeto que deba ser notificado siempre que se active un frame, pero se utilizan más comúnmente de forma indirecta a través de un 
 [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html). Los 
 `AnimationControllers` requieren de un `TickerProvider` para obtener su `Ticker`. Si estás creando un AnimationController desde un estado, puedes usar la clase
  [`TickerProviderStateMixin`](https://docs.flutter.io/flutter/widgets/TickerProviderStateMixin-class.html) o la clase [`SingleTickerProviderStateMixin`](https://docs.flutter.io/flutter/widgets/SingleTickerProviderStateMixin-class.html) para obtener un `TickerProvider` adecuado.
@@ -1785,7 +1785,7 @@ _getIPAddress() async {
 
 ## Form input
 
-Los campos de texto permiten a los usuarios escribir texto en su aplicación para que puedan ser utilizados para crear formularios, aplicaciones de mensajería, experiencias de búsqueda y mucho más. Flutter proporciona dos widgets principales de campos de texto: [TextField](https://docs.flutter.io/flutter/material/TextField-class.html) y [TextFormField](https://docs.flutter.io/flutter/material/TextFormField-class.html).
+Los campos de texto permiten a los usuarios escribir texto en su aplicación para que puedan ser utilizados para cuando se guarda el formulario, aplicaciones de mensajería, experiencias de búsqueda y mucho más. Flutter proporciona dos widgets principales de campos de texto: [TextField](https://docs.flutter.io/flutter/material/TextField-class.html) y [TextFormField](https://docs.flutter.io/flutter/material/TextFormField-class.html).
 
 ### ¿Cómo utilizo los widgets de los campos de texto?
 
