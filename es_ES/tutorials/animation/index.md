@@ -29,7 +29,7 @@ introduciéndote en diferentes aspectos de la biblioteca de animaciones.
 * [Ejemplos de animaciones](#animation-examples)
   * [Renderizando animaciones](#rendering-animations)
   * [Monitorizar el progreso de una animación](#monitoring)
-  * [Simplicando con AnimatedWidget](#simplifying-with-animatedwidget)
+  * [Simplificando con AnimatedWidget](#simplifying-with-animatedwidget)
   * [Refactorizando con AnimatedBuilder](#refactoring-with-animatedbuilder)
   * [Animaciones simultáneas](#simultaneous-animations)
 * [Siguientes pasos](#next-steps)
@@ -59,21 +59,21 @@ El sistema de animaciones en Flutter está basado en
 objetos [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html) tipados. 
 Los widgets pueden incorporar estos objetos animation en sus funciones build directamente 
 al leer su valor actual y escuchar sus cambios de estado, o pueden usarlos como la base
-de animaciones mas elaboradas que pasan a través de otros widgets.
+de animaciones más elaboradas que pasan a través de otros widgets.
 
 <a name="animation-class"></a>
 ### Animation&lt;double&gt;
 
 En Flutter, un objeto Animation no sabe nada sobre que hay en la pantalla.
 Un objeto Animation es una clase abstracta que entiende su valor actual y 
-su estado (completado o rechazado). Uno de los tipos de animation mas comúnmente 
+su estado (completado o rechazado). Uno de los tipos de animation más comúnmente 
 usados es Animation&lt;double&gt;.
 
 Un objeto Animation en Flutter es una clase que genera secuencialmente números 
 interpolándolos entre dos valores durante una cierta duración.
 La salida de un objeto Animation puede ser lineal, una curva, una función por pasos,
 o cualquier otro mapeado que puedas idear. Dependiendo de como el objeto Animation 
-se controle, podría ejecutarse en modeo inverso, o incluso cambiar la dirección en 
+se controle, podría ejecutarse en modo inverso, o incluso cambiar la dirección en 
 el medio.
 
 Los objetos Animation pueden también interpolar otros tipos diferentes a double, como 
@@ -165,7 +165,7 @@ La posición puede ser cualquiera y puede estar fuera del rango entre 0.0 y 1.0.
 
 Un CurvedAnimation puede también sobrepasar el rango de 0.0 a 1.0,
 en cambio AnimationController no puede. Dependiendo de la curva seleccionada,
-la salida de CurvedAnimation puede ser un rango mas amplio que la entrada.
+la salida de CurvedAnimation puede ser un rango más amplio que la entrada.
 Por ejemplo, las curvas elásticas como Curves.elasticIn sobrepasaran 
 significativamente el rango por defecto tanto por abajo como por arriba.
 </aside>
@@ -219,7 +219,7 @@ final AnimationController controller = AnimationController(
 Animation<int> alpha = IntTween(begin: 0, end: 255).animate(controller);
 {% endprettify %}
 
-Noe que `animate()` devuelve un Animation, no un Animatable.
+Note que `animate()` devuelve un Animation, no un Animatable.
 
 El siguiente ejemplo muestra un controller, un curve, y un Tween:
 
@@ -234,9 +234,9 @@ Animation<int> alpha = IntTween(begin: 0, end: 255).animate(curve);
 
 ### Notificaciones de Animation
 
-Un objeto Animation puede  tener Listeners y StatusListeners,
+Un objeto Animation puede tener Listeners y StatusListeners,
 definidos con `addListener()` y `addStatusListener()`.
-Un Listener es llamadno cada vez que el valor del objeto animation cambia.
+Un Listener es llamado cada vez que el valor del objeto animation cambia.
 El comportamiento mas habitual de un Listener es llamar a `setState()` 
 para provocar un rebuild. Un StatusListener es llamado cuando una animación empieza, 
 finaliza, se mueve hacia delante, o se mueve hacia atrás, como es definido por AnimationStatus.
@@ -427,7 +427,7 @@ no neceita mantener un objeto State para sostener la animación.
 
 En el ejemplo refactorizado más abajo, LogoApp ahora deriva de AnimatedWidget
 en lugar de StatefulWidget. AnimatedWidget usa el valor actual del objeto animation 
-cuando se dibuja a si mismo. LogoApp todavía administra el 
+cuando se dibuja a sí mismo. LogoApp todavía administra el 
 AnimationController y el Tween.
 
 <!-- skip -->
@@ -501,7 +501,7 @@ en GitHub.
 <b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
 * Usa addStatusListener para notificaciones de cambios del estado de la animacion, 
-  como empenzando, parando, o invirtiendo la dirección.
+  como empezando, parando, o invirtiendo la dirección.
 * Ejecuta una animación en un loop infinito, invirtiendo la dirección cuando la animación 
   ha sido completada o regresado a su estado de inicio.
 
@@ -603,7 +603,7 @@ Una mejor solución es separar las responsabilidades en dos clases diferentes:
 Puedes conseguir esta separación con la ayuda de la clase 
 AnimatedBuilder. Un AnimatedBuilder es una clase separada en el 
 árbol de renderizado. Como AnimatedWidget, AnimatedBuilder automáticamente 
-escucha las notificaciones del objeto Animation, y marka 
+escucha las notificaciones del objeto Animation, y marca 
 el árbol de widgets como _dirty_ cuando sea necesario, entonces no necesitas 
 llamar a `addListener()`.
 
@@ -630,7 +630,7 @@ class LogoWidget extends StatelessWidget {
 {% endprettify %}
 
 Los tres bloques centrales en el diagrama son todos creados en el método 
-`build()` en GrowTransition. El widget GrowTransition en si mismo 
+`build()` en GrowTransition. El widget GrowTransition en sí mismo 
 es stateless y soporta el conjunto final de variable necesarias para 
 definir la animación de transición. La función build() crea y devuelve 
 el AnimatedBuilder, que toma el método (constructor anónimo) y 
@@ -639,7 +639,7 @@ la transición actualmente ocure en el método (construcor anónimo),
 que crea un Container del tamaño apropiado para forzar a 
 LogoWidget a ajustarse para llenarlo.
 
-Un punto complicado en el código más abajo hijo se ve como si se hubiera definido 
+Un punto complicado en el código más abajo, es que la propiedad _child_ se ve como si se hubiera definido 
 dos veces. Lo que está ocurriendo es que la referencia externa del hijo esta siendo 
 pasada al AnimatedBuilder, el cual pase este a la función anónima, que usa este objeto 
 como su hijo. La red resulta en que AnimatedBuilder es insertado entre los dos widgets 
@@ -670,7 +670,7 @@ class GrowTransition extends StatelessWidget {
 Finalmente, el código para iniciar la animación se ve muy similar al primer ejemplo,
 [animate1.](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate1/main.dart)
 El método `initState()` crea un AnimationController
-y un Tween, enconces vincula estos con `animate()`. La mágia ocurre en el método 
+y un Tween, entonces vincula estos con `animate()`. La mágia ocurre en el método 
 `build()`, que devuelve un objeto GrowTransition con un 
 LogoWidget como hijo, un objeto animation para dirigir la transición.
 Estos son los tres elementos listados en los puntos más arriba.
@@ -762,8 +762,8 @@ solo toma un único objeto Animation. Para resolver este problema,
 el ejemplo crea su propio objeto Tween y calcula los valores explícitamente.
 
 El widget LogoApp fue cambiado para encapsular sus propios objetos Tween.
-Su método `build` llama a la función `.evaluate()` del Tween  en el objeto
-animation padre para calucar el tamaño requerido y los valores de opacidad.
+Su método `build` llama a la función `.evaluate()` del Tween en el objeto
+animation padre para calcular el tamaño requerido y los valores de opacidad.
 
 El siguiente código muestra los cambios con resaltado:
 
