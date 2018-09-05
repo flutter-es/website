@@ -43,7 +43,7 @@ dos widgets stateless.
 
 Si ya has contruido el layout en 
 [Construyendo Layouts en Flutter](/tutorials/layout/),
-sata a la siguiente sección.
+salta a la siguiente sección.
 
 * Asegúrate que has [configurado](/get-started/install/) tu entorno.
 * [Crea una app Flutter básica.](/get-started/test-drive/#create-app)
@@ -193,7 +193,7 @@ una sección en el
 ### Paso 3: Subclase State
 
 La clase State personalizada, almacena la información mutable&mdash;la lógica y 
-estdo interno que puede cambiar durante el tiempo de vida del widget.
+estado interno que puede cambiar durante el tiempo de vida del widget.
 Cuando la app se lanza por primera vez, la UI muestra una estrella rellena de rojo,
 indicando que el lago tiene el estado "favorite", y tiene 41 “likes”.
 El objeto state almacena esta información en las variables 
@@ -208,7 +208,7 @@ IconButton tambien tiene una propiedad `icon` que guarda el Icon.
 
 El método `_toggleFavorite()`, que es llamado couando el IconButton es presionado,
 llama a `setState()`. Llamar a `setState()` es fundamental, porque esto dice 
-al framewokr que el estado del widget ha cambiado y el widget deberia redibujarse. 
+al framework que el estado del widget ha cambiado y el widget deberia redibujarse. 
 La función `_toggleFavorite` alterna la UI entre 
 1) un icono star y el número ‘41’, y
 2) un icono star_border y el número ‘40’.
@@ -351,7 +351,7 @@ y lista otros widgets interactivos disponibles.
 ¿Ambos? ¿Otro objeto? La respuesta es... depende.
 Hay muchas formas válidas de hacer tu widget interactivo.
 Tú, como diseñador del widget, tomas la decisión basándote en como esperas que 
-tu widget sea usado. Aqui están las maneras má comunes de administrar estados:
+tu widget sea usado. Aqui están las maneras más comunes de administrar estados:
 
 * [El widget administra su propio estado](#self-managed)
 * [El padre administra el estado del widget](#parent-managed)
@@ -395,7 +395,7 @@ cuando es pulsado, alterna entre una caja verde o gris.
 El boolean `_active` determina el color: verede para activo o
 gris para inactivo.
 
-<img src="images/tapbox-active-state.png" style="border:1px solid black" alt="una caja verde grande con el texto, 'Active'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/tapbox-inactive-state.png" style="border:1px solid black" alt="una carja grande gris con el texto, 'Inactive'">
+<img src="images/tapbox-active-state.png" style="border:1px solid black" alt="una caja verde grande con el texto, 'Active'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/tapbox-inactive-state.png" style="border:1px solid black" alt="una caja grande gris con el texto, 'Inactive'">
 
 Estos ejemplos usan 
 [GestureDetector](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
@@ -624,7 +624,7 @@ El objeto _TapboxCState:
 * El GestureDetector escucha todos los eventos tap.
   Cuando el usaurio hace _tap down_, añade el resaltado
   (implementado como un borde verde oscuro).
-  Cuando el usuario termina de pulsar, _tap up_, el resaltdo se elimina.
+  Cuando el usuario termina de pulsar, _tap up_, el resaltado se elimina.
 * LLama a `setState()` para actualizar el UI cuando se hace tap down, tap up, o se cancela el tap, y 
   cambie el estado `_highlight`.
 * Cuan hay un evento tap, pasa este cambio de estado al widget padre para tomar la acción 
@@ -728,11 +728,11 @@ class _TapboxCState extends State<TapboxC> {
 }
 {% endprettify %}
 
-Una implementación alternativa podría haber sido exportar el estado highlight al 
+Una implementación alternativa podría haber sido exportar el estado resaltado al 
 padre mientras mantiene el estado active internamente,
-pero si preguntas a alguien por usar este tap box, problamente opinen que no tieen mucho 
+pero si preguntas a alguien por usar este tap box, probablemente opinen que no tienen mucho 
 sentido. Al desarrollador le importa si la caja esta activa. Al desarrollador 
-problablemente no le preocupe como se administra el resaltado, y prefiera
+probablemente no le preocupe como se administra el resaltado, y prefiera
 que el tap box maneje estos detalles.
 
 **Código Dart:**
@@ -750,7 +750,7 @@ componentes con una UI pragmática.
 
 Si lo prefieres, puedes usar 
 [GestureDetector](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
-para construir interactividad en cualquier widget personalizado. Puedes encotnrar ejemplos de 
+para construir interactividad en cualquier widget personalizado. Puedes encontrar ejemplos de 
 GestureDetector en [Administrado el estado](#managing-state), y en la [Flutter
 Gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery).
 
