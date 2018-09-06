@@ -1,18 +1,20 @@
 ---
 layout: page
-title: Buscar
+title: Search
 permalink: /search/
 ---
 
 <script>
   (function() {
-    var cx = '010225862626394710627:kktj1vchja4';
+    var cx = '007067728241810524621:gm6vraqlc8c';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
     gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
 <gcse:search></gcse:search>
+
