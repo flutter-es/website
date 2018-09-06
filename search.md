@@ -17,4 +17,3 @@ permalink: /search/
   })();
 </script>
 <gcse:search></gcse:search>
-
