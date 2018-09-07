@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Agregando recursos e imágenes en Flutter
+title: Añadir Assets e Imágenes en Flutter
 
 permalink: /assets-and-images/
 ---
@@ -10,7 +10,7 @@ permalink: /assets-and-images/
 
 ## Introducción
 
-Las aplicaciones de Flutter pueden incluir tanto código como _recursos_. Un recurso es un archivo que se incluye e implementa con su aplicación, y es accesible en tiempo de ejecución. Los tipos comunes de recursos incluyen datos estáticos (por ejemplo, archivos JSON), archivos de configuración, iconos e imágenes (JPEG, WebP, GIF, WebP/GIF animados, PNG, BMP y WBMP).
+Las aplicaciones de Flutter pueden incluir tanto código como _assets_ (algunas veces llamado recursos). Un asset es un archivo que se incluye e implementa con su aplicación, y es accesible en tiempo de ejecución. Los tipos comunes de recursos incluyen datos estáticos (por ejemplo, archivos JSON), archivos de configuración, iconos e imágenes (JPEG, WebP, GIF, WebP/GIF animados, PNG, BMP y WBMP).
 
 ## Especificando recursos
 
@@ -25,7 +25,7 @@ flutter:
     - assets/background.png
 ```
 
-Para incluir todos los activos en un directorio, especifique el nombre del directorio con el carácter `/` al final:
+Para incluir todos los assets en un directorio, especifique el nombre del directorio con el carácter `/` al final:
 
 ```yaml
 flutter:
@@ -43,7 +43,7 @@ Durante una compilación, Flutter coloca los recursos en un archivo especial lla
 
 ### Variantes de recursos
 
-El proceso de compilación admite la noción de variantes de recursos: diferentes versiones de un activo que pueden mostrarse en diferentes contextos. Cuando se especifica la ruta de un recursos en la sección `assets` de `pubspec.yaml`, el proceso de compilación busca cualquier archivo con el mismo nombre en subdirectorios adyacentes. Dichos archivos se incluyen en el paquete de recursos junto con el activo especificado.
+El proceso de compilación admite la noción de variantes de recursos: diferentes versiones de un activo que pueden mostrarse en diferentes contextos. Cuando se especifica la ruta de un recurso en la sección `assets` de `pubspec.yaml`, el proceso de compilación busca cualquier archivo con el mismo nombre en subdirectorios adyacentes. Dichos archivos se incluyen en el paquete de recursos junto con el activo especificado.
 
 Por ejemplo, si tiene los siguientes archivos en el directorio de su aplicación:
 
@@ -73,20 +73,20 @@ flutter:
 
 ...entonces `graphics/my_icon.png`, `graphics/background.png` y `graphics/dark/background.png` serán incluidos.
 
-Flutter utiliza variantes de recursos al elegir imágenes apropiadas para la resolución; vea abajo. En el futuro, este mecanismo se puede ampliar para incluir variantes para diferentes lugares o regiones, leer instrucciones, etc.
+Flutter utiliza variantes de recursos al elegir imágenes apropiadas para la resolución; observa abajo. En el futuro, este mecanismo se puede ampliar para incluir variantes para diferentes lugares o regiones, leer instrucciones, etc.
 
 ## Cargando recursos
 
-Tu aplicación puede acceder a sus recursos a través de un 
+Tu aplicación puede acceder a sus recursos a través de un objeto
 [`AssetBundle`](https://docs.flutter.io/flutter/services/AssetBundle-class.html) (paquete de recursos).
 
-Los dos métodos principales en un paquete de recursos le permiten cargar un elemento de texto (`loadString`) o una imagen/recurso binario (`load`) fuera del paquete, dada una clave lógica. La clave lógica se correlaciona con la ruta al recurso especificado en el archivo `pubspec.yaml` durante el tiempo de compilación.
+Los dos métodos principales en un paquete de recursos te permiten cargar un elemento de texto (`loadString`) o una imagen/recurso binario (`load`) fuera del paquete, dada una clave lógica. La clave lógica se correlaciona con la ruta al recurso especificado en el archivo `pubspec.yaml` durante el tiempo de compilación.
 
 ### Cargando elementos de texto
 
-Cada aplicación Flutter tiene un [`rootBundle`](https://docs.flutter.io/flutter/services/rootBundle.html) (paquete raiz) para acceder fácilmente al paquete de recursos principal. Es posible cargar recursos directamente utilizando la `rootBundle` estática global de  `package:flutter/services.dart`.
+Cada aplicación Flutter tiene un [`rootBundle`](https://docs.flutter.io/flutter/services/rootBundle.html) (paquete raiz) para acceder fácilmente al paquete de recursos principal. Es posible cargar recursos directamente utilizando la `rootBundle` estática global de `package:flutter/services.dart`.
 
-Sin embargo, se recomienda obtener el AssetBundle para el BuildContext actual utilizando  `DefaultAssetBundle`. En lugar del paquete de recursos predeterminado que se creó con la aplicación, este enfoque permite que un Widget principal sustituya un AssetBundle diferente en tiempo de ejecución, lo que puede ser útil para escenarios de localización o prueba.
+Sin embargo, se recomienda obtener el AssetBundle para el BuildContext actual utilizando `DefaultAssetBundle`. En lugar del paquete de recursos predeterminado que se creó con la aplicación, este enfoque permite que un Widget principal sustituya un AssetBundle diferente en tiempo de ejecución, lo que puede ser útil para escenarios de localización o prueba.
 
 Normalmente, utilizará `DefaultAssetBundle.of()` para cargar indirectamente un recurso, por ejemplo un archivo JSON, desde el `rootBundle` en tiempo de ejecución de la aplicación.
 
@@ -110,9 +110,9 @@ Future<String> loadAsset() async {
 
 ### Cargando imágenes
 
-Flutter puede cargar imágenes apropiadas para la resolución de la proporción de píxeles del dispositivo actual.
+Flutter puede cargar imágenes con la resolución apropiada para la relación de píxeles del dispositivo actual.
 
-#### Declaración de recursos de imagen según la resolución {#resolution-aware}
+#### Declaración de assets de imagen según la resolución {#resolution-aware}
 
 [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html) entiende cómo asignar un recurso solicitado lógico a uno que se aproxime más a la proporción actual de píxeles del dispositivo. Para que esta asignación funcione, los activos se deben organizar de acuerdo con una estructura de directorios particular:
 
@@ -122,9 +122,9 @@ Flutter puede cargar imágenes apropiadas para la resolución de la proporción 
   .../Nx/image.png
   ...etc.
 ```
-...donde M y N son identificadores numéricos que corresponden a la resolución nominal de las imágenes contenidas en el interior, en otras palabras, especifican la relación de píxel del dispositivo para el que están destinadas las imágenes.
+...donde **M** y **N** son identificadores numéricos que corresponden a la resolución nominal de las imágenes contenidas en el interior, en otras palabras, especifican la relación de píxel del dispositivo para el que están destinadas las imágenes.
 
-Se supone que el recurso principal corresponde a una resolución de 1.0. Por ejemplo, considere el siguiente diseño de recursos para una imagen llamada `my_icon.png`:
+Se supone que el recurso principal corresponde a una resolución de 1.0. Por ejemplo, considera el siguiente diseño de recursos para una imagen llamada `my_icon.png`:
 
 ```
   .../my_icon.png
@@ -140,9 +140,9 @@ Cada entrada en la sección de recursos de `pubspec.yaml` debe corresponder a un
 
 #### Cargando imagenes
 
-Para cargar una imagen, use la clase [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html) en el método `build` de un Widget.
+Para cargar una imagen, usa la clase [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html) en el método `build` de un Widget.
 
-Por ejemplo, su aplicación puede cargar la imagen de fondo de las declaraciones de recursos anteriores:
+Por ejemplo, tu aplicación puede cargar la imagen de fondo de las declaraciones de recursos anteriores:
 
 ```dart
 Widget build(BuildContext context) {
@@ -160,11 +160,11 @@ Widget build(BuildContext context) {
 }
 ```
 
-Cualquier cosa que use el paquete de activos predeterminado heredará el conocimiento de la resolución al cargar imágenes. (Si trabaja con algunas de las clases de nivel inferior, como  [`ImageStream`](https://docs.flutter.io/flutter/painting/ImageStream-class.html) o [`ImageCache`](https://docs.flutter.io/flutter/painting/ImageCache-class.html), también notará los parámetros relacionados con la escala).
+Cualquier cosa que use el paquete de assets predeterminado heredará el conocimiento de la resolución al cargar imágenes. (Si trabaja con algunas de las clases de nivel inferior, como [`ImageStream`](https://docs.flutter.io/flutter/painting/ImageStream-class.html) o [`ImageCache`](https://docs.flutter.io/flutter/painting/ImageCache-class.html), también notarás los parámetros relacionados con la escala).
 
 ### Recursos de imágenes en paquetes {#from-packages}
 
-Para cargar una imagen desde un [paquete](https://flutter.io/using-packages/), el `paquete` se debe proporcionar como argumento en el [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html).
+Para cargar una imagen desde un [paquete](https://flutter.io/using-packages/), el argumento `package` se debe proporcionar a [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html).
 
 Por ejemplo, supongamos que su aplicación depende de un paquete llamado `my_icons`, que tiene la siguiente estructura de directorio:
 
@@ -183,11 +183,11 @@ Entonces, para cargar la imágen, usa:
  AssetImage('icons/heart.png', package: 'my_icons')
 ```
 
-Los recursos utilizados por el paquete en sí también se deben buscar usando el argumento `package` anterior.
+Los recursos utilizados por el paquete en sí también se deben buscar usando el argumento `package` como se indica arriba.
 
-#### Agrupando recursos de paquete
+#### Agrupando recursos de un paquete
 
-Si el recurso deseado se especifica en el archivo `pubspec.yaml` del paquete, se incluye automáticamente con la aplicación. En particular, los recursos utilizados por el paquete en sí se deben especificar en su `pubspec.yaml`.
+Si el recurso deseado se especifica en el archivo `pubspec.yaml` del paquete, se incluye automáticamente con la aplicación. En particular, los assets utilizados por el paquete en sí se deben especificar en su `pubspec.yaml`.
 
 Un paquete también puede elegir tener activos en su carpeta `lib/` que no estén especificados en su archivo `pubspec.yaml`. En este caso, para que las imágenes se agrupen, la aplicación debe especificar cuáles incluir en su `pubspec.yaml`. Por ejemplo, un paquete nombrado `fancy_backgrounds` podría tener los siguientes archivos:
 
@@ -204,7 +204,7 @@ flutter:
     - packages/fancy_backgrounds/backgrounds/background1.png
 ```
 
-El `lib/` está implícito, por lo que no debe incluirse en la ruta del recurso.
+El `lib/` está implícita, por lo que no debe incluirse en la ruta del recurso.
 
 ## Compartir recursos con la plataforma subyacente
 
@@ -243,17 +243,17 @@ En iOS, los recursos están disponibles a través de [mainBundle](https://develo
 
 Como ejemplo, supongamos que tiene la configuración de Flutter de arriba.
 
-Para acceder `icons/heart.png` desde su código de complemento Objective-C, lo haría;
+Para acceder `icons/heart.png` desde tu código de complemento Objective-C, lo haría;
 
 ```objective-c
 NSString* key = [registrar lookupKeyForAsset:@"icons/heart.png"];
 NSString* path = [[NSBundle mainBundle] pathForResource:key ofType:nil];
 ```
-Para obtener un ejemplo más completo, consulte la implementación [del plugin de video_player](https://pub.dartlang.org/packages/video_player) de Flutter.
+Para obtener un ejemplo más completo, consulta la implementación [del plugin de video_player](https://pub.dartlang.org/packages/video_player) de Flutter.
 
 ## Recursos de plataforma
 
-También habrá ocasiones para trabajar directamente con los recursos en los proyectos de la plataforma. A continuación, se muestran dos casos comunes en los que se utilizan recursos antes de que se cargue y se ejecute el marco de Flutter.
+También habrá ocasiones para trabajar directamente con los recursos en los proyectos de la plataforma. A continuación, se muestran dos casos comunes en los que se utilizan recursos antes de que se cargue y se ejecute el framework Flutter.
 
 ### Actualizando el ícono de la aplicación
 
@@ -263,7 +263,7 @@ La actualización del icono de inicio de la aplicación de Flutter funciona de l
 
 #### Android
 
-En el directorio raíz de su proyecto Flutter, vaya a `.../android/app/src/main/res`. Las diversas carpetas de recursos de mapa de bits como `mipmap-hdpi` ya contienen imágenes placeholder nombradas `ic_launcher.png`. Simplemente reemplácelos con sus recursos deseados respetando el tamaño de icono recomendado por densidad de pantalla según lo indicado por la [Guía del desarrollador de Android](https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size).
+En el directorio raíz de su proyecto Flutter, ve a `.../android/app/src/main/res`. Las diversas carpetas de recursos de mapa de bits como `mipmap-hdpi` ya contienen imágenes placeholder nombradas `ic_launcher.png`. Simplemente reemplázalos con tus recursos deseados respetando el tamaño de icono recomendado por densidad de pantalla según lo indicado por la [Guía del desarrollador de Android](https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size).
 
 ![Android icon location](/images/assets-and-images/android-icon-path.png)
 
@@ -273,7 +273,7 @@ En el directorio raíz de su proyecto Flutter, vaya a `.../android/app/src/main/
 
 #### iOS
 
-En el directorio raíz de su proyecto Flutter, vaya a `.../ios/Runner`. El directorio `Assets.xcassets/AppIcon.appiconset` ya contiene imágenes placeholder. Simplemente reemplácelos con las imágenes de tamaño adecuado según lo indicado por su nombre de archivo según lo dictado por las [Pautas de interfaz humana de Apple](https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon). Mantener los nombres de los archivos originales.
+En el directorio raíz de tu proyecto Flutter, ve a `.../ios/Runner`. El directorio `Assets.xcassets/AppIcon.appiconset` ya contiene imágenes placeholder. Simplemente reemplácelos con las imágenes de tamaño adecuado según lo indicado por su nombre de archivo según lo dictado por las [Pautas de interfaz humana de Apple](https://developer.apple.com/ios/human-interface-guidelines/graphics/app-icon). Mantener los nombres de los archivos originales.
 
 ![iOS icon location](/images/assets-and-images/ios-icon-path.png)
 
@@ -283,20 +283,20 @@ En el directorio raíz de su proyecto Flutter, vaya a `.../ios/Runner`. El direc
   <img src="/images/assets-and-images/launch-screen.png" alt="Launch screen" />
 </p>
 
-Flutter también usa mecanismos de plataformas nativas para dibujar pantallas de lanzamiento de transición a su aplicación Flutter mientras se carga el marco de Flutter. Esta pantalla de bienvenida continuará hasta que Flutter represente el primer fotograma de su aplicación.
+Flutter también usa mecanismos de plataformas nativas para dibujar pantallas de lanzamiento de transición a su aplicación Flutter mientras se carga el framework Flutter. Esta pantalla de bienvenida continuará hasta que Flutter represente el primer frame de tu aplicación.
 
 <aside class="alert alert-info" markdown="1">
-**Nota:** esto implica que si no llama a [runApp](https://docs.flutter.io/flutter/widgets/runApp.html) en la función `void main()` de su aplicación (o más específicamente, si no llama [`window.render`](https://docs.flutter.io/flutter/dart-ui/Window/render.html) en respuesta [`window.onDrawFrame`](https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html)), la pantalla de bienvenida se mantendrá para siempre.
+**Nota:** esto implica que si no llamas a [runApp](https://docs.flutter.io/flutter/widgets/runApp.html) en la función `void main()` de tu aplicación (o más específicamente, si no llamas a [`window.render`](https://docs.flutter.io/flutter/dart-ui/Window/render.html) en respuesta [`window.onDrawFrame`](https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html)), la pantalla de bienvenida se mantendrá para siempre.
 </aside>
 
 #### Android
 
-Para agregar una "pantalla de bienvenida" a su aplicación Flutter, vaya a `.../android/app/src/main`. En `res/drawable/launch_background.xml`, puede usar esta [lista de capas dibujable](https://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) XML para personalizar el aspecto de su pantalla de bienvenida. La plantilla existente proporciona un ejemplo para agregar una imagen a la mitad de una pantalla blanca en el código comentado. Puede descomentarlo o usar otros objetos [arrastrables](https://developer.android.com/guide/topics/resources/drawable-resource.html) para lograr el efecto deseado.
+Para agregar una "pantalla de bienvenida" a tu aplicación Flutter, ve a `.../android/app/src/main`. En `res/drawable/launch_background.xml`, puedes usar esta [layer list drawable](https://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) XML para personalizar el aspecto de su pantalla de bienvenida. La plantilla existente proporciona un ejemplo para agregar una imagen a la mitad de una pantalla blanca en el código comentado. Puedes descomentarlo o usar otros objetos [drawables](https://developer.android.com/guide/topics/resources/drawable-resource.html) para lograr el efecto deseado.
 
 #### iOS
 
-Para agregar una imagen al centro de su "pantalla de bienvenida", vaya a `.../ios/Runner`. En, `Assets.xcassets/LaunchImage.imageset`, coloque imágenes llamadas `LaunchImage.png`, `LaunchImage@2x.png`, `LaunchImage@3x.png`. Si usa diferentes nombres de archivo, también deberá actualizar el archivo `Contents.json` en el mismo directorio.
+Para agregar una imagen al centro de tu "pantalla de bienvenida", ve a `.../ios/Runner`. En, `Assets.xcassets/LaunchImage.imageset`, coloca imágenes llamadas `LaunchImage.png`, `LaunchImage@2x.png`, `LaunchImage@3x.png`. Si usas diferentes nombres de archivo, también deberás actualizar el archivo `Contents.json` en el mismo directorio.
 
-También puede personalizar completamente su storyboard de pantalla de bienvenida en Xcode abriendo `.../ios/Runner.xcworkspace`. Navegue hasta `Runner/Runner` en el Navegador de proyectos y coloque las imágenes abriendo `Assets.xcassets` o haciendo cualquier personalización usando el Constructor de interfaces en `LaunchScreen.storyboard`.
+También puedes personalizar completamente su storyboard de pantalla de bienvenida en Xcode abriendo `.../ios/Runner.xcworkspace`. Navega hasta `Runner/Runner` en el Navegador de proyectos y coloca las imágenes abriendo `Assets.xcassets` o realiza cualquier personalización usando el Constructor de interfaces en `LaunchScreen.storyboard`.
 
 ![Adding launch icons in Xcode](/images/assets-and-images/ios-launchscreen-xcode.png)
