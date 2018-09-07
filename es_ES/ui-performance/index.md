@@ -12,11 +12,11 @@ permalink: /ui-performance/
 
 * El objetivo de Flutter es proporcionar un rendimiento de 60 frames por segundo (fps), o un rendimiento de 120 fps en dispositivos capaces de realizar actualizaciones de 120 Hz.
 * Para 60fps, los frames se renderizan aproximadamente cada 16ms.
-* El Jank se produce cuando la UI no se renderiza sin problemas. Por ejemplo, de vez en cuando, un frame tarda 10 veces más en renderizarse, por lo que se descarta, y la animación se sacude visiblemente.
+* El Jank se produce cuando la UI no se renderiza fluidamente. Por ejemplo, de vez en cuando, un frame tarda 10 veces más en renderizarse, por lo que se descarta, y la animación se sacude visiblemente.
 
 </div>
 
-Se ha dicho que "una aplicación _rápida_ es genial, pero una _fluida_ es aún mejor".
+Se dice que "una aplicación _rápida_ es genial, pero una _fluida_ es aún mejor".
 Si tu aplicación no se está renderizando correctamente, ¿cómo la arreglas? ¿Por dónde empiezas?
 Esta guía te muestra por dónde empezar, los pasos a seguir y las herramientas que pueden ayudarte.
 
@@ -36,7 +36,7 @@ en la página [Depura tu app](/debugging).
 
 ## Diagnóstico de problemas de rendimiento
 
-Para diagnosticar una aplicación con problemas de rendimiento, habilitarás la ventana de rendimiento para ver los subprocesos de la UI y la GPU. Antes de empezar, deberás asegurarte de que estás ejecutando en modo profile y de que no estás usando un emulador. Para obtener mejores resultados, puedes elegir el dispositivo más lento que tus usuarios puedan utilizar.
+Para diagnosticar una aplicación con problemas de rendimiento, habilitarás la capa sobrepuesta de rendimiento para ver los subprocesos de la UI y la GPU. Antes de empezar, deberás asegurarte de que estás ejecutando en modo profile y de que no estás usando un emulador. Para obtener mejores resultados, puedes elegir el dispositivo más lento que tus usuarios puedan utilizar.
 
 {% comment %}
 <div class="whats-the-point" markdown="1">
@@ -67,7 +67,7 @@ Casi toda la depuración del rendimiento de las aplicaciones Flutter debe realiz
 ### Ejecutar en modo profile
 
 El modo profile de Flutter compila e inicia tu aplicación de forma casi idéntica al modo release, pero con la funcionalidad adicional suficiente para permitir la depuración de problemas de rendimiento.
-Por ejemplo, el modo de perfil proporciona información de trazabilidad al
+Por ejemplo, el modo de perfil proporciona información de trazabilidad a
 [Observatory](https://dart-lang.github.io/observatory/) y otras herramientas.
 
 Lanza la aplicación en modo profile de la siguiente manera:
@@ -106,22 +106,22 @@ $ flutter run --profile
 Para obtener más información sobre cómo funcionan los diferentes modos, consulta
  [Modos en Flutter](https://github.com/flutter/flutter/wiki/Flutter%27s-modes).
 
-Comenzarás activando la ventana de rendimiento, como se explica en la siguiente sección.
+Comenzarás activando la capa sobrepuesta de rendimiento, como se explica en la siguiente sección.
 
-## La ventana de rendimiento
+## La capa sobrepuesta de rendimiento
 
-La ventana de rendimiento muestra las estadísticas en dos gráficos que muestran dónde se está gastando el tiempo tu aplicación.
+La capa sobrepuesta de rendimiento muestra las estadísticas en dos gráficos que muestran dónde se está gastando el tiempo tu aplicación.
 Si la UI está en jank (saltando frames), estos gráficos te ayudan a averiguar por qué.
-Los gráficos se muestran encima de tu aplicación en ejecución, pero no se dibujan como un widget normal; el propio motor Flutter pinta la ventana de rendimiento y sólo tiene un impacto mínimo en el rendimiento.
+Los gráficos se muestran encima de tu aplicación en ejecución, pero no se dibujan como un widget normal; el propio motor Flutter pinta la capa sobrepuesta de rendimiento y sólo tiene un impacto mínimo en el rendimiento.
 Cada gráfico representa los últimos 300 frames para ese hilo.
 
 En esta sección se describe cómo habilitar la función
 [PerformanceOverlay,](https://docs.flutter.io/flutter/widgets/PerformanceOverlay-class.html)
 y usarla para diagnosticar la causa del jank en tu aplicación.
-La siguiente captura de pantalla muestra la ventana de rendimiento que se está ejecutando en el ejemplo de Flutter Gallery:
+La siguiente captura de pantalla muestra la capa sobrepuesta de rendimiento que se está ejecutando en el ejemplo de Flutter Gallery:
 
 <center><img src="images/performance-overlay-green.png" alt="screenshot of performance overlay showing zero jank"></center>
-<center>La ventana de rendimiento muestra el hilo de la UI (arriba) y el hilo de la GPU (abajo). Las barras verdes verticales representan el frame actual.</center><br>
+<center>La capa sobrepuesta de rendimiento muestra el hilo de la UI (arriba) y el hilo de la GPU (abajo). Las barras verdes verticales representan el frame actual.</center><br>
 
 Flutter utiliza varios hilos para hacer su trabajo. Todo tu código de Dart se ejecuta en el hilo de la UI. Aunque no tienes acceso directo a ningún otro hilo, tus acciones en el hilo de la UI tienen consecuencias de rendimiento en otros hilos.
 
@@ -131,22 +131,22 @@ Flutter utiliza varios hilos para hacer su trabajo. Todo tu código de Dart se e
    [UIKit](https://developer.apple.com/documentation/uikit)
    , o la documentación para Android
    [MainThread](https://developer.android.com/reference/android/support/annotation/MainThread.html).
-   Este hilo no se muestra en la ventana de rendimiento.
+   Este hilo no se muestra en la capa sobrepuesta de rendimiento.
 
 1. UI thread<br>
    El hilo UI ejecuta el código Dart en la VM de Dart.
    Este hilo incluye el código que escribiste, y el código ejecutado por el framework de Flutter en beneficio de tu aplicación.
-   Cuando la aplicación crea y muestra una escena, el subproceso de la interfaz de usuario crea un _árbol de capas_, un objeto ligero que contiene comandos de trazado agnósticos del dispositivo, y envía el árbol de capas al hilo de la GPU para que se renderice en el dispositivo. _No bloquees este hilo!_ Se muestra en la fila inferior de la ventana de rendimiento.
+   Cuando la aplicación crea y muestra una escena, el subproceso de la interfaz de usuario crea un _árbol de capas_, un objeto ligero que contiene comandos de trazado agnósticos del dispositivo, y envía el árbol de capas al hilo de la GPU para que se renderice en el dispositivo. _No bloquees este hilo!_ Se muestra en la fila inferior de la capa sobrepuesta de rendimiento.
 
 1. GPU thread<br>
    El hilo de la GPU toma el árbol de capas y lo muestra hablando a la GPU (unidad de procesamiento gráfico). No puedes acceder directamente al hilo de la GPU o a sus datos, pero, si este hilo es lento, es el resultado de algo que has hecho en el código de Dart.
    Skia, la biblioteca de gráficos se ejecuta en este hilo, que a veces se llama el hilo _rasterizador_.
-   Se muestra en la fila inferior de la ventana de rendimiento.
+   Se muestra en la fila inferior de la capa sobrepuesta de rendimiento.
 
 1. I/O thread<br>
    Realiza tareas costosas (principalmente I/O) que de otro modo bloquearían
    ya sea la UI o la GPU.
-   Este hilo no se muestra en la ventana de rendimiento.
+   Este hilo no se muestra en la capa sobrepuesta de rendimiento.
 
 
 Para más información sobre esos hilos, consulta
@@ -160,9 +160,9 @@ Si aparece una barra vertical roja en el gráfico de la GPU, la escena se hace d
 <center><img src="images/performance-overlay-jank.png" alt="Screenshot of performance overlay showing jank with red bars."></center>
 <center>Las barras rojas verticales indican que el frame actual es muy costoso tanto para el renderizado como para el pintado.<br>Cuando ambas gráficas estén rojas, comienza por diagnosticar el hilo de la UI (Dart VM).</center><br>
 
-### Visualización de la ventana de rendimiento
+### Visualización de la capa sobrepuesta de rendimiento
 
-Puede alternar la visualización de la ventana de rendimiento como se indica a continuación:
+Puede alternar la visualización de la capa sobrepuesta de rendimiento como se indica a continuación:
 
 * Usando el Flutter Inspector
 * Desde la línea de comando
@@ -194,7 +194,7 @@ presentado en el DartConf 2018.
 
 #### Desde la línea de Comando
 
-Conmute la ventana de rendimiento con la tecla **P** desde la línea de comando.
+Conmute la capa sobrepuesta de rendimiento con la tecla **P** desde la línea de comando.
 
 #### Programáticamente
 
@@ -218,19 +218,19 @@ class MyApp extends StatelessWidget {
 {% endprettify %}
 
 Probablemente ya conozcas la aplicación de ejemplo de Flutter Gallery.
-Para utilizar la ventana de rendimiento con Flutter Gallery, usa la copia en el directorio de 
+Para utilizar la capa sobrepuesta de rendimiento con Flutter Gallery, usa la copia en el directorio de 
 [ejemplos](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
 que fue instalado con Flutter, y ejecuta la aplicación en modo profile. El programa se escribe de manera que el menú de la app le permita cambiar dinámicamente la ventana superpuesta,
 así como habilitar la comprobación de llamadas a `saveLayer` y la presencia de imágenes en caché.
 
 <aside class="alert alert-info" markdown="1">
-**Nota:** No puede habilitar la ventana de rendimiento en la app Flutter Gallery descargada desde el App Store. Esa versión de la aplicación está compilada en modo release (no en modo profile), y no proporciona un menú para habilitar o deshabilitar la ventana superpuesta.
+**Nota:** No puede habilitar la capa sobrepuesta de rendimiento en la app Flutter Gallery descargada desde el App Store. Esa versión de la aplicación está compilada en modo release (no en modo profile), y no proporciona un menú para habilitar o deshabilitar la ventana superpuesta.
 </aside>
 
 ### Identificando problemas en la UI de gráficas
 
-Si la ventana de rendimiento aparece en rojo en el gráfico de interfaz de usuario, comienza por perfilar la VM de Dart, incluso si el gráfico de la GPU también aparece en rojo. Para ello, utiliza la herramienta de profile de Dart
-[Observatory](https://dart-lang.github.io/observatory/).
+Si la capa sobrepuesta de rendimiento aparece en rojo en el gráfico de interfaz de usuario, comienza por perfilar la VM de Dart, incluso si el gráfico de la GPU también aparece en rojo. Para ello, utiliza 
+[Observatory](https://dart-lang.github.io/observatory/), la herramienta para profile de Dart.
 
 #### Mostrando el Observatory
 
@@ -258,7 +258,7 @@ Selecciona **Flutter: Open Observatory Timeline** de la lista que aparece. Si es
 
 <br>
 
-#### Usando el timeline del Observatory
+#### Usando el timeline de Observatory
 
 <aside class="alert alert-info" markdown="1">
 **Nota:** La UI de Observatory y la página timeline personalizada de Flutter se encuentra actualmente en desarrollo. 
