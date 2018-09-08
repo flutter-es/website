@@ -204,7 +204,7 @@ flutter:
     - packages/fancy_backgrounds/backgrounds/background1.png
 ```
 
-El `lib/` está implícita, por lo que no debe incluirse en la ruta del recurso.
+La `lib/` está implícita, por lo que no debe incluirse en la ruta del recurso.
 
 ## Compartir recursos con la plataforma subyacente
 
@@ -263,7 +263,7 @@ La actualización del icono de inicio de la aplicación de Flutter funciona de l
 
 #### Android
 
-En el directorio raíz de su proyecto Flutter, ve a `.../android/app/src/main/res`. Las diversas carpetas de recursos de mapa de bits como `mipmap-hdpi` ya contienen imágenes placeholder nombradas `ic_launcher.png`. Simplemente reemplázalos con tus recursos deseados respetando el tamaño de icono recomendado por densidad de pantalla según lo indicado por la [Guía del desarrollador de Android](https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size).
+En el directorio raíz de tu proyecto Flutter, ve a `.../android/app/src/main/res`. Las diversas carpetas de recursos de mapa de bits como `mipmap-hdpi` ya contienen imágenes placeholder nombradas `ic_launcher.png`. Simplemente reemplázalos con tus recursos deseados respetando el tamaño de icono recomendado por densidad de pantalla según lo indicado por la [Guía del desarrollador de Android](https://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html#size).
 
 ![Android icon location](/images/assets-and-images/android-icon-path.png)
 
@@ -297,6 +297,6 @@ Para agregar una "pantalla de bienvenida" a tu aplicación Flutter, ve a `.../an
 
 Para agregar una imagen al centro de tu "pantalla de bienvenida", ve a `.../ios/Runner`. En, `Assets.xcassets/LaunchImage.imageset`, coloca imágenes llamadas `LaunchImage.png`, `LaunchImage@2x.png`, `LaunchImage@3x.png`. Si usas diferentes nombres de archivo, también deberás actualizar el archivo `Contents.json` en el mismo directorio.
 
-También puedes personalizar completamente su storyboard de pantalla de bienvenida en Xcode abriendo `.../ios/Runner.xcworkspace`. Navega hasta `Runner/Runner` en el Navegador de proyectos y coloca las imágenes abriendo `Assets.xcassets` o realiza cualquier personalización usando el Constructor de interfaces en `LaunchScreen.storyboard`.
+También puedes personalizar completamente tu storyboard de pantalla de bienvenida en Xcode abriendo `.../ios/Runner.xcworkspace`. Navega hasta `Runner/Runner` en el Navegador de proyectos y coloca las imágenes abriendo `Assets.xcassets` o realiza cualquier personalización usando el Constructor de interfaces en `LaunchScreen.storyboard`.
 
 ![Adding launch icons in Xcode](/images/assets-and-images/ios-launchscreen-xcode.png)
