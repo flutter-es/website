@@ -19,7 +19,7 @@ revisa [Perfiles de Rendimiento en Flutter](/ui-performance/).
 ## Dart Analyzer
 
 Antes de ejecutar tus aplicaciones, prueba tu código con `flutter analyze`. Esta 
-herramienta (la cual es una envoltura de la herramienta `dartanalyzer`) analizará tu código 
+herramienta (la cual es una envoltura de la herramienta `dartanalyzer`) analiza tu código 
 y te ayuda a encontrar posibles errores. Si esás usando un [IDE/editor que soporte Flutter](/get-started/editor/),
 esto ya esta ocurriendo para tí.
 
@@ -43,8 +43,8 @@ información sobre Observatory, mira la
 
 Si usas Observatory para generar perfiles, asegúrate de ejecutar tu 
 aplicación en modo profile, pasando `--profile` al comando `flutter run`. 
-De otra manera, lo principal que aparecerá en tu perfil 
-será las aserciones de depuración verificando varias 
+De otra manera, lo principal que aparecen en tu perfil 
+son las aserciones de depuración verificando varias 
 invariantes del framework (mira "Aserciones de modo depuración" más abajo).
 
 ### Declaración `debugger()`
@@ -70,7 +70,7 @@ void someFunction(double offset) {
 
 ## `print` y `debugPrint` con `flutter logs`
 
-La función Dart `print()` saldrá por la consola del sistema, la cual
+La función Dart `print()` sale por la consola del sistema, la cual
 puedes ver usando `flutter logs` (que es básicamente una envoltura sobre 
 `adb logcat`).
 
@@ -95,11 +95,15 @@ muy breve (una o dos palabras) del objeto.
 ## Aserciones en modo depuración
 
 Durante el desarrollo, se recomienda encarecidamente usar el modo "debug" 
-de Flutter, algunas veces denominado modo "checked". Esto es lo predeterminado 
-si usas `flutter run`. En este modo, la declaración `assert` de Dart 
-está habilitada, y el framework Flutter usa esto para realizar muchas 
-verificaciones en tiempo de ejecución, que comprueba que que las 
-invariantes no están siendo violadas.
+de Flutter. Este es lo predeterminado si usas `flutter run` o el icono 
+bug en Android Studio. Algunas herramientas soportan declaraciones de 
+aserción a través de la opción por linea de comando `--enable-asserts`.
+En este modo, las declaraciones de aserción de Dart están habilitadas, 
+y el framework Flutter evalúa el argumento a cada declaración 
+de aserción encontrada durante la ejecución, lanzando una excepción 
+si el resultado es falso. Esto permite a los desarrolladores habilitar o 
+deshabilitar la comprobación de invariantes, de tal manera que el costo 
+de rendimiento asociado solo se paga durante las sesiones de depuración.
 
 Cuando una invariante es violada, esto es reportado a la consola, con 
 algo de información de contexto para ayudar a encontrar la fuente 
@@ -156,7 +160,7 @@ class AppHome extends StatelessWidget {
 }
 ```
 
-...imprimirá algo parecido a esto (los detalles precisos pueden variar 
+...imprime algo parecido a esto (los detalles precisos varían 
 con la version del framework, el tamaño del dispositivo, etc.):
 
 ```
@@ -251,8 +255,8 @@ objeto
 [`FlatButton`](https://docs.flutter.io/flutter/material/FlatButton-class.html)
 a 
 [`setState()`](https://docs.flutter.io/flutter/widgets/State/setState.html)
-marcandose como dirty. Es por esto que si miras el volcado 
-verás este objeto especifico marcado como "dirty". También puedes ver 
+marcandose como "dirty". Es por esto que cuando miras el volcado 
+deberías ver este objeto especifico marcado como "dirty". También puedes ver 
 que _gesture listeners_ han sido registrados; en este caso, un único 
 GestureDetector es listado, y este solo está escuchando por un gesto 
 "tap" ("tap" es la salida de la función `toStringShort` de un `TapGestureDetector`).
@@ -762,7 +766,7 @@ cuando y donde añadir los widgets `RepaintBoundary`, puedes usar la etiqueta [`
 cuando son repintados.
 
 Todas estas etiquetas solo funcionan en modo depuración. En general, cualquier cosa 
-en el framerowk Flutter que empiza con "`debug...`" solo funcionará en modo 
+en el framerowk Flutter que empiza con "`debug...`" solo funciona en modo 
 depuración.
 
 ## Depurando animaciones
@@ -774,7 +778,7 @@ velocidad. Para hacer esto, fija la variable
 por ejemplo, 50.0. Esto es mejor hacerlo solo una vez en el inicio de la app. Si 
 cambias esto al vuelo, especialmente si lo reduces cuando las animaciones 
 estan ejecutándose, es posible que el framework observe que el tiempo retrocede, 
-lo que probablemente resultará en aserciones y generalmente interferirán 
+lo que probablemente resultará en aserciones y generalmente interfere 
 con tus esfuerzos.
 
 ## Depurando problemas de rendimiento
@@ -784,7 +788,7 @@ las etiquetas
 [`debugPrintMarkNeedsLayoutStacks`](https://docs.flutter.io/flutter/rendering/debugPrintMarkNeedsLayoutStacks.html)
 y
 [`debugPrintMarkNeedsPaintStacks`](https://docs.flutter.io/flutter/rendering/debugPrintMarkNeedsPaintStacks.html)
-respectivamente. Esto registrará un seguimiento de la pila en la consola 
+respectivamente. Esto registra un seguimiento de la pila en la consola 
 cada vez que una caja de renderizado es llamada a ejecutar un relayout 
 y un repaint. Puedes usar el método `debugPrintStack()` de la biblioteca 
 `services` para imprimir tu propio seguimiento de la pila bajo demanda, 
@@ -838,7 +842,7 @@ Timeline.finishSync();
 Entonces abre la página de timeline de Observatory de tu app, revisa la opción 
 de grabación de 'Dart' y ejecuta la función que quieres medir.
 
-Refrescar la página mostrará el timeline cronológico de registros de tu 
+Refrescar la página muestra el timeline cronológico de registros de tu 
 app en la herramienta [tracing tool](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool) 
 de Chrome.
 
@@ -858,19 +862,19 @@ o `WidgetsApp`, puedes obtener el mismo efecto envolviendo tu aplicación
 en un stack y añadiendo un widget a tu stack que sea creado 
 llamando a [`PerformanceOverlay.allEnabled()`](https://docs.flutter.io/flutter/widgets/PerformanceOverlay/PerformanceOverlay.allEnabled.html).)
 
-Esto mostrará dos gráficas. La de arriba es el tiempo empleado 
+Esto muestra dos gráficas. La de arriba es el tiempo empleado 
 en el hilo de la GPU, la de abajo es el tiempo empleado en el hilo 
 de la CPU. Las líneas blancas que cruzan las gráficas 
 muestran incrementos de 16ms a lo largo del eje vertical;
 si el gráfico pasa alguna vez por una de estas líneas entonces 
 estas ejecutando a menos de 60Hz. El eje horizontal representa frames. La gráfica solo 
 es actualizada cuando tu aplicación se pinta, por tanto si esta inactiva la gráfica 
-se detendrá.
+se detiene.
 
 Esto debe hacerse siempre en modo release, ya que en modo debug 
 el rendimiento es sacrificado intencionalmente a cambio de 
 costosas aserciones que están destinadas a ayudar al desarrollo, y 
-así los resultdos serían engañosos.
+así los resultdos son engañosos.
 
 ## Material grid
 
@@ -881,7 +885,7 @@ grid](https://www.google.com/design/spec/layout/metrics-keylines.html)
 sobre la aplicación para ayudar a verificar alineciones. Para este fin, el 
 constructor de [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp/MaterialApp.html) 
 tiene un argumento `debugShowMaterialGrid` el cual, cuando se fija a `true` en modo 
-debug , se superpondrá un grid.
+debug , se superpone un grid.
 
 También puedes sobreponer un grid en aplicaciones no basadas en Material usando 
 el widget [`GridPaper`](https://docs.flutter.io/flutter/widgets/GridPaper-class.html) 
