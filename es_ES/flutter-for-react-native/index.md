@@ -9,7 +9,7 @@ Este documento es para desarrolladores de React Native (RN) que buscan aplicar s
 Este documento puede usarse como un cookbook recorriéndolo aleatoriamente y encontrando las preguntas que son más relevantes a tus necesidades.
 
 
-*****  
+*****
 
 * TOC Placeholder
 {:toc}
@@ -1048,7 +1048,7 @@ Un `StatelessWidget` en Flutter es un widget que no requiere un cambio de estado
 
  Los widgets sin estado son útiles cuando la parte de la interfaz de usuario que estás describiendo no depende de nada más que de la información de configuración del propio objeto y del [`BuildContext`](https://docs.flutter.io/flutter/widgets/BuildContext-class.html) en el cual se eleva el widget.
 
-[AboutDialog](https://docs.flutter.io/flutter/material/AboutDialog-class.html), [CircleAvator](https://docs.flutter.io/flutter/material/CircleAvatar-class.html), y [Text](https://docs.flutter.io/flutter/widgets/Text-class.html) son ejemplos de widgets sin estado que subclasifican el [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html).
+[AboutDialog](https://docs.flutter.io/flutter/material/AboutDialog-class.html), [CircleAvatar](https://docs.flutter.io/flutter/material/CircleAvatar-class.html), y [Text](https://docs.flutter.io/flutter/widgets/Text-class.html) son ejemplos de widgets sin estado que subclasifican el [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html).
 
 
 <!-- skip -->
