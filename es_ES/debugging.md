@@ -20,7 +20,7 @@ revisa [Perfiles de Rendimiento en Flutter](/ui-performance/).
 
 Antes de ejecutar tus aplicaciones, prueba tu código con `flutter analyze`. Esta 
 herramienta (la cual es una envoltura de la herramienta `dartanalyzer`) analiza tu código 
-y te ayuda a encontrar posibles errores. Si esás usando un [IDE/editor que soporte Flutter](/get-started/editor/),
+y te ayuda a encontrar posibles errores. Si estás usando un [IDE/editor que soporte Flutter](/get-started/editor/),
 esto ya esta ocurriendo para tí.
 
 Dart analyzer hace un uso intenso de las anotaciones de tipos que pones 
@@ -673,11 +673,11 @@ de dispositivo por cada pixel lógico.
 
 El widget `RepaintBoundary`, que crea un `RenderRepaintBoundary`
 en el árbol de renderizado, crea una nueva capa en el árbol de capas. Esto se 
-usa pra reducir cuanto necesita ser repintando.
+usa para reducir cuanto necesita ser repintando.
 
 ### Semántica
 
-Puedes tambien obtner un volcado del árbol de Semántica (el árbol 
+Puedes tambien obtener un volcado del árbol de Semántica (el árbol 
 presentado a las APIs de accesibilidad del sistema) usando
 [`debugDumpSemanticsTree()`](https://docs.flutter.io/flutter/rendering/debugDumpSemanticsTree.html).
 Para usar esto, primero debes habilitar la accesibilidad, por ejemplo habilitando 
@@ -701,7 +701,7 @@ I/flutter :    └SemanticsNode(4; Rect.fromLTRB(0.0, 0.0, 82.0, 36.0); canBeTap
 Para encontrar donde ocurren sus eventos relativo al frame 
 de inicio/fin del mismo, puedes alternar entre los booleanos 
 [`debugPrintBeginFrameBanner`](https://docs.flutter.io/flutter/scheduler/debugPrintBeginFrameBanner.html) y   [`debugPrintEndFrameBanner`](https://docs.flutter.io/flutter/scheduler/debugPrintEndFrameBanner.html) 
-para impirmir el principio y el final de los frames a la consola.
+para imprirmir el principio y el final de los frames a la consola.
 
 Por ejemplo:
 
@@ -722,7 +722,7 @@ Puedes también depurar un problema de layout visualmente, configurando
 [`debugPaintSizeEnabled`](https://docs.flutter.io/flutter/rendering/debugPaintSizeEnabled.html)
 a `true`. Este es un booleano de la biblioteca `rendering`. Este puede ser 
 habilitado en cualquier momento y afectas todos los pintados mientras este 
-sea true. La manera más sencilla de fijar esto es al principio de tu punto 
+sea _true_. La manera más sencilla de fijar esto es al principio de tu punto 
 de entrada `void main()`. Mira el código más abajo:
 
 <!-- skip -->
@@ -738,7 +738,7 @@ void main() {
 
 Cuando esto se habilita, todas las cajas toman un borde verde azulado, el 
 padding (de widgets como `Padding`) son mostrados en azul tráslucido 
-con una caja de un azul más oscuro alrededor del hijo, alieciones 
+con una caja de un azul más oscuro alrededor del hijo, alineaciones 
 (de widgets como `Center` y `Align`)
 se muestra con flechas amarillas, y espaciadores (de widgets como 
 `Container` cuando este no tiene hijo) se muestran en gris.
@@ -766,7 +766,7 @@ cuando y donde añadir los widgets `RepaintBoundary`, puedes usar la etiqueta [`
 cuando son repintados.
 
 Todas estas etiquetas solo funcionan en modo depuración. En general, cualquier cosa 
-en el framerowk Flutter que empiza con "`debug...`" solo funciona en modo 
+en el framework Flutter que empiza con "`debug...`" solo funciona en modo 
 depuración.
 
 ## Depurando animaciones
@@ -852,7 +852,7 @@ a tu producto final.
 
 ## PerformanceOverlay
 
-Para obtener una representación gráfica del renidmiento de tu aplicación, fija 
+Para obtener una representación gráfica del rendimiento de tu aplicación, fija 
 el argumento `showPerformanceOverlay` del constructor de 
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp/MaterialApp.html)
 a true. El constructor de 
@@ -882,10 +882,10 @@ Cuando se desarrollan aplicaciones que implementan
 [Material Design](https://www.google.com/design/spec/material-design/introduction.html),
 puede ser de ayuda sobreponer una [Material Design baseline
 grid](https://www.google.com/design/spec/layout/metrics-keylines.html)
-sobre la aplicación para ayudar a verificar alineciones. Para este fin, el 
+sobre la aplicación para ayudar a verificar alineaciones. Para este fin, el 
 constructor de [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp/MaterialApp.html) 
 tiene un argumento `debugShowMaterialGrid` el cual, cuando se fija a `true` en modo 
-debug , se superpone un grid.
+debug, se superpone un grid.
 
 También puedes sobreponer un grid en aplicaciones no basadas en Material usando 
 el widget [`GridPaper`](https://docs.flutter.io/flutter/widgets/GridPaper-class.html) 
@@ -900,7 +900,7 @@ El siguiente es un problema que algunos han encontrado en MacOS.
 
 ### "Too many open files" exception (MacOS)
 
-El limite de ficheros que se pueden tener abiertos por defecto para Mac OS es 
+El limite de ficheros que se pueden tener abiertos por defecto para MacOS es 
 más bien bajo.  Si te encuentras con este limite,
 incrementa el numero de manejadores de ficheros disponibles usando 
 el comando `ulimit`:

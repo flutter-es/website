@@ -544,7 +544,7 @@ Cuando creas un nuevo proyecto en Flutter, se construye la siguiente estructura 
   ├ android      - Contiene archivos específicos de Android.
   ├ build        - Almacena archivos build de iOS y Android.
   ├ ios          - Contiene archivos específicos de iOS.
-  ├ lib          - ontiene archivos de origen Dart accesibles externamente.
+  ├ lib          - Contiene archivos de origen Dart accesibles externamente.
     ┬
     └ src        - Contiene archivos fuente adicionales.
     └ main.dart  - El punto de entrada de Flutter y el inicio de una nueva app.
@@ -995,7 +995,7 @@ class SampleApp extends StatelessWidget {
 
 ### ¿Cómo añado themes de estilo?
 
-En React Native, se definen themes comunes para componentes en hojas de estilo y
+En React Native, se definen themes comunes para componentes en hojas de estilo 
 y luego se utiliza en los componentes.
 
 En Flutter, crea un estilo uniforme para casi todo definiendo el estilo en la clase [`ThemeData`](https://docs.flutter.io/flutter/material/ThemeData-class.html) y pasándolo a la propiedad theme en el widget
