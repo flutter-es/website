@@ -37,6 +37,7 @@ también pueden ser internacionalizadas usando la mismas clases y lógica.
 * [Especificar el parámetro  supportedLocales de la app](#specifying-supportedlocales)
 * [Una clase alternativa para los recursos regionales de la app](#alternative-class)
 * [Apéndice: Usar la herramienta intl de Dart](#dart-tools)
+* [Apéndice: Actualizando el app bundle de iOS](#ios-specifics)
 
 <aside class="alert alert-info" markdown="1">
 **Ejemplos de apps internacionalizadas**<br>
@@ -70,7 +71,7 @@ dependencies:
     sdk: flutter
 {% endprettify %}
 
-A continuación, importa la biblioteca flutter_localizations library y especifica 
+A continuación, importa la biblioteca flutter_localizations y especifica 
 `localizationsDelegates` y `supportedLocales` para MaterialApp:
 
 {% prettify dart %}
@@ -116,7 +117,7 @@ región del dispositivo de Inglés a Francés, entonces un widget Text que muest
 "Hello World" deberia reconstruirse con "Bonjour le monde".
 
 El widget [`Localizations`](https://docs.flutter.io/flutter/widgets/Localizations-class.html)
-define la region para sus hijos y los recursos localizados de los que el hijo depende. El 
+define la región para sus hijos y los recursos localizados de los que el hijo depende. El 
 widget [WidgetsApp](https://docs.flutter.io/flutter/widgets/WidgetsApp-class.html) 
 crea un widget Localizations y lo reconstruye si la región del sistema cambia.
 
@@ -129,9 +130,9 @@ Locale myLocale = Localizations.localeOf(context);
 <a name="loading-and-retrieving"></a>
 ## Cargando y obteniendo valores regionales
 
-El widget Localizations es usado para cargar y buscar objectos que 
+El widget Localizations es usado para cargar y buscar objetos que 
 contienen colecciones de valores localizados. Las apps hacen referencia a estos objetos 
-con [`Localizations.of(context,type)`](https://docs.flutter.io/flutter/widgets/Localizations/of.html).
+con [`Localizations.of(context,type)`](https://docs.flutter.io/flutter/widgets/Localizations/of.html). 
 Si la región del dispositivo cambia, el widget Localizations automáticamente 
 carga valores para la nueva región y reconstruye los widgets que usan estos.
 Esto ocurre porque Localizations trabaja como un 
@@ -147,14 +148,13 @@ Cada delegado debe definir un método async
 método que produce un objeto, el cual encapsula una colección de valores localizados. 
 Normalmente estos objetos definen on método por valor localizado.
 
-En una app grande, diferetnes módulos o paquetes podrían tener bundled con sus propias 
+En una app grande, diferentes módulos o paquetes podrían tener bundled con sus propias 
 localizaciones. Esto es porque el widget Localizations widget administra una tabla de 
 objetos, uno por LocalizationsDelegate. Para obtener el objeto producido por
 uno de los métodos `load` de los LocalizationsDelegate,
 especificas un BuildContext y un tipo de objeto.
 
-Por ejemplo, las cadenas de texto localizadas para los widgets Material Components widgets estan definidias por
-la clase 
+Por ejemplo, las cadenas de texto localizadas para los widgets Material Components widgets estan definidas por la clase 
 [MaterialLocalizations](https://docs.flutter.io/flutter/material/MaterialLocalizations-class.html). 
 Instancias de esta clase son creadas por un LocalizationDelegate
 proporcionado por la clase [MaterialApp](https://docs.flutter.io/flutter/material/MaterialApp-class.html). 
@@ -165,7 +165,7 @@ Localizations.of<MaterialLocalizations>(context, MaterialLocalizations);
 {% endprettify %}
 
 Esta particular expresion, `Localizations.of()` es usada frecuentemente, por eso la clase 
-MaterialLocalizations proporciona un class provides un atajo conveniente:
+MaterialLocalizations proporciona un atajo conveniente:
 
 {% prettify dart %}
 static MaterialLocalizations of(BuildContext context) {
@@ -186,13 +186,13 @@ incluye implementaciones de los interfaces MaterialLocalizations y
 WidgetsLocalizations que solo proporcionan valores para la 
 US English. Estas clases de implementación se llaman
 DefaultMaterialLocalizations y DefaultWidgetsLocalizations, respectivamente.
-Ellas están icluidas automaticamente a menos que un delegate diferente
+Ellas están incluidas automaticamente a menos que un delegate diferente
 del mismo tipo base sea especificado en el parámetro `localizationsDelegates` 
 de la app.
 
 El paquete flutter_localizations incluye implementaciones multi-idioma 
 de los interfaces de localizacion llamadas GlobalMaterialLocalizations
-y GlobalWidgetsLocalizations. Las apps internacionales deben esepecificar 
+y GlobalWidgetsLocalizations. Las apps internacionales deben especificar 
 localization delegates para estas clases como se describe en
 [configura una app internacionalizada.](#setting-up)
 
@@ -225,7 +225,7 @@ idiomas.](https://github.com/flutter/flutter/tree/master/packages/flutter_locali
 <a name="defining-class"></a>
 ## Definir una clase para los recursos regionales de la app
 
-Poner todo esto junto para una app internacionalizada usualemente 
+Poner todo esto junto para una app internacionalizada usualmente 
 empieza con la clase que encapsula los valores localizados de la app. 
 El ejemplo que sigue es típico de tales clases.
 
@@ -290,8 +290,8 @@ El parámetro
 de MaterialApp limita los cambios de región. Cuando el usuario cambia la región 
 configurandola en su dispositivo, el widget de la app `Localizations` widget solamente 
 sigue el ejemplo si la nueva region es un miembro de su lista.
-Si no se encuentra una coincidencia exacta para la región del dispositivo, entonces se usa la primera region soportada que con un [`languageCode`](https://docs.flutter.io/flutter/dart-ui/Locale/languageCode.html)
-coincidente. Si esto falla, se usa el primer elemtno de la lista de `supportedLocales`.
+Si no se encuentra una coincidencia exacta para la región del dispositivo, entonces se usa la primera región soportada que con un [`languageCode`](https://docs.flutter.io/flutter/dart-ui/Locale/languageCode.html)
+coincidente. Si esto falla, se usa el primer elemetno de la lista de `supportedLocales`.
 
 En términos de el ejemplo DemoApp previo, la app solo acepta las regiones 
 US English o French Canadian, y sustituye por US
@@ -321,7 +321,7 @@ class DemoApp extends StatelessWidget {
 
 El ejemplo anterior, DemoApp, fue definido en términos del paquete de Dart `intl`. 
 Los desarrolladores pueden elegir su propia aproximación para administrar valores localizados por el bien de la 
-simplicidad o quizas para integrar un framework i18n diferente.
+simplicidad o quizás para integrar un framework i18n diferente.
 
 [Código fuente completo](https://github.com/flutter/website/tree/master/src/_includes/code/internationalization/minimal/)
 para esta app de ejemplo.
@@ -388,7 +388,7 @@ querrás revisar la documantación del paquete `intl`. Aquí está un resumen de
 para localizar una app dependiente del paquete `intl`.
 
 La app demo depende de archivo fuente generado llamado `l10n/messages_all.dart`
-el cual define todas las cadenas de textlo localizables usadas por la app.
+el cual define todas las cadenas de texto localizables usadas por la app.
 
 Recompilar `l10n/messages_all.dart` requiere dos pasos.
 
@@ -421,3 +421,24 @@ La clase DemoLocalizations usa la función generada `initializeMessages()`
 </li>
 
 </ol>
+
+<a name="ios-specifics"></a>
+### Apéndice: Actualizando el app bundle de iOS
+
+En las aplicaciones iOS se definen "key application metadata", inluyendo las regiones 
+soportadas, en un fichero `Info.plist` que es construido dentro del "aplication bundle". 
+Para configurar las regiones soportadas por tu app, necesitarás editar este fichero.
+
+Primero, abré el fichero Xcode workspace `ios/Runner.xcworkspace` de tu proyecto, entonces 
+en el Project Navigator, abre el fichero `Info.plist` bajo la carpeta `Runner` del proyecto 
+`Runner`.
+
+A continuación, selecciona el item `Information Property List`, elige *Add Item* en el 
+menú *Editor*, entonces selecciona `Localizations` en el menú emergente.
+
+Selecciona y expande el item recien creado `Localizations` entonces, para cada región 
+que soporte tu aplicación, añade un nuevo item y elige la región que quieres añadir 
+del menu emergente en el campo *Value*. Esta lista debe coincidir con los lenguajes 
+listados en el parámetro [supportedLocales](#specifying-supportedlocales).
+
+Cuando estén añadidos todas las regiones, guarda el fichero.
