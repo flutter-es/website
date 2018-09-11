@@ -291,7 +291,7 @@ de MaterialApp limita los cambios de región. Cuando el usuario cambia la regió
 configurandola en su dispositivo, el widget de la app `Localizations` widget solamente 
 sigue el ejemplo si la nueva region es un miembro de su lista.
 Si no se encuentra una coincidencia exacta para la región del dispositivo, entonces se usa la primera región soportada que con un [`languageCode`](https://docs.flutter.io/flutter/dart-ui/Locale/languageCode.html)
-coincidente. Si esto falla, se usa el primer elemetno de la lista de `supportedLocales`.
+coincidente. Si esto falla, se usa el primer elemento de la lista de `supportedLocales`.
 
 En términos de el ejemplo DemoApp previo, la app solo acepta las regiones 
 US English o French Canadian, y sustituye por US
