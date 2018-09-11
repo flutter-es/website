@@ -296,7 +296,7 @@ Con esta configuración, el auto-generador de código fuente, genera código par
 y decodificar los campos `name` y `email` desde JSON.
 
 Si se necesita, es también fácil de personalizar la estrategia de nombrado. Por ejemplo, si la 
-API devuelve objetos con with _snake\_case_, y to quieres usar _lowerCamelCase_ en tus modelos,
+API devuelve objetos con with _snake\_case_, y tú quieres usar _lowerCamelCase_ en tus modelos,
 puedes usar la anotación `@JsonKey` con un parámetro nombre:
 
 <!-- skip -->
