@@ -44,10 +44,10 @@ Para crear un nuevo proyecto de Flutter a partir de la plantilla de la aplicaci�
 
 1. En el IDE, click **Create New Project** desde la ventana 'Welcome' o
 **File>New>Project...** desde la ventana principal del IDE.
-1. Seleccione **Flutter** en el menú, y click **Next**.
+1. Seleccione **Flutter** en el menú, y click en **Next**.
 1. Ingrese su **Project name** y **Project location** deseado.
 1. Si publicas esta aplicación, [establezca el dominio de la compañía](#note).
-1. Click **Finish**.
+1. Click en **Finish**.
 
 <div>
 <a name="note"></a>
@@ -200,7 +200,7 @@ Esto se puede usar cuando tiene un widget que desea envolver en un widget circun
 por ejemplo, si desea envolver un widget en un `Row` o un `Column`.
 
 ####  Ajustar la lista de widgets con la nueva asistencia de widgets
-Similar a la asistencia anterior, pero para envolver una lista existente de widgets en 
+Similar a <label></label> asistencia anterior, pero para envolver una lista existente de widgets en 
 lugar de un widget individual.
 
 #### Asistencia para convertir child a children
