@@ -17,13 +17,13 @@ Este documento puede ser usado como un cookbook en el que se tratan las siguient
 
 ## ¿Cuál es el equivalente de una `View` en Flutter?
 
-En Android, el `View` es la base de todo lo que aparece en la pantalla. Botones, toolbars, e inputs, todo es un View. En Flutter, el equivalente aproximado a un `View` es un `Widget`. Los widgets no se asignan exactamente a las vistas de Android, pero mientras te familiarizas con el funcionamiento de Flutter, puedes pensar en ellos como "la forma en que declaras y construyes la UI".
+En Android, el `View` es la base de todo lo que aparece en la pantalla. Botones, toolbars, e inputs, todo es un View. En Flutter, el equivalente aproximado a un `View` es un `Widget`. Los widgets no se asimilan exactamente a las vistas de Android, pero mientras te familiarizas con el funcionamiento de Flutter, puedes pensar en ellos como "la forma en que declaras y construyes la UI".
 
 Sin embargo, estos tienen algunas diferencias con un `View`. Para empezar, los widgets tienen una vida útil diferente: son inmutables y sólo existen hasta que necesitan ser cambiados. Cada vez que los widgets o su estado cambian, el framework de Flutter crea un nuevo árbol de instancias de widgets. En comparación, una view de Android se dibuja una vez y no se vuelve a dibujar hasta que se llama `invalidate`.
 
-Los widgets de Flutter son ligeros, en parte debido a su inmutabilidad. Porque no son vistas en sí mismas, y no están dibujando nada directamente, sino más bien una descripción de la UI y su semántica que se "sube" a los objetos view que están en el interior.
+Los widgets de Flutter son ligeros, en parte debido a su inmutabilidad. Porque no son vistas en sí mismas, y no están dibujando nada directamente, sino más bien una descripción de la UI y su semántica que son "inflated" en la vista de objetos actual.
 
-Flutter incluye la biblioteca [Material Components](https://material.io/develop/flutter/). Estos son los widgets que implementan la
+Flutter incluye la biblioteca [Material Components](https://material.io/develop/flutter/). Estos son los widgets que implementan las
 [Guías de Material Design](https://material.io/design/). Material Design es un
 sistema de diseño flexible [optimizado para todas las 
 plataformas](https://material.io/design/platform-guidance/cross-platform-adaptation.html#cross-platform-guidelines),
@@ -49,7 +49,7 @@ Por ejemplo, en Android, esto es similar a colocar un "ImageView" con su logo. E
 Si deseas cambiar dinámicamente la UI basándote en los datos recibidos después de realizar una llamada HTTP o una interacción con el usuario, entonces tienes que trabajar con `StatefulWidget` y decirle al framework Flutter que el `State` del widget
 ha sido actualizado para que pueda actualizarlo.
 
-Lo importante a tener en cuenta aquí es que tanto los widgets stateless como los stateful se comportan de la misma manera. Reconstruyen cada frame, la diferencia es que el `StatefulWidget` tiene un objeto `State` que almacena datos de estado a través de frames y los restaura.
+Lo importante a tener en cuenta aquí es que tanto los widgets stateless como los stateful se comportan de la misma manera. Reconstruyen cada frame, la diferencia es que el `StatefulWidget` tiene un objeto `State` que almacena datos de estado a través de los frames y los restaura.
 
 Si tienes dudas, recuerda siempre esta regla: si un widget cambia (debido a las interacciones del usuario, por ejemplo), es stateful. Sin embargo, si un widget reacciona al cambio, el widget padre que lo contiene puede seguir siendo stateless si él mismo no reacciona al cambio.
 
@@ -104,12 +104,14 @@ class SampleAppPage extends StatefulWidget {
 class _SampleAppPageState extends State<SampleAppPage> {
   // Texto placeholder predeterminado
   String textToShow = "I Like Flutter";
+
   void _updateText() {
     setState(() {
       // update the text
       textToShow = "Flutter is Awesome!";
     });
   }  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1476,7 +1478,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 ## ¿Cómo sé en cuál elemento de la lista se hace clic?
 
 En Android, ListView tiene el método 'onItemClickListener' para averiguar en cuál de los elementos se ha hecho clic.
-En Flutter, utiliza el manejo táctil proporcionado por los widgets transferidos.
+En Flutter, utiliza el manejo táctil proporcionado por los widgets pasados.
 
 <!-- skip -->
 {% prettify dart %}
@@ -1762,7 +1764,7 @@ personalizar muchos parámetros, como, por ejemplo:
 
 Para obtener más información sobre la utilización de formularios, consulta
 [Recuperar el valor de un campo de texto](/cookbook/forms/retrieve-input/),
-en el [Cookbook de Flutter](https://flutter.io/cookbook/).
+en el [Cookbook de Flutter](/cookbook/).
 
 ## ¿Cuál es el equivalente a un "hint" sobre un Input?
 
@@ -1875,7 +1877,7 @@ Para iniciar sesión con Facebook, utiliza el plugin de la comunidad
 
 La mayoría de las funciones de Firebase están cubiertas por
 [plugins de primera parte](https://pub.dartlang.org/flutter/packages?q=firebase).
-Estos plugins son integraciones de primera mano, mantenidas por el equipo de Flutter:
+Estos plugins de primera mano son integraciones mantenidas por el equipo de Flutter:
 
  * [`firebase_admob`](https://pub.dartlang.org/packages/firebase_admob) para Firebase AdMob
  * [`firebase_analytics`](https://pub.dartlang.org/packages/firebase_analytics) para Firebase Analytics
@@ -1890,7 +1892,7 @@ También puedes encontrar algunos plugins Firebase de terceros en Pub que cubren
 
 ## ¿Cómo puedo crear mis propias integraciones nativas personalizadas?
 
-Si hay funcionalidades específicas de la plataforma que Flutter o sus plugins de la comunidad no estén disponibles, puedes construir los tuyos propios siguiendo la página [desarrollo de paquetes y plugins](/developing-packages/).
+Si hay funcionalidades específicas de la plataforma que en Flutter o en sus plugins de la comunidad no estén disponibles, puedes construir los tuyos propios siguiendo la página [desarrollo de paquetes y plugins](/developing-packages/).
 
 La arquitectura de los plugins de Flutter, en pocas palabras, es muy parecida a la de un bus Event en Android: tú disparas un mensaje y dejas que el receptor lo procese y te devuelva el resultado. En este caso, el receptor es código que se ejecuta en el lado nativo de Android o iOS.
 
@@ -1906,7 +1908,7 @@ _Actualmente no se admite la llamada a código nativo directamente desde Flutter
 
 ## ¿Cómo puedo ponerle un theme a mi aplicación?
 
-Listo para su uso, Flutter viene con una hermosa implementación de Material Design, que se encarga de un montón de necesidades de estilo y tematización que típicamente harías. A diferencia de Android, donde se declaran los themes en XML y luego se asignan
+De fábrica, Flutter viene con una hermosa implementación de Material Design, que se encarga de un montón de necesidades de estilo y tematización que típicamente harías. A diferencia de Android, donde se declaran los themes en XML y luego se asignan
 a tu aplicación usando AndroidManifest.xml, en Flutter declaras themes en el widget de nivel superior.
 
 Para aprovechar al máximo los componentes de Material en tu aplicación, puedes declarar un widget de nivel superior `MaterialApp` como punto de entrada a tu aplicación. MaterialApp es un widget de conveniencia que incluye una serie de widgets que son comúnmente requeridos para las aplicaciones que implementan Material Design. Se basa en un WidgetsApp añadiendo funcionalidad específica de Material.
