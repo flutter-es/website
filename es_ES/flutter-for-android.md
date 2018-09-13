@@ -374,13 +374,13 @@ class SignaturePainter extends CustomPainter {
 
 ## ¿Cómo construyo widgets personalizados?
 
-En Android, normalmente se subclasifica `View`, o se utiliza una vista preexistente, para sobrescribir e implementar métodos que logren el comportamiento deseado.
+En Android, normalmente se crea una subclase de `View`, o se utiliza una vista preexistente, para sobrescribir e implementar métodos que logren el comportamiento deseado.
 
-En Flutter, construye un widget personalizado mediante pequeños widgets
+En Flutter, construyes un widget personalizado componiendo widgets más pequeños
 [composing](/technical-overview/#everythings-a-widget) 
-(en lugar de heredarlos).
+(en lugar de heredar de estos).
 Es algo similar a la implementación de un `ViewGroup` personalizado en Android, donde todos los bloques de construcción ya existen, pero
-proporcionas un comportamiento diferente, por ejemplo, una lógica de diseño personalizada.
+proporcionas un comportamiento diferente, por ejemplo, una lógica de layout personalizada.
 
 Por ejemplo, ¿cómo se construye un `CustomButton` que toma una etiqueta en
 el constructor? Crea un CustomButton que componga un `RaisedButton` con una etiqueta, en lugar de heredar de `RaisedButton`:
@@ -420,7 +420,7 @@ En Android, existen dos casos de uso principales para `Intent`: navegar entre Ac
 
 Flutter no tiene realmente un equivalente directo a actividades y fragmentos; más bien, en Flutter se navega entre pantallas, usando un `Navigator` y `Route`, todo dentro de la misma `Activity`.
 
-Un `Route` es una abstracción para un "screen" o "page" de una aplicación, y un `Navigator` es un widget que gestiona rutas. Una ruta se mapea aproximadamente a un `Activity`, pero no tiene el mismo significado. Un navegador puede empujar y hacer push y pop a rutas para moverse de pantalla en pantalla. Los navegadores funcionan como una pila en la que puedes hacer `push()` a nuevas rutas hacia las que quieres navegar, y desde la que puedes hacer 
+Un `Route` es una abstracción para un "screen" o "page" de una aplicación, y un `Navigator` es un widget que gestiona rutas. Un route se asimila a un `Activity`, pero no tiene el mismo significado. Un navigator puede hacer push y pop de routes para moverse de pantalla en pantalla. Los navegadores funcionan como una pila en la que puedes hacer `push()` a nuevas rutas hacia las que quieres navegar, y desde la que puedes hacer 
 `pop()` a las rutas en las que quieres "volver atrás".
 
 En Android, declaras tus actividades dentro de la aplicación `AndroidManifest.xml`.
@@ -715,7 +715,7 @@ Consulta la siguiente sección para obtener más información sobre cómo trabaj
 
 ## ¿Cómo se mueve el trabajo a un background thread?
 
-En Android, cuando deseas acceder a un recurso de red, normalmente te mueves a un background thread y haces el trabajo, para no bloquear el hilo principal y evitar los ANR. Por ejemplo, puedes estar usando un `AsyncTask`, un `LiveData`, un `IntentService`, un `JobScheduler` o un pipeline RxJava con un programador que trabaja sobre background threads.
+En Android, cuando deseas acceder a un recurso de red, normalmente te mueves a un background thread y haces el trabajo, para no bloquear el hilo principal y evitar los ANR ("Application Not Responding"). Por ejemplo, puedes estar usando un `AsyncTask`, un `LiveData`, un `IntentService`, un `JobScheduler` o un pipeline RxJava con un programador que trabaja sobre background threads.
 
 Dado que Flutter es un hilo único y ejecuta un bucle de eventos (como Node.js), no tienes que preocuparte por la gestión de hilos o por la generación de background threads. Si estás realizando un trabajo de E/S, como acceso a disco o una llamada de red, puedes usar 
 `async`/`wait` con seguridad y ya está todo configurado. Si, por otro lado, necesitas hacer un trabajo intensivo de computación que mantenga la CPU ocupada, quieres moverla a un `Isolate` para evitar bloquear el bucle de eventos, como si mantuvieras _cualquier_ tipo de trabajo fuera del hilo principal en Android.
@@ -1052,7 +1052,7 @@ Flutter sigue un formato simple basado en la densidad como iOS. Los activos pued
 [`devicePixelRatio`](https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html)
 expresa la proporción de píxeles físicos en un solo píxel lógico.
 
-Los equivalentes a los cubos de densidad de Android son:
+Los equivalentes a los density buckets de Android son:
 
  Calificador de densidad Android | Relación de píxeles de Flutter
   --- | ---
@@ -1156,14 +1156,15 @@ que representan diferentes pantallas o páginas, o tal vez sólo diferentes esta
 
 ## ¿Cómo escucho los eventos del ciclo de vida de las actividades Android?
 
-En Android, puedes anular los métodos de `Activity` para capturar métodos del ciclo de vida para la actividad en sí, o registrar `ActivityLifecycleCallbacks` en la `Aplicación`. En Flutter, no tienes ningún concepto, pero puedes escuchar los eventos del ciclo de vida enganchándote al observador `WidgetsBinding` y escuchando el evento de cambio `didChangeAppLifecycleState()`.
+En Android, puedes sobreescribir los métodos de `Activity` para capturar métodos del ciclo de vida para la actividad en sí, o registrar `ActivityLifecycleCallbacks` en `Application`. En Flutter, no tienes este concepto, pero puedes escuchar los eventos del ciclo de vida enganchándote al observador `WidgetsBinding` y escuchando el evento de cambio 
+`didChangeAppLifecycleState()`.
 
 Los eventos observables del ciclo de vida son:
 
-* `inactive` — La aplicación se encuentra en un estado inactivo y no está recibiendo entrada de uso. Este evento sólo funciona en iOS, ya que no hay ningún evento equivalente para mapear en Android.
+* `inactive` — La aplicación se encuentra en un estado inactivo y no está recibiendo entradas del usuario. Este evento sólo funciona en iOS, ya que no hay ningún evento equivalente asimilable en Android.
 * `paused` — La aplicación no está actualmente visible para el usuario, no responde a las entradas del usuario y se ejecuta en background. Esto equivale a `onPause()` en Android
-* `resumed` — La aplicación es visible y responde a las entradas de los usuarios. Esto equivale a `onPostResume()` en Android
-* `suspending` — La aplicación se suspende momentáneamente. Esto es equivalente a "onStop" en Android; no se activa en iOS ya que no hay ningún evento equivalente al que mapear en iOS.
+* `resumed` — La aplicación es visible y responde a las entradas del usuario. Esto equivale a `onPostResume()` en Android
+* `suspending` — La aplicación se suspende momentáneamente. Esto es equivalente a "onStop" en Android; no se activa en iOS ya que no hay ningún evento equivalente asimilable en iOS.
 
 Para más detalles sobre el significado de estos estados, consulta la sección
 [Documentation de `AppLifecycleStatus` ](https://docs.flutter.io/flutter/dart-ui/AppLifecycleState-class.html).
@@ -1171,7 +1172,7 @@ Para más detalles sobre el significado de estos estados, consulta la sección
 Como habrás notado, sólo una pequeña minoría de los eventos del ciclo de vida de Activity están disponibles; mientras que `FlutterActivity` captura casi todo el ciclo de vida de la actividad internamente y los envía al motor Flutter, la mayoría están protegidos lejos de ti. Flutter se encarga de arrancar y parar el motor por ti, y
 hay pocas razones para observar el ciclo de vida de la actividad en Flutter en la mayoría de los casos. Si necesita observar el ciclo de vida para adquirir o liberar cualquier recurso nativo, es probable que lo haga desde el lado nativo, en cualquier caso.
 
-He aquí un ejemplo de cómo observar el estado del ciclo de vida de la actividad de contención:
+He aquí un ejemplo de cómo observar el estado del ciclo de vida del activity contenedor:
 
 <!-- skip -->
 {% prettify dart %}
@@ -1225,7 +1226,7 @@ void main() {
 
 En Android, se utiliza un diseño lineal para distribuir los widgets de forma lineal, ya sea horizontal o vertical. En Flutter, utiliza el widget Row o Column para conseguir el mismo resultado.
 
-Si lo notas, los dos ejemplos de código son idénticos con la excepción del widget "Row" y "Column". Los hijos son los mismos y esta característica puede ser explotada para desarrollar diseños detallados que pueden cambiar con los mismos hijos.
+Si lo notas, los dos ejemplos de código son idénticos con la excepción del widget "Row" y "Column". Los hijos son los mismos y esta característica puede ser explotada para desarrollar layouts detallados que pueden cambiar con los mismos hijos.
 
 <!-- skip -->
 {% prettify dart %}
@@ -1259,7 +1260,7 @@ Si lo notas, los dos ejemplos de código son idénticos con la excepción del wi
   }
 {% endprettify %}
 
-Para obtener más información sobre la creación de diseños lineales, consulta el artículo de medium [Flutter para Android Developers: ¿Cómo disegñar LinearLayout en Flutter?](https://medium.com/@burhanrashid52/flutter-for-android-developers-how-to-design-linearlayout-in-flutter-5d819c0ddf1a).
+Para obtener más información sobre la creación de linear layouts, consulta el artículo de medium [Flutter para Android Developers: ¿Cómo diseñar LinearLayout en Flutter?](https://medium.com/@burhanrashid52/flutter-for-android-developers-how-to-design-linearlayout-in-flutter-5d819c0ddf1a).
 
 ## ¿Cuál es el equivalente de un RelativeLayout?
 
@@ -1275,7 +1276,7 @@ Para un buen ejemplo de cómo construir un RelativeLayout en Flutter, consulta l
 
 ## ¿Cuál es el equivalente de un ScrollView?
 
-En Android, utiliza un ScrollView para diseñar tus widgets, si el dispositivo del usuario tiene una pantalla más pequeña que tu contenido, hará scroll.
+En Android, usas un ScrollView para diseñar tus widgets, si el dispositivo del usuario tiene una pantalla más pequeña que tu contenido, hará scroll.
 
 En Flutter, la forma más fácil de hacerlo es utilizando el widget ListView. Esto puede parecer exagerado viniendo de Android, pero en Flutter un widget ListView es tanto un ScrollView como un Android ListView.
 
@@ -1294,7 +1295,7 @@ En Flutter, la forma más fácil de hacerlo es utilizando el widget ListView. Es
   }
 {% endprettify %}
 
-## ¿Cómo manejo las transiciones landscape en Flutter?
+## ¿Cómo manejo la transición a landscape en Flutter?
 
 FlutterView maneja el cambio de configuración si AndroidManifest.xml contiene:
 
@@ -1350,35 +1351,34 @@ En Flutter hay dos maneras de añadir listeners táctiles:
 
 Usando el GestureDetector, puedes escuchar una amplia gama de Gestos como:
 
-* Tap
+* Tapping
 
-  * `onTapDown` - Un puntero que podría provocar que un tap haya entrado en contacto con la pantalla, en una ubicación determinada.
-  * `onTapUp` - Un puntero que activa un tap ha dejado de entrar en contacto con la pantalla en una ubicación determinada.
-  * `onTap` - Se ha producido un tap.
-  * `onTapCancel` - El puntero que previamente disparó el `onTapDown` no causará un golpecito.
+  * `onTapDown` - Un puntero que podría provocar un toque ha entrado en contacto con la pantalla en una ubicación determinada.
+  * `onTapUp` - Un puntero que activa un toque ha dejado de entrar en contacto con la pantalla en una ubicación determinada.
+  * `onTap` - Se ha producido un toque.
+  * `onTapCancel` - El puntero que desencadenó previamente el onTapDown no causará un toque.
 
-* Double tap
+* Double tapping
 
-  * `onDoubleTap` - El usuario tocó la pantalla en la misma ubicación dos veces en rápida sucesión.
+  * `onDoubleTap` - El usuario tocó la pantalla en la misma ubicación dos veces en una sucesión rápida.
 
-* Pulsación larga
+* Long pressing
 
   * `onLongPress` - Un puntero ha permanecido en contacto con la pantalla en el mismo lugar durante un largo período de tiempo. 
 
-* Arrastre vertical
+* Vertical dragging
 
-  * `onVerticalDragStart` - Un puntero ha entrado en contacto con la pantalla y podría comenzar a moverse verticalmente.
-  * `onVerticalDragUpdate` - Un puntero, en contacto con la pantalla,
-    se ha movido más en la dirección vertical.
-  * `onVerticalDragEnd` - Un puntero, que antes estaba en contacto con la pantalla y se movía verticalmente, ya no está en contacto con la pantalla y se movía a una velocidad específica cuando dejó de entrar en contacto con la pantalla.
+  * `onVerticalDragStart` - Un puntero ha entrado en contacto con la pantalla y puede comenzar a moverse verticalmente.
+  * `onVerticalDragUpdate` - Un puntero en contacto con la pantalla se ha movido más en la dirección vertical.
+  * `onVerticalDragEnd` - Un puntero que anteriormente estaba en contacto con la pantalla y se movía verticalmente ya no está en contacto con la pantalla y se movía a una velocidad específica cuando dejó de entrar en contacto con la pantalla.
 
-* Horizontal drag
+* Horizontal dragging
 
-  * `onHorizontalDragStart` - Un puntero ha entrado en contacto con la pantalla y podría comenzar a moverse horizontalmente.
-  * `onHorizontalDragUpdate` - Un puntero, en contacto con la pantalla, se ha movido más en la dirección horizontal.
-  * `onHorizontalDragEnd` - Un puntero, que antes estaba en contacto con la pantalla y se movía horizontalmente, ya no está en contacto con la pantalla y se movió a una velocidad específica cuando dejó de entrar en contacto con la pantalla.
+  * `onHorizontalDragStart` - Un puntero ha entrado en contacto con la pantalla y puede comenzar a moverse horizontalmente.
+  * `onHorizontalDragUpdate` - Un puntero en contacto con la pantalla se ha movido más en la dirección horizontal.
+  * `onHorizontalDragEnd` - Un puntero que antes estaba en contacto con la pantalla y que se movía horizontalmente ya no está en contacto con la pantalla.
 
-El siguiente ejemplo muestra un `Detector de Objetos` que rota el logotipo de Flutter con un doble toque:
+El siguiente ejemplo muestra un GestureDetector que rota el logotipo de Flutter con un doble toque:
 
 <!-- skip -->
 {% prettify dart %}
