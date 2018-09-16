@@ -20,7 +20,7 @@ Se está preparando más documentación sobre cómo implementar patrones de dise
 Si tienes una solicitud específica, por favor [crea un issue](https://github.com/flutter/flutter/issues).
 {% endcomment %}
 
-* [Tutorial: Animations in Flutter](/tutorials/animation/)<br>
+* [Tutorial: Animations en Flutter](/tutorials/animation/)<br>
 Explica las clases fundamentales del paquete de animación Flutter (controladores, Animatable, curvas, listeners, builders), ya que te guía a través de una progresión de animaciones intercaladas utilizando diferentes aspectos de las API de animación.
 
 
@@ -36,9 +36,10 @@ muestra cómo animar el nuevo mensaje&mdash;deslizándolo desde el área de entr
 
 Las animaciones se clasifican en dos categorías: basadas en física o en interpolación.
 Las siguientes secciones explican lo que significan estos términos y le señalan los recursos en los que puedes obtener más información. En algunos casos, la mejor documentación que tenemos actualmente es el código de ejemplo en la galería de Flutter.
-### Animación de interpolación
 
-Abreviatura de _intermediación_. En una animación interpolada, se definen los puntos de inicio y finalización, así como una línea de tiempo y una curva que define el tiempo y la velocidad de la transición. El framework calcula cómo hacer la transición desde el punto de inicio hasta el punto final.
+### Animación Tween 
+
+Abreviatura de _intermediación_. En una tween animación, se definen los puntos de inicio y finalización, así como una línea de tiempo y una curva que define el tiempo y la velocidad de la transición. El framework calcula cómo hacer la transición desde el punto de inicio hasta el punto final.
 
 Los documentos listados arriba, como el [tutorial de animaciones](/tutorials/animation/) no tratan específicamente sobre la interpolación, sino que utilizan interpolación en sus ejemplos.
 
@@ -47,7 +48,7 @@ Los documentos listados arriba, como el [tutorial de animaciones](/tutorials/ani
 En la animación basada en la física, el movimiento se modela para que se parezca al comportamiento del mundo real. Cuando lanzas una pelota, por ejemplo, dónde y cuándo cae depende de la rapidez con la que fue lanzada, de su peso y de la distancia del suelo. De manera similar, dejar caer una pelota atada a un resorte cae (y rebota) de manera diferente que dejar caer una pelota atada a una cuerda.
 
 * [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
-Sobre **Material Components**, el ejemplo de [Grid](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/material/grid_list_demo.dart) muestra una animación de aventura. Selecciona una de las imágenes de la cuadrícula y acerca la imagen. Puedes desplazar la imagen con gestos de giro o de arrastre.
+Sobre **Material Components**, el ejemplo de [Grid](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/material/grid_list_demo.dart) muestra una animación voladora. Selecciona una de las imágenes de la cuadrícula y acerca la imagen. Puedes desplazar la imagen con gestos de giro o de arrastre.
 
 * Véase también la documentación de la API para
 [AnimationController.animateWith](https://docs.flutter.io/flutter/animation/AnimationController/animateWith.html) y
@@ -66,7 +67,7 @@ La lista interna de Dart se sincroniza a medida que el usuario modifica la lista
 
 ### Transición de elementos compartidos
 
-En este patrón, el usuario selecciona un elemento&mdash;often an image&mdash;fde la página, y la interfaz de usuario anima el elemento seleccionado a una nueva página con más detalles. En Flutter, puede implementar fácilmente transiciones de elementos compartidos entre routes (páginas) utilizando el widget Hero.
+En este patrón, el usuario selecciona un elemento&mdash;a menudo una imagen&mdash;de la página, y la interfaz de usuario anima el elemento seleccionado a una nueva página con más detalles. En Flutter, puedes implementar fácilmente transiciones de elementos compartidos entre routes (páginas) utilizando el widget Hero.
 
 * [Animaciones Hero](/animations/hero-animations/)
 Cómo crear dos estilos de animaciones de Hero:
@@ -76,7 +77,7 @@ Cómo crear dos estilos de animaciones de Hero:
 Puedes construir la aplicación Gallery tu mismo o descargarla de la Play Store.
 La demo [Shrine](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/shrine_demo.dart) incluye un ejemplo de animación Hero.
 
-* Véase también la documentación de la API para las classes [Hero,](https://docs.flutter.io/flutter/widgets/Hero-class.html)
+* Véase también la documentación de la API para las clases [Hero,](https://docs.flutter.io/flutter/widgets/Hero-class.html)
 [Navigator,](https://docs.flutter.io/flutter/widgets/Navigator-class.html) y
 [PageRoute](https://docs.flutter.io/flutter/widgets/PageRoute-class.html).
 
