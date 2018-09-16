@@ -298,7 +298,7 @@ Todos los errores conocidos se siguen en los issue trackers:
   * Dart plugin: [JetBrains
    YouTrack](https://youtrack.jetbrains.com/issues?q=%23dart%20%23Unresolved).
 
-Todos los comentarios son bienrecibidos, tanto sobre errores/problemas como sobre solicitudes de 
+Todos los comentarios son bien recibidos, tanto sobre errores/problemas como sobre solicitudes de 
 funciones. Antes de presentar nuevos problemas, por favor:
 
   * Haga una búsqueda rápida en los issue trackers para ver si el problema ya fue rastreado.
