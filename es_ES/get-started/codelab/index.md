@@ -316,7 +316,7 @@ un hijo dentro del existentea stateless widget `MyApp`.
     build básico que genera el juego de palabras moviendo la
     generación de código de `MyApp` a `RandomWordsState`.
 
- 3. Añade el método `build()` a `RandomWordState`:
+ 3. Añade el método `build()` a `RandomWordsState`:
 
     <!-- skip -->
     {% prettify dart %}
