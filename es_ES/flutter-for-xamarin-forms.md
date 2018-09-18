@@ -631,30 +631,30 @@ Widget build(BuildContext context) {
 
 ## ¿Cómo navego entre páginas?
 
-In Xamarin.Forms, you navigate between pages normally through a, you can use a
-`NavigationPage` that manages the stack of pages to display.
+En Xamarin.Forms, usted navega entre páginas normalmente a través de un
+`NavigationPage` que gestiona la pila de páginas a mostrar.
 
-Flutter has a similar implementation, using a `Navigator` and
-`Routes`. A `Route` is an abstraction for a `Page` of an app, and
-a `Navigator` is a [widget](technical-overview/#everythings-a-widget)
-that manages routes.
+Flutter tiene una implementación similar, usando un `Navigator` y
+`Routes`. Un `Route` es una abstracción para una `Page` de una app, y
+un `Navigator` es un [widget](technical-overview/#everythings-a-widget)
+que gestiona las rutas.
 
-A route roughly maps to a `Page`. The navigator works in a similar way to the
-Xamarin.Forms `NavigationPage`, in that it can `push()` and `pop()` routes
-depending on whether you want to navigate to, or back from, a view.
+Una ruta se mapea aproximadamente a una `Page`. El navigator funciona de manera similar a la del
+Xamarin.Forms `NavigationPage`, en el que puede hacer `push()` y `pop()` a rutas
+dependiendo de si desea navegar hacia o desde una vista.
 
-To navigate between pages, you have a couple options:
+Para navegar entre páginas, tiene un par de opciones:
 
-* Specify a `Map` of route names. (MaterialApp)
-* Directly navigate to a route. (WidgetApp)
+* Especifique un `Map` de nombres de ruta. (MaterialApp)
+* Navegar directamente a una ruta. (WidgetApp)
 
-The following example builds a Map.
+El siguiente ejemplo construye un Map.
 
 <!-- skip -->
 {% prettify dart %}
 void main() {
   runApp(new MaterialApp(
-    home: new MyAppHome(), // becomes the route named '/'
+    home: new MyAppHome(), // se convierte en la nombrada ruta '/'
     routes: <String, WidgetBuilder> {
       '/a': (BuildContext context) => new MyPage(title: 'page A'),
       '/b': (BuildContext context) => new MyPage(title: 'page B'),
@@ -664,66 +664,66 @@ void main() {
 }
 {% endprettify %}
 
-Navigate to a route by `push`ing its name to the `Navigator`.
+Navegue hasta una ruta empujando (`push`) su nombre hacia el `Navigator`.
 
 <!-- skip -->
 {% prettify dart %}
 Navigator.of(context).pushNamed('/b');
 {% endprettify %}
 
-The Navigator is a stack that manages your app's routes. Pushing a route to the stack
-moves to that route. Popping a route from the stack, returns to the previous route. This
-is done by `await`ing on the `Future` returned by `push()`.
+El Navegador es un stack que gestiona las rutas de su app. Empujando una ruta al stack
+se mueve a esa ruta. Haciendo pop una ruta del stack, regresa a la ruta anterior. Esto
+es hecho por `await` en el `Futuro` retornado por `push()`.
 
-`Async`/`await` is very similar to the .NET implementation and is explained in more detail
-in [Async UI](/flutter-for-xamarin-forms/#async-ui).
+`Async`/`await` es muy similar a la implementación de .NET y se explica con más detalle
+en [Async UI](/flutter-for-xamarin-forms/#async-ui).
 
-For example, to start a `location` route that lets the user select their
-location, you might do the following:
+Por ejemplo, para iniciar una ruta de `ubicación` que permita al usuario seleccionar
+su ubicación, puede hacer lo siguiente:
 
 <!-- skip -->
 {% prettify dart %}
-Map coordinates = await Navigator.of(context).pushNamed('/location');
+Map coordinates = await Navigator.of(context).pushNamed('/ubicacion');
 {% endprettify %}
 
-And then, inside your ‘location’ route, once the user has selected their
-location, `pop()` the stack with the result:
+Y luego, dentro de la ruta de su ‘ubicación’, una vez que el usuario haya seleccionado su
+ubicación, `pop()` el stack con el resultado:
 
 <!-- skip -->
 {% prettify dart %}
 Navigator.of(context).pop({"lat":43.821757,"long":-79.226392});
 {% endprettify %}
 
-## How do I navigate to another app?
+## ¿Cómo navego a otra aplicación?
 
-In Xamarin.Forms, to send the user to another application, you use a
-specific URI scheme, using `Device.OpenUrl("mailto://")`
+En Xamarin.Forms, para enviar al usuario a otra aplicación, se utiliza un
+esquema URI específico, usando `Device.OpenUrl("mailto://")`
 
-To implement this functionality in Flutter, create a native platform integration,
-or use an existing [plugin](#plugins), such as
-[`url_launcher`](https://pub.dartlang.org/packages/url_launcher), available with
-many other packages on [pub.dartlang](https://pub.dartlang.org/flutter).
+Para implementar esta funcionalidad en Flutter, cree una integración de plataforma nativa,
+o utilice un [plugin](#plugins) existente, como
+[`url_launcher`](https://pub.dartlang.org/packages/url_launcher), disponible con
+muchos otros paquetes en [pub.dartlang](https://pub.dartlang.org/flutter).
 
 # Async UI
 
-## What is the equivalent of `Device.BeginOnMainThread()` in Flutter?
+## ¿Cuál es el equivalente de `Device.BeginOnMainThread()` en Flutter?
 
-Dart has a single-threaded execution model, with support for `Isolate`s
-(a way to run Dart code on another thread), an event loop, and
-asynchronous programming. Unless you spawn an `Isolate`, your Dart code
-runs in the main UI thread and is driven by an event loop.
+Dart tiene un modelo de ejecución de un solo hilo, con soporte para `Isolate`s
+(una forma de ejecutar código de Dart en otro hilo), un loop de eventos, y
+programación asíncrona. A menos que usted genere un `Isolate`, su código Dart
+se ejecuta en el hilo principal de la UI y es controlado por un loop de eventos.
 
-Dart's single-threaded model doesn't mean you need to run everything as a
-blocking operation that causes the UI to freeze. Much like Xamarin.Forms, you
-need to keep the UI thread free. You would use `async`/`await` to perform
-tasks, where you must wait for the response.
+El modelo de un solo hilo de Dart no significa que necesites ejecutarlo todo
+como una operación de bloqueo que hace que la UI se congele. Al igual que Xamarin.Forms, necesita
+mantener el hilo de la UI libre. Usaría `async`/`await` para realizar
+tareas, donde debe esperar la respuesta.
 
-In Flutter, use the asynchronous facilities that the Dart language provides, also
-named `async`/`await`, to perform asynchronous work. This is very similar to
-C# and should be very easy to use for any Xamarin.Forms developer.
+En Flutter, utilice las capacidades asíncronas que proporciona el lenguaje Dart, también
+llamado `async`/`await`, para realizar trabajos asíncronos. TEsto es muy similar a
+C# y debería ser muy fácil de usar para cualquier desarrollador de Xamarin.Forms.
 
-For example, you can run network code without causing the UI to hang by
-using `async`/`await` and letting Dart do the heavy lifting:
+Por ejemplo, puede ejecutar código de red sin hacer que la interfaz de usuario se
+cuelgue usando `async`/`await` y dejando que Dart haga el trabajo pesado:
 
 <!-- skip -->
 {% prettify dart %}
@@ -736,10 +736,10 @@ loadData() async {
 }
 {% endprettify %}
 
-Once the `await`ed network call is done, update the UI by calling `setState()`,
-which triggers a rebuild of the widget sub-tree and updates the data.
+Una vez que la `await`ed llamada de red se haya realizado, actualice la UI llamando a `setState()`,
+que desencadena una reconstrucción del sub-árbol del widget y actualiza los datos.
 
-The following example loads data asynchronously and displays it in a `ListView`:
+El siguiente ejemplo carga datos asincrónicamente y los muestra en un `ListView`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -812,23 +812,23 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-Refer to the next section for more information on doing work in the
-background, and how Flutter differs from Android.
+Consulte la siguiente sección para obtener más información sobre cómo trabajar
+en segundo plano, y en qué se diferencia Flutter de Android.
 
-## How do you move work to a background thread?
+## ¿Cómo se mueve el trabajo a un hilo de fondo?
 
-Since Flutter is single threaded and runs an event loop, you
-don't have to worry about thread management or spawning background threads.
-This is very similar to Xamarin.Forms. If you're doing I/O-bound work, such as disk
-access or a network call, then you can safely use `async`/`await` and you're all set.
+Dado que Flutter es un hilo único y ejecuta un loop de eventos, no
+tiene que preocuparse por la gestión de hilos o por el desove de hilos de fondo.
+Esto es muy similar a Xamarin.Forms. Si está realizando un trabajo I/O, como un disco
+o una llamada de red, entonces puede usar `async`/`await` con seguridad y ya está todo listo.
 
-If, on the other hand, you need to do computationally intensive work that keeps the
-CPU busy, you want to move it to an `Isolate` to avoid blocking the event loop, like
-you would keep _any_ sort of work out of the main thread. This is similar to when you
-move things to a different thread via `Task.Run()` in Xamarin.Forms.
+Si, por otro lado, necesita hacer un trabajo intensivo de computación que mantenga el
+CPU ocupado, quieres moverla a un `Isolate` para evitar bloquear el loop de eventos, como
+mantendrías cualquier tipo de trabajo fuera del hilo principal. Esto es similar a cuando
+mueves cosas a un hilo diferente vía `Task.Run()` en Xamarin.Forms.
 
-For I/O-bound work, declare the function as an `async` function,
-and `await` on long-running tasks inside the function:
+Para trabajos de I/O, declarar la función como una función `async`,
+y `await` en tareas de larga duración dentro de la función:
 
 <!-- skip -->
 {% prettify dart %}
@@ -841,20 +841,20 @@ loadData() async {
 }
 {% endprettify %}
 
-This is how you would typically do network or database calls, which are both
-I/O operations.
+Así es como normalmente se hacen las llamadas de red o de base de datos, que son ambas
+operaciones I/O.
 
-However, there are times when you might be processing a large amount of data and
-your UI hangs. In Flutter, use `Isolate`s to take advantage of
-multiple CPU cores to do long-running or computationally intensive tasks.
+Sin embargo, hay ocasiones en las que puede estar procesando una gran cantidad de datos y
+tu UI se cuelga. En Flutter, utilice `Isolate`s para aprovechar los
+úcleos de la CPU para realizar tareas de larga duración o intensivas en el cálculo.
 
-Isolates are separate execution threads that do not share any memory
-with the main execution memory heap. THis is a difference between `Task.Run()`. This
-means you can’t access variables from the main thread, or update your UI by calling
+Los Isolates son hilos de ejecución separados que no comparten ninguna memoria.
+con la memoria de ejecución principal. Esta es una diferencia entre `Task.Run()`. Esto
+significa que no puedes acceder a las variables desde el hilo principal, o actualizar tu UI llamando a
 `setState()`.
 
-The following example shows, in a simple isolate, how to share data back to
-the main thread to update the UI.
+El siguiente ejemplo muestra, en un isolate simple, cómo compartir datos de
+vuelta al hilo principal para actualizar la UI.
 
 <!-- skip -->
 {% prettify dart %}
@@ -862,7 +862,7 @@ loadData() async {
   ReceivePort receivePort = new ReceivePort();
   await Isolate.spawn(dataLoader, receivePort.sendPort);
 
-  // The 'echo' isolate sends its SendPort as the first message
+  // El 'eco' isolate envía su SendPort como primer mensaje
   SendPort sendPort = await receivePort.first;
 
   List msg = await sendReceive(sendPort, "https://jsonplaceholder.typicode.com/posts");
@@ -872,12 +872,12 @@ loadData() async {
   });
 }
 
-// The entry point for the isolate
+// El punto de entrada para el isolate
 static dataLoader(SendPort sendPort) async {
   // Open the ReceivePort for incoming messages.
   ReceivePort port = new ReceivePort();
 
-  // Notify any other isolates what port this isolate listens to.
+  // Notifique a cualquier otro isolates a qué puerto escucha este isolate.
   sendPort.send(port.sendPort);
 
   await for (var msg in port) {
@@ -898,11 +898,11 @@ Future sendReceive(SendPort port, msg) {
 }
 {% endprettify %}
 
-Here, `dataLoader()` is the `Isolate` that runs in its own separate execution thread.
-In the isolate you can perform more CPU intensive processing (parsing a big JSON, for
-example), or perform computationally intensive math, such as encryption or signal processing.
+Aquí, , `dataLoader()` es el `Isolate` que se ejecuta en su propio hilo de ejecución separado.
+En el isolate puede realizar un procesamiento más intensivo de la CPU (analizando un JSON grande, por
+ejemplo), o realizar cálculos matemáticos intensivos en computación, como encriptación o procesamiento de señales.
 
-You can run the full example below:
+Puede ejecutar el ejemplo completo a continuación:
 
 {% prettify dart %}
 import 'dart:convert';
@@ -998,12 +998,12 @@ class _SampleAppPageState extends State<SampleAppPage> {
     });
   }
 
-  // the entry point for the isolate
+  // el punto de entrada de el isolate
   static dataLoader(SendPort sendPort) async {
     // Open the ReceivePort for incoming messages.
     ReceivePort port = new ReceivePort();
 
-    // Notify any other isolates what port this isolate listens to.
+    // Notifique a cualquier otro isolate a qué puerto escucha este isolate.
     sendPort.send(port.sendPort);
 
     await for (var msg in port) {
@@ -1025,14 +1025,14 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-## How do I make network requests?
+## ¿Cómo hago solicitudes de red?
 
-In Xamarin.Forms you would use `HttpClient`. Making a network call in Flutter
-is easy when you use the popular [`http` package](https://pub.dartlang.org/packages/http).
-This abstracts away a lot of the networking that you might normally implement yourself,
-making it simple to make network calls.
+En Xamarin.Forms usted usaría `HttpClient`. Hacer una llamada de red en Flutter
+es fácil cuando usas el popular [`http` package](https://pub.dartlang.org/packages/http).
+Esto abstrae gran parte de la red que usted mismo podría implementar normalmente,
+lo que simplifica la realización de llamadas de red.
 
-To use the `http` package, add it to your dependencies in `pubspec.yaml`:
+Para usar el paquete `http`, agréguelo a sus dependencias en `pubspec.yaml`:
 
 <!-- skip -->
 {% prettify yaml %}
@@ -1041,7 +1041,7 @@ dependencies:
   http: ^0.11.3+16
 {% endprettify %}
 
-To make a network request, call `await` on the `async` function `http.get()`:
+Para hacer una petición de red, llame `await` en la función `async` `http.get()`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -1060,19 +1060,19 @@ import 'package:http/http.dart' as http;
 }
 {% endprettify %}
 
-## How do I show the progress for a long-running task?
+## ¿Cómo puedo mostrar el progreso de una tarea de larga duración?
 
-In Xamarin.Forms you would typically create a loading indicator, either
-directly in XAML or through a 3rd party plugin such as AcrDialogs.
+En Xamarin.Forms normalmente se crea un indicador de carga, ya sea directamente
+en XAML o a través de un plugin de terceros como AcrDialogs.
 
-In Flutter, use a `ProgressIndicator` widget. Show the progress programmatically
-by controlling when it's rendered through a boolean flag. Tell Flutter to update
-its state before your long-running task starts, and hide it after it ends.
+En Flutter, usa un widget `ProgressIndicator`. Muestre el progreso de forma programática
+controlando cuándo se renderiza a través de una bandera booleana. Dile a Flutter que actualice
+su estado antes de que comience la tarea de larga duración, y ocultarla después de que finalice.
 
-In the following example, the build function is separated into three different
-functions. If `showLoadingDialog()` is `true` (when `widgets.length == 0`),
-then render the `ProgressIndicator`. Otherwise, render the
-`ListView` with the data returned from a network call.
+En el siguiente ejemplo, la función de construcción se divide en tres funciones diferentes.
+Si `showLoadingDialog()` es `true` (cuando `widgets.length == 0`),
+entonces renderiza `ProgressIndicator`. De lo contrario, renderiza el
+`ListView` con los datos devueltos de una llamada de red.
 
 <!-- skip -->
 {% prettify dart %}
@@ -1159,27 +1159,27 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-# Project structure & resources
+# Estructura y recursos del proyecto
 
-## Where do I store my image files?
+## ¿Dónde guardo mis archivos de imagen?
 
-Xamarin.Forms has no platform independent way of storing images, you had to place
-images in the iOS `xcasset` folder or on Android, in the various `drawable` folders.
+Xamarin.Forms no tiene una forma independiente de la plataforma para almacenar imágenes,
+tenías que colocar las imágenes en la carpeta iOS `xcasset` o en Android, las diferentes carpetas `drawable`.
 
-While Android and iOS treat resources and assets as distinct items, Flutter apps have
-only assets. All resources that would live in the `Resources/drawable-*`
-folders on Android, are placed in an assets folder for Flutter.
+Mientras que Android e iOS tratan los recursos y activos como elementos distintos, las apps Flutter tienen
+solo activos. Todos los recursos que vivirían en las carpetas `Resources/drawable-*`
+de Android, se colocan en una carpeta de activos para Flutter.
 
-Flutter follows a simple density-based format like iOS. Assets might be `1.0x`,
-`2.0x`, `3.0x`, or any other multiplier. Flutter doesn't have `dp`s but there
-are logical pixels, which are basically the same as device-independent pixels.
-The so-called
+Flutter sigue un formato simple basado en la densidad como iOS. Los activos pueden ser `1.0x`,
+`2.0x`, `3.0x`, o cualquier otro multiplicador. Flutter no tiene `dp`s pero hay
+píxeles lógicos, que son básicamente los mismos que los píxeles independientes del dispositivo.
+El llamado
 [`devicePixelRatio`](https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html)
-expresses the ratio of physical pixels in a single logical pixel.
+expresa la proporción de píxeles físicos en un solo píxel lógico.
 
-The equivalent to Android's density buckets are:
+Los equivalentes a los contenedores de densidad de Android son:
 
- Android density qualifier | Flutter pixel ratio
+ Calificador de densidad Android | Relación de píxeles en Flutter
  --- | ---
  `ldpi` | `0.75x`
  `mdpi` | `1.0x`
@@ -1188,24 +1188,24 @@ The equivalent to Android's density buckets are:
  `xxhdpi` | `3.0x`
  `xxxhdpi` | `4.0x`
 
-Assets are located in any arbitrary folder&mdash;Flutter has no
-predefined folder structure. You declare the assets (with location) in
-the `pubspec.yaml` file, and Flutter picks them up.
+Los activos se ubican en cualquier carpeta arbitraria, Flutter no tiene
+una estructura de carpetas predefinida. Usted declara los activos (con ubicación) en
+el archivo `pubspec.yaml`, y Flutter los recoge.
 
-Note that before Flutter 1.0 beta 2, assets defined in Flutter were not
-accessible from the native side, and vice versa, native assets and resources
-weren’t available to Flutter, as they lived in separate folders.
+Tenga en cuenta que antes de Flutter 1.0 beta 2, los activos definidos en Flutter no eran
+accesibles desde el lado nativo, y viceversa, los activos y recursos nativos
+no estaban disponibles para Flutter, ya que vivían en carpetas separadas.
 
-As of Flutter beta 2, assets are stored in the native asset folder,
-and are accessed on the native side using Android's `AssetManager`:
+A partir de Flutter beta 2, los activos se almacenan en la carpeta de activos nativos,
+y se accede a ellos desde el lado nativo utilizando el `AssetManager` de Android:
 
-As of Flutter beta 2, Flutter still cannot access native resources, nor it can
-access native assets.
+A partir de Flutter beta 2, Flutter sigue sin poder acceder a los recursos nativos,
+ni a los activos nativos.
 
-To add a new image asset called `my_icon.png` to our Flutter project, for example,
-and deciding that it should live in a folder we arbitrarily called `images`, you
-would put the base image (1.0x) in the `images` folder, and all the other
-variants in sub-folders called with the appropriate ratio multiplier:
+Para añadir un nuevo activo de imagen llamado `my_icon.png` a nuestro proyecto Flutter, por ejemplo,
+y decidir que debería vivir en una carpeta que arbitrariamente llamamos `images`,
+pondrías la imagen base (1.0x) en la carpeta `images`, y todas las demás
+variantes en subcarpetas llamadas con el multiplicador de proporción apropiado:
 
 ```
 images/my_icon.png       // Base: 1.0x image
@@ -1213,7 +1213,7 @@ images/2.0x/my_icon.png  // 2.0x image
 images/3.0x/my_icon.png  // 3.0x image
 ```
 
-Next, you'll need to declare these images in your `pubspec.yaml` file:
+A continuación, deberá declarar estas imágenes en su archivo `pubspec.yaml`:
 
 <!-- skip -->
 {% prettify yaml %}
@@ -1221,14 +1221,14 @@ assets:
  - images/my_icon.jpeg
 {% endprettify %}
 
-You can then access your images using `AssetImage`:
+A continuación, puede acceder a sus imágenes utilizando `AssetImage`:
 
 <!-- skip -->
 {% prettify dart %}
 return new AssetImage("images/a_dot_burr.jpeg");
 {% endprettify %}
 
-or directly in an `Image` widget:
+o directamente en un widget `Image`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -1238,33 +1238,33 @@ Widget build(BuildContext context) {
 }
 {% endprettify %}
 
-More detailed information can be found in
-[Adding Assets and Images in Flutter](https://flutter.io/assets-and-images/).
+Se puede encontrar información más detallada en
+[Agregando Activos e Imágenes en Flutter](https://flutter.io/assets-and-images/).
 
-## Where do I store strings? How do I handle localization?
+## ¿Dónde almaceno cadenas de texto? ¿Cómo gestiono la ubicación?
 
-Unlike .NET which has `resx` files, Flutter currently doesn't have a dedicated
-resources-like system for strings. At the moment, the best practice is to hold your
-copy text in a class as static fields and accessing them from there. For example:
+A diferencia de.NET que tiene archivos `resx`, Flutter actualmente no tiene un sistema dedicado
+similar a los recursos para las cadenas de texto. Por el momento, la mejor práctica es mantener su
+texto de copia en una clase como campos estáticos y acceder a ellos desde allí. Por ejemplo:
 
 <!-- skip -->
 {% prettify dart %}
 class Strings {
-  static String welcomeMessage = "Welcome To Flutter";
+  static String welcomeMessage = "Bienvenido a Flutter";
 }
 {% endprettify %}
 
-Then in your code, you can access your strings as such:
+Luego, en tu código, puedes acceder a tus cadenas de texto como tal:
 
 <!-- skip -->
 {% prettify dart %}
 new Text(Strings.welcomeMessage)
 {% endprettify %}
 
-By default, Flutter only supports US English for its strings. If you need to
-add support for other languages, include the `flutter_localizations`
-package. You might also need to add Dart's [`intl`](https://pub.dartlang.org/packages/intl)
-package to use i10n machinery, such as date/time formatting.
+Por defecto, Flutter sólo soporta el inglés de EE.UU. para sus cadenas de texto. Si usted necesita
+agregar soporte para otros idiomas, incluye el paquete `flutter_localizations`.
+Es posible que también tenga que agregar el paquete [`intl`](https://pub.dartlang.org/packages/intl)
+de Dart para utilizar la maquinaria i10n, como el formato de fecha/hora.
 
 <!-- skip -->
 {% prettify yaml %}
@@ -1275,8 +1275,8 @@ dependencies:
   intl: "^0.15.6"
 {% endprettify %}
 
-To use the `flutter_localizations` package,
-specify the `localizationsDelegates` and `supportedLocales` on the app widget:
+Para usar el paquete `flutter_localizations`,
+especifique `localizationsDelegates` y `supportedLocales` en el widget de la aplicación:
 
 <!-- skip -->
 {% prettify dart %}
@@ -1297,14 +1297,14 @@ new MaterialApp(
 )
 {% endprettify %}
 
-The delegates contain the actual localized values, while the `supportedLocales`
-defines which locales the app supports. The above example uses a `MaterialApp`,
-so it has both a `GlobalWidgetsLocalizations` for the base
-widgets localized values, and a `MaterialWidgetsLocalizations` for the Material
-widgets localizations. If you use `WidgetsApp` for your app, you don't
-need the latter. Note that these two delegates contain "default"
-values, but you'll need to provide one or more delegates for your own app's
-localizable copy, if you want those to be localized too.
+Los delegados contienen los valores reales de las ubicaciones, mientras que los `supportedLocales`
+define qué ubicaciones soporta la aplicación. El ejemplo anterior utiliza un `MaterialApp`,
+por lo que tiene tanto un `GlobalWidgetsLocalizations` para los valores de ubicación
+de los widgets base, como un `MaterialWidgetsLocalizations` para las ubicaciones
+de los Material widgets. Si utiliza `WidgetsApp` para su app, no necesita esta última.
+Tenga en cuenta que estos dos delegados contienen valores "predeterminados",
+pero tendrá que proporcionar uno o más delegados para la copia traducible de su propia
+aplicación, si desea que también se traduzcan.
 
 When initialized, the `WidgetsApp` (or `MaterialApp`) creates a
 [`Localizations`](https://docs.flutter.io/flutter/widgets/Localizations-class.html)
