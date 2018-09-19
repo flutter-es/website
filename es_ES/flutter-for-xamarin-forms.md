@@ -736,7 +736,7 @@ loadData() async {
 }
 {% endprettify %}
 
-Una vez que la `await`ed llamada de red se haya realizado, actualice la UI llamando a `setState()`,
+Una vez que la llamada de red `await` se haya realizado, actualice la UI llamando a `setState()`,
 que desencadena una reconstrucción del sub-árbol del widget y actualiza los datos.
 
 El siguiente ejemplo carga datos asincrónicamente y los muestra en un `ListView`:
