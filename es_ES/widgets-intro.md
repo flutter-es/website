@@ -38,7 +38,7 @@ void main() {
   runApp(
     Center(
       child: Text(
-        'Hola, mundo!',
+        'Hello, world!',
         textDirection: TextDirection.ltr,
       ),
     ),
@@ -57,7 +57,7 @@ y su hijo, el widget
 El framework obliga al widget raíz a cubrir la pantalla, lo que significa que el texto
 "Hola, mundo" termina centrado en la pantalla. La dirección del texto debe
 especificarse en esta instancia; cuando se usa el widget MaterialApp,
-este lo hace por usted, como se demuestra más adelante.
+este lo hace por ti, como se demuestra más adelante.
 
 Al escribir una aplicación, comúnmente creará nuevos widgets que son subclases de,
 ya sea
@@ -81,11 +81,11 @@ son de uso muy común:
 
  * [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html): El widget
    [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
-   le permite crear una cadena de texto con estilo, dentro de su aplicación.
+   te permite crear una cadena de texto con estilo, dentro de su aplicación.
 
  * [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html),
    [`Column`](https://docs.flutter.io/flutter/widgets/Column-class.html):
-   Estos widgets flexibles le permiten crear layout flexibles tanto en la
+   Estos widgets flexibles te permiten crear layout flexibles tanto en la
    dirección horizontal
    ([`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html)) como
    en la vertical.
@@ -95,8 +95,8 @@ son de uso muy común:
  * [`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html):
    En lugar de estar orientados linealmente (ya sea horizontal o verticalmente), un widget
    [`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html)
-   le permite apilar los widgets uno encima del otro en el orden como se pintan.
-   A continuación, puede utilizar el widget
+   te permite apilar los widgets uno encima del otro en el orden como se pintan.
+   A continuación, puedes utilizar el widget
    [`Positioned`](https://docs.flutter.io/flutter/widgets/Positioned-class.html)
    sobre los hijos de un
    [`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html) para
@@ -105,7 +105,7 @@ son de uso muy común:
 
  * [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html):
    El widget [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html)
-   le permite crear elementos visuales rectangulares. Un contenedor puede ser
+   te permite crear elementos visuales rectangulares. Un contenedor puede ser
    decorado con un
    [`BoxDecoration`](https://docs.flutter.io/flutter/painting/BoxDecoration-class.html),
    como un fondo, un borde o una sombra. Un
@@ -115,7 +115,7 @@ son de uso muy común:
    [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html)
    puede transformarse en un espacio tridimensional utilizando una matriz.
 
-A continuación se presentan algunos widgets simples que combinan estos y otros widgets:
+A continuación, se presentan algunos widgets simples que combinan estos y otros widgets:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -160,7 +160,7 @@ class MyAppBar extends StatelessWidget {
 class MyScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Material es una hoja de papel conceptual en la que aparece la IU.
+    // Material es una hoja de papel conceptual en la que aparece la UI.
     return Material(
       // Column es un diseño vertical y lineal.
       child: Column(
@@ -190,8 +190,8 @@ void main() {
 }
 ```
 
-Asegúrese de tener una entrada `uses-material-design: true` en la sección `flutter`
-de su archivo `pubspec.yaml`. Permite utilizar el conjunto predefinido de
+Asegúrate de tener una entrada `uses-material-design: true` en la sección `flutter`
+de tu archivo `pubspec.yaml`. Permite utilizar el conjunto predefinido de
 [Iconos de Material](https://design.google.com/icons/).
 
 ```yaml
@@ -213,7 +213,7 @@ layout [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html) para
 organizar sus hijos. El hijo del medio, el widget `title`, se marca como
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html),
 lo que significa que se expande para rellenar cualquier espacio disponible
-que no haya sido consumido por los otros widgets hijos. Usted puede tener múltiples
+que no haya sido consumido por los otros widgets hijos. Puedes tener múltiples
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html)
 hijos y determinar la proporción en la que consumen el espacio disponible utilizando
 el argumento
@@ -225,7 +225,7 @@ El widget `MyScaffold` organiza a sus hijos en una columna vertical. En la
 parte superior de la columna se coloca una instancia de `MyAppBar`, pasándole un
 widget [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
 para usarlo como su título. Pasar widgets como argumentos de widgets es una técnica muy poderosa
-que le permite crear widgets genéricos que pueden ser reutilizados en una amplia variedad
+que te permite crear widgets genéricos que pueden ser reutilizados en una amplia variedad
 de formas. Finalmente, `MyScaffold` utiliza un
 [`Expanded`](https://docs.flutter.io/flutter/widgets/Expanded-class.html) para
 rellenar el espacio restante con su cuerpo, que consiste en un mensaje centrado.
@@ -238,15 +238,15 @@ _Articulo principal: [Resumen de widgets: Material Components](https://flutter.i
 Flutter proporciona una serie de widgets que te ayudan a crear aplicaciones que
 siguen el Material Design. Una aplicación Material comienza con el widget
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
-que construye una serie de widgets en la raíz de su aplicación,
+que construye una serie de widgets en la raíz de tu aplicación,
 incluyendo un
 [`Navigator`](https://docs.flutter.io/flutter/widgets/Navigator-class.html),
-que gestiona una pila de widgets identificados por cadenas de exto, también conocidas como "routes".
+que gestiona una pila de widgets identificados por strings, también conocidas como "routes".
 El
 [`Navigator`](https://docs.flutter.io/flutter/widgets/Navigator-class.html)
-le permite una transición sin problemas entre pantallas de su aplicación. Utilizar el widget
+te permite una transición sin problemas entre pantallas de su aplicación. Utilizar el widget
 [`MaterialApp`](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
-es totalmente opcional pero es una buena práctica.
+es totalmente opcional, pero es una buena práctica.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -266,24 +266,24 @@ class TutorialHome extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.menu),
-          tooltip: 'Menú de navegación',
+          tooltip: 'Navigation menu',
           onPressed: null,
         ),
         title: Text('Título de ejemplo'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            tooltip: 'Buscar',
+            tooltip: 'Search',
             onPressed: null,
           ),
         ],
       ),
       // el body es la mayor parte de la pantalla.
       body: Center(
-        child: Text('Hola, mundo!'),
+        child: Text('Hello, world!'),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Agregar', // utilizado por las tecnologías de accesibilidad para discapacitados
+        tooltip: 'Add', // utilizado por las tecnologías de accesibilidad para discapacitados
         child: Icon(Icons.add),
         onPressed: null,
       ),
@@ -329,7 +329,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('MyButton fue pulsado!');
+        print('MyButton was tapped!');
       },
       child: Container(
         height: 36.0,
@@ -340,7 +340,7 @@ class MyButton extends StatelessWidget {
           color: Colors.lightGreen[500],
         ),
         child: Center(
-          child: Text('Contratar'),
+          child: Text('Engage'),
         ),
       ),
     );
@@ -350,7 +350,7 @@ class MyButton extends StatelessWidget {
 
 El widget
 [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
-no tiene una representación visual sino que detecta los gestos realizados por el usuario.
+no tiene una representación visual, sino que detecta los gestos realizados por el usuario.
 Cuando el usuario pulsa en
 [`Container`](https://docs.flutter.io/flutter/widgets/Container-class.html),
 el
@@ -384,10 +384,10 @@ Cuando en un widget es invocado el método
 [`build`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html),
 usa los valores almacenados por aquél (el widget) para derivar nuevos argumentos para los widgets que crea.
 
-Con el fin de crear experiencias más complejas, por ejemplo para reaccionar de formas
-más interesante a las entradas del usuario, las aplicaciones generalmente almacenan un estado.
+Con el fin de crear experiencias más complejas, por ejemplo, para reaccionar de formas
+más interesantes a las entradas del usuario, las aplicaciones generalmente almacenan un estado.
 Flutter utiliza StatefulWidgets para capturar esta idea. StatefulWidgets son
-widgets especiales que saben como generar objetos State, que luego se usan
+widgets especiales que saben cómo generar objetos State, que luego se usan
 para mantener el estado. Considera este ejemplo básico, usando el
 [`RaisedButton`](https://docs.flutter.io/flutter/material/RaisedButton-class.html)
 mencionado anteriormente:
@@ -440,7 +440,7 @@ class _CounterState extends State<Counter> {
 
 Puede que se pregunte por qué StatefulWidget y State son objetos separados. En
 Flutter, estos dos tipos de objetos tienen diferentes ciclos de vida. Los Widgets son
-objetos temporales, usado para construir una presentación de la aplicación en su
+objetos temporales, usados para construir una presentación de la aplicación en su
 estado actual. Por otro lado, los objetos de estado son persistentes entre llamadas a
 [`build()`](https://docs.flutter.io/flutter/widgets/State/build.html),
 permitiéndoles recordar información.
@@ -579,7 +579,7 @@ Almacena los valores que recibe en su constructor en propiedades
 [`final`](https://www.dartlang.org/docs/dart-up-and-running/ch02.html#final-and-const),
 que luego utiliza durante la ejecución del método
 [`build`](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html).
-Por ejemplo el booleano `inCart` para alternar entre dos apariencias visuales:
+Por ejemplo, el booleano `inCart` para alternar entre dos apariencias visuales:
 uno que usa el color primario del tema actual y otro que usa gris.
 
 Cuando el usuario toca el elemento de la lista, el widget no modifica su valor `inCart`
@@ -711,8 +711,8 @@ en una llamada
 [`setState`](https://docs.flutter.io/flutter/widgets/State-class.html#setState).
 Llamando
 [`setState`](https://docs.flutter.io/flutter/widgets/State-class.html#setState)
-marca este widget como sucio y lo programa para que sea reconstruído la próxima vez
-que su aplicación necesite actualizar la pantalla. Si te olvidas de llamar
+marca este widget como sucio y lo programa para que sea reconstruido la próxima vez
+que tu aplicación necesite actualizar la pantalla. Si te olvidas de llamar
 [`setState`](https://docs.flutter.io/flutter/widgets/State-class.html#setState)
 cuando se modifica el estado interno de un widget, el framework no sabrá que tu
 widget está sucio y podría no llamar a la función
@@ -721,7 +721,7 @@ lo que significa que es posible que la interfaz de usuario no se actualice para
 reflejar el estado cambiado.
 
 Gestionando el estado de esta manera, no es necesario escribir código separado
-para crear y actualizar widgets hijo. En su lugar, simplemente implemente la función
+para crear y actualizar widgets hijo. En su lugar, simplemente implementa la función
 de construcción, que maneja ambas situaciones.
 
 Responder a los eventos del ciclo de vida de los widgets
@@ -753,7 +753,7 @@ para realizar tareas de limpieza. Por ejemplo, puedes anular
 [`dispose`](https://docs.flutter.io/flutter/widgets/State-class.html#dispose)
 para cancelar timers o darse de baja de los servicios de la plataforma. Implementaciones de
 [`dispose`](https://docs.flutter.io/flutter/widgets/State-class.html#dispose)
-tipicamente terminan llamando a
+típicamente terminan llamando a
 [`super.dispose`](https://docs.flutter.io/flutter/widgets/State-class.html#dispose).
 
 Llaves
@@ -761,7 +761,7 @@ Llaves
 
 _Artículo principal: [`Key`](https://docs.flutter.io/flutter/foundation/Key-class.html)_
 
-Puede usar llaves para controlar que widgets el framework coincide con
+Puedes usar llaves para controlar que los widgets del framework coinciden con
 otros widgets cuando un widget se reconstruye. Por defecto, el framework coincide
 widgets en la construcción actual y anterior de acuerdo con su
 [`runtimeType`](https://docs.flutter.io/flutter/widgets/Widget-class.html#runtimeType)
@@ -781,17 +781,17 @@ widget. Por ejemplo, el widget `ShoppingList`, que construye solo las instancias
 
  * Asignando a cada entrada de la lista una llave "semántica", la lista infinita puede
    ser más eficaz porque el framework sincroniza las entradas con las llaves semánticas
-   coincidentes y por lo tanto, con apariencias visuales similares (o identicas).
-   Además, sincronizar las entradas semánticamente significa que el estado retenido en
-   los widgets hijos de estado permanece unido a la misma entrada semántica en lugar
-   de la entrada en la misma posición numérica en la ventana de visualización.
+   coincidentes y, por lo tanto, con apariencias visuales similares (o identicas).
+   Además, sincronizar las entradas semánticamente significa que el estado conservado en
+   los widgets hijo stateful permanecen unidos a la misma entrada semántica en lugar
+   de la entrada, en la misma posición numérica dentro del viewport.
 
 Llaves globales
 ---------------
 
 _Artículo principal: [`GlobalKey`](https://docs.flutter.io/flutter/widgets/GlobalKey-class.html)_
 
-Puede utilizar llaves globales para identificar de forma única los widgets hijos.
+Puedes utilizar llaves globales para identificar de forma única los widgets hijos.
 Las llaves globales deben ser globalmente únicas en toda la jerarquía de widgets,
 a diferencia de las llaves locales que sólo necesitan ser únicas entre hermanos.
 Debido a que son globalmente únicos, se puede usar una llave global
