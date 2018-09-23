@@ -24,8 +24,8 @@ Normalmente, un objeto [`State`](https://docs.flutter.io/flutter/widgets/State-c
 Este patrón es tan común que hay dos widgets que ayudan a reconstruir los widgets cuando las animaciones cambian de valor: [`AnimatedWidget`](https://docs.flutter.io/flutter/widgets/AnimatedWidget-class.html)
 y [`AnimatedBuilder`](https://docs.flutter.io/flutter/widgets/AnimatedBuilder-class.html).
 El primero, `AnimatedWidget`, es muy útil para los widgets animados sin estado.
-Para usar `AnimatedWidget`, simplemente subclasifíquelo e implemente la función [`build`](https://docs.flutter.io/flutter/widgets/AnimatedWidget/build.html).
-El segundo, `AnimatedBuilder`, es útil para widgets más complejos que desean incluir una animación como parte de una función de construcción más grande. Para utilizar `AnimatedBuilder`, simplemente construya el widget y pase una función `Builder`.
+Para usar `AnimatedWidget`, simplemente herede de él e implemente la función [`build`](https://docs.flutter.io/flutter/widgets/AnimatedWidget/build.html).
+El segundo, `AnimatedBuilder`, es útil para widgets más complejos que desean incluir una animación como parte de una función de construcción más grande. Para utilizar `AnimatedBuilder`, simplemente construye el widget y pasa una función `Builder`.
 
 ### `addStatusListener`
 
@@ -34,9 +34,9 @@ Las animaciones también proporcionan un [`AnimationStatus`](https://docs.flutte
 
 ## AnimationController
 
-Para crear una animación, primero cree un [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html). Además de ser una animación en sí misma, un `AnimationController` te permite controlar la animación. Por ejemplo, puede decirle al controlador que reproduzca la animación [`forward`](https://docs.flutter.io/flutter/animation/AnimationController/forward.html) o [`detener`](https://docs.flutter.io/flutter/animation/AnimationController/stop.html) la animación. También puede [`lanzar`](https://docs.flutter.io/flutter/animation/AnimationController/fling.html) animaciones, que utilizan una simulación física, como un resorte, para dirigir la animación.
+Para crear una animación, primero cree un [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html). Además de ser una animación en sí misma, un `AnimationController` te permite controlar la animación. Por ejemplo, puedes decirle al controlador que reproduzca la animación [`forward`](https://docs.flutter.io/flutter/animation/AnimationController/forward.html) o [`detener`](https://docs.flutter.io/flutter/animation/AnimationController/stop.html) la animación. También puedes [`lanzar`](https://docs.flutter.io/flutter/animation/AnimationController/fling.html) animaciones, que utilizan una simulación física, como un resorte, para dirigir la animación.
 
-Una vez que haya creado un controlador de animación, puede empezar a crear otras animaciones basadas en él. Por ejemplo, se puede crear un
+Una vez que hayas creado un controlador de animación, puedes empezar a crear otras animaciones basadas en él. Por ejemplo, se puede crear un
 [`ReverseAnimation`](https://docs.flutter.io/flutter/animation/ReverseAnimation-class.html)
 que refleja la animación original pero corre en la dirección opuesta (ej., de 1.0 a 0.0). Del mismo modo, se puede crear una
 [`CurvedAnimation`](https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html)
@@ -44,15 +44,15 @@ cuyo valor se ajusta mediante una [`curva`](https://docs.flutter.io/flutter/anim
 
 ## Tweens
 
-Para animar más allá del intervalo de 0.0 a 1.0 , puede utilizar un [`Tween<T>`](https://docs.flutter.io/flutter/animation/Tween-class.html), que interpola entre su valor [`inicial`](https://docs.flutter.io/flutter/animation/Tween/begin.html) y [`final`](https://docs.flutter.io/flutter/animation/Tween/end.html). Muchos tipos tienen subclases `Tween` específicas que proporcionan interpolación específica del tipo. Por ejemplo, [`ColorTween`](https://docs.flutter.io/flutter/animation/ColorTween-class.html) interpola entre colores y [`RectTween`](https://docs.flutter.io/flutter/animation/RectTween-class.html) interpola entre rectas. Puedes definir tus propias interpolaciones creando tu propia subclase de `Tween` y anulando la función [`lerp`](https://docs.flutter.io/flutter/animation/Tween/lerp.html).
+Para animar más allá del intervalo de 0.0 a 1.0, puedes utilizar un [`Tween<T>`](https://docs.flutter.io/flutter/animation/Tween-class.html), que interpola entre su valor [`inicial`](https://docs.flutter.io/flutter/animation/Tween/begin.html) y [`final`](https://docs.flutter.io/flutter/animation/Tween/end.html). Muchos tipos tienen subclases `Tween` específicas que proporcionan interpolación específica del tipo. Por ejemplo, [`ColorTween`](https://docs.flutter.io/flutter/animation/ColorTween-class.html) interpola entre colores y [`RectTween`](https://docs.flutter.io/flutter/animation/RectTween-class.html) interpola entre rectas. Puedes definir tus propias interpolaciones creando tu propia subclase de `Tween` y sobreescribiendo la función [`lerp`](https://docs.flutter.io/flutter/animation/Tween/lerp.html).
 
-Por sí mismo, una Tween sólo define cómo interpolar entre dos valores. Para obtener un valor concreto para el frame actual de una animación, también necesita una animación para determinar el estado actual. Hay dos maneras de combinar un Tween con una animación para obtener un valor concreto:
+Por sí mismo, una Tween sólo define cómo interpolar entre dos valores. Para obtener un valor concreto para el frame actual de una animación, 
 
-1. Puedes [`evaluar`](https://docs.flutter.io/flutter/animation/Tween/evaluate.html)
-el Tween en el valor actual de una animación. Este enfoque es muy útil para los widgets que ya están escuchando la animación y por lo tanto reconstruyendo cada vez que la animación cambia de valor.
+también necesitas una animación para determinar el estado actual. Hay dos maneras de combinar un Tween con una animación para obtener un valor concreto:
 
-2. Puedes [`animar`](https://docs.flutter.io/flutter/animation/Animatable/animate.html)
-   el tween basado en la animación. En lugar de devolver un único valor, la función animada devuelve una nueva `Animación` que incorpora el tween. Este enfoque es más útil cuando se desea dar la animación recién creada a otro widget, que puede leer el valor actual que incorpora el tween así como escuchar los cambios en el valor.
+1. Puedes [`evaluar`](https://docs.flutter.io/flutter/animation/Tween/evaluate.html) el Tween en el valor actual de una animación. Este enfoque es muy útil para los widgets que ya están escuchando la animación y por lo tanto reconstruyendo cada vez que la animación cambia de valor.
+
+2. Puedes [`animar`](https://docs.flutter.io/flutter/animation/Animatable/animate.html) el tween basado en la animación. En lugar de devolver un único valor, la función animada devuelve una nueva `Animación` que incorpora el tween. Este enfoque es más útil cuando se desea dar la animación recién creada a otro widget, que puede leer el valor actual que incorpora el tween así como escuchar los cambios en el valor.
 
 # Arquitectura
 
@@ -60,12 +60,10 @@ Las animaciones se construyen a partir de una serie de elementos básicos.
 
 ## Scheduler
 
-El
-[`SchedulerBinding`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding-class.html)
-es una clase singleton que expone los primitivos de programación de Flutter.
+El [`SchedulerBinding`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding-class.html) es una clase singleton que expone los scheduling primitives de Flutter
 
-Para esta discusión, la clave primitiva son los frame callbacks. Cada vez que es necesario mostrar un cuadro en la pantalla, el motor de Flutter activa una llamada de retorno de "cuadro inicial" que el programador multiplexa a todos los oyentes registrados utilizando [`scheduleFrameCallback()`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding/scheduleFrameCallback.html).
-Todas estas llamadas de retorno reciben el sello de tiempo oficial del frame, en forma de una `duración` de alguna parte temporal arbitraria. Dado que todas las llamadas de retorno tienen el mismo tiempo, cualquier animación activada desde estas llamadas de retorno parecerá estar exactamente sincronizada incluso si tardan unos pocos milisegundos en ejecutarse.
+Para esta discusión, la clave primitiva son los frame callbacks. Cada vez que es necesario mostrar un frame en la pantalla, el motor de Flutter activa un callback “begin frame” que el scheduler multiplexa a todos los oyentes registrados utilizando [`scheduleFrameCallback()`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding/scheduleFrameCallback.html).
+Todos estos callbacks reciben el sello de tiempo oficial del frame, en forma de una `duración` de alguna parte temporal arbitraria. Dado que todas los callbacks tienen el mismo tiempo, cualquier animación activada desde estas llamadas de retorno parecerá estar exactamente sincronizada incluso si tardan unos pocos milisegundos en ejecutarse.
 
 ## Tickers
 
@@ -86,7 +84,7 @@ En principio, las simulaciones son stateless, pero en la práctica algunas simul
 
 Hay [varias implementaciones concretas](https://docs.flutter.io/flutter/physics/physics-library.html) de la clase `Simulation` para diferentes efectos.
 
-## Animables
+## Animatables
 
 La clase abstracta [`Animatable`](https://docs.flutter.io/flutter/animation/Animatable-class.html) asigna un doble a un valor de un tipo particular.
 
@@ -100,7 +98,7 @@ Tiene una noción de un tipo de salida (`T`), un valor `inicial` y un valor `fin
 
 Las clases `Tween` son stateless e immutables.
 
-### Composición de animables
+### Composición de Animatables
 
 Pasar un método `Animatable<doble>` (el parent) a un método `Animatable` `chain()` crea una nueva subclase Animatable que aplica el mapeo del parent y luego el mapeo del hijo.
 
@@ -115,16 +113,16 @@ Las clases `Curve` son stateless e immutables.
 La clases abstractas 
 [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html) proporciona un valor de un tipo dado, un concepto de dirección y estado de la animación, y una interfaz de escucha para registrar las llamadas de retorno que se invocan cuando el valor o estado cambia.
 
-Algunas subclases de `Animation` tienen valores que nunca cambian ([`kAlwaysCompleteAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysCompleteAnimation-constant.html), [`kAlwaysDismissedAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysDismissedAnimation-constant.html), [`AlwaysStoppedAnimation`](https://docs.flutter.io/flutter/animation/AlwaysStoppedAnimation-class.html)); por lo que el registro de llamadas de retorno no tiene ningún efecto, ya que las llamadas de retorno nunca son llamadas.
+Algunas subclases de `Animation` tienen valores que nunca cambian ([`kAlwaysCompleteAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysCompleteAnimation-constant.html), [`kAlwaysDismissedAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysDismissedAnimation-constant.html), [`AlwaysStoppedAnimation`](https://docs.flutter.io/flutter/animation/AlwaysStoppedAnimation-class.html)); por lo que el registro de llamadas de retorno no tiene ningún efecto, ya que los callbacks nunca son llamados.
 
 La variante `Animación<doble>` es especial porque se puede utilizar para representar un doble nominal en el rango 0.0-1.0, que es la entrada esperada por las clases `Curve` y `Tween`, así como algunas otras subclases de `Animation`.
 
-Algunas subclases de `Animation` son stateless, simplemente enviando a los oyentes a sus parents. Algunos son muy stateful.
+Algunas subclases de `Animation` son stateless, simplemente enviando a los oyentes a sus widgets padres. Algunos son muy stateful.
 
 
 ### Animaciones compuestas
 
-La mayoría de las subclases de `Animation` toman un "parent" `Animation<double>`. Son impulsados por ese parent.
+La mayoría de las subclases de `Animation` toman un "parent" `Animation<double>`. Son impulsados por ese padre.
 
 La subclase `CurvedAnimation` toma una clase `Animation<double>` (el parent) y un par de clases `Curve` (las curvas forward y reverse) como entrada, y utiliza el valor del parent como entrada a las curvas para determinar su salida. `CurvedAnimation` es inmutable y stateless
 
@@ -132,11 +130,11 @@ La subclase `ReverseAnimation` toma una clase `Animation<double>` como su parent
 
 La subclase `ProxyAnimation` toma una clase `Animation<double>` como su padre y simplemente reenvía el estado actual de ese parent. Sin embargo, el padre es mutable.
 
-La subclase `TrainHoppingAnimation` toma dos parents, y cambia entre ellos cuando sus valores se cruzan.
+La subclase `TrainHoppingAnimation` toma dos padres, y cambia entre ellos cuando sus valores se cruzan.
 
 ### Controladores de animación
 
-El `AnimationController` es una `Animation<double>` statefull que utiliza un `Ticker` para darse vida. Se puede arrancar y parar. Cada tick, toma el tiempo transcurrido desde que se inició y lo pasa a una `Simulation` para obtener un valor. Este es entonces el valor que reporta. Si la `Simulation` informa de que en ese momento ha finalizado, el controlador se detiene por sí mismo.
+El `AnimationController` es una `Animation<double>` statefull que utiliza un `Ticker` para darse vida. Se puede inicial y detener. Cada tick, toma el tiempo transcurrido desde que se inició y lo pasa a una `Simulation` para obtener un valor. Este es entonces el valor que reporta. Si la `Simulation` informa de que en ese momento ha finalizado, el controlador se detiene por sí mismo.
 
 Al controlador de animación se le puede dar un límite inferior y superior para animar entre, y una duración.
 
@@ -152,6 +150,6 @@ Cuando se utiliza `animateWith()`, la simulación dada se utiliza para controlar
 
 Todos estos métodos devuelven el futuro que el `Ticker` proporciona y que se resolverá cuando el controlador detenga o cambie la simulación.
 
-### Adjuntar animables a las animaciones
+### Adjuntar animatables a las animaciones
 
-Pasando una `Animation<doble>` (el nuevo parent) a un método `animatable()` de `Animatable` crea una nueva subclase de Animación que actúa como la Animatable pero es conducida desde el parent dado.
+Pasando una `Animation<doble>` (el nuevo padre) a un método `animatable()` de `Animatable` crea una nueva subclase de Animación que actúa como la Animatable pero es conducida desde el padre dado.

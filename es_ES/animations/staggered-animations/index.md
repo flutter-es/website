@@ -92,7 +92,7 @@ in and out.
 {% endcomment %}
 
 El siguiente diagrama muestra los Intervalos utilizados en el ejemplo
-[basic_staggered_animation](https://github.com/flutter/website/tree/master/src/_includes/code/animation/basic_staggered_animation). Usted puede notar las siguientes características:
+[basic_staggered_animation](https://github.com/flutter/website/tree/master/src/_includes/code/animation/basic_staggered_animation). Puedes notar las siguientes características:
 
 * La opacidad cambia durante el primer 10% de la línea de tiempo.
 * Se produce un pequeño hueco entre el cambio de opacidad y el cambio de anchura.
@@ -204,7 +204,7 @@ Para cada tick de la animación, los valores se actualizan, resultando en una ll
 
   // Esta función se llama cada vez que el controlador "ticks" un nuevo frame.
   // Cuando se ejecuta, todos los valores de la animación habrán sido
-  // actualizado para reflejar el valor actual del controlador.
+  // actualizados para reflejar el valor actual del controlador.
   [[highlight]]Widget _buildAnimation(BuildContext context, Widget child)[[/highlight]] {
     return Container(
       padding: padding.value,
@@ -321,8 +321,7 @@ Los siguientes recursos pueden ayudar a escribir animaciones:
   En particular, vea la documentación de la [libreria de animación](https://docs.flutter.io/flutter/animation/animation-library.html).
 
 [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
-: Demo app que muestra muchos Componentes de Material y otras características de Flutter. La [demo Shrine](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine)
-  implementa una animación Hero.
+: Demo app que muestra muchos Componentes de Material y otras características de Flutter. La [demo Shrine](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine) implementa una animación Hero.
 
 [Especificación del movimiento Material](https://material.io/guidelines/motion/)
 : Describe el movimiento de las aplicaciones de Material.
