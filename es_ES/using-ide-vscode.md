@@ -24,7 +24,7 @@ La [extensión de Flutter](https://marketplace.visualstudio.com/items?itemName=D
 Por favor sigue las instrucciones de la [Configuración del editor](/get-started/editor/#vscode) para instalar la extensión
 Flutter (que incluye la funcionalidad de Flutter).
 
-### Actualizando la extensión<a name="updating"/>
+### Actualizando la extensión
 
 Las actualizaciones de la extensión se envían regularmente. Por defecto, 
 VS Code actualiza automáticamente las extensiones cuando hay actualizaciones 
@@ -204,16 +204,16 @@ desde la [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/user
 ### 'Hot Reloads' vs 'Hot Restarts'
 
 Hot reload funciona inyectando archivos actualizados de código fuente en la 
-máquina virtual Dart en ejecución (máquina virtual). Esto incluye no solo agregar nuevas 
+máquina virtual Dart en ejecución. Esto incluye no solo agregar nuevas 
 clases, sino también agregar métodos y campos a las clases existentes, y cambiar las 
-funciones existentes. Sin embargo, algunos tipos de cambios de código no pueden ser 
-recargados en caliente:
+funciones existentes. Sin embargo, algunos tipos de cambios de código no se reflejarán con 
+hot reload:
 
 * Inicializadores variables globales.
 * Inicializadores de campo estáticos.
 * El método `main()` de la aplicación.
 
-Para estos cambios, fpuedes reiniciar completamente tu aplicación, sin tener que finalizar 
+Para estos cambios, puedes reiniciar completamente tu aplicación, sin tener que finalizar 
 tu sesión de depuración. Para realizar un hot restart, ejecute el comando
 **Flutter: Hot Restart** desde la 
 [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), o presiona `Ctrl`+`F5`.
