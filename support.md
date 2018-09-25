@@ -4,23 +4,23 @@ layout: page
 permalink: /support/
 ---
 
-We're open source and would love to hear from you!
+Somos código abierto y ¡nos encantaria saber de ti!
 
-We encourage you to reach out and
-join the conversation in a variety of ways.
+Te animamos a acercarte y unirte a 
+la conversacion en variadas formas.
 
-- [Ask HOWTO questions that can be answered with specific solutions][so]
-- [Live chat with Flutter engineers and users][gitter]
-- [Discuss Flutter, best practices, app design, and more on our mailing list][mailinglist]
-- [Report bugs and request features and docs][issues]
-- [Follow us on Twitter: @flutterio](https://twitter.com/flutterio/)
-- [Sign up to Future UX Studies on Flutter](/research-signup)
-- [Join the subreddit to keep up with the latest in the Flutter community][reddit]
+- [Preguntas sobre "Como Hacer" que puedan ser respondidas con una solución especifica][so]
+- [Chat en vivo con ingenieros y usuarios de Flutter][gitter]
+- [Discute sobre Flutter, mejores prácticas, diseño de apps, y más en nuestra lista de correo][mailinglist]
+- [Reporta bugs y pide funcionalidades y documentos][issues]
+- [Siguenos en Twitter: @flutterio](https://twitter.com/flutterio/)
+- [Registrate en Future UX Studies en Flutter](/research-signup)
+- [Únete al subreddit para estar al tanto de lo úlitmo en la Comunidad Flutter][reddit]
 
-An easy way to send feedback is to "thumbs up"
-issues important to you in our [issue tracker][issues]:
+Una forma sencilla de enviar feedback es enviarnos issues 
+de cosas importantes para ti en nuestro [issue tracker][issues]:
 
-<img src="/images/thumbs-up-support.png" alt="thumbs up an issue in GitHub">
+<img src="/images/thumbs-up-support.png" alt="enviar un issue en GitHub">
 
 [issues]: https://github.com/flutter/flutter/issues
 [so]: https://stackoverflow.com/tags/flutter
