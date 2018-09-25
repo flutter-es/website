@@ -91,7 +91,7 @@ Necesita conectar un dispositivo o iniciar un simulador para continuar.
 La extensión Flutter selecciona automáticamente el último dispositivo conectado.
 Sin embargo, si tiene varios dispositivos/simuladores conectados, haga clic en
 **dispositivo** en la barra de estado para ver una lista de selección
-en la parte superior de la pantalla Selecciona el dispositivo que desea usar para
+en la parte superior de la pantalla. Selecciona el dispositivo que deseas usar para
 ejecutar o depurar.
 
 ### Ejecuta la aplicación sin puntos de interrupción
@@ -103,13 +103,13 @@ ejecutar o depurar.
 
 ### Ejecutar aplicación con puntos de interrupción
 
-1. Si lo deseas, establezca puntos de interrupción en tu código fuente.
+1. Si lo deseas, establece puntos de interrupción en tu código fuente.
 1. Clic en **Debug>Start Debugging** en la ventana principal del IDE, o presiona `F5`.
 * La parte derecha de **Debug Sidebar** muestra stack frames y variables.
 * El panel inferior de **Debug Console** muestra la salida de registros detallados.
 * La depuración se basa en una configuración de inicio predeterminada. Para personalizar esto,
   haz clic en el el engranaje en la parte superior de **Debug Sidebar** para crear un archivo 
-  `launch.json`. Luego puede modificar los valores.
+  `launch.json`. Luego puedes modificar los valores.
 
 ## Edición rápida y actualización en ciclo de desarrollo
 
@@ -137,19 +137,19 @@ incluyendo:
 ### Depurando con Observatory
 
 Observatory es una herramienta adicional de depuración y creación de perfiles presentada 
-con una interfaz de usuario basada en html. Para detalles vea la [página Observatory](https://dart-lang.github.io/observatory/).
+con una interfaz de usuario basada en html. Para detalles ve la [página Observatory](https://dart-lang.github.io/observatory/).
 
 Para abrir Observatory:
 
-1. Ejecute su aplicación en modo de depuración.
-1. Ejecute el comando **Open Observatory** desde la [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+1. Ejecuta tu aplicación en modo de depuración.
+1. Ejecuta el comando **Open Observatory** desde la [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 ## Consejos de edición para el código Flutter
 
 ### Asistencias y soluciones rápidas
 
 Las asistencias son cambios de código relacionados con un determinado identificador 
-de código. Varias de ellas están disponibles cuando el cursor se coloca en un 
+de código. Varias de ellas están disponibles cuando el cursor se coloca sobre un 
 identificador de widget Flutter, como se indica mediante el icono de bombilla amarilla. 
 La asistencia se puede invocar haciendo clic en la bombilla o usando el atajo de teclado 
 `Ctrl`+`Enter`, como se ilustra aquí:
@@ -159,22 +159,22 @@ La asistencia se puede invocar haciendo clic en la bombilla o usando el atajo de
 Las soluciones rápidas son similares, solo se muestran con un código que tiene un error y 
 pueden ayudar a corregirlo.
 
-#### Ajustar con la nueva asistencia de widgets
-Esto se puede usar cuando tiene un widget que desea envolver en un widget circundante, 
-por ejemplo, si desea envolver un widget en un `Row` o un `Column`.
+#### Envolver con la nueva asistencia de widgets
+Esto se puede usar cuando tiene un widget que deseas envolver en un widget circundante, 
+por ejemplo, si deseas envolver un widget en un `Row` o un `Column`.
 
-####  Ajustar la lista de widgets con la nueva asistencia de widgets
+####  Asistencia para envolver una lista de widgets con un nuevo widget
 Similar a la asistencia anterior, pero para envolver una lista existente de widgets en 
 lugar de un widget individual.
 
 #### Asistencia para convertir child a children
-Cambiar un argumento child a un argumento children, y ajustar el valor del argumento en
+Cambiar un argumento child a un argumento children, y envolver el valor del argumento en
 una lista.
 
 ### Snippets
 
-Los snippets se pueden usar para acelerar la entrada a las estructuras de código típicas. 
-Se invocan escribiendo su 'prefijo' y luego seleccionando desde la ventana de finalización del código:
+Los snippets se pueden usar para acelerar la introducción de estructuras de código típicas.
+Se invocan escribiendo su 'prefijo' y luego seleccionando desde la ventana de completitud del código:
 
 <img src="/images/vscode/snippets.png" style="width:706px;height258px" alt="Snippets" />
 
@@ -196,7 +196,7 @@ Durante una sesión de depuración, haciendo clic en el botón **Restart** sobre
 Toolbar**, o presionando `Ctrl`+`Shift`+`F5` (`Cmd`+`Shift`+`F5` en macOS)
 realiza un hot reload.
 
-Las asignaciones de teclado puede ser cambiado ejecutando el comando **Open Keyboard Shortcuts**
+Las asignaciones de teclado puedes ser cambiadas ejecutando el comando **Open Keyboard Shortcuts**
 desde la [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 
 **Hot Restart**
@@ -209,31 +209,31 @@ clases, sino también agregar métodos y campos a las clases existentes, y cambi
 funciones existentes. Sin embargo, algunos tipos de cambios de código no se reflejarán con 
 hot reload:
 
-* Inicializadores variables globales.
-* Inicializadores de campo estáticos.
+* Inicializadores de variables globales.
+* Inicializadores de campos Static.
 * El método `main()` de la aplicación.
 
 Para estos cambios, puedes reiniciar completamente tu aplicación, sin tener que finalizar 
 tu sesión de depuración. Para realizar un hot restart, ejecute el comando
 **Flutter: Hot Restart** desde la 
-[Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), o presiona `Ctrl`+`F5`.
+[Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), o pulsa `Ctrl`+`F5`.
 
 ## Solución de problemas
 
 ### Problemas conocidos y comentarios
 
-Todos los errores conocidos se siguen en los issue trackers:
+Todos los errores conocidos se siguen en el issue tracker:
 
   * Extensiones Dart and Flutter: [GitHub issue
    tracker](https://github.com/Dart-Code/Dart-Code/issues).
 
-Todos los comentarios son bien recibidos, tanto sobre errores/problemas como sobre solicitudes de 
-funciones. Antes de presentar nuevos problemas, por favor:
+Agradecemos sus comentarios, tanto sobre errores/problemas como sobre solicitudes de funcionalidades. 
+Antes de presentar nuevos problemas, por favor:
 
-  * Haga una búsqueda rápida en los issue trackers para ver si el problema ya fue rastreado.
-  * Asegúrese de tener [actualizado](#updating) la versión más reciente del plugin.
+  * Haz una búsqueda rápida en los issue trackers para ver si el problema ya ha sido rastreado.
+  * Asegúrese de que haz [actualizado](#updating) la versión más reciente del plugin.
 
-Cuando presente nuevos problemas, por favor incluya la salida de [`flutter doctor`](https://flutter.io/bug-reports/#provide-some-flutter-diagnostics).
+Al presentar nuevos issues, por favor incluye la salida de [`flutter doctor`](https://flutter.io/bug-reports/#provide-some-flutter-diagnostics).
 
 </div>
 
