@@ -13,8 +13,8 @@ Flutter, porque Flutter depende de las configuraciones del sistema operativo nat
 cómo configurar sus proyectos nativos de Xamarin.Forms. El  Framework Flutter es también similar
 a la forma en que se crea una única interfaz de usuario, que se utiliza en múltiples plataformas.
 
-Este documento puede ser usado como un libro de cocina saltando y encontrando preguntas
-que son más relevantes para sus necesidades.
+Este documento puede ser usado como un cookbook saltando y encontrando preguntas
+que son más relevantes para tus necesidades.
 
 * TOC Placeholder
 {:toc}
@@ -23,7 +23,7 @@ que son más relevantes para sus necesidades.
 
 ## ¿Cómo comienza la aplicación?
 
-Para cada plataforma en Xamarin.Forms, usted llama al método `LoadApplication`, que
+Para cada plataforma en Xamarin.Forms, llamas al método `LoadApplication`, que
 crea una nueva Aplicación e inicia su app.
 
 <!-- skip -->
@@ -40,7 +40,7 @@ void main() {
 }
 {% endprettify %}
 
-En Xamarin.Forms, usted asigna una `Page` a la propiedad `MainPage` en la clase `Application`.
+En Xamarin.Forms, asignas una `Page` a la propiedad `MainPage` en la clase `Application`.
 
 <!-- skip -->
 {% prettify csharp %}
@@ -81,7 +81,7 @@ Xamarin.Forms tiene muchos tipos diferentes de páginas;  `ContentPage` es la m�
 
 En Flutter, se especifica un widget de aplicación que contiene la página raíz. Puede utilizar
 un widget [MaterialApp](https://docs.flutter.io/flutter/material/MaterialApp-class.html), que
-soporta [Material Design](https://material.io/design/), o puede utilizar el nivel inferior
+soporta [Material Design](https://material.io/design/), o puedes utilizar el nivel inferior
 [WidgetsApp](https://docs.flutter.io/flutter/widgets/WidgetsApp-class.html), que puede personalizarse de cualquier forma que quieras.
 
 El siguiente código define la página de inicio, un widget de estado. En Flutter, todos los widgets son inmutables,
@@ -91,7 +91,7 @@ El siguiente ejemplo utiliza MaterialApp, que contiene su página raíz en la pr
 
 {% prettify dart %}
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // Este widget es la raíz de tú aplicación.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -178,20 +178,20 @@ a este enfoque.
 
 ## ¿Cuál es el equivalente a una `Page` o `Element` en Flutter?
 
-Un `ContentPage`, `TabbedPage`, `MasterDetailPage` son todos tipos de páginas que usted podría usar
-en una aplicación de Xamarin.Forms. Estas páginas contendrían entonces `Element`s para mostrar
+Un `ContentPage`, `TabbedPage`, `MasterDetailPage` son todos tipos de páginas que tú podrías usar
+en una aplicación de Xamarin.Forms. Estas páginas contendrían entonces `Elements` para mostrar
 los distintos controles. In Xamarin.Forms un `Entry` o `Button` son ejemplos de un `Element`.
 
 En Flutter, casi todo es un widget. Una `Page`, llamada `Route` en Flutter, es un widget.
 Botones, barras de progreso, controladores de animación son todos widgets. Cuando construye una ruta, crea un árbol de widgets.
 
-Flutter inclutye la biblioteca [Material Components](https://flutter.io/widgets/material/).
+Flutter incluye la biblioteca [Material Components](https://flutter.io/widgets/material/).
 Se trata de widgets que implementan la
 [guía de Material Design](https://material.io/design/). Material Design es un sistema de diseño flexible [optimizado para todas las plataformas](https://material.io/design/platform-guidance/cross-platform-adaptation.html#cross-platform-guidelines),
 incluyendo iOS.
 
 Pero Flutter es lo suficientemente flexible y expresivo como para implementar cualquier lenguaje de diseño.
-Por ejemplo, en iOS, puede utilizar los [widgets Cupertino](https://flutter.io/widgets/cupertino/)
+Por ejemplo, en iOS, puedes utilizar los [widgets Cupertino](https://flutter.io/widgets/cupertino/)
 para producir una interfaz que se parezca a
 [Lenguaje de diseño iOS de Apple](https://developer.apple.com/design/resources/).
 
@@ -221,7 +221,7 @@ del widget ha sido actualizado para que pueda actualizar ese widget.
 
 Lo importante a tener en cuenta aquí es que tanto los widgets stateless como stateful
 se comportan de la misma manera. Reconstruyen cada cuadro, la diferencia es que el
-`StatefulWidget` tiene un objeto `State` que almacena los datos de estado a través de cuadros y los restaura.
+`StatefulWidget` tiene un objeto `State` que almacena los datos de estado a través de los frames y los restaura.
 
 Si tienes dudas, recuerda siempre esta regla: si un widget cambia
 (debido a las interacciones del usuario, por ejemplo), es un stateful.
@@ -240,14 +240,14 @@ new Text(
 );
 {% endprettify %}
 
-Como puede ver, el Widget `Text` no tiene información de estado asociada a él,
+Como puedes ver, el Widget `Text` no tiene información de estado asociada a él,
 muestra lo que se pasa en sus constructores y nada más.
 
 Pero, ¿qué pasa si quieres hacer que "Me gusta Flutter" cambie dinámicamente,
 por ejemplo, al hacer clic en un `FloatingActionButton`?
 
-Para lograr esto, envuelva el widget `Text` en un `StatefulWidget` y
-actualícelo cuando el usuario haga clic en el botón.
+Para lograr esto, envuelve el widget `Text` en un `StatefulWidget` y
+actualízalo cuando el usuario haga clic en el botón.
 
 Por ejemplo:
 
@@ -334,7 +334,7 @@ El siguiente ejemplo muestra cómo desplegar un widget simple con padding:
   }
 {% endprettify %}
 
-Puedes ver los diseños que Flutter tiene para ofrecer en el [catálogo de widgets](/widgets/layout/).
+Puedes ver los layouts que Flutter tiene para ofrecer en el [catálogo de widgets](/widgets/layout/).
 
 ## ¿Cómo agrego o elimino un elemento de mi diseño?
 
@@ -342,8 +342,8 @@ En Xamarin.Forms, si tenías que quitar o agregar un `Element`, tenías que hace
 Esto implicaría establecer la propiedad `Content` o llamar `Add()` o `Remove()` si se trata de una lista.
 
 En Flutter, como los widgets son inmutables, no hay equivalente directo.
-En su lugar, puede pasar una función al padre que devuelva un widget, y
-controlar la creación de ese widget hijo con una bandera booleana.
+En su lugar, puedes pasar una función al padre que devuelva un widget, y
+controlar la creación de ese widget hijo con una variable booleana.
 
 El siguiente ejemplo muestra cómo alternar entre dos widgets cuando el usuario hace clic
 el `FloatingActionButton`:
@@ -412,7 +412,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 ## ¿Cómo puedo animar un widget?
 
-En Xamarin.Forms, usted crea animaciones simples usando ViewExtensions que incluyen
+En Xamarin.Forms, creas animaciones simples usando ViewExtensions que incluyen
 métodos como `FadeTo` y `TranslateTo`. Estos métodos se utilizarían en una vista
 para realizar las animaciones necesarias.
 
@@ -421,7 +421,7 @@ para realizar las animaciones necesarias.
 <Image Source="{Binding MyImage}" x:Name="myImage" />
 {% endprettify %}
 
-Entonces en code behind, o un behavior, esto se desvanecería en la imagen, en un período de 1 segundo.
+Entonces en code behind, o en un behavior, esto se desvanecería en la imagen, en un período de 1 segundo.
 
 <!-- skip -->
 {% prettify csharp %}
@@ -429,13 +429,13 @@ myImage.FadeTo(0, 1000);
 {% endprettify %}
 
 En Flutter, los widgets se animan utilizando la biblioteca de animaciones, envolviendo
-los widgets dentro de un widget animado. Utilice un `AnimationController` que es un `Animation<double>`
+los widgets dentro de un widget animado. Utiliza un `AnimationController` que es un `Animation<double>`
 que puede pausar, buscar, detener e invertir la animación. Requiere un `Ticker`
 que señala cuando se produce la sincronización, y produce una interpolación lineal
 entre 0 y 1 en cada fotograma mientras está en ejecución. Luego creas una o más
 `Animation`s y las adjuntas al controlador.
 
-Por ejemplo, puede utilizar `CurvedAnimation` para implementar una animación
+Por ejemplo, puedes utilizar `CurvedAnimation` para implementar una animación
 a lo largo de una curva interpolada. En este sentido, el controlador es la fuente
 "maestra" del progreso de la animación y la `CurvedAnimation`
 calcula la curva que reemplaza el movimiento lineal predeterminado del controlador.
@@ -512,10 +512,10 @@ class _MyFadeTest extends State<MyFadeTest> with TickerProviderStateMixin {
 }
 {% endprettify %}
 
-Para obtener más información, consulte
+Para obtener más información, consulta
 [Widgets de animación y movimiento](/widgets/animation/),
 el [Tutorial de animaciones](/tutorials/animation),
-and the [Resumen de las animaciones](/animations/).
+y el [Resumen de las animaciones](/animations/).
 
 ## ¿Cómo puedo dibujar o pintar en la pantalla?
 
@@ -527,7 +527,7 @@ Flutter tiene dos clases que te ayudan a dibujar en el lienzo: `CustomPaint`
 y `CustomPainter`, el último de los cuales implementa tu algoritmo para dibujar en
 el lienzo.
 
-Para aprender cómo implementar un pintor de firmas en Flutter, vea la respuesta de Collin en
+Para aprender cómo implementar un app para dibujar firmas en Flutter, vea la respuesta de Collin en
 [StackOverflow](https://stackoverflow.com/questions/46241071/create-signature-area-
 for-mobile-app-in-dart-flutter).
 
@@ -582,23 +582,23 @@ class SignaturePainter extends CustomPainter {
 
 ## ¿Dónde está la opacidad del widget?
 
-En Xamarin.Forms, todos los `VisualElement`s tienen una Opacidad. En Flutter, usted necesita
+En Xamarin.Forms, todos los `VisualElements` tienen una Opacidad. En Flutter, necesitas
 envolver un widget en un [Opacity widget](https://docs.flutter.io/flutter/widgets/Opacity-class.html)
 para lograr esto.
 
 ## ¿Cómo construyo widgets personalizados?
 
-En Xamarin.Forms, usted típicamente subclasifica `VisualElement`, o utiliza un `VisualElement`
-preexistente, para anular e implementar métodos que logren el comportamiento deseado.
+En Xamarin.Forms, heredas de `VisualElement`, o utilizas un `VisualElement`
+preexistente, para sobreescribir e implementar métodos que logren el comportamiento deseado.
 
-En Flutter, construye un widget personalizado
+En Flutter, construyes un widget personalizado
 [integrando](/technical-overview/#everythings-a-widget) widgets más pequeños
 (en lugar de extenderlos).
 Es algo similar a la implementación de un control personalizado basado en un `Grid` con
 numerosos `VisualElement`s agregados, mientras se extienden con lógica personalizada.
 
 Por ejemplo, ¿cómo se construye un `CustomButton` que lleva una etiqueta en
-el constructor? Cree un botón personalizado que componga un `RaisedButton` con una etiqueta,
+el constructor? Crea un botón personalizado que componga un `RaisedButton` con una etiqueta,
 en lugar de extender `RaisedButton`:
 
 <!-- skip -->
@@ -631,7 +631,7 @@ Widget build(BuildContext context) {
 
 ## ¿Cómo navego entre páginas?
 
-En Xamarin.Forms, usted navega entre páginas normalmente a través de un
+En Xamarin.Forms, navegas entre páginas normalmente a través de un
 `NavigationPage` que gestiona la pila de páginas a mostrar.
 
 Flutter tiene una implementación similar, usando un `Navigator` y
@@ -639,8 +639,8 @@ Flutter tiene una implementación similar, usando un `Navigator` y
 un `Navigator` es un [widget](technical-overview/#everythings-a-widget)
 que gestiona las rutas.
 
-Una ruta se mapea aproximadamente a una `Page`. El navigator funciona de manera similar a la del
-Xamarin.Forms `NavigationPage`, en el que puede hacer `push()` y `pop()` a rutas
+Una ruta se corresponde aproximadamente a una `Page`. El navigator funciona de manera similar a la del
+Xamarin.Forms `NavigationPage`, en el que puedes hacer `push()` y `pop()` a rutas
 dependiendo de si desea navegar hacia o desde una vista.
 
 Para navegar entre páginas, tiene un par de opciones:
@@ -671,15 +671,15 @@ Navegue hasta una ruta empujando (`push`) su nombre hacia el `Navigator`.
 Navigator.of(context).pushNamed('/b');
 {% endprettify %}
 
-El Navegador es un stack que gestiona las rutas de su app. Empujando una ruta al stack
-se mueve a esa ruta. Haciendo pop una ruta del stack, regresa a la ruta anterior. Esto
-es hecho por `await` en el `Futuro` retornado por `push()`.
+El Navigator es un stack que gestiona las rutas de su app. Haciendo push de una ruta a la pila
+se mueve a esa ruta. Haciendo pop una ruta de la pila, regresa a la ruta anterior. Esto
+es hecho por `await` en el `Future` retornado por `push()`.
 
 `Async`/`await` es muy similar a la implementación de .NET y se explica con más detalle
 en [Async UI](/flutter-for-xamarin-forms/#async-ui).
 
 Por ejemplo, para iniciar una ruta de `ubicación` que permita al usuario seleccionar
-su ubicación, puede hacer lo siguiente:
+su ubicación, puedes hacer lo siguiente:
 
 <!-- skip -->
 {% prettify dart %}
@@ -687,7 +687,7 @@ Map coordinates = await Navigator.of(context).pushNamed('/ubicacion');
 {% endprettify %}
 
 Y luego, dentro de la ruta de su ‘ubicación’, una vez que el usuario haya seleccionado su
-ubicación, `pop()` el stack con el resultado:
+ubicación, hacer `pop()` de la pila con el resultado:
 
 <!-- skip -->
 {% prettify dart %}
@@ -699,9 +699,9 @@ Navigator.of(context).pop({"lat":43.821757,"long":-79.226392});
 En Xamarin.Forms, para enviar al usuario a otra aplicación, se utiliza un
 esquema URI específico, usando `Device.OpenUrl("mailto://")`
 
-Para implementar esta funcionalidad en Flutter, cree una integración de plataforma nativa,
+Para implementar esta funcionalidad en Flutter, crea una integración de plataforma nativa,
 o utilice un [plugin](#plugins) existente, como
-[`url_launcher`](https://pub.dartlang.org/packages/url_launcher), disponible con
+ [`url_launcher`](https://pub.dartlang.org/packages/url_launcher), disponible con
 muchos otros paquetes en [pub.dartlang](https://pub.dartlang.org/flutter).
 
 # Async UI
@@ -710,7 +710,7 @@ muchos otros paquetes en [pub.dartlang](https://pub.dartlang.org/flutter).
 
 Dart tiene un modelo de ejecución de un solo hilo, con soporte para `Isolate`s
 (una forma de ejecutar código de Dart en otro hilo), un loop de eventos, y
-programación asíncrona. A menos que usted genere un `Isolate`, su código Dart
+programación asíncrona. A menos que generes un `Isolate`, tu código Dart
 se ejecuta en el hilo principal de la UI y es controlado por un loop de eventos.
 
 El modelo de un solo hilo de Dart no significa que necesites ejecutarlo todo
@@ -718,11 +718,11 @@ como una operación de bloqueo que hace que la UI se congele. Al igual que Xamar
 mantener el hilo de la UI libre. Usaría `async`/`await` para realizar
 tareas, donde debe esperar la respuesta.
 
-En Flutter, utilice las capacidades asíncronas que proporciona el lenguaje Dart, también
-llamado `async`/`await`, para realizar trabajos asíncronos. TEsto es muy similar a
+En Flutter, utiliza las capacidades asíncronas que proporciona el lenguaje Dart, también
+llamado `async`/`await`, para realizar trabajos asíncronos. Esto es muy similar a
 C# y debería ser muy fácil de usar para cualquier desarrollador de Xamarin.Forms.
 
-Por ejemplo, puede ejecutar código de red sin hacer que la interfaz de usuario se
+Por ejemplo, puedes ejecutar código de red sin hacer que la interfaz de usuario se
 cuelgue usando `async`/`await` y dejando que Dart haga el trabajo pesado:
 
 <!-- skip -->
@@ -736,7 +736,7 @@ loadData() async {
 }
 {% endprettify %}
 
-Una vez que la llamada de red `await` se haya realizado, actualice la UI llamando a `setState()`,
+Una vez que la llamada de red `await` se haya realizado, actualiza la UI llamando a `setState()`,
 que desencadena una reconstrucción del sub-árbol del widget y actualiza los datos.
 
 El siguiente ejemplo carga datos asincrónicamente y los muestra en un `ListView`:
@@ -812,17 +812,17 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-Consulte la siguiente sección para obtener más información sobre cómo trabajar
+Consulta la siguiente sección para obtener más información sobre cómo trabajar
 en segundo plano, y en qué se diferencia Flutter de Android.
 
 ## ¿Cómo se mueve el trabajo a un hilo de segundo plano?
 
 Dado que Flutter es un hilo único y ejecuta un loop de eventos, no
 tiene que preocuparse por la gestión de hilos o por el desove de hilos de segundo plano.
-Esto es muy similar a Xamarin.Forms. Si está realizando un trabajo I/O, como un disco
-o una llamada de red, entonces puede usar `async`/`await` con seguridad y ya está todo listo.
+Esto es muy similar a Xamarin.Forms. Si estás realizando un trabajo I/O, como un disco
+o una llamada de red, entonces puedes usar `async`/`await` con seguridad y ya está todo listo.
 
-Si, por otro lado, necesita hacer un trabajo intensivo de computación que mantenga el
+Si, por otro lado, necesitas hacer un trabajo intensivo de computación que mantenga el
 CPU ocupado, quieres moverla a un `Isolate` para evitar bloquear el loop de eventos, como
 mantendrías cualquier tipo de trabajo fuera del hilo principal. Esto es similar a cuando
 mueves cosas a un hilo diferente vía `Task.Run()` en Xamarin.Forms.
@@ -844,9 +844,9 @@ loadData() async {
 Así es como normalmente se hacen las llamadas de red o de base de datos, que son ambas
 operaciones I/O.
 
-Sin embargo, hay ocasiones en las que puede estar procesando una gran cantidad de datos y
-tu UI se cuelga. En Flutter, utilice `Isolate`s para aprovechar los
-úcleos de la CPU para realizar tareas de larga duración o intensivas en el cálculo.
+Sin embargo, hay ocasiones en las que puedes estar procesando una gran cantidad de datos y
+tu UI se cuelga. En Flutter, utiliza `Isolate`s para aprovechar los
+núcleos de la CPU para realizar tareas de larga duración o intensivas en el cálculo.
 
 Los Isolates son hilos de ejecución separados que no comparten ninguna memoria.
 con la memoria de ejecución principal. Esta es una diferencia entre `Task.Run()`. Esto
@@ -877,7 +877,7 @@ static dataLoader(SendPort sendPort) async {
   // Open the ReceivePort for incoming messages.
   ReceivePort port = new ReceivePort();
 
-  // Notifique a cualquier otro isolates a qué puerto escucha este isolate.
+  // Notifica a cualquier otro isolates a qué puerto escucha este isolate.
   sendPort.send(port.sendPort);
 
   await for (var msg in port) {
@@ -898,11 +898,11 @@ Future sendReceive(SendPort port, msg) {
 }
 {% endprettify %}
 
-Aquí, , `dataLoader()` es el `Isolate` que se ejecuta en su propio hilo de ejecución separado.
-En el isolate puede realizar un procesamiento más intensivo de la CPU (analizando un JSON grande, por
+Aquí, `dataLoader()` es el `Isolate` que se ejecuta en su propio hilo de ejecución separado.
+En el isolate puedes realizar un procesamiento más intensivo de la CPU (analizando un JSON grande, por
 ejemplo), o realizar cálculos matemáticos intensivos en computación, como encriptación o procesamiento de señales.
 
-Puede ejecutar el ejemplo completo a continuación:
+Puedes ejecutar el ejemplo completo a continuación:
 
 {% prettify dart %}
 import 'dart:convert';
@@ -1027,9 +1027,9 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 ## ¿Cómo hago solicitudes de red?
 
-En Xamarin.Forms usted usaría `HttpClient`. Hacer una llamada de red en Flutter
-es fácil cuando usas el popular [`http` package](https://pub.dartlang.org/packages/http).
-Esto abstrae gran parte de la red que usted mismo podría implementar normalmente,
+En Xamarin.Forms usarías `HttpClient`. Hacer una llamada de red en Flutter
+es fácil cuando usas el popular paquete [`http`](https://pub.dartlang.org/packages/http).
+Esto abstrae gran parte del trabajo de red que tú mismo podrías implementar normalmente,
 lo que simplifica la realización de llamadas de red.
 
 Para usar el paquete `http`, agréguelo a sus dependencias en `pubspec.yaml`:
@@ -1065,9 +1065,9 @@ import 'package:http/http.dart' as http;
 En Xamarin.Forms normalmente se crea un indicador de carga, ya sea directamente
 en XAML o a través de un plugin de terceros como AcrDialogs.
 
-En Flutter, usa un widget `ProgressIndicator`. Muestre el progreso de forma programática
-controlando cuándo se renderiza a través de una bandera booleana. Dile a Flutter que actualice
-su estado antes de que comience la tarea de larga duración, y ocultarla después de que finalice.
+En Flutter, usa un widget `ProgressIndicator`. Muestra el progreso de forma programática
+controlando cuándo se renderiza a través de una variable booleana. Dile a Flutter que actualice
+su estado antes de que comience la tarea de larga duración, y ocúltala después de que finalice.
 
 En el siguiente ejemplo, la función de construcción se divide en tres funciones diferentes.
 Si `showLoadingDialog()` es `true` (cuando `widgets.length == 0`),
@@ -1166,12 +1166,12 @@ class _SampleAppPageState extends State<SampleAppPage> {
 Xamarin.Forms no tiene una forma independiente de la plataforma para almacenar imágenes,
 tenías que colocar las imágenes en la carpeta iOS `xcasset` o en Android, las diferentes carpetas `drawable`.
 
-Mientras que Android e iOS tratan los recursos y activos como elementos distintos, las apps Flutter tienen
-solo activos. Todos los recursos que vivirían en las carpetas `Resources/drawable-*`
-de Android, se colocan en una carpeta de activos para Flutter.
+Mientras que Android e iOS tratan los recursos y assets como elementos distintos, las apps Flutter tienen
+solo assets. Todos los recursos que vivirían en las carpetas `Resources/drawable-*`
+de Android, se colocan en una carpeta de assets para Flutter.
 
-Flutter sigue un formato simple basado en la densidad como iOS. Los activos pueden ser `1.0x`,
-`2.0x`, `3.0x`, o cualquier otro multiplicador. Flutter no tiene `dp`s pero hay
+Flutter sigue un formato simple basado en la densidad como iOS. Los assets pueden ser `1.0x`,
+`2.0x`, `3.0x`, o cualquier otro multiplicador. Flutter no tiene `dps` pero hay
 píxeles lógicos, que son básicamente los mismos que los píxeles independientes del dispositivo.
 El llamado
 [`devicePixelRatio`](https://docs.flutter.io/flutter/dart-ui/Window/devicePixelRatio.html)
@@ -1188,21 +1188,21 @@ Los equivalentes a los contenedores de densidad de Android son:
  `xxhdpi` | `3.0x`
  `xxxhdpi` | `4.0x`
 
-Los activos se ubican en cualquier carpeta arbitraria, Flutter no tiene
-una estructura de carpetas predefinida. Usted declara los activos (con ubicación) en
+Los assets se ubican en cualquier carpeta arbitraria, Flutter no tiene
+una estructura de carpetas predefinida. Declaras los assets (con ubicación) en
 el archivo `pubspec.yaml`, y Flutter los recoge.
 
-Tenga en cuenta que antes de Flutter 1.0 beta 2, los activos definidos en Flutter no eran
-accesibles desde el lado nativo, y viceversa, los activos y recursos nativos
+Ten en cuenta que antes de Flutter 1.0 beta 2, los assets definidos en Flutter no eran
+accesibles desde el lado nativo, y viceversa, los assets y recursos nativos
 no estaban disponibles para Flutter, ya que vivían en carpetas separadas.
 
-A partir de Flutter beta 2, los activos se almacenan en la carpeta de activos nativos,
+A partir de Flutter beta 2, los assets se almacenan en la carpeta de assets nativos,
 y se accede a ellos desde el lado nativo utilizando el `AssetManager` de Android:
 
 A partir de Flutter beta 2, Flutter sigue sin poder acceder a los recursos nativos,
-ni a los activos nativos.
+ni a los assets nativos.
 
-Para añadir un nuevo activo de imagen llamado `my_icon.png` a nuestro proyecto Flutter, por ejemplo,
+Para añadir un nuevo asset de imagen llamado `my_icon.png` a nuestro proyecto Flutter, por ejemplo,
 y decidir que debería vivir en una carpeta que arbitrariamente llamamos `images`,
 pondrías la imagen base (1.0x) en la carpeta `images`, y todas las demás
 variantes en subcarpetas llamadas con el multiplicador de proporción apropiado:
@@ -1213,7 +1213,7 @@ images/2.0x/my_icon.png  // 2.0x image
 images/3.0x/my_icon.png  // 3.0x image
 ```
 
-A continuación, deberá declarar estas imágenes en su archivo `pubspec.yaml`:
+A continuación, deberás declarar estas imágenes en el archivo `pubspec.yaml`:
 
 <!-- skip -->
 {% prettify yaml %}
@@ -1221,7 +1221,7 @@ assets:
  - images/my_icon.jpeg
 {% endprettify %}
 
-A continuación, puede acceder a sus imágenes utilizando `AssetImage`:
+A continuación, puedes acceder a sus imágenes utilizando `AssetImage`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -1239,11 +1239,11 @@ Widget build(BuildContext context) {
 {% endprettify %}
 
 Se puede encontrar información más detallada en
-[Agregando Activos e Imágenes en Flutter](https://flutter.io/assets-and-images/).
+[Agregando Assets e Imágenes en Flutter](https://flutter.io/assets-and-images/).
 
 ## ¿Dónde almaceno cadenas de texto? ¿Cómo gestiono la ubicación?
 
-A diferencia de.NET que tiene archivos `resx`, Flutter actualmente no tiene un sistema dedicado
+A diferencia de .NET que tiene archivos `resx`, Flutter actualmente no tiene un sistema dedicado
 similar a los recursos para las cadenas de texto. Por el momento, la mejor práctica es mantener su
 texto de copia en una clase como campos estáticos y acceder a ellos desde allí. Por ejemplo:
 
@@ -1261,9 +1261,9 @@ Luego, en tu código, puedes acceder a tus cadenas de texto como tal:
 new Text(Strings.welcomeMessage)
 {% endprettify %}
 
-Por defecto, Flutter sólo soporta el inglés de EE.UU. para sus cadenas de texto. Si usted necesita
+Por defecto, Flutter sólo soporta el inglés de EE.UU. para sus cadenas de texto. Si necesitas
 agregar soporte para otros idiomas, incluye el paquete `flutter_localizations`.
-Es posible que también tenga que agregar el paquete [`intl`](https://pub.dartlang.org/packages/intl)
+Es posible que también tengas que agregar el paquete [`intl`](https://pub.dartlang.org/packages/intl)
 de Dart para utilizar la maquinaria i10n, como el formato de fecha/hora.
 
 <!-- skip -->
@@ -1297,10 +1297,10 @@ new MaterialApp(
 )
 {% endprettify %}
 
-Los delegados contienen los valores reales de las ubicaciones, mientras que los `supportedLocales`
-define qué ubicaciones soporta la aplicación. El ejemplo anterior utiliza un `MaterialApp`,
-por lo que tiene tanto un `GlobalWidgetsLocalizations` para los valores de ubicación
-de los widgets base, como un `MaterialWidgetsLocalizations` para las ubicaciones
+Los delegados contienen los valores actuales localizados, mientras que los `supportedLocales`
+define qué regiones soporta la aplicación. El ejemplo anterior utiliza un `MaterialApp`,
+por lo que tiene tanto un `GlobalWidgetsLocalizations` para los valores localizados
+de los widgets base, como un `MaterialWidgetsLocalizations` para las localizaciones
 de los Material widgets. Si utiliza `WidgetsApp` para su app, no necesita esta última.
 Tenga en cuenta que estos dos delegados contienen valores "predeterminados",
 pero tendrá que proporcionar uno o más delegados para la copia traducible de su propia
@@ -1308,12 +1308,12 @@ aplicación, si desea que también se traduzcan.
 
 Cuando se inicializa, el `WidgetsApp` (o `MaterialApp`)  crea un widget
 [`Localizations`](https://docs.flutter.io/flutter/widgets/Localizations-class.html)
-para usted, con los delegados que usted especifique.
-La ubicación actual del dispositivo es siempre accesible desde el widget `Localizations`
+para tí, con los delegados que tú especifiques.
+La región actual del dispositivo es siempre accesible desde el widget `Localizations`
 desde el contexto actual (en forma de un objeto `Locale`), o usando el comando
 [`Window.locale`](https://docs.flutter.io/flutter/dart-ui/Window/locale.html).
 
-Para acceder a recursos locales, utilice el método `Localizations.of()`
+Para acceder a recursos regionales, utilice el método `Localizations.of()`
 para acceder a una clase específica de localizaciones proporcionada por un delegado determinado.
 Utilice el paquete [`intl_translation`](https://pub.dartlang.org/packages/intl_translation)
 para extraer una copia traducible a
@@ -1321,7 +1321,7 @@ para extraer una copia traducible a
 a los archivos para traducir, e importarlos de nuevo a la aplicación para usarlos
 con `intl`.
 
-Para más detalles sobre la internacionalización y localización en Flutter, consulte la
+Para más detalles sobre la internacionalización y localización en Flutter, consulta la
 [guía de internacionalización](/tutorials/internationalization),
 que tiene código de ejemplo con y sin el paquete `intl`.
 
@@ -1345,14 +1345,14 @@ Las herramientas delegan la creación de las aplicaciones nativas de envoltura d
 e iOS a los respectivos sistemas de creación.
 
 En general, usa `pubspec.yaml` para declarar dependencias externas para usar en Flutter. Un buen
-ugar para encontrar paquetes de Flutter es [Pub](https://pub.dartlang.org/flutter).
+lugar para encontrar paquetes de Flutter es [Pub](https://pub.dartlang.org/flutter).
 
 # Ciclo de vida de la aplicación
 
 ## ¿Cómo escucho los eventos del ciclo de vida de la aplicación?
 
 En Xamarin.Forms, usted tiene una `Aplicación` que contiene `OnStart`, `OnResume` y
-`OnSleep`. En Flutter, en cambio, puede escuchar eventos similares del ciclo de vida enganchándose en
+`OnSleep`. En Flutter, en cambio, puedes escuchar eventos similares del ciclo de vida enganchándose en
 el observador `WidgetsBinding` y escuchando el evento de cambio `didChangeAppLifecycleState()`.
 
 Los eventos observables del ciclo de vida son:
@@ -1374,9 +1374,9 @@ Para más detalles sobre el significado de estos estados, vea la
 ## ¿Cuál es el equivalente de un StackLayout?
 
 En Xamarin.Forms puedes crear un `StackLayout` con una `Orientación` Horizontal o Vertical.
-Flutter tiene un enfoque similar, sin embargo, puede usar los widgets `Row` o `Column`.
+Flutter tiene un enfoque similar, sin embargo, puedes usar los widgets `Row` o `Column`.
 
-Si nota que los dos ejemplos de código son idénticos con la excepción del widget
+Si notas que los dos ejemplos de código son idénticos con la excepción del widget
 "Row" y "Column". Los hijos son los mismos y esta característica puede ser
 explotada para desarrollar diseños sofisticados que pueden cambiar con los mismos
 hijos.
@@ -1422,7 +1422,7 @@ contenido excede el espacio visible.
 <!-- skip -->
 {% prettify dart %}
   GridView.count(
-    // Cree una grid con 2 columnas. Si cambia el scrollDirection a
+    // Crea una grid con 2 columnas. Si cambias el scrollDirection a
     // horizontal, esto produciría 2 filas.
     crossAxisCount: 2,
     // Genera 100 Widgets que muestran su índice en la Lista
@@ -1460,7 +1460,7 @@ Este ejemplo crea dos iconos que se superponen entre sí.
 En Xamarin.Forms, un `ScrollView` envuelve un `VisualElement` y, si el contenido es mayor que
 la pantalla del dispositivo, se desplaza.
 
-En Flutter, la coincidencia más cercana es el widget `SingleChildScrollView`. Sólo tiene que rellenar el
+En Flutter, la coincidencia más cercana es el widget `SingleChildScrollView`. Sólo tienes que rellenar el
 Widget con el contenido que desea que se pueda desplazar.
 
 <!-- skip -->
@@ -1473,7 +1473,7 @@ Widget con el contenido que desea que se pueda desplazar.
   }
 {% endprettify %}
 
-Si tiene muchos elementos que desea envolver en un scroll, incluso de diferentes tipos de `Widget`, es posible que desee
+Si tienes muchos elementos que desees envolver en un scroll, incluso de diferentes tipos de `Widget`, es posible que desees
 utilizar un `ListView`. Esto puede parecer exagerado, pero en Flutter esto es mucho más optimizado
 y menos intensivo que un `ListView` de Xamarin.Forms, que se apoya en controles específicos de la plataforma.
 
@@ -1505,11 +1505,11 @@ android:configChanges="orientation|screenSize"
 
 ## ¿Cómo puedo añadir GestureRecognizers a un widget en Flutter?
 
-En Xamarin.Forms, `Element`s pueden contener un evento Click que puedes vincular. Muchos elementos
+En Xamarin.Forms, `Elements` pueden contener un evento Click que puedes vincular. Muchos elementos
 también contienen un `Command` que está ligado a este evento. Alternativamente puedes usar el
 `TapGestureRecognizer`. En Flutter hay dos formas muy similares:
 
- 1. Si el Widget soporta la detección de eventos, pásele una función y manéjela
+ 1. Si el Widget soporta la detección de eventos, pásale una función y manéjala
     en la función. Por ejemplo, el RaisedButton tiene un parámetro `onPressed`:
 
     <!-- skip -->
@@ -1524,8 +1524,8 @@ también contienen un `Command` que está ligado a este evento. Alternativamente
     }
     ```
 
- 2. Si el Widget no soporta la detección de eventos, envuélvalo el widget en
-    un GestureDetector y pase una función al parámetro `onTap`.
+ 2. Si el Widget no soporta la detección de eventos, envuélve el widget en
+    un GestureDetector y pasa una función al parámetro `onTap`.
 
     <!-- skip -->
     ```dart
@@ -1555,44 +1555,44 @@ Normalmente se limitaría a `TapGestureRecognizer`, `PinchGestureRecognizer` y
 
 En Flutter, usando el GestureDetector, puedes escuchar una amplia gama de Gestos como:
 
-* Tap
+* Tapping
 
-  * `onTapDown` - Un puntero que podría causar un tap ha entrado en contacto con la pantalla
-     de una ubicación en particular.
-  * `onTapUp` - Un puntero que activa un tap ha dejado de entrar en contacto con la
+  * `onTapDown` - Un puntero que podría provocar un toque ha entrado en contacto con la pantalla
+     de una ubicación determinada.
+  * `onTapUp` - Un puntero que activa un toque ha dejado de entrar en contacto con la
      pantalla en una ubicación determinada.
-  * `onTap` - Se ha producido un tap.
-  * `onTapCancel` - El puntero que previamente disparó el  `onTapDown` no
-     causará un tap.
+  * `onTap` - Se ha producido un toque.
+  * `onTapCancel` - El puntero que desencadenó previamente el `onTapDown` no
+     causará un toque.
 
-* Doble tap
+* Double tapping
 
   * `onDoubleTap` - El usuario tocó la pantalla en la misma ubicación dos veces en
-     rápida sucesión.
+     una sucesión rápida.
 
-* Pulsación larga
+* Long pressing
 
   * `onLongPress` - Un puntero ha permanecido en contacto con la pantalla en el mismo
     lugar durante un largo período de tiempo.
 
-* Arrastre vertical
+* Vertical dragging
 
-  * `onVerticalDragStart` - Un puntero ha entrado en contacto con la pantalla y podría comenzar a
+  * `onVerticalDragStart` - Un puntero ha entrado en contacto con la pantalla y puede comenzar a
     moverse verticalmente.
   * `onVerticalDragUpdate` - Un puntero en contacto con la pantalla
     se ha movido más en la dirección vertical.
-  * `onVerticalDragEnd` - Un puntero que antes estaba en contacto con la
+  * `onVerticalDragEnd` - Un puntero que anteriomente estaba en contacto con la
     y se movía verticalmente ya no está en contacto con la pantalla y se movía
     a una velocidad específica cuando dejó de entrar en contacto con la pantalla.
 
-* Arrastre horizontal
+* Horizontal dragging
 
   * `onHorizontalDragStart` - Un puntero ha entrado en contacto con la pantalla y puede comenzar
     a moverse horizontalmente.
   * `onHorizontalDragUpdate` - Un puntero en contacto con la pantalla
     se ha movido más en la dirección horizontal.
   * `onHorizontalDragEnd` - Un puntero que antes estaba en contacto con la
-    pantalla y se movía horizontalmente ya no está en contacto con la pantalla y se movía
+    pantalla y que se movía horizontalmente ya no está en contacto con la pantalla y se movía
     a una velocidad específica cuando dejó de entrar en contacto con la pantalla.
 
 El siguiente ejemplo muestra un `GestureDetector` que rota el logotipo de Flutter
@@ -1639,7 +1639,7 @@ class SampleApp extends StatelessWidget {
 
 El equivalente a un `ListView` en Flutter es … un `ListView`!
 
-En un `ListView` de Xamarin.Forms, usted crea un `ViewCell` y posiblemente un `DataTemplateSelector`
+En un `ListView` de Xamarin.Forms, creas un `ViewCell` y posiblemente un `DataTemplateSelector`
 y lo pasa a la `ListView`, que muestra cada fila con lo que su `DataTemplateSelector`
 o `ViewCell` devuelve. Sin embargo, a menudo tienes que asegurarte de activar el Reciclaje de Celdas
 de lo contrario te encontrarás con problemas de memoria y velocidades de desplazamiento lentas.
@@ -1700,8 +1700,8 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
 ## ¿Cómo sé en qué elemento de la lista se hace clic?
 
-En Xamarin.Forms, el ListView tiene un método para averiguar qué ítem fue clickeado
-`ItemTapped`. Existen muchas otras técnicas que puede haber utilizado, como por ejemplo, verificar
+En Xamarin.Forms, el ListView tiene un método para averiguar qué ítem fue pulsado
+`ItemTapped`. Existen muchas otras técnicas que puedes haber utilizado, como por ejemplo, verificar
 cuando cambia el comportamiento de `SelectedItem` o de agregar un `EventToCommand`.
 
 En Flutter, utiliza el manejo táctil proporcionado por los widgets transferidos.
@@ -1715,7 +1715,7 @@ void main() {
 }
 
 class SampleApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // Este widget es la raíz de tú aplicación.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -1763,7 +1763,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-## ¿Cómo actualizo ListView's dinámicamente?
+## ¿Cómo actualizo ListView dinámicamente?
 
 En Xamarin.Forms, si vinculó la propiedad `ItemsSource` a una `ObservableCollection`
 simplemente actualizaría la lista en su ViewModel. Alternativamente podría asignar
@@ -1790,7 +1790,7 @@ void main() {
 }
 
 class SampleApp extends StatelessWidget {
-  // TEste widget es la raíz de su aplicación.
+  // Este widget es la raíz de tú aplicación.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -1923,14 +1923,14 @@ class _SampleAppPageState extends State<SampleAppPage> {
 }
 {% endprettify %}
 
-En lugar de crear un "ListView", cree un ListView.builder que
+En lugar de crear un "ListView", crea un ListView.builder que
 tome dos parámetros clave: la longitud inicial de la lista y una función ItemBuilder.
 
 La función ItemBuilder es similar a la función `getView` en un adaptador Android
-oma una posición y devuelve la fila que quieres que se muestre en esa posición.
+toma una posición y devuelve la fila que quieres que se muestre en esa posición.
 
 Finalmente, pero lo más importante, note que la función `onTap()`
-ya no recrea la lista, sino que `.add`s a ella.
+ya no recrea la lista, sino que le agrega elementos utilizando `.add`.
 
 Para más información, por favor visite
 [Escribe tu primera aplicación Flutter, parte 1](https://codelabs.developers.google.com/codelabs/first-flutter-app-pt1/index.html?index=..%2F..%2Findex#0)
@@ -1940,11 +1940,11 @@ y [Escribe tu primera aplicación Flutter, parte 2](https://codelabs.developers.
 
 ## ¿Cómo configuro fuentes personalizadas en mis widgets de Texto?
 
-En Xamarin.Forms, endría que agregar una fuente personalizada en cada proyecto nativo. Entonces
-en su  `Element` usted asignaría este nombre de fuente al atributo  `FontFamily`
+En Xamarin.Forms, tendría que agregar una fuente personalizada en cada proyecto nativo. Entonces
+en su  `Element` asignaríad este nombre de fuente al atributo  `FontFamily`
 usando `filename#fontname` y sólo `fontname` para iOS.
 
-En Flutter, coloque el archivo de fuente en una carpeta y haga referencia a él en
+En Flutter, coloca el archivo de fuente en una carpeta y haga referencia a él en
 el archivo `pubspec.yaml`, de forma similar a como usted importa imágenes.
 
 <!-- skip -->
@@ -1956,7 +1956,7 @@ fonts:
        - style: italic
 {% endprettify %}
 
-A continuación, asigne la fuente a su widget `Text`:
+A continuación, asigna la fuente a su widget `Text`:
 
 <!-- skip -->
 {% prettify dart %}
@@ -2001,24 +2001,24 @@ personalizar muchos parámetros, como por ejemplo:
 
 ## ¿Cómo puedo recuperar las entradas del usuario?
 
-Los `element`s en Xamarin.Forms le permiten consultar directamente al `element` para determinar
+Los `elements` en Xamarin.Forms te permiten consultar directamente al `element` para determinar
 el estado de cualquiera de sus propiedades, o está vinculado a una propiedad en un `ViewModel`.
 
 La recuperación de información en Flutter es manejada por widgets especializados y es diferente
-que a lo que estás acostumbrado. Si tiene un `TextField` o un `TextFormField`, puede proporcionar un
+que a lo que estás acostumbrado. Si tiene un `TextField` o un `TextFormField`, puedes proporcionar un
 [`TextEditingController`](https://docs.flutter.io/flutter/widgets/TextEditingController-class.html)
 para recuperar la entrada del usuario:
 
 <!-- skip -->
 {% prettify dart %}
 class _MyFormState extends State<MyForm> {
-  // Cree un controlador de texto y utilícelo para recuperar el valor actual.
+  // Crea un controlador de texto y utilízalo para recuperar el valor actual.
   // de el TextField!
   final myController = new TextEditingController();
 
   @override
   void dispose() {
-    // Limpie el controlador cuando elimine el Widget.
+    // Limpia el controlador cuando eliminas el Widget.
     myController.dispose();
     super.dispose();
   }
@@ -2058,7 +2058,7 @@ class _MyFormState extends State<MyForm> {
 }
 {% endprettify %}
 
-Puede encontrar más información y la lista completa de códigos en
+Puedes encontrar más información y la lista completa de códigos en
 [Recuperar el valor de un campo de texto](/cookbook/forms/retrieve-input/),
 del [Flutter Cookbook](https://flutter.io/cookbook/).
 
@@ -2087,16 +2087,16 @@ body: new Center(
 
 ## ¿Cómo puedo mostrar los errores de validación?
 
-Con Xamarin.Forms, si desea proporcionar un indicio visual de un
-error de validación, deberá crear nuevas propiedades y `VisualElement`s
-que rodeen a los `Element`s que tengan errores de validación.
+Con Xamarin.Forms, si deseas proporcionar un indicio visual de un
+error de validación, deberá crear nuevas propiedades y `VisualElements`
+que rodeen a los `Elements` que tengan errores de validación.
 
 En Flutter pasamos a través de un objeto InputDecoration al constructor de decoración
 para el widget Text.
 
 Sin embargo, no desea comenzar mostrando un error.
 En su lugar, cuando el usuario haya introducido datos no válidos,
-actualice el estado y pase un nuevo objeto `InputDecoration`.
+actualiza el estado y pasa un nuevo objeto `InputDecoration`.
 
 <!-- skip -->
 {% prettify dart %}
@@ -2175,7 +2175,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 ## ¿Cómo interactúo con la plataforma y con el código nativo de la plataforma?
 
 Flutter no ejecuta código directamente en la plataforma subyacente; en cambio, el código de Dart
-que constituye una aplicación Flutter se ejecuta de forma nativa en el dispositivo, esquivando" el SDK
+que constituye una aplicación Flutter se ejecuta de forma nativa en el dispositivo, "esquivando" el SDK
 que proporciona la plataforma. Esto significa, por ejemplo, que cuando se realiza una solicitud de red
 en Dart, se ejecuta directamente en el contexto de Dart. No usas los APIs de Android o iOS
 de las que normalmente se aprovecha al escribir aplicaciones nativas. Tu aplicación Flutter
@@ -2187,24 +2187,24 @@ o con código nativo que tengas. Flutter proporciona [canales de plataforma](/pl
 que se comunican e intercambian datos con el `ViewController` o `Activity` que
 aloja su vista Flutter. Los canales de la plataforma son esencialmente un mecanismo de mensajería asíncrono
 que une el código de Dart con el host `ViewController` o `Activity` y
-el framework iOS o Android en el que se ejecuta. Puede utilizar canales de plataforma para ejecutar un método en
+el framework iOS o Android en el que se ejecuta. Puedes utilizar canales de plataforma para ejecutar un método en
 el lado nativo o para recuperar algunos datos de los sensores del dispositivo, por ejemplo.
 
-Además de utilizar directamente los canales de la plataforma, puede utilizar una gran variedad de canales prefabricados.
-[plugins](/using-packages/) que encapsula el código nativo y
-el código Dart para un objetivo específico. Por ejemplo, puede utilizar un plugin para acceder
+Además de utilizar directamente los canales de la plataforma, puedes utilizar una gran variedad de canales prefabricados.
+ [plugins](/using-packages/) que encapsula el código nativo y
+el código Dart para un objetivo específico. Por ejemplo, puedes utilizar un plugin para acceder
 al registro de cámara y a la cámara del dispositivo directamente desde Flutter, sin tener que
-escribir su propia integración. Plugins se encuentran [on Pub](https://pub.dartlang.org/),
+escribir tu propia integración. Plugins se encuentran en [Pub](https://pub.dartlang.org/),
 el repositorio de paquetes de código abierto de Dart y Flutter. Algunos paquetes pueden
 soportar integraciones nativas en iOS, Android o ambos.
 
-Si no puede encontrar un plugin en Pub que se ajuste a sus necesidades, puede
-[escribir su propio](/developing-packages/)
+Si no puedes encontrar un plugin en Pub que se ajuste a tus necesidades, puedes
+[escribir tu propio](/developing-packages/)
 y [publicarlo en Pub](/developing-packages/#publish).
 
 ## ¿Cómo accedo al sensor GPS?
 
-Utilice el plugin de la comunidad [`geolocator`](https://pub.dartlang.org/packages/geolocator).
+Utiliza el plugin de la comunidad [`geolocator`](https://pub.dartlang.org/packages/geolocator).
 
 ## ¿Cómo accedo a la cámara?
 
@@ -2231,13 +2231,13 @@ Estos plugins son integraciones de primera mano, mantenidas por el equipo de Flu
  * [`flutter_firebase_ui`](https://pub.dartlang.org/packages/flutter_firebase_ui) para integraciones rápidas de Firebase Auth (Facebook, Google, Twitter and email)
  * [`cloud_firestore`](https://pub.dartlang.org/packages/cloud_firestore) para Firebase Cloud Firestore
 
-También puede encontrar algunos plugins Firebase de terceros en Pub que cubren áreas
+También puedes encontrar algunos plugins Firebase de terceros en Pub que cubren áreas
 que no están directamente cubiertas por los plugins de primera mano.
 
 ## ¿Cómo puedo crear mis propias integraciones nativas personalizadas?
 
 Si hay funcionalidades específicas de la plataforma que Flutter o sus plugins de la comunidad
-Plugins are missing, no están disponibles, puedes construir los tuyos propios siguiendo la página
+no tiene disponibles, puedes construir los tuyos propios siguiendo la página
 [desarrollo de paquetes y plugins](/developing-packages/).
 
 La arquitectura de los plugins de Flutter, en pocas palabras, es muy parecida a la de un bus de eventos en
@@ -2258,16 +2258,16 @@ a través de tu aplicación. Alternativamente, hay soporte para temas actualment
 
 En Flutter declaras temas en el widget de nivel superior.
 
-Para aprovechar al máximo los componentes de Material de su aplicación, puede declarar un
+Para aprovechar al máximo los componentes de Material de su aplicación, puedes declarar un
 widget de nivel superior `MaterialApp` como punto de entrada a su aplicación. MaterialApp
 es un widget de conveniencia que incluye una serie de widgets que son comúnmente
 requeridos para las aplicaciones que implementan Material Design. Se basa en una WidgetsApp agregando
 funcionalidad específica de Material.
 
-También puede usar un `WidgetApp` como su widget de aplicación, que proporciona algunas
+También puedes usar un `WidgetApp` como su widget de aplicación, que proporciona algunas
 de las mismas funcionalidades, pero no es tan rica como `MaterialApp`.
 
-Para personalizar los colores y estilos de cualquier componente hijo, pase un objeto
+Para personalizar los colores y estilos de cualquier componente hijo, pasa un objeto
 `ThemeData` al widget `MaterialApp`. Por ejemplo, en el siguiente código,
 el primary swatch se establece en azul y el color de selección de texto es rojo.
 
@@ -2317,5 +2317,5 @@ push para la aplicación.
 En Flutter, acceda a esta funcionalidad utilizando el plugin
 [Firebase_Messaging](https://github.com/flutter/plugins/tree/master/packages/firebase_messaging).
 Para más información sobre el uso de la API de mensajería en la nube de Firebase,
-consulte la documentación del plugin
+consulta la documentación del plugin
 [`firebase_messaging`](https://pub.dartlang.org/packages/firebase_messaging).
