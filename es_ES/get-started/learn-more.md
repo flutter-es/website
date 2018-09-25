@@ -25,4 +25,4 @@ Por favor contáctanos a nuestra [lista de correo][]. Nos gustaría saber de ti.
 
 Happy Fluttering!
 
-[correo]: mailto:flutter-devs-es@googlegroups.com
+[lista de correo]: mailto:flutter-devs-es@googlegroups.com
