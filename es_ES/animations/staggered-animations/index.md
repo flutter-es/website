@@ -318,7 +318,7 @@ Los siguientes recursos pueden ayudar a escribir animaciones:
 
 [Documentation de la API de Flutter](https://docs.flutter.io/)
 : Documentación de referencia para todas las bibliotecas de Flutter.
-  En particular, vea la documentación de la [libreria de animación](https://docs.flutter.io/flutter/animation/animation-library.html).
+  En particular, vea la documentación de la [librería de animación](https://docs.flutter.io/flutter/animation/animation-library.html).
 
 [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
 : Demo app que muestra muchos Componentes de Material y otras características de Flutter. La [demo Shrine](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine) implementa una animación Hero.

@@ -46,7 +46,7 @@ Los documentos listados arriba, como el [tutorial de animaciones](/tutorials/ani
 
 En la animación basada en la física, el movimiento se modela para que se parezca al comportamiento del mundo real. Cuando lanzas una pelota, por ejemplo, dónde y cuándo cae depende de la rapidez con la que fue lanzada, de su peso y de la distancia del suelo. De manera similar, dejar caer una pelota atada a un resorte cae (y rebota) de manera diferente que dejar caer una pelota atada a una cuerda.
 
-* [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
+* [Galería de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
 Bajo **componentes Material**, el ejemplo [Grid](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/material/grid_list_demo.dart) demuestra una animación de transición. Selecciona una de las imágenes de la cuadrícula y acerca la imagen. Puedes desplazar la imagen con gestos de giro o de arrastre.
 
 * Mira también la documentación de la API para
@@ -72,8 +72,8 @@ En este patrón, el usuario selecciona un elemento&mdash;a menudo una imagen&mda
 Cómo crear dos estilos de animaciones de Hero:
   * El Hero se traslada de una página a otra mientras cambia de posición y tamaño.
   * El borde del Hero cambia de forma, de un círculo a un cuadrado, a medida que se traslada de una página a otra.
-* [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
-Puedes construir la aplicación Gallery tu mismo o descargarla de la Play Store.
+* [Galería de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)<br>
+Puedes construir la aplicación Gallery tú mismo o descargarla de la Play Store.
 La demo [Shrine](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/shrine_demo.dart) incluye un ejemplo de animación Hero.
 
 * También consulta la documentación de la API para las clases [Hero,](https://docs.flutter.io/flutter/widgets/Hero-class.html)

@@ -408,7 +408,7 @@ Información clave:
 
 ### Clase RadialExpansion 
 
-El widget RadialExpansion, el núcleo de la demo, construye el árbol de widgets que corta la imagen durante la transición. La forma recortada resulta de la intersección de un clip circular (que crece durante la transición), con un clip rectangular (que permanece de tamaño constante en todo momento).
+El widget RadialExpansion, el núcleo de la demo construye el árbol de widgets que corta la imagen durante la transición. La forma recortada resulta de la intersección de un clip circular (que crece durante la transición), con un clip rectangular (que permanece de tamaño constante en todo momento).
 
 Para ello, construye el siguiente árbol de widgets:
 

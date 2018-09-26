@@ -19,7 +19,7 @@ El componente principal del sistema de animación es la clase
 
 Cada vez que el valor de la animación cambia, la animación notifica a todos los oyentes añadidos con
 [`addListener`](https://docs.flutter.io/flutter/animation/Animation/addListener.html).
-Normalmente, un objeto [`State`](https://docs.flutter.io/flutter/widgets/State-class.html) que escucha a una animación llamará a [`setState`](https://docs.flutter.io/flutter/widgets/State/setState.html) sobre si mismo en su callback de escucha para notificar al sistema de widgets que necesita reconstruir con el nuevo valor de la animación.
+Normalmente, un objeto [`State`](https://docs.flutter.io/flutter/widgets/State-class.html) que escucha a una animación llamará a [`setState`](https://docs.flutter.io/flutter/widgets/State/setState.html) sobre sí mismo en su callback de escucha para notificar al sistema de widgets que necesita reconstruir con el nuevo valor de la animación.
 
 Este patrón es tan común que hay dos widgets que ayudan a reconstruir los widgets cuando las animaciones cambian de valor: [`AnimatedWidget`](https://docs.flutter.io/flutter/widgets/AnimatedWidget-class.html)
 y [`AnimatedBuilder`](https://docs.flutter.io/flutter/widgets/AnimatedBuilder-class.html).
@@ -37,8 +37,7 @@ Las animaciones también proporcionan un [`AnimationStatus`](https://docs.flutte
 Para crear una animación, primero cree un [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html). Además de ser una animación en sí misma, un `AnimationController` te permite controlar la animación. Por ejemplo, puedes decirle al controlador que reproduzca la animación [`forward`](https://docs.flutter.io/flutter/animation/AnimationController/forward.html) o [`detener`](https://docs.flutter.io/flutter/animation/AnimationController/stop.html) la animación. También puedes [`lanzar`](https://docs.flutter.io/flutter/animation/AnimationController/fling.html) animaciones, que utilizan una simulación física, como un resorte, para dirigir la animación.
 
 Una vez que hayas creado un controlador de animación, puedes empezar a crear otras animaciones basadas en él. Por ejemplo, se puede crear un
-[`ReverseAnimation`](https://docs.flutter.io/flutter/animation/ReverseAnimation-class.html)
-que refleja la animación original pero corre en la dirección opuesta (ej., de 1.0 a 0.0). Del mismo modo, se puede crear una
+[`ReverseAnimation`](https://docs.flutter.io/flutter/animation/ReverseAnimation-class.html) que refleja la animación original, pero corre en la dirección opuesta (ej., de 1.0 a 0.0). Del mismo modo, se puede crear una
 [`CurvedAnimation`](https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html)
 cuyo valor se ajusta mediante una [`curva`](https://docs.flutter.io/flutter/animation/Curves-class.html).
 
@@ -73,7 +72,7 @@ Un `Ticker` puede iniciarse y detenerse. Cuando se inicia, devuelve un `Future` 
 
 Cada tick, el `Ticker` proporciona un callback con la duración desde el primer tick después de que fue iniciado.
 
-Debido a que los tick siempre dan su tiempo transcurrido en relación con el primer tick después de que se iniciaron, todos los ticks están sincronizados. Si inicia tres ticks en diferentes momentos entre dos frames, todos ellos se sincronizarán con la misma hora de inicio y, a continuación, se marcarán al mismo tiempo y posteriormente se tick en paralelo.
+Debido a que los tick siempre dan su tiempo transcurrido en relación con el primer tick después de que se iniciaron, todos los ticks están sincronizados. Si se inician tres ticks en diferentes momentos entre dos frames, todos ellos se sincronizarán con la misma hora de inicio, y posteriormente se marcarán en forma sincronizada.
 
 
 ## Simulations
@@ -110,8 +109,7 @@ Las clases `Curve` son stateless e immutables.
 
 ## Animations
 
-La clases abstractas 
-[`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html) proporciona un valor de un tipo dado, un concepto de dirección y estado de la animación, y una interfaz de escucha para registrar las llamadas de retorno que se invocan cuando el valor o estado cambia.
+Las clases abstractas [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html) proporciona un valor de un tipo dado, un concepto de dirección y estado de la animación, y una interfaz de escucha para registrar las llamadas de retorno que se invocan cuando el valor o estado cambia.
 
 Algunas subclases de `Animation` tienen valores que nunca cambian ([`kAlwaysCompleteAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysCompleteAnimation-constant.html), [`kAlwaysDismissedAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysDismissedAnimation-constant.html), [`AlwaysStoppedAnimation`](https://docs.flutter.io/flutter/animation/AlwaysStoppedAnimation-class.html)); por lo que el registro de llamadas de retorno no tiene ningún efecto, ya que los callbacks nunca son llamados.
 
