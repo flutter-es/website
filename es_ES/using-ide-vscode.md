@@ -231,7 +231,7 @@ Agradecemos sus comentarios, tanto sobre errores/problemas como sobre solicitude
 Antes de presentar nuevos problemas, por favor:
 
   * Haz una búsqueda rápida en los issue trackers para ver si el problema ya ha sido rastreado.
-  * Asegúrese de que haz [actualizado](#updating) la versión más reciente del plugin.
+  * Asegúrate de que haz [actualizado](#updating) la versión más reciente del plugin.
 
 Al presentar nuevos issues, por favor incluye la salida de [`flutter doctor`](https://flutter.io/bug-reports/#provide-some-flutter-diagnostics).
 
