@@ -71,7 +71,7 @@ Esta página asume que sabes cómo crear un diseño usando los widgets de Flutte
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Cuál es el punto??</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
 * Todas las animaciones son conducidas por el mismo [AnimationController](https://docs.flutter.io/flutter/animation/AnimationController-class.html).
 * Independientemente de cuánto dure la animación en tiempo real, los valores del controlador deben estar entre 0.0 y 1.0, inclusive.
