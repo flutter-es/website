@@ -141,7 +141,7 @@ Próximos pasos:
 Sigue el proyecto Flutter y únete a la conversación de varias maneras.
 Somos de código abierto y nos encantaría saber de ti.
 
-- [Haz preguntas de HOWTO que puedan ser contestadas con soluciones específicas][so]
+- [Haz preguntas sobre "Como Hacer" que puedan ser respondidas con una solución especifica][so]
 - [Chat en vivo con ingenieros y usuarios de Flutter][gitter]
 - [Discusión sobre Flutter, mejores prácticas, diseño de aplicaciones y más en nuestra lista de correo][mailinglist]
 - [Notificar fallos, solicitar funcionalidades y documentos][issues]
