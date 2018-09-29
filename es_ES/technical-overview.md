@@ -6,15 +6,15 @@ permalink: /technical-overview/
 
 ## ¿Qué es Flutter?
 
-Flutter es un SDK de aplicaciones móviles para la creación de aplicaciones de alto rendimiento y alta fidelidad para iOS y Android, a partir de un único codebase.
+Flutter es un SDK de aplicaciones móviles para la creación de aplicaciones de alto rendimiento y alta fidelidad para iOS y Android, a partir de un único código base.
 
-El objetivo es permitir a los desarrolladores que proporcionen aplicaciones de alto rendimiento que se adapten de forma natural a diferentes plataformas. Aceptamos las diferencias en los comportamientos de scrolling, tipografía, iconos, y más.
+El objetivo es permitir a los desarrolladores que lancen aplicaciones de alto rendimiento que se adapten de forma natural a diferentes plataformas. Abarcamos las diferencias en los comportamientos de scrolling, tipografía, iconos, y más.
 
 <object type="image/svg+xml" data="/images/whatisflutter/hero-shrine.svg" style="width: 100%; height: 100%;"></object>
 
 Esta es una aplicación de demostración de la [Galería](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo),
-una colección de aplicaciones de ejemplo de Flutter que puedes ejecutar después de instalar Flutter y de configurar tu ambiente. 
-Shrine tiene scrolling de imágenes de alta calidad, cards Interactivas, botones, listas desplegables, y una página de carrito de compras. Para ver el codebase único de este y otros ejemplos, [visita nuestro repositorio en GitHub](https://github.com/flutter/flutter/tree/master/examples).
+una colección de aplicaciones de ejemplo de Flutter que puedes ejecutar después de instalar Flutter y de configurar tu entorno. 
+Shrine tiene scrolling de imágenes de alta calidad, cards interactivas, botones, listas desplegables, y una página de carrito de compras. Para ver el código base único de este y otros ejemplos, [visita nuestro repositorio en GitHub](https://github.com/flutter/flutter/tree/master/examples).
 
 No se requiere experiencia en desarrollo móvil para empezar. Las aplicaciones están escritas en [Dart](https://dartlang.org/), lo que resulta familiar si has utilizado un lenguaje como Java o JavaScript. !La experiencia con lenguajes orientados a objetos es definitivamente útil, pero, incluso los no programadores han desarrollado aplicaciones Flutter!
 
@@ -23,7 +23,7 @@ No se requiere experiencia en desarrollo móvil para empezar. Las aplicaciones e
 ¿Cuáles son algunas de las ventajas de Flutter? Te ayuda a:
 
 *   Ser altamente productivo
-    *   Desarrolla para iOS y Android desde una única codebase
+    *   Desarrolla para iOS y Android desde una único código base
     *   Haz más con menos código, incluso en un solo sistema operativo, 
         con un lenguaje moderno y expresivo y un enfoque declarativo.
     *   Haz un prototipo e itera fácilmente
@@ -100,7 +100,7 @@ que devuelve un árbol (o jerarquía) de widgets. Este árbol representa la part
 de algún [text](https://docs.flutter.io/flutter/widgets/Text-class.html) y
 [diversos](https://docs.flutter.io/flutter/material/IconButton-class.html)
 [botones](https://docs.flutter.io/flutter/material/PopupMenuButton-class.html).
-El framework solicita entonces, recursivamente, a cada uno de estos widgets, que se construyan hasta que el proceso acabe en [widgets completamente operativos](https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html),
+El framework solicita entonces, recursivamente, a cada uno de estos widgets, que ejecuten su método build hasta que el proceso llegue a su fin en un [widget completo correcto](https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html),
 que luego el framework une en un árbol.
 
 La función de construcción de un widget debería estar libre de efectos secundarios.  Siempre que se le pida que construya, el widget debe devolver un nuevo árbol de widgets independientemente de lo que el widget haya devuelto previamente. El framework hace el trabajo pesado de comparar la construcción anterior con la actual y determinar qué modificaciones se deben hacer a la interfaz de usuario.
@@ -112,7 +112,7 @@ actualizar la interfaz de usuario de un estado a otro.
 
 Si las características únicas de un widget necesitan cambiar, basadas en la interacción del usuario u otros factores, ese widget es *stateful*. Por ejemplo, si un widget tiene un contador que se incrementa cada vez que el usuario pulsa un botón, el valor del contador es el estado de ese widget. Cuando ese valor cambia, el widget necesita ser reconstruido para actualizar la UI.
 
-Estos widgets subclasifican [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
+Estos widgets heredan de [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
 (en lugar de [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html))
 y almacenan su estado mutable en una subclase de [State](https://docs.flutter.io/flutter/widgets/State-class.html).
 
@@ -132,8 +132,8 @@ Ahora que estás familiarizado con la estructura básica y los principios del fr
 Próximos pasos:
 
 1.  [Sigue la Guía de Inicio de Flutter](/get-started/).
-1.  Intenta [Construyendo layouts - Tutorial](/tutorials/layout/) and
-    [Agregando interactividad - Tutorial](/tutorials/interactive/).
+1.  Prueba con el [Tutorial - Construyendo layouts](/tutorials/layout/) y con el 
+    [Tutorial - Agregando interactividad](/tutorials/interactive/).
 1.  Sigue un ejemplo detallado en [Un Recorrido por el Framework de Widgets Flutter](/widgets-intro/).
 
 ## Obtén apoyo
@@ -145,8 +145,9 @@ Somos de código abierto y nos encantaría saber de ti.
 - [Chat en vivo con ingenieros y usuarios de Flutter][gitter]
 - [Discusión sobre Flutter, mejores prácticas, diseño de aplicaciones y más en nuestra lista de correo][mailinglist]
 - [Notificar fallos, solicitar funcionalidades y documentos][issues]
-- [Síguenos en Twitter: @flutterio](https://twitter.com/flutterio/), 
-  [Flutter en español: @EsFlutter](https://twitter.com/EsFlutter) 
+- [Síguenos en Twitter: @flutterio](https://twitter.com/flutterio/)
+- [Inscríbete en futuros estudios de UX sobre Flutter](/research-signup)
+- [Únete al subreddit para estar al día con lo último en la comunidad de Flutter][reddit]
 
 
 [issues]: https://github.com/flutter/flutter/issues
@@ -154,3 +155,4 @@ Somos de código abierto y nos encantaría saber de ti.
 [so]: https://stackoverflow.com/tags/flutter
 [mailinglist]: https://groups.google.com/d/forum/flutter-dev
 [gitter]: https://gitter.im/flutter/flutter
+[reddit]: https://www.reddit.com/r/FlutterDev/
