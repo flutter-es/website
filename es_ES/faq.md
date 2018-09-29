@@ -282,9 +282,9 @@ Flutter debería poder ejecutar la mayoría del código Dart que no se importa (
 
 ### ¿Qué tan grande es el motor Flutter?
 
-En agosto de 2018, medimos el tamaño de una app Flutter mínima, (sin Material Components, solamente un único widget Center, construido con el sistema de builds de apks de flutter), empaquetado y comprimido como una release APK, tiene aproximadamente 4.7 MB.
+En septiembre de 2018, medimos el tamaño de una app Flutter mínima, (sin Material Components, solamente un único widget Center, construido con el sistema de builds de apks de flutter), empaquetado y comprimido como una release APK, tiene aproximadamente 4.48 MB.
 
-Para esta app simple, el core engine tiene aproximadamente 3.2MB(comprimido), el framework + el código de la app tiene aproximadamente 840KB (comprimidos), el archivo LICENSE tiene 55KB (comprimido), el código Java necesario (casses.dex) tienen 57KB (comprimido), y hay aproximadamente 533KB (comprimidos) de ICU data.
+Para esta app simple, el core engine tiene aproximadamente 3MB(comprimido), el framework + el código de la app tiene aproximadamente 857.5KB (comprimidos), el archivo LICENSE tiene 54KB (comprimido), el código Java necesario (casses.dex) tienen 61KB (comprimido), y hay aproximadamente 449KB (comprimidos) de ICU data.
 
 Por supuesto, su experiencia puede ser diferente, y le recomendamos que mida su propia aplicación,
 ejecutando `flutter build apk` y mirando `app/outputs/apk/app-release.apk`.

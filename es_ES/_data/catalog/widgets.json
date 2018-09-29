@@ -457,6 +457,16 @@
     "image": "<img alt='' src='https://material-design.storage.googleapis.com/publish/material_v_9/0B7WCemMG6e0VUVlmbHM1Q013RU0/components_dividers.png'>"
   },
   {
+    "name": "CupertinoActionSheet",
+    "description": "Un action sheet inferior estilo iOS.",
+    "categories": [
+      "Cupertino (widgets estilo iOS)"
+    ],
+    "subcategories": [],
+    "link": "https://docs.flutter.io/flutter/cupertino/CupertinoActionSheet-class.html",
+    "image": "<img alt='' src='/images/widget-catalog/cupertino-action-sheet.png'>"
+  },
+  {
     "name": "CupertinoActivityIndicator",
     "description": "Un indicador de actividad con el estilo iOS. Muestra un 'spinner' circular.",
     "categories": [
@@ -505,6 +515,16 @@
     "subcategories": [],
     "link": "https://docs.flutter.io/flutter/cupertino/CupertinoDialogAction-class.html",
     "image": "<img alt='' src='/images/catalog-widget-placeholder.png'>"
+  },
+  {
+    "name": "CupertinoSegmentedControl",
+    "description": "Un segmented control estilo iOS. Usado para seleccionar de forma mutuamente exclusiva opciones en una lista horizontal.",
+    "categories": [
+      "Cupertino (widgets estilo iOS)"
+    ],
+    "subcategories": [],
+    "link": "https://docs.flutter.io/flutter/cupertino/CupertinoSegmentedControl-class.html",
+    "image": "<img alt='' src='/images/widget-catalog/cupertino-segmented-control.png'>"
   },
   {
     "name": "CupertinoSlider",
@@ -605,6 +625,16 @@
     "subcategories": [],
     "link": "https://docs.flutter.io/flutter/cupertino/CupertinoTabView-class.html",
     "image": "<img alt='' src='/images/catalog-widget-placeholder.png'>"
+  },
+  {
+    "name": "CupertinoTimerPicker",
+    "description": "Un selector de tiempo de cuenta atrás de estilo iOS.",
+    "categories": [
+      "Cupertino (widgets estilo iOS)"
+    ],
+    "subcategories": [],
+    "link": "https://docs.flutter.io/flutter/cupertino/CupertinoTimerPicker-class.html",
+    "image": "<img alt='' src='/images/widget-catalog/cupertino-timer-picker.png'>"
   },
   {
     "name": "Padding",
