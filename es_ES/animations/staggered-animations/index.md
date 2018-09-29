@@ -17,7 +17,7 @@ permalink: /animations/staggered-animations/
 
 <aside class="alert alert-info" markdown="1">
 **Terminología:**
-Si el concepto de interpolaciones o interpolar es nuevo para ti consulte el [tutorial Animaciones en Flutter.](/tutorials/animation/)
+Si el concepto de interpolaciones o interpolar es nuevo para ti consulta el [tutorial Animaciones en Flutter.](/tutorials/animation/)
 </aside>
 
 Las animaciones escalonadas son un concepto sencillo: los cambios visuales ocurren como una serie de operaciones, en lugar de todas a la vez.
@@ -239,7 +239,7 @@ Para cada tick de la animación, los valores se actualizan, resultando en una ll
 
 ### Widget con estado: StaggerDemo
 
-El widget de estado, StaggerDemo, crea el AnimationController (el que las gobierna a todos), especificando una duración de 2000ms. Reproduce la animación y construye la parte no animada del árbol de widgets.
+El widget de estado, StaggerDemo, crea el AnimationController (el que las gobierna a todas), especificando una duración de 2000ms. Reproduce la animación y construye la parte no animada del árbol de widgets.
 La animación comienza cuando se detecta un tap en la pantalla.
 La animación se ejecuta hacia adelante y luego hacia atrás.
 
@@ -318,7 +318,7 @@ Los siguientes recursos pueden ayudar a escribir animaciones:
 
 [Documentation de la API de Flutter](https://docs.flutter.io/)
 : Documentación de referencia para todas las bibliotecas de Flutter.
-  En particular, vea la documentación de la [librería de animación](https://docs.flutter.io/flutter/animation/animation-library.html).
+  En particular, mira la documentación de la [librería de animación](https://docs.flutter.io/flutter/animation/animation-library.html).
 
 [Galeria de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
 : Demo app que muestra muchos Componentes de Material y otras características de Flutter. La [demo Shrine](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine) implementa una animación Hero.
