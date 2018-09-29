@@ -4,7 +4,7 @@ title: Actualiza tu instalación de Flutter
 permalink: /upgrading/
 ---
 
-Recomendamos encarecidamente el seguimiento de la rama `beta` en el repositorio de flutter, que es donde impulsamos 'buenos desarrollos conocidos' de Flutter. Si necesitas ver los últimos cambios, puedes seguir la rama `master`, pero ten en cuenta que aquí es donde hacemos nuestro desarrollo diario, por lo que la estabilidad es mucho menor.
+Recomendamos encarecidamente el seguimiento de la rama `beta` en el repositorio de flutter, que es donde hacemos push de las 'compilaciones buenas conocidas'. de Flutter. Si necesitas ver los últimos cambios, puedes seguir la rama `master`, pero ten en cuenta que aquí es donde hacemos nuestro desarrollo diario, por lo que la estabilidad es mucho menor.
 
 Para ver tu rama actual, usa `flutter channel`.
 
