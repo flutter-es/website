@@ -8,12 +8,11 @@ permalink: /support/
 
 Te animamos a que te acerques y te unas a la conversación de varias maneras.
 
-- [Haz preguntas de HOWTO que puedan ser contestadas con soluciones específicas][so]
+- [Haz preguntas sobre "Como Hacer" que puedan ser respondidas con una solución especifica][so]
 - [Chat en vivo con ingenieros y usuarios de Flutter][gitter]
 - [Discusión sobre Flutter, mejores prácticas, diseño de aplicaciones y más en nuestra lista de correo][mailinglist]
 - [Notificar fallos, solicitar funcionalidades y documentos][issues]
-- [Síguenos en Twitter: @flutterio](https://twitter.com/flutterio/), 
-  [Flutter en español: @EsFlutter](https://twitter.com/EsFlutter) 
+- [Síguenos en Twitter: @flutterio](https://twitter.com/flutterio/)
 - [Inscríbete en futuros estudios de UX sobre Flutter](/research-signup)
 - [Únete al subreddit para estar al día con lo último en la comunidad de Flutter][reddit]
 
