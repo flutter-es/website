@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Flutter's Development Philosophy
+title: Filosofía de Desarrollo de Flutter
 
 permalink: /design-principles/
 ---
@@ -8,409 +8,236 @@ permalink: /design-principles/
 * TOC Placeholder
 {:toc}
 
-Introduction
+Introducción
 ------------
 
-Flutter is written based on some core principles that were mostly
-intuited from past experiences with other platforms such as the Web
-and Android, some of which are summarised below.
+Flutter está escrito sobre la base de algunos principios básicos que fueron en su mayoría
+intuido a partir de experiencias pasadas con otras plataformas como la Web
+y Android, algunos de los cuales se resumen a continuación.
 
-This document is most useful if you want to contribute to Flutter, as
-then we hope you will also follow these philosophies. Please also read
-our
-[style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
-for more specific guidelines regarding writing Dart code for Flutter.
+Este documento es muy útil si quieres contribuir a Flutter, ya que esperamos que también sigas estas filosofías. Por favor, lee también nuestra [guía de estilo](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
+para obtener pautas más específicas sobre cómo escribir código Dart para Flutter.
 
 
-Code review and checking in code
+Revisión y comprobación de código
 --------------------------------
 
-Every PR must be code-reviewed before check-in, including things like
-rolling a dependency. Getting a review means that a regular Flutter
-contributor (someone with commit access) has written a comment saying
-"LGTM" on your PR, and you have addressed all their feedback. ("LGTM"
-means "Looks Good To Me".)
+Cada RP debe ser revisado antes del check-in, incluyendo cosas como
+que se extiende una dependencia. Recibir una crítica significa que un contribuidor regular de Flutter(alguien con acceso a commit) haya escrito un comentario diciendo "LGTM" en su PR, y usted se ha hecho eco de todos sus comentarios. ("LGTM"
+significa "Se ve bien para mí".)
 
-Code review serves many critical purposes. There's the obvious
-purpose: catching errors. Even the most experienced engineers
-frequently make errors that are caught by code review. But there are
-also many other benefits of code reviews:
+La revisión del código sirve para muchos propósitos críticos. Hay un propósito obvio: detectar errores. Incluso los ingenieros más experimentados frecuentemente cometen errores que son detectados por la revisión de código. Pero también hay muchos otros beneficios de las revisiones de código:
 
- * It spreads knowledge among the team. Since every line of code will
-   have been read by two people, it's more likely that once you move
-   on, someone else will understand the code.
+ * Difunde el conocimiento entre el equipo. Como cada línea de código habrá sido leída por dos personas, es más probable que una vez que usted siga adelante, alguien más entienda el código.
 
- * It keeps you honest. Knowing that someone will be reading your
-   code, you are less tempted to cut corners and more motivated to
-   write code you are proud of.
+ * Te mantiene honesto. Sabiendo que alguien va a leer tu código, estás menos tentado a reducir costes y más motivado a escribir código del que estés orgulloso.
 
- * It exposes you to different modes of thinking. Your code reviewer
-   has probably not thought about the problem in the same way you
-   have, and so may have a fresh perspective and may find you a better
-   way to solve the problem.
+ * Te expone a diferentes modos de pensar. Tu revisor de código probablemente no ha pensado en el problema de la misma manera que tu, y por lo tanto puede tener una perspectiva fresca y puede encontrar una mejor manera de resolver el problema.
 
-We recommend you consider
-[these suggestions](https://testing.googleblog.com/2017/06/code-health-too-many-comments-on-your.html)
-for addressing code review comments on your PR.
+Te recomendamos que consideres
+[estas sugerencias](https://testing.googleblog.com/2017/06/code-health-too-many-comments-on-your.html)
+para abordar los comentarios de revisión de código en tu PR.
 
-If you're working on a big patch, don't hesitate to get reviews early,
-before you're ready to check code in. Also, don't hesitate to ask for
-multiple people to review your code, and don't hesitate to provide unsolicited
-comments on other people's PRs. The more reviews the better.
+Si estás trabajando en un código grande, no dudes en obtener revisiones antes de que estés listo para comprobar el código. Además, no dude en pedir a varias personas que revisen tu código, y no dude en proporcionar comentarios no solicitados sobre los PRs de otras personas. Cuantas más revisiones, mejor.
 
-Reviewers should carefully read the code and make sure they understand
-it. A reviewer should check the code for both high level concerns,
-such as whether the code's structure makes sense, as well as
-readability and adherence to the [Flutter style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo).
-Use [these best practices](https://mtlynch.io/human-code-reviews-1/)
-when reviewing code and providing comments.
+Los revisores deben leer cuidadosamente el código y asegurarse de que lo entienden. Un revisor debe revisar el código para ver si tiene sentido, por ejemplo, si la estructura del código tiene sentido, así como la legibilidad y la adherencia a la [guía de estilo flutter](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo).
+Aplicar [las mejores prácticas](https://mtlynch.io/human-code-reviews-1/)
+al revisar el código y proporcionar comentarios.
 
-Reviewers should not give an LGTM unless the patch has tests that verify
-all the affected code, or unless a test would make no sense. If you
-review a patch, you are sharing the responsibility for the patch with
-its author. You should only give an LGTM if you would feel confident
-answering questions about the code.
+Los revisores no deben dar un LGTM a menos que el parche tenga pruebas que verifiquen todo el código afectado, o a menos que una prueba no tenga sentido. Si revisas un parche, estás compartiendo la responsabilidad del parche con su autor. Usted sólo debe dar un LGTM si se siente seguro respondiendo preguntas sobre el código.
 
-A reviewer may in some circumstances consider the code satisfactory
-without having fully reviewed or understood it. If a reviewer has not
-fully reviewed the code, they admit to this by saying "RSLGTM" rather
-than just "LGTM". If you feel your code needs a real review, please
-find someone to actually review it. ("RSLGTM" means "Rubber Stamp
-Looks Good To Me".) If you mark a patch as RSLGTM, you are still
-sharing the responsibility for the patch with its author. Reviewing a
-patch as RSLGTM should be a rare event.
+Un revisor puede en algunas circunstancias considerar el código satisfactorio sin haberlo revisado o entendido completamente. Si un revisor no ha revisado completamente el código, lo admite diciendo "RSLGTM" en lugar de "LGTM". Si usted siente que su código necesita una revisión real, por favor encuentre a alguien que realmente lo revise. "Si marcas un parche como RSLGTM, sigues compartiendo la responsabilidad del parche con su autor. Revisar un como RSLGTM debería ser un evento raro.
 
-If you really need to check something in in a hurry, for example
-because everything is broken and you can fix it, then pick someone on
-the team who you want to have review the code, and then mark the PR as
-"TBR" with their name. ("TBR" means "To Be Reviewed".) This is only to
-be used in emergencies. (Nobody being around to review your 50,000
-line patch at midnight on December 31st is not an emergency!) If
-someone marks a patch as TBR and gives your name as the reviewer, you
-should review the patch as soon as possible. If a reviewer finds
-problems with a patch marked TBR, the issues should be fixed as soon
-as possible.
+Si realmente necesitas revisar algo a toda prisa, por ejemplo porque todo está roto y puedes arreglarlo, entonces elige a alguien del equipo que quieras que revise el código, y luego marca al RP como "TBR" con su nombre. "("TBR" significa "Para revisión".) Esto sólo debe usarse en emergencias. (¡Nadie que esté cerca para revisar su parche de 50,000 líneas a la medianoche del 31 de diciembre no es una emergencia! Si alguien marca un parche como TBR y da su nombre como revisor, debe revisar el parche lo antes posible. Si un revisor encuentra problemas con un parche marcado TBR, los problemas deben solucionarse tan pronto como sea posible. como sea posible.
 
-Wait for Cirrus to give the green light before merging a PR. Cirrus
-runs a bunch of precommit checks (see the tests for the
+Espere a que Cirrus dé luz verde antes de fusionar un PR. Cirrus realiza un montón de comprobaciones previas (ver las pruebas para el
 [framework](https://github.com/flutter/flutter/blob/master/dev/bots/test.dart),
-the [engine](https://github.com/flutter/engine/blob/master/ci/build.sh),
-and the website).
-These checks include checks on comments, so make sure you wait for the
-green light even if your patch is _obviously_ fine!
+los [engine](https://github.com/flutter/engine/blob/master/ci/build.sh),
+y el sitio web).
+Estas comprobaciones incluyen comprobaciones de los comentarios, así que asegúrese de esperar la luz verde incluso si su parche está _obviamente_ bien!
 
-For the engine repository, Travis
-does not actually _build_ the engine, so you should make sure to do
-that locally first too before checking anything in.
+Para el repositorio de motores, Travis no construye realmente el motor, así que debería asegurarse de hacerlo localmente antes de comprobar nada.
 
-Make sure all the trees and dashboards are green before checking in:
-the [infra waterfall](https://build.chromium.org/p/client.flutter/waterfall),
-our [Cirrus dashboard](https://cirrus-ci.com/github/flutter/flutter/master),
-our [test dashboard](https://flutter-dashboard.appspot.com/build.html), and
-our [benchmarks dashboard](https://flutter-dashboard.appspot.com/benchmarks.html) (Google-only, sorry).
+Asegúrate de que todos los árboles y tableros estén verdes antes de realizar el check-in:
+la [infra waterfall](https://build.chromium.org/p/client.flutter/waterfall),
+nuestro [Cirrus dashboard](https://cirrus-ci.com/github/flutter/flutter/master),
+nuestro [test dashboard](https://flutter-dashboard.appspot.com/build.html), y
+nuestro [benchmarks dashboard](https://flutter-dashboard.appspot.com/benchmarks.html) (Sólo Google, lo sentimos).
 
-**If the trees or dashboards are showing any regressions, only fixes
-that improve the situation are allowed to go in.**
+**Si los árboles o cuadros de mando muestran alguna regresión, sólo se permiten las correcciones que mejoren la situación..**
 
 
-Handling breaking changes
+Manejo de los cambios de rotura
 -------------------------
 
-We're attempting to stablize the APIs for the
+Estamos tratando de establecer las APIs para el
 [packages in the SDK](https://github.com/flutter/flutter/tree/master/packages).
-To make a change that will require developers to change their code:
+Para hacer un cambio que requiera que los desarrolladores cambien su código:
 
- 1. File an issue or create a pull request with the `prod: API break`
-    label.
+ 1. Archivar un problema o crear una solicitud de extracción con la etiqueta `prod: API break`.
 
- 2. Send an e-mail to <mailto:{{site.email}}> to socialize
-    your proposed change. The purpose of this e-mail is to see if you can
-    get consensus around your change. **You are not telling people that
-    the change will happen, you are asking them for permission.**
-    The e-mail should include the following:
+ 2. Envíe un correo electrónico a <mailto:{{site.email}}> para socializar el cambio propuesto. El propósito de este correo electrónico es ver si puede obtener consenso en torno a su cambio. **No le dices a la gente que el cambio ocurrirá, les pides permiso.**
+    El correo electrónico debe incluir lo siguiente:
 
-    - A subject line that clearly summarises the proposed change and sounds like it
-      matters (so that people can spot these e-mails among the noise). Prefix
-      the subject line with `[Breaking Change]`.
+    - Una línea de asunto que resuma claramente el cambio propuesto y suene como si fuera importante (para que la gente pueda detectar estos correos electrónicos entre el ruido)). Póngale un prefijo a la línea de asunto con `[Breaking Change]`.
 
-    - A summary of each change you propose.
+    - Un resumen de cada cambio que proponga.
 
-    - A brief justification for the change.
+    - Una breve justificación del cambio.
 
-    - A link to the issue you filed in step 1, and any PRs you may have already
-      posted relating to this change.
+    - Un enlace al asunto que presentó en el paso 1, y a cualquier RP que ya haya publicado en relación con este cambio..
 
-    - Clear mechanical steps for porting the code from the old form to the new
-      form, if possible. If not possible, clear steps for figuring out how to
-      port the code.
+    - Aclare los pasos mecánicos para transferir el código del formulario antiguo al nuevo, si es posible. Si no es posible, pasos claros para averiguar cómo portar el código.
 
-    - A sincere offer to help port code, which includes the preferred venue for
-      contacting the person who made the change.
+    - Una oferta sincera de colaboración con el código del puerto, que incluye el lugar preferido para ponerse en contacto con la persona que hizo el cambio.
 
-    - A request that people notify you if this change will be a problem,
-      perhaps by discussing the change in the issue tracker on on the pull request.
+    - Una solicitud para que la gente le notifique si este cambio será un problema, tal vez discutiendo el cambio en el rastreador de problemas en la solicitud de pull.
 
- 3. **If folks agree that the benefits of changing the API outweigh the stablity
-    costs**, you can proceed with the normal code review process for making
-    changes. You should leave some time between steps 2 and 3 (at a bare minimum
-    24 hours during the work week so that people in all time zones have had a
-    chance to see it, but ideally a week or so).
+ 3. **ISi la gente está de acuerdo en que los beneficios de cambiar la API superan los costos de estabilidad**, puede continuar con el proceso normal de revisión de código para realizar cambios. Debe dejar algún tiempo entre los pasos 2 y 3 (como mínimo 24 horas durante la semana laboral para que la gente de todas las zonas horarias haya tenido la oportunidad de verlo, pero lo ideal sería una semana más o menos).
 
- 4. If you landed a breaking change, add a bullet point to the top section of
-    the [Changelog page on the wiki](https://github.com/flutter/flutter/wiki/Changelog),
-    describing your change and
-    linking to your e-mail in [the mailing list archives](https://groups.google.com/forum/#!forum/flutter-dev).
-    To figure out the correct version heading for the changelog run
-    `git fetch upstream && flutter --version`. For example, if it says
-    "Flutter 0.0.23-pre.10" in the output your changelog entry should be under
-    heading "Changes since 0.0.22".
+ 4. Si ha conseguido un cambio de ruptura, añada un punto a la sección superior de la sección de [Página de registro de cambios en el wiki](https://github.com/flutter/flutter/wiki/Changelog),
+    describiendo su cambio y enlazando a su correo electrónico en [los archivos de la lista de correo](https://groups.google.com/forum/#!forum/flutter-dev).
+    Para averiguar el título de la versión correcta para la ejecución del registro de cambios
+    `git fetch upstream && flutter --version`. Por ejemplo, si dice
+    "Flutter 0.0.23-pre.10" en la salida su entrada en el registro de cambios debe estar bajo el encabezado "Changes since 0.0.22".
 
-Where possible, even "breaking" changes should be made in a backwards-compatible way,
-for example by introducing a new class and marking the old class `@deprecated`. When
-doing this, include a description of how to transition in the deprecation notice, for
-example:
+En la medida de lo posible, incluso los cambios de "ruptura" deben hacerse de forma compatible con el pasado, por ejemplo, introduciendo una nueva clase y marcando la clase antigua. `@deprecated`. Al hacerlo, incluya una descripción de cómo realizar la transición en la notificación de deprecación, por ejemplo:
 
 <!-- skip -->
 ```dart
-@Deprecated('FooInterface has been deprecated because ...; it is recommended that you transition to the new FooDelegate.')
+@Deprecated('FooInterface ha sido descontinuada porque ...; se recomienda que haga la transición a la nueva FooDelegate.')
 class FooInterface {
   /// ...
 }
 ```
 
-If you use `@deprecated`, make sure to remember to actually remove the feature a few
-weeks later (after the next beta release), do not just leave it forever!
+Si utiliza `@deprecated`, asegúrate de recordar quitar la característica unas semanas después (después de la próxima versión beta), ¡no la dejes para siempre!
 
 
-#### Google-only responsibilities
+#### Responsabilidades exclusivas de Google
 
-If you work for Google, you have the added responsibility of updating Google's
-internal copy of Flutter and fixing any broken call-sites reasonably quickly
-after merging the upstream change.
+Si trabajas para Google, tienes la responsabilidad añadida de actualizar la copia interna de Google de Flutter y de arreglar cualquier sitio de llamadas interrumpidas con una rapidez razonable después de fusionar los cambios en el flujo ascendente.
 
-Lazy programming
+Programación perezosa
 ----------------
 
-Write what you need and no more, but when you write it, do it right.
+Escribe lo que necesites y nada más, pero cuando lo escribas, hazlo bien.
 
-Avoid implementing features you don't need. You can't design a feature
-without knowing what the constraints are. Implementing features "for
-completeness" results in unused code that is expensive to maintain,
-learn about, document, test, etc.
+Evitar la implementación de funciones que no necesita. No se puede diseñar una característica sin saber cuáles son las restricciones. La implementación de características "para completar" resulta en código sin usar que es costoso de mantener, conocer, documentar, probar, etc.
 
-When you do implement a feature, implement it the right way. Avoid
-workarounds. Workarounds merely kick the problem further down the
-road, but at a higher cost: someone will have to relearn the problem,
-figure out the workaround and how to dismantle it (and all the places
-that now use it), _and_ implement the feature. It's much better to
-take longer to fix a problem properly, than to be the one who fixes
-everything quickly but in a way that will require cleaning up later.
+Cuando implemente una característica, impleméntela de la manera correcta. Evite las soluciones alternativas. Las soluciones alternativas no hacen sino agravar el problema más adelante, pero a un coste mayor: alguien tendrá que volver a aprender el problema, averiguar cómo solucionarlo y desmontarlo (y todos los lugares que ahora lo utilizan), y_implementar la característica. Es mucho mejor tardar más tiempo en arreglar un problema correctamente, que ser el que lo arregla todo rápidamente, pero de una manera que requerirá una limpieza posterior.
 
-You may hear team members say "embrace the [yak
-shave](http://www.catb.org/jargon/html/Y/yak-shaving.html)!". This is
-an encouragement to take on the larger effort necessary to perform a
-proper fix for a problem rather than just applying a band-aid.
+Es posible que escuche a los miembros del equipo decir "embrace the [yak
+shave](http://www.catb.org/jargon/html/Y/yak-shaving.html)!". Esto es un estímulo para tomar el esfuerzo más grande necesario para realizar una solución adecuada para un problema en lugar de simplemente aplicar una tirita.
 
 
 Tests
 -----
 
-**Write Tests, Find Bugs**
+**Escribir Test, encontrar errores**
 
-When you fix a bug, first write a test that fails, then fix the bug
-and verify the test passes.
+Cuando arregle un error, primero escriba una prueba que falle, luego arregle el error y verifique que la prueba pase.
 
-When you implement a new feature, write tests for it.
+Cuando implemente una nueva característica, escriba Test para ella.
 
 
-Documentation
+Documentación
 -------------
 
-When working on Flutter, if you find yourself asking a question about
-our systems, please place whatever answer you subsequently discover
-into the documentation in the same place where you first looked for
-the answer.
+Cuando trabaje en Flutter, si te encuentra haciendo una pregunta sobre nuestros sistemas, por favor coloca cualquier respuesta que descubra posteriormente en la documentación en el mismo lugar donde buscó la respuesta por primera vez.
 
-We try to avoid reliance on "oral tradition". It should be possible
-for anyone to begin contributing without having had to learn all the
-secrets from existing team members. To that end, all processes should
-be documented (typically on the wikis), code should be self-explanatory
-or commented, and conventions should be written down, e.g. in our style
-guide.
+Tratamos de evitar la dependencia de la "tradición oral". Debería ser posible para cualquiera empezar a contribuir sin haber tenido que aprender todos los secretos de los miembros existentes del equipo. Para ello, todos los procesos deben estar documentados (normalmente en los wikis), el código debe ser autoexplicativo o comentado, y las convenciones deben estar escritas, por ejemplo, en nuestra guía de estilo.
 
-There is one exception: it's better to _not_ document something in our API
-docs than to document it poorly. This is because if you don't document it,
-it still appears on our list of things to document. Feel free to remove
-documentation that violates our
-[style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo),
-so as to make it reappear on the list.
+Hay una excepción: es mejor _no_documentar algo en nuestros documentos de la API que documentarlo mal. Esto se debe a que si usted no lo documenta, todavía aparece en nuestra lista de cosas a documentar. Siéntase libre de eliminar la documentación que viole nuestras
+[guía de estilo](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo),
+para que reaparezca en la lista.
 
 
-API design
+Diseño de APIs
 ----------
 
-We have learned various lessons over the years.
+Hemos aprendido varias lecciones a lo largo de los años.
 
-* There should be no objects that represent live state that reflect
-  some state from another source, since they are expensive to maintain.
-  (The Web's `HTMLCollection` object is an example of such an object.)
-  In other words, **keep only one source of truth**, and **don't replicate
-  live state**.
+* No debe haber objetos que representen estado vivo que reflejen algún estado de otra fuente, ya que su mantenimiento es costoso. (El objeto `HTMLCollection` de la Web es un ejemplo de tal objeto.) En otras palabras, **mantenga sólo una fuente de verdad**, y **no replique el estado vivo**.
 
-* Property getters should be efficient (e.g. just returning a cached
-  value, or an O(1) table lookup). If an operation is inefficient, it
-  should be a method instead. e.g. `document.getForms()`, not
-  `document.forms` (it walks the entire tree).
+* Las propiedades getters deben ser eficientes (por ejemplo, sólo devolver un valor de caché, o una búsqueda de tabla O(1)). Si una operación es ineficiente, debería ser un método en su lugar. e.g. `document.getForms()`, no `document.forms` (camina por todo el árbol).
 
-  - Asynchronous expensive operations can be represented by futures.
-    A method can start the work and return a future; a getter can return 
-    a future corresponding to already-running work. A getter should not
-    kick-off the work and return the future, since getters appear idempotent
-    and side-effect free.
+  - La operación asincrónica costosa puede ser representada por futuros. Un método puede iniciar el trabajo y devolver un futuro; un getter puede devolver un futuro correspondiente al trabajo en curso. Un getter no debe iniciar el trabajo y devolver el futuro, ya que los getters parecen idempotentes y sin efectos secundarios.
 
-* There should be no APIs that require synchronously completing an
-  expensive operation (e.g. computing a full app layout outside of the
-  layout phase). Expensive work should be asynchronous.
+* No debería haber APIs que requieran completar sincrónicamente una operación costosa (por ejemplo, calcular un diseño de aplicación completo fuera de la fase de diseño). El trabajo caro debe ser asincrónico.
 
-* We use a layered framework design, where each layer addresses a
-  narrowly scoped problem and is then used by the next layer to solve
-  a bigger problem. This is true both at a high level (widgets relies
-  on rendering relies on painting) and at the level of individual
-  classes and methods (e.g. in the rendering library, having one class
-  for clipping and one class for opacity rather than one class that
-  does both at the same time).
+* Utilizamos un diseño de estructura por capas, en el que cada capa aborda un problema con un alcance limitado y luego es utilizada por la siguiente capa para resolver un problema mayor. Esto es cierto tanto a un alto nivel (los widgets dependen de la renderización dependiendo del cuadro) como a nivel de clases y métodos individuales (por ejemplo, en la biblioteca de renderización, tener una clase para el recorte y una clase para la opacidad en lugar de una clase que haga ambas cosas al mismo tiempo).
 
-  - Convenience APIs belong at the layer above the one they are
-    simplifying.
+  - Las APIs de conveniencia pertenecen a la capa superior a la que están simplificando.
 
-  - Having dedicated APIs for performance reasons is fine. If one
-    specific operation, say clipping a rounded rectangle, is expensive
-    using the generic API but could be implemented more efficiently
-    using a dedicated API, then a dedicated API is fine.
+  - Tener APIs dedicadas por razones de rendimiento está bien. Si una operación específica, por ejemplo, recortar un rectángulo redondeado, es costosa utilizando la API genérica pero podría implementarse más eficientemente utilizando una API dedicada, entonces una API dedicada está bien.
 
-* APIs that encourage bad practices should not exist. e.g., no
+* No deben existir API que fomenten las malas prácticas. e.g. no
   `document.write()`, `innerHTML`, `insertAdjacentHTML()`, etc.
 
-  - String manipulation to generate data or code that will subsequently
-    be interpreted or parsed is a bad practice as it leads to code
-    injection vulnerabilities.
+  - La manipulación de cadenas para generar datos o código que posteriormente serán interpretados o analizados es una mala práctica, ya que conduce a vulnerabilidades de inyección de código.
 
-  - If an operation is expensive, that expense should be represented
-    in the API (e.g. by returning a `Future` or a `Stream`).  Avoid
-    providing APIs that hide the expense of tasks.
+  - Si una operación es cara, ese gasto debe ser representado en la API (por ejemplo, devolviendo un `Future` o un `Stream`).  Evite proporcionar APIs que oculten el gasto de las tareas.
 
-* Convenience APIs that wrap some aspect of a service from one environment
-  for exposure in another environment (for example, exposing an Android API
-  in Dart), should expose/wrap the complete API, so that there's no cognitive cliff
-  when interacting with that service (where you are fine using the exposed
-  API up to a point, but beyond that have to learn all about the underlying
-  service).
+* Las APIs de conveniencia que envuelven algún aspecto de un servicio de un entorno para su exposición en otro entorno (por ejemplo, exponer una API Android en Dart), deberían exponer/envolver la API completa, de modo que no haya obstáculos cognoscitivos a la hora de interactuar con ese servicio (en el que está bien usar la API expuesta hasta cierto punto, pero más allá de eso tiene que aprender todo sobre el servicio subyacente).
 
-* APIs that wrap underlying services but prevent the underlying API from
-  being directly accessed (e.g. how `dart:ui` exposes Skia) should carefully
-  expose only the best parts of the underlying API. This may require refactoring
-  features so that they are more usable. It may mean avoiding exposing
-  convenience features that abstract over expensive operations unless there's a
-  distinct performance gain from doing so. A smaller API surface is easier
-  to understand.
+* Las APIs que envuelven los servicios subyacentes pero impiden el acceso directo a la API subyacente (por ejemplo, cómo `dart:ui` expone a Skia) deben exponer cuidadosamente sólo las mejores partes de la API subyacente. Esto puede requerir características de refactorización para que sean más utilizables. Puede significar evitar exponer características de conveniencia que se abstraen sobre operaciones costosas a menos que haya una clara ganancia de rendimiento al hacerlo. Una superficie API más pequeña es más fácil de entender.
 
-  - This is why `dart:ui` doesn't expose `Path.fromSVG()`: we checked, and it
-    is just as fast to do that work directly in Dart, so there is no benefit
-    to exposing it. That way, we avoid the costs (bigger API surfaces are more
-    expensive to maintain, document, and test, and put a compatibility burden
-    on the underlying API).
+  - Es por eso que `dart:ui` no expone `Path.fromSVG()`: lo comprobamos, y es igual de rápido hacer ese trabajo directamente en Dart, así que no hay beneficio en exponerlo. De esta manera, evitamos los costes (las estructuras de API más grandes son más caras de mantener, documentar y probar, y suponen una carga de compatibilidad para la API subyacente).
 
 
 Bugs
 ----
 
-Only assign a bug to yourself when you are actively working on it. If
-you're not working on it, leave it unassigned. Don't assign bugs to
-people unless you know they are going to work on it. If you find
-yourself with bugs assigned that you are not going to be working on in
-the very near future, unassign the bug so that other people feel
-empowered to work on them.
+Asigne un error a sí mismo sólo cuando esté trabajando activamente en él. Si no estás trabajando en ello, déjalo sin asignar. No asigne bugs a personas a menos que sepa que ellos van a trabajar en ello. Si se encuentra con errores asignados en los que no va a trabajar en un futuro muy cercano, desasigne el error para que otras personas se sientan capacitadas para trabajar en ellos.
 
-You may hear team members refer to "licking the cookie". Assigning a
-bug to yourself, or otherwise indicating that you will work on it,
-tells others on the team to not fix it. If you then don't work on it
-straight away, you are acting like someone who has taken a cookie,
-licked it to unappetising to other people, and then not eaten it right
-away. By extension, "unlicking the cookie" means indicating to the
-rest of the team that you are not actually going to work on the bug
-right away after all, e.g. by unassigning the bug from yourself.
+Se puede escuchar a los miembros del equipo referirse a "lamer la galleta". Asignarse un error a sí mismo, o indicar que se va a trabajar en él, les dice a otros miembros del equipo que no lo solucionen. Si entonces no trabajas en ello inmediatamente, estás actuando como alguien que ha tomado una galleta, la ha lamido para no atraer a otras personas, y luego no se la ha comido de inmediato. Por extensión, "desclasificar la cookie" significa indicar al resto del equipo que no vas a trabajar en el error. inmediatamente después de todo, por ejemplo, desasignando el error de usted mismo.
 
-File bugs for anything that you come across that needs doing. When you
-implement something but know it's not complete, file bugs for what you
-haven't done. That way, we can keep track of what still needs doing.
+Archive los errores de cualquier cosa que encuentre que necesite hacer. Cuando implementa algo pero sabe que no está completo, archive los errores por lo que no ha hecho. De esa manera, podemos seguir la pista de lo que todavía hay que hacer.
 
 
-Regressions
+Regresiónes
 -----------
 
-If a check-in has caused a regression on the trunk, roll back the
-check-in (even if it isn't yours) unless doing so would take longer
-than fixing the bug. When the trunk is broken, it slows down everyone
-else on the project.
+Si un check-in ha causado una regresión en el tablero, retroceda el check-in (incluso si no es el suyo) a menos que hacerlo lleve más tiempo que arreglar el error. Cuando el enlace se rompe, ralentiza a todos los demás en el proyecto.
 
-If things are broken, the priority of everyone on the team should be
-helping the team fix the problem. Someone should own the issue, and
-they can delegate responsibilities to others on the team. Once the
-problem is resolved, write a
+
+Si las cosas se rompen, la prioridad de todos en el equipo debe ser ayudar al equipo a solucionar el problema. Alguien debe ser el dueño del tema y puede delegar responsabilidades a otros miembros del equipo. Una vez resuelto el problema, escriba un
 [post-mortem](https://github.com/flutter/flutter/wiki/Postmortems).
-Postmortems are about documenting what went wrong and how to avoid the
-problem (and the entire class of problems like it) from recurring in
-the future. Postmortems are emphatically _not_ about assigning blame.
+Las post-mortem son para documentar lo que salió mal y cómo evitar que el problema (y toda la clase de problemas como éste) se repita en el futuro. Las post-mortem son enfáticamente _no_ sobre la asignación de culpas.
 
-There is no shame in making mistakes.
+No hay vergüenza en cometer errores.
 
 
-Questions
+Preguntas
 ---------
 
-It's always ok to ask questions. Our systems are large, nobody will be
-an expert in all the systems.
+Siempre está bien hacer preguntas. Nuestros sistemas son grandes, nadie será un experto en todos los sistemas.
 
 
-Conflict resolution
+Resolución de conflictos
 -------------------
 
-When multiple contributors disagree on the direction for a particular
-patch or the general direction of the project, the conflict should be
-resolved by communication. The people who disagree should get together,
-try to understand each other's points of view, and work to find a design
-that addresses everyone's concerns.
+Cuando varios colaboradores no están de acuerdo en la dirección de un parche en particular o en la dirección general del proyecto, el conflicto debe resolverse mediante la comunicación. Las personas que no están de acuerdo deben reunirse, tratar de entender los puntos de vista de los demás y trabajar para encontrar un diseño que responda a las preocupaciones de todos.
 
-This is usually sufficient to resolve issues. If you cannot come to an
-agreement, ask for the advice of a more senior member of the team.
+Por lo general, esto es suficiente para resolver los problemas. Si no puede llegar a un acuerdo, pida consejo a un miembro más veterano del equipo.
 
-Be wary of agreement by attrition, where one person argues a point repeatedly
-until other participants give up in the interests of moving on. This is
-not conflict resolution, as it does not address everyone's concerns. Be wary
-of agreement by compromise, where two good competing solutions are merged
-into one mediocre solution. A conflict is addressed when the participants
-agree that the final solution is _better_ than all the conflicting proposals.
-Sometimes the solution is more work than either of the proposals. Please
-see the comments above where we introduce the phrase "embrace the yak shave".
+Desconfíe del acuerdo por desgaste, en el que una persona argumenta un punto repetidamente hasta que otros participantes se rinden en interés de seguir adelante. No se trata de una resolución de conflictos, ya que no aborda las preocupaciones de todos. Desconfíe del acuerdo por compromiso, en el que dos buenas soluciones competidoras se fusionan en una solución mediocre. Un conflicto se aborda cuando los participantes están de acuerdo en que la solución final es _mejor_ que todas las propuestas en conflicto. 
+A veces la solución es más trabajo que cualquiera de las dos propuestas. Por favor, consulte los comentarios anteriores donde introducimos la frase "embrace the yak shave".
 
 
-Code of conduct
+Código de conducta
 ---------------
 
-This section is the last section in this document because it should be
-the most obvious. However, it is also the most important.
+Esta sección es la última sección de este documento porque debería ser la más obvia. Sin embargo, también es el más importante.
 
-We expect Flutter's contributors to act professionally and respectfully, and
-we expect our social spaces to be safe and dignified environments.
+Esperamos que los colaboradores de Flutter actúen de manera profesional y respetuosa, y esperamos que nuestros espacios sociales sean ambientes seguros y dignos.
 
-Specifically:
+Específicamente:
 
-* Respect people, their identities, their culture, and their work.
-* Be kind. Be courteous. Be welcoming.
-* Listen. Consider and acknowledge people's points before responding.
+* Respetar a las personas, sus identidades, su cultura y su trabajo.
+* Sé amable. Sea cortés. Sea acogedor.
+* Escucha. Considere y reconozca los puntos de vista de las personas antes de responder.
 
-Should you experience anything that makes you feel unwelcome in Flutter's
-community, please contact someone on the team, for instance
-[Ian](mailto:ian@hixie.ch) or [Tim](mailto:timsneath@google.com). We will
-not tolerate harrasment from anyone in Flutter's community, even outside
-of Flutter's public communication channels.
+Si experimentas algo que te hace sentir mal recibido en la comunidad de Flutter, por favor contacta con alguien del equipo, por ejemplo
+[Ian](mailto:ian@hixie.ch) o [Tim](mailto:timsneath@google.com). No toleraremos el acoso de nadie en la comunidad de Flutter, ni siquiera fuera de los canales de comunicación pública de Flutter.
