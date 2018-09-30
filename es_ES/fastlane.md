@@ -82,30 +82,31 @@ una máquina local.
 Ahora estas preparado para realizar despliegues localmente o migrar el proceso de 
 despliegue a un sistema de integración contínua(CI).
 
-## Ejecutando despligue localmente
+## Ejecutando el despligue localmente
 
-1. Build the release mode app.
+1. Compila la app en modo release.
     * ![Android](/images/fastlane-cd/android.png) `flutter build apk --release`.
     * ![iOS](/images/fastlane-cd/ios.png) `flutter build ios --release --no-codesign`.
-    No need to sign now since fastlane will sign when archiving.
-1. Run the Fastfile script on each platform.
-    * ![Android](/images/fastlane-cd/android.png) `cd android` then
-    `fastlane [name of the lane you created]`.
-    * ![iOS](/images/fastlane-cd/ios.png) `cd ios` then
-    `fastlane [name of the lane you created]`.
+    No es necesario firmar ahora ya que fastlane firmará en la fase de archivado.
+1. Ejecuta el script Fastfile en cada plataforma.
+    * ![Android](/images/fastlane-cd/android.png) `cd android` y después
+    `fastlane [nombre del lane que creaste]`.
+    * ![iOS](/images/fastlane-cd/ios.png) `cd ios` y después
+    `fastlane [nombre del lane que creaste]`.
 
-## Cloud build and deploy setup
+## Configuración para compilar y desplegar en la nube
 
-First, follow the local setup section described in 'Local setup' to make sure
-the process works before migrating onto a cloud system like Travis.
+Primero, sigue la sección de configuración en local descrita en 'Configuración local' para 
+asegurarte que el proceso funciona antes de migrar hacia un sistema en la nube como Travis.
 
-The main thing to consider is that since cloud instances are ephemeral and
-untrusted, you won't be leaving your credentials like your Play Store service
-account JSON or your iTunes distribution certificate on the server.
+El aspecto principal a considerar es que ya que las instancias en la nube son éfimeras 
+y no confiables, no querrás dejar tus credenciales, como tu JSON de cuenta de tu servicio de 
+Play Store o tu certificado de distribución de iTunes, en el servidor.
 
-Continuous Integration (CI) systems, such as
+Los sistemas de integración continúa (CI) , como 
 [Cirrus](https://cirrus-ci.org/guide/writing-tasks/#encrypted-variables)
-generally support encrypted environment variables to store private data.
+generalmente soportan variables de entorno encriptadas para almacenar datos 
+privados.
 
 **Take precaution not to re-echo those variable values back onto the console in
 your test scripts**. Those variables are also not available in pull requests
