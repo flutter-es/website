@@ -1,8 +1,7 @@
 ---
 layout: page
 title: Entrega Contínua usando fastlane con Flutter
-description: Como usar fastlane para automatizar la compilación y proceso de release 
-de tu aplicación Flutter.
+description: Como usar fastlane para automatizar la compilación y proceso de release de tu aplicación Flutter.
 
 permalink: /fastlane-cd/
 ---
