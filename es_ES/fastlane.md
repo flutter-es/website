@@ -108,65 +108,65 @@ Los sistemas de integración continúa (CI) , como
 generalmente soportan variables de entorno encriptadas para almacenar datos 
 privados.
 
-**Take precaution not to re-echo those variable values back onto the console in
-your test scripts**. Those variables are also not available in pull requests
-until they're merged to ensure that malicious actors cannot create a pull
-request that prints these secrets out. Be careful with interactions with these
-secrets in pull requests that you accept and merge.
+**Ten precaución de no imprimir por consola los valores de estas variables en tus scripts de 
+pruebas**. Estas variables tampoco están disponibles en los pull request hasta que 
+estos son fusionados para asegurar que un actor malicioso no pueda crear un pull
+request que imprima estos secretos. Se precavido con las interacciones con estos 
+secretos en los pull request que tu aceptes y fusiones.
 
-1. Make login credentials ephemeral.
-    * ![Android](/images/fastlane-cd/android.png) On Android:
-        * Remove the `json_key_file` field from `Appfile` and store the string
-        content of the JSON in your CI system's encrypted variable. Use the
-        `json_key_data` argument in `upload_to_play_store` to read the
-        environment variable directly in your `Fastfile`.
-        * Serialize your upload key (for example, using base64) and save it as
-        an encrypted environment variable. You can deserialize it on your CI
-        system during the install phase with
+1. Haz las credenciales de logado efímeras.
+    * ![Android](/images/fastlane-cd/android.png) En Android:
+        * Elimina el campo `json_key_file` de `Appfile` y guarda el texto contenido 
+        en el JSON en tu variable encriptada de tu sistema CI. Usa el argumento 
+        `json_key_data` en `upload_to_play_store` para leer la variable 
+        de entorno directamente en tu `Fastfile`.
+        * Serializa tu clave de subida (por ejemplo, usando base64) y guardala como 
+        una variable de entorno encriptada. Puedes deserializarla en tu sistema 
+        CI durante la fase de instalación con 
         ```bash
-        echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > /home/cirrus/[directory # and filename specified in your gradle].keystore
+        echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > /home/cirrus/[directorio # y nombre de fichero  especificado en tu gradle].keystore
         ```
-    * ![iOS](/images/fastlane-cd/ios.png) On iOS:
-        * Move the local environment variable `FASTLANE_PASSWORD` to use
-        encrypted environment variables on the CI system.
-        * The CI system needs access to your distribution certificate. fastlane's
-        [Match](https://docs.fastlane.tools/actions/match/) system is
-        recommended to synchronize your certificates across machines.
+    * ![iOS](/images/fastlane-cd/ios.png) En iOS:
+        * Mueva la variable de entorno local `FASTLANE_PASSWORD` para usarla 
+        como variable de entorno encriptada en el sistema de CI.
+        * El sitema de CI necesita acceso al certificado de distribución. El sistema 
+        [Match](https://docs.fastlane.tools/actions/match/) de fastlane es 
+        recomenado para sincronizar tus certificados entre distintas máquinas.
 
-2. It's recommended to use a Gemfile instead of using an indeterministic
-`gem install fastlane` on the CI system each time to ensure the fastlane
-dependencies are stable and reproducible between local and cloud machines. However, this step is optional.
-    * In both your `[project]/android` and `[project]/ios` folders, create a
-    `Gemfile` containing the following content:
+2. Se recomienda usar un fichero Gemfile en lugar de usar cada vez un no determinístico 
+`gem install fastlane` en el sistema de CI para asegurar que las dependencias de fastlane
+son estables y reproducibles entre las máquinas locales y en la nube. Sin embargo, este paso es opcional.
+    * En tus directorios `[project]/android` y `[project]/ios`, crea un fichero
+    `Gemfile` con el siguiente contenido:
       ```
       source "https://rubygems.org"
 
       gem "fastlane"
       ```
-    * In both directories, run `bundle update` and check both `Gemfile` and
-    `Gemfile.lock` into source control.
-    * When running locally, use `bundle exec fastlane` instead of `fastlane`.
+    * En ambos directorios, ejecuta `bundle update` y verifica ambos ficheros `Gemfile` y
+    `Gemfile.lock` en tu sistema de control de versiones.
+    * Cuando ejecutes localmente, usa `bundle exec fastlane` en lugar de `fastlane`.
 
-3. Create the CI test script such as `.travis.yml` or `.cirrus.yml` in your
-repository root.
-    * Shard your script to run on both Linux and macOS platforms.
-    * Remember to specify a dependency on Xcode for macOS (for example
+3. Crea el script de pruebas de CI, como `.travis.yml` o `.cirrus.yml` en el raíz
+de tu repositorio.
+    * Fragmenta tu script para ejecutarse tanto en plataformas Linux como macOS.
+    * Recuerda especificar una dependencia de Xcode para macOS (por ejemplo
     `osx_image: xcode9.2`).
-    * See [fastlane CI documentation](https://flutter.io/fastlane-cd/)
-    for CI specific setup.
-    * During the setup phase, depending on the platform, make sure that:
-         * Bundler is available using `gem install bundler`.
-         * For Android, make sure the Android SDK is available and the `ANDROID_HOME`
-         path is set.
-         * Run `bundle install` in `[project]/android` or `[project]/ios`.
-         * Make sure the Flutter SDK is available and set in `PATH`.
-    * In the script phase of the CI task:
-         * Run `flutter build apk --release` or `flutter build ios --release --no-codesign` depending on the platform.
-         * `cd android` or `cd ios`.
-         * `bundle exec fastlane [name of the lane]`.
+    * Mira la [documentación CI de fastlane](https://flutter.io/fastlane-cd/)
+    para configuraciones espécificas del CI.
+    * Durante la fase de configuración, dependiendo de la plataforma, asegúrate que:
+         * Está disponible Bundler usando `gem install bundler`.
+         * Para Android, asegúrate que el Android SDK esta disponible y que el path `ANDROID_HOME` está configurado.
+         * Ejecuta `bundle install` en `[project]/android` o `[project]/ios`.
+         * Asegúrate que esta dispobible el SDK de Flutter y configurado en `PATH`.
+    * En la fase de script de la tarea (task) del CI:
+         * Ejecuta `flutter build apk --release` o `flutter build ios --release --no-codesign` dependiendo de la plataforma.
+         * `cd android` o `cd ios`.
+         * `bundle exec fastlane [nombre del lane]`.
 
-## Reference
+## Referencía
 
-The [Flutter Gallery in the Flutter repo](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
-uses Fastlane for continuous deployment. See the source for a working example of
-Fastlane in action. The Flutter framework repository's Cirrus script is [here](https://github.com/flutter/flutter/blob/master/.cirrus.yml).
+La [Galería Flutter en el repositorio de Flutter](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
+usa Fastlane para despliegue contínuo. Mira el código fuente para ver un ejemplo 
+funcional de Fastlane en acción. El script Cirrus del repositorio de Flutter está 
+[aquí](https://github.com/flutter/flutter/blob/master/.cirrus.yml).
