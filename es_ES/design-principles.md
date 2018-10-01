@@ -22,17 +22,17 @@ para obtener pautas más específicas sobre cómo escribir código Dart para Flu
 Revisión y comprobación de código
 --------------------------------
 
-Cada RP debe ser revisado antes del check-in, incluyendo cosas como
-que se extiende una dependencia. Recibir una crítica significa que un contribuidor regular de Flutter(alguien con acceso a commit) haya escrito un comentario diciendo "LGTM" en su PR, y usted se ha hecho eco de todos sus comentarios. ("LGTM"
+Cada PR se debe revisar su código antes del check-in, incluyendo cosas como
+que se extiende una dependencia. Recibir una revisión significa que un contribuidor habitual de Flutter(alguien con acceso a commit) haya escrito un comentario diciendo "LGTM" en su PR, y usted se ha hecho eco de todos sus comentarios. ("LGTM"
 significa "Se ve bien para mí".)
 
 La revisión del código sirve para muchos propósitos críticos. Hay un propósito obvio: detectar errores. Incluso los ingenieros más experimentados frecuentemente cometen errores que son detectados por la revisión de código. Pero también hay muchos otros beneficios de las revisiones de código:
 
  * Difunde el conocimiento entre el equipo. Como cada línea de código habrá sido leída por dos personas, es más probable que una vez que usted siga adelante, alguien más entienda el código.
 
- * Te mantiene honesto. Sabiendo que alguien va a leer tu código, estás menos tentado a reducir costes y más motivado a escribir código del que estés orgulloso.
+ * Te mantiene honesto. Sabiendo que alguien va a leer tu código, estas menos tentado de hacer mál código, tomando atajos en lugar de hacer un código legible.
 
- * Te expone a diferentes modos de pensar. Tu revisor de código probablemente no ha pensado en el problema de la misma manera que tu, y por lo tanto puede tener una perspectiva fresca y puede encontrar una mejor manera de resolver el problema.
+ * Te expone a diferentes modos de pensar. Tu revisor de código probablemente no ha pensado en el problema de la misma manera que tú, y por lo tanto puede tener una perspectiva fresca y puede encontrar una mejor manera de resolver el problema.
 
 Te recomendamos que consideres
 [estas sugerencias](https://testing.googleblog.com/2017/06/code-health-too-many-comments-on-your.html)
@@ -204,9 +204,9 @@ Si un check-in ha causado una regresión en el tablero, retroceda el check-in (i
 
 Si las cosas se rompen, la prioridad de todos en el equipo debe ser ayudar al equipo a solucionar el problema. Alguien debe ser el dueño del tema y puede delegar responsabilidades a otros miembros del equipo. Una vez resuelto el problema, escriba un
 [post-mortem](https://github.com/flutter/flutter/wiki/Postmortems).
-Las post-mortem son para documentar lo que salió mal y cómo evitar que el problema (y toda la clase de problemas como éste) se repita en el futuro. Las post-mortem son enfáticamente _no_ sobre la asignación de culpas.
+Las post-mortem son para documentar lo que salió mal y cómo evitar que el problema (y toda la clase de problemas como éste) se repita en el futuro. Los post-mortem enfáticamante no son sobre la asignación de culpas.
 
-No hay vergüenza en cometer errores.
+No hay nada vergonzoso en cometer errores.
 
 
 Preguntas
@@ -235,9 +235,9 @@ Esperamos que los colaboradores de Flutter actúen de manera profesional y respe
 
 Específicamente:
 
-* Respetar a las personas, sus identidades, su cultura y su trabajo.
-* Sé amable. Sea cortés. Sea acogedor.
-* Escucha. Considere y reconozca los puntos de vista de las personas antes de responder.
+* Respeta a las personas, sus identidades, su cultura y su trabajo.
+* Sé amable. Sé cortés. Sé acogedor.
+* Escucha. Considera y reconoce los puntos de vista de las personas antes de responder.
 
 Si experimentas algo que te hace sentir mal recibido en la comunidad de Flutter, por favor contacta con alguien del equipo, por ejemplo
 [Ian](mailto:ian@hixie.ch) o [Tim](mailto:timsneath@google.com). No toleraremos el acoso de nadie en la comunidad de Flutter, ni siquiera fuera de los canales de comunicación pública de Flutter.
