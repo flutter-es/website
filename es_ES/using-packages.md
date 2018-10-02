@@ -108,7 +108,8 @@ tu equipo, ejecuta `flutter packages get`.
 Si quieres actualizar a una nueva versión del paquete, por ejemplo para usar nuevas 
 funcionalidades en este paquete, ejecuta `flutter packages upgrade` ('Upgrade dependencies'
 en IntelliJ). Esto obtendrá la versión más alta disponible del paquete,
-que sea permitida por las restricciones que hayas especificado en `pubspec.yaml`.
+que sea permitida por las [restricciones de versión](https://www.dartlang.org/tools/pub/versioning#version-constraints)
+que hayas especificado en `pubspec.yaml`.
 
 ### Dependencias de paquetes no publicados
 
