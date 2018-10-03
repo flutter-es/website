@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
   {% include head.html %}
-
+  
   <body class="{% if page.url == '/' %}homepage{% endif %}">
     {% include body.html %}
-
     <div id="overlay-under-drawer"><!-- for the drawer on narrow screens --></div>
 
     {% include header.html %}
@@ -25,6 +24,7 @@
         <!-- Homepage Content Column -->
         <div class="col-sm-12 main-contents">
           <div class="main-contents-body">
+            {% include banner.html -%}
             {{content}}
           </div>
         </div>
@@ -35,6 +35,7 @@
         <!-- Content Column -->
         <div class="col-sm-9 main-contents">
           <div class="main-contents-body">
+            {% include banner.html -%}
             {{content}}
           </div>
         </div>
