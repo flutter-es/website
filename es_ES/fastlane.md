@@ -106,7 +106,7 @@ generalmente soportan variables de entorno encriptadas para almacenar datos
 privados.
 
 **Ten precaución de no imprimir por consola los valores de estas variables en tus scripts de 
-pruebas**. Estas variables tampoco están disponibles en los pull request hasta que 
+prueba**. Estas variables tampoco están disponibles en los pull request hasta que 
 estos son fusionados para asegurar que que los actores maliciosos no puedan crear un pull
 request que imprima estos secretos. Se precavido con las interacciones con estos 
 secretos en los pull request que tu aceptes y fusiones.
