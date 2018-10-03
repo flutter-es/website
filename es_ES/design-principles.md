@@ -47,7 +47,7 @@ Los revisores no deben dar un LGTM a menos que el parche tenga pruebas que verif
 Un revisor puede en algunas circunstancias considerar el código satisfactorio sin haberlo revisado o entendido completamente. Si un revisor no ha revisado completamente el código, lo admite diciendo "RSLGTM" en lugar de "LGTM". Si sientes que tu código necesita una revisión real, por favor encuentra a alguien que realmente lo revise. "Si marcas un parche como RSLGTM, sigues compartiendo la responsabilidad del parche con su autor. Revisar un parche como RSLGTM debería ser un evento raro.
 (RSLGTM : "Rubber stamp looks good to me", se usa cuando el revisor simplemente está otorgando la aprobación sin realizar una revisión de código adecuada.
 
-Si realmente necesitas revisar algo a toda prisa, por ejemplo, porque todo está roto y puedes arreglarlo, entonces elige a alguien del equipo que quieras que revise el código, y luego marca al RP como "TBR" con su nombre. "("TBR" significa "To Be Reviewed".) Esto sólo debe usarse en emergencias. (¡No es una emergencia que no haya nadie alrededor para revisar tu parche de 50,000 líneas a la medianoche del 31 de diciembre!. Si alguien marca un parche como TBR y te nombra como revisor, debe revisar el parche lo antes posible. Si alguien marca un parche como TBR y te nombra revisor, los problemas deben solucionarse tan pronto como sea posible.
+Si realmente necesitas revisar algo a toda prisa, por ejemplo, porque todo está roto y puedes arreglarlo, entonces elige a alguien del equipo que quieras que revise el código, y luego marca al RP como "TBR" con su nombre. "("TBR" significa "To Be Reviewed".) Esto sólo debe usarse en emergencias. (¡No es una emergencia que no haya nadie alrededor para revisar tu parche de 50,000 líneas a la medianoche del 31 de diciembre! Si alguien marca un parche como TBR y te nombra revisor, debe revisar el parche lo antes posible. Si alguien marca un parche como TBR y te nombra revisor, los problemas deben solucionarse tan pronto como sea posible.
 
 Espera a que Cirrus dé luz verde antes de hacer merge a un PR. Cirrus realiza un montón de comprobaciones previas (ver las pruebas para el
 [framework](https://github.com/flutter/flutter/blob/master/dev/bots/test.dart),
@@ -78,7 +78,7 @@ Para hacer un cambio que requiera que los desarrolladores cambien su código:
  2. Envía un correo electrónico a <mailto:{{site.email}}> para socializar el cambio propuesto. El propósito de este correo electrónico es ver si puedes obtener consenso en torno a su cambio. **No le dices a la gente que el cambio ocurrirá, les pides permiso.**
     El correo electrónico debe incluir lo siguiente:
 
-    - Una asunto que resuma claramente el cambio propuesto y suene como si fuera importante (para que la gente pueda detectar estos correos electrónicos entre el ruido). Ponle al asunto el prefijo `[Breaking Change]`.
+    - Un asunto que resuma claramente el cambio propuesto y suene como si fuera importante (para que la gente pueda detectar estos correos electrónicos entre el ruido). Ponle al asunto el prefijo `[Breaking Change]`.
 
     - Un resumen de cada cambio que propongas.
 
@@ -123,7 +123,7 @@ Escribe lo que necesites y nada más, pero cuando lo escribas, hazlo bien.
 
 Evita implementar funciones que no necesites. No se puede diseñar una funcionalidad sin saber cuáles son las restricciones. La implementación de funcionalidades "por completar" resulta en código sin usar que es costoso de mantener, conocer, documentar, probar, etc.
 
-Cuando implementes una funcionalidad, hazlo de la manera correcta. Evita los workarounds. Los workarounds no hacen más que agravar el problema, pero a un coste más elevado: alguien tendrá que volver a estudiar el problema, averiguar cómo solucionarlo y desmontarlo (y todos los lugares que ahora lo utilizan), e implementar la funcionalidad. Es mucho mejor tomarse más tiempo para arreglar un problema correctamente, que ser el que arregla todo rápidamente pero de una manera que requerirá de una posterior limpieza.
+Cuando implementes una funcionalidad, hazlo de la manera correcta. Evita los workarounds. Los workarounds no hacen más que agravar el problema, pero a un coste más elevado: alguien tendrá que volver a estudiar el problema, averiguar cómo solucionarlo y desmontarlo (y todos los lugares que ahora lo utilizan), e implementar la funcionalidad. Es mucho mejor tomarse más tiempo para arreglar un problema correctamente, que ser el que arregla todo rápidamente, pero de una manera que requerirá de una posterior limpieza.
 
 Es posible que escuches a los miembros del equipo decir "embrace the [yak
 shave](http://www.catb.org/jargon/html/Y/yak-shaving.html)!". Esto es un estímulo para tomar el esfuerzo más grande necesario para realizar una solución adecuada para un problema en lugar de simplemente aplicar soluciones paliativas.
@@ -146,7 +146,7 @@ Cuando trabajes en Flutter, si te encuentras haciendo una pregunta sobre nuestro
 
 Tratamos de evitar la dependencia de la "tradición oral". Debería ser posible para cualquiera empezar a contribuir sin haber tenido que aprender todos los secretos de los actuales miembros del equipo. Para ello, todos los procesos deben estar documentados (normalmente en los wikis), el código debe ser auto explicativo o comentado, y las convenciones deben estar escritas, por ejemplo, en nuestra guía de estilo.
 
-Hay una excepción: es mejor no documentar algo en nuestros documentos de la API que documentarlo pobremente. Esto se debe a que si no la documentas, sigue apareciendo en nuestra lista de cosas por documentar. Siéntete libre de eliminar la documentación que viole nuestra
+Hay una excepción: es mejor no documentar algo en nuestros documentos de la API que documentarlo pobremente. Esto se debe a que, si no la documentas, sigue apareciendo en nuestra lista de cosas por documentar. Siéntete libre de eliminar la documentación que viole nuestra
 [guía de estilo](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo),
 para que vuelva a aparecer en la lista.
 
@@ -158,7 +158,7 @@ Hemos aprendido varias lecciones a lo largo de los años.
 
 * No debe haber objetos que representen el estado real que reflejen algún estado de otra fuente, ya que son costosos de mantener. (El objeto `HTMLCollection` de la Web es un ejemplo de dicho objeto.) En otras palabras, **mantenga sólo una fuente de verdad**, y **no replique el estado real**.
 
-* Los constructores getters deben ser eficientes (por ejemplo, sólo devolver un valor en caché o una tabla O(1) de búsqueda).  Si una operación es ineficiente, debe ser un método a cambio. p.e.g. `document.getForms()`, no `document.forms` (pasea por todo el árbol).
+* Los constructores getters deben ser eficientes (por ejemplo, sólo devolver un valor en caché o una tabla O(1) de búsqueda).  Si una operación es ineficiente, debe ser un método a cambio. p. ej. `document.getForms()`, no `document.forms` (pasea por todo el árbol).
 
   - Las operaciones asíncronas costosas pueden ser representadas por futures. Un método puede iniciar el trabajo y devolver un future; un getter puede devolver un future correspondiente al trabajo en curso. Un getter no debe iniciar el trabajo y devolver el future, ya que los getters parecen idempotentes y sin efectos secundarios.
 
@@ -168,9 +168,9 @@ Hemos aprendido varias lecciones a lo largo de los años.
 
   - Las APIs de conveniencia pertenecen a la capa superior a la que están simplificando.
 
-  - Tener APIs dedicadas por razones de rendimiento está bien. Si una operación específica, por ejemplo, hacer clipping a un rectángulo redondeado, es costoso utilizando la API genérica pero podría ser implementada más eficientemente usando una API dedicada, en ese caso, una API dedicada es suficiente.
+  - Tener APIs dedicadas por razones de rendimiento está bien. Si una operación específica, por ejemplo, hacer clipping a un rectángulo redondeado, es costoso utilizando la API genérica, pero podría ser implementada más eficientemente usando una API dedicada, en ese caso, una API dedicada es suficiente.
 
-* Las APIs que fomentan las malas prácticas no deberían existir, p.e.g., `document.write()`, `innerHTML`, `insertAdjacentHTML()`, etc.
+* Las APIs que fomentan las malas prácticas no deberían existir, p. ej., `document.write()`, `innerHTML`, `insertAdjacentHTML()`, etc.
 
   - Es una mala práctica la manipulación de Strings para generar datos o código que posteriormente serán interpretados o analizados, ya que conduce a vulnerabilidades de inyección de código.
 
@@ -193,7 +193,7 @@ Puedes escuchar a los miembros del equipo referirse a "licking the cookie". Asig
 Registra los errores de cualquier cosa que encuentres y que necesites hacer. Cuando implementas algo, pero sabes que no está completo, registras errores por aquello que no has hecho. De esa manera, podemos seguir la pista de lo que todavía hay que hacer.
 
 
-Regresiónes
+Regresiones
 -----------
 
 Si un check-in ha causado una regresión en el árbol, retrocede el check-in (incluso si no es el tuyo) a menos que hacerlo lleve más tiempo que arreglar el error. Cuando el árbol se daña, ralentiza a todos los demás en el proyecto.
@@ -213,17 +213,17 @@ Siempre está bien hacer preguntas. Nuestros sistemas son grandes, nadie será u
 
 
 Resolución de conflictos
--------------------
+------------------------
 
 Cuando varios colaboradores no están de acuerdo en la dirección de un parche en particular o en la dirección general del proyecto, el conflicto debe resolverse mediante la comunicación. Las personas que no están de acuerdo deben reunirse, tratar de entender los puntos de vista de los demás y trabajar para encontrar un diseño que responda a las preocupaciones de todos.
 
-Por lo general, esto es suficiente para resolver los problemas. Si no puedes llegar a un acuerdo, pidae consejo a un miembro senior del equipo.
+Por lo general, esto es suficiente para resolver los problemas. Si no puedes llegar a un acuerdo, pide consejo a un miembro senior del equipo.
 
 Desconfía del acuerdo por agotamiento, en el que una persona argumenta un punto repetidamente hasta que otros participantes se rinden en interés de seguir adelante. No se trata de una resolución de conflictos, ya que no aborda las preocupaciones de todos. Desconfía del acuerdo por compromiso, en el que dos buenas soluciones competidoras se fusionan en una solución mediocre. Un conflicto se resuelve cuando los participantes están de acuerdo en que la solución final es mejor que todas las propuestas en conflicto. A veces la solución requiere más trabajo que cualquiera de las otras propuestas. Por favor, ve los comentarios anteriores donde introducimos la frase “embrace the yak shave”.
 
 
 Código de conducta
----------------
+------------------
 
 Esta sección es la última sección de este documento porque debería ser la más obvia. Sin embargo, también es el más importante.
 
