@@ -65,7 +65,7 @@ una máquina local.
     preparado para probar y desplegar usando TestFlight o App Store.
         * Crea y descarga un certificado de distribución en tu [Apple Developer Account console](https://developer.apple.com/account/ios/certificate/).
         * `open [project]/ios/Runner.xcworkspace/` y selecciona el certificado de 
-        distribucion en en el panel de configuración de tu target.
+        distribucion en el panel de configuración de tu target.
 1. Crea un script `Fastfile` para cada plataforma.
     * ![Android](/images/fastlane-cd/android.png) En Android, sigue la 
     [Guía de despliegue Fastlane Android](https://docs.fastlane.tools/getting-started/android/beta-deployment/).
@@ -107,7 +107,7 @@ privados.
 
 **Ten precaución de no imprimir por consola los valores de estas variables en tus scripts de 
 prueba**. Estas variables tampoco están disponibles en los pull request hasta que 
-estos son fusionados para asegurar que que los actores maliciosos no puedan crear un pull
+estos son fusionados para asegurar que los actores maliciosos no puedan crear un pull
 request que imprima estos secretos. Se precavido con las interacciones con estos 
 secretos en los pull request que tu aceptes y fusiones.
 
