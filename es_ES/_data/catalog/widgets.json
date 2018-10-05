@@ -122,7 +122,7 @@
   },
   {
     "name": "Stack",
-    "description": "Esta clase es útil si desea superponer varios widgets hijos de una manera simple, por ejemplo, tener texto y una imagen, superpuestos con un degradado y un botón adjunto a la parte inferior.",
+    "description": "Esta clase es útil si deseas superponer varios widgets hijos de una manera simple, por ejemplo, tener texto y una imagen, superpuestos con un degradado y un botón adjunto a la parte inferior.",
     "categories": [
       "Stack"
     ],
@@ -308,7 +308,7 @@
   },
   {
     "name": "Date & Time Pickers",
-    "description": "Los Date pickers usan una ventana de diálogo para seleccionar una sola fecha en el móvil. Los Time pickers de tiempo usan un diálogo para seleccionar un tiempo individual ( en formato horas:minutos) en el móvil.",
+    "description": "Los Date pickers usan una ventana de diálogo para seleccionar una sola fecha en el móvil. Los Time pickers de tiempo usan un diálogo para seleccionar un tiempo individual (en formato horas:minutos) en el móvil.",
     "categories": [],
     "subcategories": [
       "Entradas y selecciones"
@@ -338,7 +338,7 @@
   },
   {
     "name": "BottomSheet",
-    "description": "Bottom sheets se deslizan hacia arriba desde la parte inferior de la pantalla para revelar más contenido. Puede llamar a showBottomSheet () para implementar una hoja inferior persistente o showModalBottomSheet () para implementar una hoja inferior modal.",
+    "description": "Bottom sheets se deslizan hacia arriba desde la parte inferior de la pantalla para revelar más contenido. Puede llamar a showBottomSheet () para implementar una hoja inferior persistente o showModalBottomSheet() para implementar una hoja inferior modal.",
     "categories": [],
     "subcategories": [
       "Dialogs, alerts, y panels"
@@ -418,7 +418,7 @@
   },
   {
     "name": "GridView",
-    "description": "Una lista de cuadrículas consiste en un patrón repetido de celdas dispuestas en un layout vertical y horizontal. El widget GridView implementa este componente. ",
+    "description": "Una lista de cuadrículas consiste en un patrón repetido de celdas dispuestas en un layout vertical y horizontal. El widget GridView implementa este componente.",
     "categories": [],
     "subcategories": [
       "Mostrando información"
@@ -508,7 +508,7 @@
   },
   {
     "name": "CupertinoDialogAction",
-    "description": "Un botón típicamente usado en un CupertinoAlertDialog. ",
+    "description": "Un botón típicamente usado en un CupertinoAlertDialog.",
     "categories": [
       "Cupertino (widgets estilo iOS)"
     ],
@@ -528,7 +528,7 @@
   },
   {
     "name": "CupertinoSlider",
-    "description": "Se usa para seleccionar de un rango de valores. ",
+    "description": "Se usa para seleccionar de un rango de valores.",
     "categories": [
       "Cupertino (widgets estilo iOS)"
     ],
@@ -598,7 +598,7 @@
   },
   {
     "name": "CupertinoPageScaffold",
-    "description": "Estructura básica de diseño de página con el estilo iOS. Posiciona una barra de navegación y contenido. ",
+    "description": "Estructura básica de diseño de página con el estilo iOS. Posiciona una barra de navegación y contenido.",
     "categories": [
       "Cupertino (widgets estilo iOS)"
     ],
@@ -608,7 +608,7 @@
   },
   {
     "name": "CupertinoTabScaffold",
-    "description": "Estructura de la aplicación de iOS con pestañas. Coloca una barra de pestañas en la parte superior de las pestañas de contenido. ",
+    "description": "Estructura de la aplicación de iOS con pestañas. Coloca una barra de pestañas en la parte superior de las pestañas de contenido.",
     "categories": [
       "Cupertino (widgets estilo iOS)"
     ],
@@ -683,7 +683,7 @@
   },
   {
     "name": "AspectRatio",
-    "description": "Un widget que intenta dimensionar al hijo a una relación de aspecto específica. ",
+    "description": "Un widget que intenta dimensionar al hijo a una relación de aspecto específica.",
     "categories": [
     ],
     "subcategories": [
@@ -694,7 +694,7 @@
   },
   {
     "name": "ConstrainedBox",
-    "description": "Un widget que impone restricciones adicionales en su hijo. ",
+    "description": "Un widget que impone restricciones adicionales en su hijo.",
     "categories": [
     ],
     "subcategories": [
@@ -705,7 +705,7 @@
   },
   {
     "name": "Baseline",
-    "description": "Un widget que posiciona a su hijo de acuerdo con la línea base del hijo. ",
+    "description": "Un widget que posiciona a su hijo de acuerdo con la línea base del hijo.",
     "categories": [
     ],
     "subcategories": [
@@ -716,7 +716,7 @@
   },
   {
     "name": "FractionallySizedBox",
-    "description": "Un widget que dimensiona su hijo a una fracción del espacio total disponible. Para obtener más detalles sobre el algoritmo de diseño, consulte RenderFractionallySizedOverflowBox. ",
+    "description": "Un widget que dimensiona su hijo a una fracción del espacio total disponible. Para obtener más detalles sobre el algoritmo de diseño, consulte RenderFractionallySizedOverflowBox.",
     "categories": [
     ],
     "subcategories": [
@@ -749,7 +749,7 @@
   },
   {
     "name": "LimitedBox",
-    "description": "Una caja que limita su tamaño solo cuando no está restringida. ",
+    "description": "Una caja que limita su tamaño solo cuando no está restringida.",
     "categories": [
     ],
     "subcategories": [
@@ -760,7 +760,7 @@
   },
   {
     "name": "Offstage",
-    "description": "Un widget que posiciona su hijo fuera, como si estuviera en el árbol de widgets, pero sin pintar nada , sin que esté disponible para el hit testing y sin ocupar ningún espacio en el padre.",
+    "description": "Un widget que posiciona su hijo fuera, como si estuviera en el árbol de widgets, pero sin pintar nada, sin que esté disponible para el hit testing y sin ocupar ningún espacio en el padre.",
     "categories": [
     ],
     "subcategories": [
@@ -771,7 +771,7 @@
   },
   {
     "name": "OverflowBox",
-    "description": "Un widget que impone diferentes restricciones en su hijo de las que obtiene de su padre, permitiendo posiblemente que el hijo desborde al padre. ",
+    "description": "Un widget que impone diferentes restricciones en su hijo de las que obtiene de su padre, permitiendo posiblemente que el hijo desborde al padre.",
     "categories": [
     ],
     "subcategories": [
@@ -782,7 +782,7 @@
   },
   {
     "name": "SizedBox",
-    "description": "Una caja con un tamaño específico. Si se le proporciona un hijo, este widget forzará a su hijo a tener una anchura y/o altura específicos ( asumiendo que los valores pueden ser permitidos por los padres de este widget). Si la anchura o la altura fueran null, este widget se dimensionará a sí mismo para ajustarse al tamaño de sus hijos en esa dirección.",
+    "description": "Una caja con un tamaño específico. Si se le proporciona un hijo, este widget forzará a su hijo a tener una anchura y/o altura específicos (asumiendo que los valores pueden ser permitidos por los padres de este widget). Si la anchura o la altura fueran null, este widget se dimensionará a sí mismo para ajustarse al tamaño de sus hijos en esa dirección.",
     "categories": [
     ],
     "subcategories": [
@@ -793,7 +793,7 @@
   },
   {
     "name": "SizedOverflowBox",
-    "description": "Un widget que tiene un tamaño específico pero pasa sus restricciones originales a través de su hijo, que probablemente se desbordará. ",
+    "description": "Un widget que tiene un tamaño específico pero pasa sus restricciones originales a través de su hijo, que probablemente se desbordará.",
     "categories": [
     ],
     "subcategories": [
@@ -804,7 +804,7 @@
   },
   {
     "name": "Transform",
-    "description": "Un widget que aplica una transformación antes de pintar a su hijo. ",
+    "description": "Un widget que aplica una transformación antes de pintar a su hijo.",
     "categories": [
     ],
     "subcategories": [
@@ -1003,7 +1003,7 @@
   },
   {
     "name": "AnimatedContainer",
-    "description": "Un contenedor que gradualmente cambiar su valor en un período de tiempo.",
+    "description": "Un contenedor que gradualmente cambia su valor en un período de tiempo.",
     "categories": [
       "Animación y Movimiento"
     ],
@@ -1037,7 +1037,7 @@
   },
   {
     "name": "AnimatedBuilder",
-    "description": "Un widget de propósito general para construir animaciones. AnimatedBuilder es útil para widgets más complejos que deseen incluir una animación como parte de una función de construcción más grande. Para usar AnimatedBuilder, simplemente construya el widget y pásele una función de constructor.",
+    "description": "Un widget de propósito general para construir animaciones. AnimatedBuilder es útil para widgets más complejos que deseen incluir una animación como parte de una función de construcción más grande. Para usar AnimatedBuilder, simplemente construye el widget y pásale una función de constructor.",
     "categories": [
       "Animación y Movimiento"
     ],
@@ -1092,7 +1092,7 @@
   },
   {
     "name": "Dismissible",
-    "description": "Un widget que puede ser descartado arrastrándolo en la dirección indicada. Arrastran o arrojando este widget en la DismissDirection causa que su hijo se deslize fuera de la vista. Seguido de la animación slide. si resizeDuration no es nulo, el widget Dismissible anima su altura( o anchura, cualquiera que sea perpendicular a DismissDirection) hasta cero durante la resizeDuration.",
+    "description": "Un widget que puede ser descartado arrastrándolo en la dirección indicada. Arrastrando o arrojando este widget en la DismissDirection causa que su hijo se deslize fuera de la vista. Seguido de la animación slide. Si resizeDuration no es nulo, el widget Dismissible anima su altura (o anchura, cualquiera que sea perpendicular a DismissDirection) hasta cero durante la resizeDuration.",
     "categories": [
     ],
     "subcategories": [
@@ -1114,7 +1114,7 @@
   },
   {
     "name": "AbsorbPointer",
-    "description": "Un widget que absorbe los punteros durante el hit testing. Cuando la obsorbing es true, este widget evita que su subárbol reciba eventos de puntero terminando el hit testing en sí mismo. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente impide que sus hijos sean el objetivo de eventos localizados, porque devuelve true desde RenderBox.hitTest.",
+    "description": "Un widget que absorbe los punteros durante el hit testing. Cuando la absorbing es true, este widget evita que su subárbol reciba eventos de puntero terminando el hit testing en sí mismo. Todavía consume espacio durante el diseño y pinta a su hijo como de costumbre. Simplemente impide que sus hijos sean el objetivo de eventos localizados, porque devuelve true desde RenderBox.hitTest.",
     "categories": [
     ],
     "subcategories": [
@@ -1478,7 +1478,7 @@
   },
   {
     "name": "SizeTransition",
-    "description": "Animar su propio tamaño y recorta y alinea al hijo.",
+    "description": "Anima su propio tamaño y recorta y alinea al hijo.",
     "categories": [
       "Animación y Movimiento"
     ],
