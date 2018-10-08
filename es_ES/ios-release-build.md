@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Preparando una aplicación iOS para su lanzamiento
+title: Preparando para release una app iOS
 
 permalink: /ios-release/
 ---
 
-Esta guía proporciona una guía paso a paso para lanzar una aplicación Flutter a la [App Store][appstore] y a [TestFlight][testflight].
+Esta guía proporciona un recorrido paso a paso para lanzar una aplicación Flutter a la [App Store][appstore] y a [TestFlight][testflight].
 
-Para obtener información sobre la ofuscación del código Dart, vea [Ofuscación del código de Dart](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code).
+Para obtener información sobre la ofuscación del código Dart, mira [Ofuscación del código de Dart](https://github.com/flutter/flutter/wiki/Obfuscating-Dart-Code).
 
 
 * TOC Placeholder
@@ -17,7 +17,7 @@ Para obtener información sobre la ofuscación del código Dart, vea [Ofuscació
 
 Antes de iniciar el proceso de publicación de tu aplicación, asegúrate de que cumple con las directrices [de revisión de aplicaciones de Apple][appreview].
 
-Para publicar tu aplicación en el App Store, tendrás que inscribirte en el [Apple Developer Program][devprogram]. Puedes leer más sobre las distintas opciones de afiliación en la guía de Apple [como elegir una membresía][devprogram_membership].
+Para publicar tu aplicación en la App Store, tendrás que inscribirte en el [Apple Developer Program][devprogram]. Puedes leer más sobre las distintas opciones de afiliación en la guía de Apple [como elegir una membresía][devprogram_membership].
 
 ## Registra tu aplicación en iTunes Connect
 
@@ -59,10 +59,10 @@ Para obtener un resumen detallado, consulta [Añade una aplicación a tu cuenta]
 En este paso, repasarás los ajustes más importantes en el Xcode workspace.
 Para obtener más información sobre los procedimientos y las descripciones, mira [Preparar la distribución de aplicaciones][distributionguide_config].
 
-Navega hasta los ajustes de tu objetivo en Xcode:
+Navega hasta los ajustes de tu target en Xcode:
 
 1. En Xcode, abre `Runner.xcworkspace` en la carpeta `ios` de tu aplicación.
-1. Para ver la configuración de tu aplicación, selecciona el proyecto **Runner** en el navegador de proyectos Xcode. Luego, en la vista principal de la barra lateral, selecciona el objetivo **Runner**.
+1. Para ver la configuración de tu aplicación, selecciona el proyecto **Runner** en el navegador de proyectos Xcode. Luego, en la vista principal de la barra lateral, selecciona el target **Runner**.
 1. Selecciona la pestaña **General**.
 
 A continuación, verificaras los ajustes más importantes:
@@ -89,38 +89,38 @@ Para obtener una descripción detallada de la firma de aplicaciones, consulta [C
 
 ## Agregar un icono en la aplicación
 
-Cuando se crea una nueva aplicación Flutter, se crea un conjunto de iconos de placeholder. En este paso, reemplazarás estos iconos de placeholder por los iconos de tu aplicación:
+Cuando se crea una nueva aplicación Flutter, se crea un conjunto de iconos por defecto. En este paso, reemplazarás estos iconos de placeholder por los iconos de tu aplicación:
 
 1. Revisa las directrices del [Icono de aplicación de iOS][appicon].
-1. En el navegador del proyecto Xcode, selecciona `Assets.xcassets` en la carpeta `Runner`. Actualiza los iconos placeholder con tus propios iconos de aplicación.
+1. En el navegador del proyecto Xcode, selecciona `Assets.xcassets` en la carpeta `Runner`. Actualiza los iconos por defecto con tus propios iconos de aplicación.
 1. Verifica que el icono ha sido reemplazado ejecutando tu aplicación usando `flutter run`.
 
-## Crear un archivo de construcción
+## Crear un archivo de compilación
 
 En este paso, crearás un archivo de compilación y cargarás tu compilación en iTunes Connect.
 
-Durante el desarrollo, has estado creando, depurando y probando con *debug* builds. Cuando estés listo para enviar tu aplicación a los usuarios en el App Store o en TestFlight, tendrás que preparar una build *release*.
+Durante el desarrollo, has estado creando, depurando y probando con *debug* builds. Cuando estés listo para enviar tu aplicación a los usuarios en el App Store o en TestFlight, tendrás que preparar una *release* build.
 
 En la línea de comandos, sigue estos pasos en el directorio de la aplicación:
 
 1. Ejecuta `flutter build ios` para crear una release build (`flutter build` por defecto es `--release`).
-1. Para asegurarse de que Xcode actualiza la configuración del modo de liberación, cierra y vuelve a abrir el Xcode workspace. Para Xcode 8.3 y posteriores, este paso no es necesario.
+1. Para asegurarse de que Xcode actualiza la configuración del modo release, cierra y vuelve a abrir el Xcode workspace. Para Xcode 8.3 y posteriores, este paso no es necesario.
 
-En Xcode, configura la versión de la aplicación y constrúyela:
+En Xcode, configura la versión de la aplicación y compila:
 
 1. En Xcode, abre `Runner.xcworkspace` en la carpeta `ios` de tu aplicación.
 1. Selecciona **Product > Scheme > Runner**.
 1. Selecciona **Product > Destination > Generic iOS Device**.
-1. Selecciona **Runner** en el navegador de proyectos Xcode a continuación selecciona el objetivo **Runner**
+1. Selecciona **Runner** en el navegador de proyectos Xcode a continuación selecciona el target **Runner**
    en la barra lateral de la vista de configuración.
-1. En la sección Identity, actualisa la **Versión** con el número de versión user-facing que deseas publicar.
+1. En la sección Identity, actualisa la **Versión** con el número de versión que verá el usuario que desees publicar
 1. En la sección Identidad, actualiza el identificador **Build** a un número de compilación único que se utiliza para rastrear esta compilación en iTunes Connect. Cada carga requiere un número de compilación único.
 
-Por último, crea un archivo de construcción y súbelo a iTunes Connect:
+Por último, crea un archivo compilado y súbelo a iTunes Connect:
 
-1. Selecciona **Product > Archive** para producir un archivo de construcción.
-1. En la barra lateral de la ventana de Xcode Organizer, selecciona tu aplicación iOS, luego selecciona el archivo de compilación que acabas de producir.
-1. Haz clic en el botón **Validate...**. Si se informa de algún problema, resuelvelo y produce otra construcción. Puedes reutilizar el mismo ID de construcción hasta que subas un archivo.
+1. Selecciona **Product > Archive** para producir un archivo compilado.
+1. En la barra lateral de la ventana de Xcode Organizer, selecciona tu aplicación iOS, luego selecciona el archivo compilado que acabas de producir.
+1. Haz clic en el botón **Validate...**. Si se informa de algún problema, resuélvelo y produce otra build. Puedes reutilizar el mismo ID de compilación hasta que subas un archivo.
 1. Una vez que el archivo comprimido se haya validado correctamente, haz clic en **Upload to App Store....**. Puedes seguir el estado de tu compilación en la pestaña Actividades de la página de detalles de tu aplicación en [iTunes Connect][itunesconnect_login].
 
 Recibirás un correo electrónico dentro de 30 minutos notificándote que tu compilación ha sido validada y está disponible para ser liberada a los probadores en TestFlight. En este punto puedes elegir si quieres publicar en TestFlight, o seguir adelante y publicar tu aplicación en el App Store.
