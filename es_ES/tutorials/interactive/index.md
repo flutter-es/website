@@ -411,15 +411,14 @@ hace automáticamente scroll cuando su contenido excede la render box. La mayor�
 de desarrolladores que usan ListView no tienen que administrar el compartamiento de 
 scroll del ListView, ya que ListView administra por si mismo su scroll offset.
 
-La clase _TapboxAState:
+La clase `_TapboxAState`:
 
-* Administra el estado para TapboxA.
+* Administra el estado para `TapboxA`.
 * Define la propiedad boolean `_active` que determina el color actual de la caja.
 * Define la función `_handleTap()`, que actualiza `_active` cuando la caja es 
   pulsada y llama la función `setState()` para actualizar el UI.
 * Implementa todo el comportamiento interactivo para el widget.
 
-<!-- code/layout/lakes-interactive/main.dart -->
 <!-- skip -->
 {% prettify dart %}
 // TapboxA administra su propio estado.
@@ -482,8 +481,6 @@ class MyApp extends StatelessWidget {
 }
 {% endprettify %}
 
-**Código Dart:**
-[`lib/main.dart`](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/tapbox-a/main.dart)
 
 <hr>
 
@@ -513,7 +510,6 @@ La clase TapboxB:
 * Hereda de StatelessWidget porque todo estado es manejado por su padre.
 * Cuando detecta un gesto tap, notifica al padre.
 
-<!-- code/layout/tapbox-b/main.dart -->
 <!-- skip -->
 {% prettify dart %}
 // ParentWidget administra el estado para TapboxB.
@@ -579,8 +575,6 @@ class TapboxB extends StatelessWidget {
 }
 {% endprettify %}
 
-**Código Dart:**
-[`lib/main.dart`](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/tapbox-b/main.dart)
 
 <aside class="alert alert-success" markdown="1">
 <i class="fa fa-lightbulb-o"> </i> **Consejo:**
@@ -630,7 +624,6 @@ El objeto _TapboxCState:
 * Cuan hay un evento tap, pasa este cambio de estado al widget padre para tomar la acción 
   adecuada usando la propiedad [widget](https://docs.flutter.io/flutter/widgets/State/widget.html).
 
-<!-- code/layout/tapbox-c/main.dart -->
 <!-- skip -->
 {% prettify dart %}
 //---------------------------- ParentWidget ----------------------------
@@ -735,8 +728,6 @@ sentido. Al desarrollador le importa si la caja esta activa. Al desarrollador
 probablemente no le preocupe como se administra el resaltado, y prefiera
 que el tap box maneje estos detalles.
 
-**Código Dart:**
-[`lib/main.dart`](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/tapbox-c/main.dart)
 
 <hr>
 
