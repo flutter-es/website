@@ -10,9 +10,8 @@ description: >
 
 <div class="homepage__illustration">
     <h1 class="homepage__illustration--text">
-        <span>Flutter 1.0 ha sido lanzado:</span>
+        <span>Esta es una traducción no oficial de la <a href="https://flutter.io/">documentación original</a> realizada por la comunidad <a href="https://twitter.com/EsFlutter">@ESFlutter</a> </span>
         &nbsp;
-        <a href="https://developers.googleblog.com/2018/12/flutter-10-googles-portable-ui-toolkit.html">Aprende más</a>
   </h1>
     <img src="images/homepage/header-illustration.png"
          class="homepage__illustration--image"
