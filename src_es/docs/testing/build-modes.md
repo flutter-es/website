@@ -1,79 +1,62 @@
 ---
-title: Flutter's build modes
-description: Describes Flutter's build modes and when you should use debug, release, or profile mode?
+title: Modos de construcción de Flutter.
+description: ¿Describe los modos de compilación de Flutter y cuándo debería usar el modo de depuración, lanzamiento o perfil?
 ---
 
-The Flutter tooling supports three modes when compiling your app,
-and a headless mode for testing.
-This doc explains the three modes and tells you when to use which.
-For more information on headless testing, see
-[Unit testing.](/docs/testing#unit-testing)
+La herramienta Flutter admite tres modos al compilar su aplicación. Este documento explica los tres modos y le dice cuándo usar cada uno de ellos.
+Para obtener más información sobre las pruebas sin modo, consulte [Prueba de Unidad.](/docs/testing#unit-testing)
 
-You choose the compilation mode depending on where you are in
-the development cycle. Are you debugging your code? Do you
-need profiling information? Are you ready to deploy your app?
+Eliges el modo de compilación dependiendo de dónde te encuentres en el el ciclo de desarrollo. ¿Estás depurando tu código?, ¿Necesita información de perfil?, ¿Estás listo para desplegar tu aplicación?
 
-The following describes each mode and when to use it.
+A continuación se describe cada modo y cuándo usarlo.
 
-## Debug
+## Depurar
 
-In _debug mode_, the app is set up for debugging on the physical
-device, emulator, or simulator. Debug mode means that:
+En _modo depuración_, la aplicación está configurada para la depuración en el Dispositivo físico, emulador, o simulador. El modo de depuración significa que:
 
-* [Assertions](https://www.dartlang.org/guides/language/language-tour#assert)
-   are enabled.
-* [Observatory](https://dart-lang.github.io/observatory) is enabled,
-   allowing you to use the dart debugger.
-* Service extensions are enabled.
-* Compilation is optimized for fast development and run cycles (but not for
-  execution speed, binary size, or deployment.)
+* [Afirmaciones](https://www.dartlang.org/guides/language/language-tour#assert)
+   están activadas.
+* [Observatorio](https://dart-lang.github.io/observatory) está activado, le permite utilizar el depurador de dardos.
+* Las extensiones de servicio están habilitadas.
+* La compilación está optimizada para un rápido desarrollo y ciclos de ejecución (pero no para velocidad de ejecución, tamaño binario o implementación).
 
-By default, `flutter run` compiles to debug mode.
-Your IDE also supports these modes. Android Studio,
-for example, provides a **Run > Debug...** menu option, as well
-as an triangular green run button icon on the project page.
-(The menu item shows a pic of the corresponding icon.)
-The emulator and simulator execute _only_ in debug mode.
+Por defecto, `flutter run` compila en modo debug.
+Tu IDE también soporta estos modos. Android Studio,
+por ejemplo, proporciona una opción de menú **Run > Debug...**, así como un icono de botón de ejecución verde triangular en la página del proyecto.
+(El elemento del menú muestra una imagen del icono correspondiente.)
+El emulador y el simulador ejecutan _solo_ en modo de depuración.
 
-## Release
+## Lanzamiento
 
-Use _release mode_ for deploying the app, when you want maximum
-optimization and minimal footprint size. Release mode, which is not
-supported on the simulator or emulator, means that:
+Use _modo lanzamiento_ para desplegar la aplicación, cuando quieras el máximo en optimización y tamaño mínimo de huella. Modo de Lanzamiento, que no es
+soportado en el simulador o emulador, significa que:
 
-* Assertions are disabled.
-* Debugging information is stripped out.
-* Debugging is disabled.
-* Compilation is optimized for fast startup, fast execution, and small
-  package sizes.
-* Service extensions are disabled.
+* Las aserciones están deshabilitadas.
+* La información de depuración se elimina.
+* La depuración está deshabilitada.
+* La compilación está optimizada para un inicio rápido, una ejecución rápida y paquetes pequeños.
+* Las extensiones de servicio están deshabilitadas.
 
-The command `flutter run --release` compiles to release mode.
-Your IDE also supports these modes.  Android Studio, for example,
-provides a **Run > Run...** menu option, as well as a green bug
-icon overlayed with a small triangle on the project page.
-(The menu item shows a pic of the corresponding icon.)
+El comando `flutter run --release` compila en modo de Lanzamiento.
+Tu IDE también soporta estos modos. Android Studio, por ejemplo,
+provee una opción de menú **Run > Run...**, así como un ícono de error verde superpuesto con un pequeño triángulo en la página del proyecto.
+(El elemento del menú muestra una imagen del icono correspondiente..)
 
-You can also compile to release mode with `flutter build`.
-For more information, see the docs on releasing
-[iOS](../deployment/ios) and [Android](../deployment/android) apps.
+También puede compilar para lanzamientocon el modo `flutter build`.
+Para más información, vea la documentación sobre lanzamiento.
+aplicaciones [iOS](../deployment/ios) y [Android](../deployment/android).
 
-## Profile
+## Perfil
 
-In _profile mode_, some debugging ability is maintained&mdash;enough
-to profile your app's performance. Profile mode is disabled on
-the emulator and simulator, because their behavior is not representative
-of real performance. Profile mode is similar to release mode, with
-the following differences:
+En _modo perfil_, Algunas funciones de depuración se mantienen lo suficiente para perfilar el rendimiento de su aplicación. El modo de perfil está deshabilitado en el emulador y simulador,Porque su comportamiento no es representativo del desempeño real. Modo Perfil es similar al modo lanzamiento, con las siguientes diferencias:
 
-* Some service extensions, such as the one that enables the performance
-  overlay, are enabled.
-* Tracing is enabled, and Observatory can connect to the process.
+* Algunas extensiones de servicio, como la que permite la superposición de rendimiento, están habilitados.
+* El rastreo está habilitado, y el Observatorio puede conectarse al proceso.
 
-The command `flutter run --profile` compiles to profile mode.
-Your IDE also supports these modes. Android Studio, for example,
-provides a **Run > Profile...** menu option.
+El comando `flutter run --profile` compila en Modo Perfil.
+Tu IDE también soporta estos modos. Android Studio, por ejemplo,
+provee una opción de menú **Run > Profile...**.
 
-For more information on these modes, see
-[Flutter's modes](https://github.com/flutter/flutter/wiki/Flutter%27s-modes)
-in the [Flutter SDK wiki](https://github.com/flutter/flutter/wiki).
+Para más información sobre estos modos
+[Modos Flutter](https://github.com/flutter/flutter/wiki/Flutter%27s-modes)
+en la [wiki SDK Flutter](https://github.com/flutter/flutter/wiki).
