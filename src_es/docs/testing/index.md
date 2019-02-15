@@ -1,72 +1,67 @@
 ---
-title: Testing Flutter apps
+title: Probando Apps en Flutter
 ---
 
-The more features your app has, the harder it is to test it manually. A
-good set of automated tests help you make sure your app performs
-correctly before you publish it, while retaining your feature and bug fix
-velocity.
+Mientras más funciones tenga tu app, mas difícil será probarla manualmente. Un
+buen conjunto de pruebas automatizadas te ayudarán a asegurarte que tu app funcione 
+correctamente antes de publicarla, mientras conservas tus funciones y corriges errores a mayor
+velocidad.
 
-There are many kinds of automated testing. These are summarized below:
+Existen varios tipos de pruebas automáticas. A continuación verás un resumen:
 
-- A _unit test_ tests a single function, method, or class. External dependencies
-  of the unit under test are generally mocked out using, for example,
+- Una _unit test_ prueba una sola función, método o clase. Dependencias externas
+  de la unidad bajo prueba son generalmente imitadas utilizando, por ejemplo, 
   [`package:mockito`](https://github.com/dart-lang/mockito).
-  Unit tests generally do not read from/write to disk, render to screen and do
-  not receive user actions from outside the process running the test. The goal
-  of a unit test is to verify the correctness of a unit of logic under a
-  variety of conditions.
-- A _widget test_ (in other UI frameworks referred to as _component test_) tests
-  a single widget. Testing a widget involves multiple classes and requires a
-  test environment that provides the appropriate widget lifecycle context. For
-  example, it should be able to receive and respond to user actions and events,
-  perform layout, and instantiate child widgets. A widget test is
-  therefore more comprehensive than a unit test. However, like a unit test, a
-  widget test's environment is replaced with an implementation much simpler than
-  a full-blown UI system. The goal of a widget test is to verify that the
-  widget's UI looks and interacts as expected.
-- An [_integration test_](https://en.wikipedia.org/wiki/Integration_testing)
-  tests a complete app or a large part of an app. Generally, an
-  _integration test_ runs on a real device or an OS emulator, such as iOS
-  Simulator or Android Emulator. The app under test is typically isolated from
-  the test driver code to avoid skewing the results. The goal of an integration
-  test is to verify that the app functions correctly as a whole, that all the
-  widgets it is composed of integrate with each other as expected. You can also
-  use your integration tests to verify your app's performance.
+  Las pruebas unitarias generalmente no leen de/o escriben al disco, renderizan a pantalla y no
+  reciben acciones de usuario fuera del proceso de prueba. El objetivo
+  de una prueba unitaria es para verificar lo correcto de una unidad de lógica bajo una 
+  variedad de condiciones.
+- Un _widget test_ (en otros frameworks de UI se refieren a ellas como _component test_) prueba
+  un solo widget. Probando un widget incluye clases múltiples y requiere una
+  prueba de entorno el cual provee el widget apropiado para el ciclo de vida del contexto. Por
+  ejemplo, debe ser capaz de responder y recibir acciones de usuario y eventos,
+  realizar diseño e instancias widget hijos. Una prueba de widget es 
+  por lo tanto, más completa que una prueba unitaria. Sin embargo, al igual que una 
+  prueba unitaria, el entorno de una prueba de widgets se reemplaza por una implementación mucho más simple 
+  que un sistema UI completo. El objetivo de una prueba de widget es verificar que la IU del widget se vea e interactúe como se espera.
+- Un [_integration test_](https://en.wikipedia.org/wiki/Integration_testing)
+  prueba un app completa o una gran parte de la app. Generalmente una
+  _integration test_ se ejecuta en el dispositivo real o en el simulador, como iOS
+  o emulador de Android. La aplicación bajo prueba generalmente está aislada del código 
+  del controlador de prueba para evitar sesgar los resultados. El objetivo de una 
+  prueba de integración es verificar que la aplicación funcione correctamente como un todo, 
+  que todos los widgets de los que está compuesta se integren entre sí como se espera. También 
+  puede usar sus pruebas de integración para verificar el rendimiento de su aplicación.
 
-Here is a table summarizing the tradeoffs concerning the choice between
-different kinds of tests:
+Aquí hay una tabla que resume las ventajas y desventajas relacionadas con la elección entre 
+diferentes tipos de pruebas:
 
 |                      | Unit   | Widget | Integration |
 |----------------------|--------|--------|-------------|
-| **Confidence**       | Low    | Higher | Highest     |
-| **Maintenance cost** | Low    | Higher | Highest     |
-| **Dependencies**     | Few    | More   | Lots        |
-| **Execution speed**  | Quick  | Slower | Slowest     |
+| **Confianza**       | Low    | Higher | Highest     |
+| **Costo de Mantenimiento** | Low    | Higher | Highest     |
+| **Dependencias**     | Few    | More   | Lots        |
+| **Rapidez de ejecución**  | Quick  | Slower | Slowest     |
 {:.table.table-striped}
 
-**Tip**: As a rule of thumb a well-tested app has a very high number of unit
-and widget tests, tracked by [code coverage](https://en.wikipedia.org/wiki/Code_coverage),
-and a good number of integration tests covering all the important usage
-scenarios.
+**Consejo**: Como regla general, una aplicación bien probada tiene un número muy alto de unidades y pruebas de widgets, rastreadas por [cobertura de código](https://en.wikipedia.org/wiki/Code_coverage),
+y un buen número de pruebas de integración cubriendo todos los escenarios de usos importantes.
 
 
-## Unit testing
+## Pruebas Unitarias
 
-Some Flutter libraries, such as `dart:ui`, are not available in the standalone
-Dart VM that ships with the default Dart SDK. The `flutter test` command lets
-you run your tests in a local Dart VM with a headless version of the Flutter
-Engine, which supplies these libraries. Using this command you can run any test,
-whether it depends on Flutter libraries or not.
+Algunas bibliotecas de Flutter, tal como `dart:ui`, no están disponible en la standalone
+Dart VM el cual viene con el SDK predeterminado de Dart. El comando `flutter test` permite
+ejecutar tus pruebas en un Dart VM local con una versión sin encabezado de el motor de
+Flutter, el cual suministra estas bibliotecas. Utilizando este comando puedes ejecutar cualquier prueba,
+si depende de las bibliotecas de Flutter o no.
 
-Write a Flutter unit test as a normal `package:test` test. Writing unit tests
-using `package:test` is documented on the [Dart
-testing](https://github.com/dart-lang/test/blob/master/README.md)
-repo.
+Escribe una prueba unitaria de Flutter como una prueba normal `package:test`. Escribir pruebas
+unitarias utilizando `package:test` está documentado [aquí](https://github.com/dart-lang/test/blob/master/README.md).
 
-Example:
+Ejemplo:
 
-Add this file to `test/unit_test.dart`:
+Añade este archivo a  `test/unit_test.dart`:
 
 {% prettify dart %}
 import 'package:test/test.dart';
@@ -79,7 +74,7 @@ void main() {
 }
 {% endprettify %}
 
-In addition, you must add the following block to your `pubspec.yaml`:
+Adicionalmente, añade el siguiente bloque a tu `pubspec.yaml`:
 
 ```yaml
 dev_dependencies:
@@ -87,30 +82,31 @@ dev_dependencies:
     sdk: flutter
 ```
 
-(This is needed even if your test does not itself explicitly import
-`flutter_test`, because the test framework itself uses it behind the
-scenes.)
+(Esto se necesita aún si tu prueba no importa en si misma explícitamente 
+`flutter_test`, por qué el mismo framework de prueba lo utiliza detrás 
+de escena.)
 
-To run the test, run `flutter test test/unit_test.dart` from your
-project directory (not from the `test` subdirectory).
+Para ejecutar la prueba, ejecuta `flutter test test/unit_test.dart` desde el
+directorio de proyecto (no desde el subdirectorio de `test` ).
 
-To run all your tests, run `flutter test` from your project directory.
+Para correr todas las pruebas, ejecuta `flutter test` desde el directorio del proyecto.
 
 
-## Widget testing
+## Pruebas de Widget
 
-You implement a widget test in a similar way as a unit test. To perform an
-interaction with a widget in your test, use the
+Implementa una prueba de widget de forma similar a una prueba unitaria. Para realizar 
+una interacción con un widget en su prueba, use el
 [`WidgetTester`](https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html)
-utility that Flutter provides. For example, you can send tap and scroll
-gestures. You can also use
+utilidad que provee Flutter. Por ejemplo, puedes enviar gesticulaciones de tap y 
+scroll. También puedes usar
 [`WidgetTester`](https://docs.flutter.io/flutter/flutter_test/WidgetTester-class.html)
-to find child widgets in the widget tree, read text, and verify that the values
-of widget properties are correct.
 
-Example:
+Para encontrar child widgets en el árbol de widgets, leer texto y verificar que los 
+valores de las propiedades del widget sean correctos.
 
-Add this file to `test/widget_test.dart`:
+Ejemplo:
+
+Añade este archivo a `test/widget_test.dart`:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -155,46 +151,45 @@ void main() {
 }
 ```
 
-Run `flutter test test/widget_test.dart`.
+Ejecuta `flutter test test/widget_test.dart`.
 
-Check out [`package:flutter_test` API](https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html)
-for all the utilities available for widget testing.
+Vea [`package:flutter_test` API](https://docs.flutter.io/flutter/flutter_test/flutter_test-library.html)
+para todas las utilidades disponibles para pruebas de widgets.
 
-To help debug widget tests, you can use the [`debugDumpApp()`](https://docs.flutter.io/flutter/widgets/debugDumpApp.html) function to visualize the UI state of your test or simply `flutter run test/widget_test.dart` to see your test run in your preferred runtime environment such as a simulator or a device. During a `flutter run` session on a widget test, you can also interactively tap parts of the screen for the Flutter tool to print the suggested [`Finder`](https://docs.flutter.io/flutter/flutter_test/CommonFinders-class.html).
+Para ayudar a depurar las pruebas de widget, puedes utilizar la función [`debugDumpApp()`](https://docs.flutter.io/flutter/widgets/debugDumpApp.html) para visualizar el estado de UI de tu prueba o simplemente `flutter run test/widget_test.dart` para ver tus pruebas ejecutarse en tu entorno de ejecución preferido tal como un simulador o un dispositivo. Durante una sesión `flutter run` en una prueba de widgets, también puede interactivamente tocar partes de la pantalla para la herramienta Flutter para imprimir las sugerencias [`Finder`](https://docs.flutter.io/flutter/flutter_test/CommonFinders-class.html).
 
 
-## Integration testing
+## Pruebas de integración
 
-A Flutter integration test is also written using `package:test`. A full test is a
-pair - a test script and a Flutter app instrumented to receive commands
-from the test. Unlike unit and widget tests, integration test code does not run
-in the same process as the app that's being tested. Instead, the tested
-app is launched on a _real device_ or in an _emulator_ (e.g. Android
-Emulator or iOS Simulator). The test script runs on your computer. It connects
-to the app and issues commands to the app to perform various
-user actions. This is known as "driving" the app. Flutter provides tools
-and APIs, collectively referred to as _Flutter Driver_, to do just that.
+Una prueba de integración de Flutter también se escribe utilizando `package:test`. Una prueba completa 
+es un par - un script de prueba y una aplicación Flutter instrumentadas para recibir comandos 
+de la prueba. A diferencia de las pruebas de unidad y widget, el código de prueba de integración 
+no se ejecuta en el mismo proceso que la aplicación que se está probando. En cambio, 
+la aplicación probada se inicia en _dispositivo real_ o en un _emulador_ (por ejemplo el emulador de Android o simulador de iOS). El script de prueba se ejecuta en su computadora. Se conecta 
+a la aplicación y emite comandos a la aplicación para realizar diversas acciones del usuario. 
+Esto se conoce como "conducir" la aplicación. Flutter proporciona herramientas y API, 
+denominados colectivamente como _Flutter Driver_, para hacer justamente eso.
 
-> If you are familiar with Selenium/WebDriver (web), Espresso (Android) or UI
-> Automation (iOS), then Flutter Driver is Flutter's equivalent to those
-> integration testing tools. In addition, Flutter Driver provides API for
-> recording performance traces (a.k.a. the _timeline_) from actions performed
-> by the test.
+> Si has trabajado con Selenium/WebDriver (web), Espresso (Android) or UI
+> Automation (iOS), entonces Flutter Driver es el equivalente en Flutter para aquellas
+> herramientas de pruebas de integración. Adicionalmente, Flutter Driver proveé una API para
+> registrar trazas de rendimiento (conocido como el _timeline_) de las acciones realizadas.
+> por la prueba.
 
-Flutter Driver is:
+Flutter Driver es:
 
-* a command-line tool `flutter drive`
-* a package `package:flutter_driver` ([API](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html))
+* una herramienta de línea de comando `flutter drive`
+* un paquete `package:flutter_driver` ([API](https://docs.flutter.io/flutter/flutter_driver/FlutterDriver-class.html))
 
-Together, the two allow you to:
+Juntos, estos dos te permiten:
 
-* create instrumented app for integration testing
-* write a test
-* run the test
+* crear una aplicación instrumentada para pruebas de integración
+* escribir una prueba
+* ejecutar una prueba
 
-### Adding the flutter_driver dependency
+### Agregar la dependencia flutter_driver
 
-To use `flutter_driver`, you must add the following block to your `pubspec.yaml`:
+Para utilizar `flutter_driver`, deberás agregar el siguiente bloque a tu `pubspec.yaml`:
 
 ```yaml
 dev_dependencies:
@@ -202,46 +197,45 @@ dev_dependencies:
     sdk: flutter
 ```
 
-### Creating instrumented Flutter apps
+### Creando apps instrumentadas con Flutter
 
-An instrumented app is a Flutter app that has the Flutter Driver
-_extension_ enabled. To enable the extension call `enableFlutterDriverExtension()`.
+Una aplicación instrumentada es una aplicación Flutter que tiene la _extensión_ Flutter 
+Driver habilitado. Para habilitar la extensión se llama `enableFlutterDriverExtension()`.
 
-Example:
+Ejemplo:
 
-Let's assume you have an app with the entry point in
-`my_app/lib/main.dart`. To create an instrumented version of it, create a Dart
-file under `my_app/test_driver/`. Name it after the feature you are testing;
-let's go for `user_list_scrolling.dart` located in my_app/test_driver/:
+Supongamos que tienes una aplicación con el punto de entrada en
+`my_app/lib/main.dart`. Para crear una versión instrumentada, cree un archivo 
+Dart en `my_app/test_driver/`. Nómbrelo después acorde a la función que esté probando; 
+vamos por `user_list_scrolling.dart` ubicado en `my_app/test_driver/`:
 
 ```dart
-// This line imports the extension
+// Esta línea importa la extensión
 import 'package:flutter_driver/driver_extension.dart';
 
 void main() {
-  // This line enables the extension
+  // Esta línea habilita la extensión
   enableFlutterDriverExtension();
 
-  // Call the `main()` of your app or call `runApp` with whatever widget
-  // you are interested in testing.
+  // Llama a main() de tu app o llama runApp con el widget que sea que estas interesado en probar.
 }
 ```
 
-### Writing integration tests
+### Escribiendo pruebas de integración
 
-An integration test is a plain `package:test` test that uses the Flutter Driver
-API to tell the app what to do and then verifies that the app
-did it.
+Una prueba de integración es una prueba simple `package:test` que usa la 
+API de Flutter Driver para indicar a la aplicación qué hacer y luego verifica que la aplicación
+lo hizo.
 
-Example:
+Ejemplo:
 
-Just for fun let's also make our test record the performance timeline. Let's
-create a test file `user_list_scrolling_test.dart` located in `my_app/test_driver/`:
+Solo por diversión, hagamos que nuestra prueba registre la línea de tiempo de rendimiento. Creemos
+un archivo de prueba `user_list_scrolling_test.dart` localizado en `my_app/test_driver/`:
 
 ```dart
 import 'dart:async';
 
-// Imports the Flutter Driver API
+// Importamos la API Driver de Flutter
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -250,35 +244,35 @@ void main() {
     FlutterDriver driver;
 
     setUpAll(() async {
-      // Connects to the app
+      // Conectamos con la app
       driver = await FlutterDriver.connect();
     });
 
     tearDownAll(() async {
       if (driver != null) {
-        // Closes the connection
+        // Cerramos la conexión
         driver.close();
       }
     });
 
     test('measure', () async {
-      // Record the performance timeline of things that happen inside the closure
+      // Registra el timeline del rendimiento de aquellas cosas que ocurren dentro del closure
       Timeline timeline = await driver.traceAction(() async {
-        // Find the scrollable user list
+        // Encuentra la lista de usuarios scrollable
         SerializableFinder userList = find.byValueKey('user-list');
 
-        // Scroll down 5 times
+        // Hace scroll hacia abajo 5 veces
         for (int i = 0; i < 5; i++) {
-          // Scroll 300 pixels down, for 300 millis
+          // Hace scroll de 300 pixels abajo, durante 300 milisegundos
           await driver.scroll(
               userList, 0.0, -300.0, Duration(milliseconds: 300));
 
-          // Emulate a user's finger taking its time to go back to the original
-          // position before the next scroll
+          // Simula el dedo de un usuario tomándose su tiempo para volver atrás a la posición original 
+          // antes de hacer scroll de nuevo
           await Future<Null>.delayed(Duration(milliseconds: 500));
         }
 
-        // Scroll up 5 times
+        // Hace scroll hacia arriba 5 veces
         for (int i = 0; i < 5; i++) {
           await driver.scroll(
               userList, 0.0, 300.0, Duration(milliseconds: 300));
@@ -286,49 +280,48 @@ void main() {
         }
       });
 
-      // The `timeline` object contains all the performance data recorded during
-      // the scrolling session. It can be digested into a handful of useful
-      // aggregate numbers, such as "average frame build time".
+      // El objeto timeline contiene todos los datos de rendimiento registrados 
+      // durante la sesión de scroll. Se puede interpretar valores útiles, 
+      // como "tiempo medio de construcción del frame"
       TimelineSummary summary = TimelineSummary.summarize(timeline);
 
-      // The following line saves the timeline summary to a JSON file.
+      // Las siguientes líneas guardan el sumario del timeline a un fichero JSON
       summary.writeSummaryToFile('scrolling_performance', pretty: true);
 
-      // The following line saves the raw timeline data as JSON.
+      // La siguiente línea guarda los datos crudos del timeline como un JSON.
       summary.writeTimelineToFile('scrolling_performance', pretty: true);
     });
   });
 }
 ```
 
-### Running integration tests
+### Ejecutando pruebas de integración
 
-To run the test on an Android device, connect the device via USB to your
-computer and enable USB debugging. Then run the following command:
+Para ejecutar la prueba en un dispositivo Android, conecte el dispositivo a través de USB a su
+computadora y habilite la depuración de USB. Luego ejecuta el siguiente comando:
 
 ```
 flutter drive --target=my_app/test_driver/user_list_scrolling.dart
 ```
 
-This command:
+Este comando:
 
-* builds the `--target` app and install it on the device
-* launches the app
-* runs the `user_list_scrolling_test.dart` test located in `my_app/test_driver/`
+* construye la app `--target` y la instala en el dispositivo
+* lanza la app
+* ejecuta la prueba `user_list_scrolling_test.dart` localizada en `my_app/test_driver/`
 
-You might be wondering how the command finds the correct test file. The
-`flutter drive` command uses a convention to look for the test file in the same
-directory as the instrumented `--target` app that has the same file name
-but for the `_test` suffix in it.
+Es posible que se pregunte cómo el comando encuentra el archivo de prueba correcto. El
+comando `flutter drive` usa una convención para buscar el archivo de prueba en el mismo
+directorio que la app instrumentada `--target` que tenga el mismo nombre de archivo pero 
+con el sufijo de `_test` en el.
 
-## Continuous integration and testing
+## Integración continua y pruebas
 
-For information on continuous deployment and testing, see
+Para obtener información sobre implementación y pruebas continuas, consulte:
 
-* [Continuous Delivery using fastlane with Flutter](/docs/deployment/fastlane-cd/)
-* [Test Flutter apps on Travis](https://medium.com/flutter-io/test-flutter-apps-on-travis-3fd5142ecd8c)
-* Test Flutter apps with [GitLab
-  CI](https://docs.gitlab.com/ee/ci/README.html#doc-nav). You'll
-  need to create and configure a `.gitlab-ci.yml` file. You can [find an
-  example](https://raw.githubusercontent.com/brianegan/flutter_redux/master/.gitlab-ci.yml)
-  in the [flutter_redux library](https://github.com/brianegan/flutter_redux).
+* [Entrega continua usando Fastlane con Flutter](/fastlane-cd/)
+* [Probar Flutter apps en Travis](https://medium.com/flutter-io/test-flutter-apps-on-travis-3fd5142ecd8c)
+* Probando app de Flutter con [GitLab
+  CI](https://docs.gitlab.com/ee/ci/README.html#doc-nav). Necesitarás crear y configurar un
+  archivo `.gitlab-ci.yml`. Puedes [encontrar un ejemplo](https://raw.githubusercontent.com/brianegan/flutter_redux/master/.gitlab-ci.yml)
+  en la [biblioteca flutter_redux](https://github.com/brianegan/flutter_redux).
