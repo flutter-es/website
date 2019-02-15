@@ -1,5 +1,5 @@
 ---
-title: Showcase
+title: Portafolio
 layout: landing
 body_class: landing-page showcase
 ---
@@ -23,7 +23,7 @@ body_class: landing-page showcase
                         <div class="col-md-7 offset-md-5 col-lg-5 offset-lg-6 col-xl-4 offset-xl-7">
                             <div class="card card--app">
                                 <div class="card-body">
-                                    <h2 class="card-category">Featured</h2>
+                                    <h2 class="card-category">Destacada</h2>
                                     <h3>{{ case.name }}</h3>
                                     <p>{{ case.description }}</p>
                                 </div>
@@ -45,10 +45,10 @@ body_class: landing-page showcase
     <div class="card-body">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
-                <h2>Made with Flutter</h2>
+                <h2>Hecho con Flutter</h2>
                 <p>
-                Flutter is used by Google and developers and organizations around the world to deliver beautiful native apps on
-                iOS and Android. Here is a small selection of apps made with Flutter.
+                    Flutter es utilizado por Google y por desarrolladores y organizaciones de todo el mundo para ofrecer increíbles aplicaciones nativas en iOS y Android.
+                    Aquí tienes una pequeña selección de aplicaciones hechas con Flutter.
                 </p>
             </div>
         </div>
@@ -73,7 +73,7 @@ body_class: landing-page showcase
                             {% if case.play_store_link or case.app_store_link %}
                                 <span class="dropdown">
                                     <a href="#" class="dropdown-toggle" id="dropdownMenuButton{{ forloop.index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Download
+                                        Descargar
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ forloop.index }}">
                                         {% if case.play_store_link %}<a class="dropdown-item" href="{{ case.play_store_link }}" target="_blank">Android</a>{% endif %}
@@ -90,7 +90,7 @@ body_class: landing-page showcase
 
         <div class="row">
             <div class="col-12 text-center">
-                <a class="landing-page__cta__button btn btn-primary" href="https://itsallwidgets.com/" target="_blank">Explore more apps built with Flutter</a>
+                <a class="landing-page__cta__button btn btn-primary" href="https://itsallwidgets.com/flutter-apps" target="_blank">Para una lista más larga de aplicaciones, visita itsallwidgets.com</a>
             </div>
         </div>
     </div>
@@ -98,9 +98,9 @@ body_class: landing-page showcase
 
 <section class="landing-page__cta card text-center">
     <div class="card-body">
-        <h2 class="landing-page__cta__headline">Try Flutter today.</h2>
-        <p class="landing-page__cta__body">It’s free and open source.</p>
-        <a class="landing-page__cta__button btn btn-primary btn-cta" href="/get-started/install">Get started</a>
+        <h2 class="landing-page__cta__headline">Prueba Flutter hoy.</h2>
+        <p class="landing-page__cta__body">Es gratis y de código abierto..</p>
+        <a class="landing-page__cta__button btn btn-primary btn-cta" href="/get-started/install">Empezar</a>
     </div>
 </section>
 
