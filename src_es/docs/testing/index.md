@@ -319,7 +319,7 @@ con el sufijo de `_test` en el.
 
 Para obtener información sobre implementación y pruebas continuas, consulte:
 
-* [Entrega continua usando Fastlane con Flutter](/fastlane-cd/)
+* [Entrega continua usando Fastlane con Flutter](/docs/deployment/fastlane-cd/)
 * [Probar Flutter apps en Travis](https://medium.com/flutter-io/test-flutter-apps-on-travis-3fd5142ecd8c)
 * Probando app de Flutter con [GitLab
   CI](https://docs.gitlab.com/ee/ci/README.html#doc-nav). Necesitarás crear y configurar un
