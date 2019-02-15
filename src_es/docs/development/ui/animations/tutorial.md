@@ -1,83 +1,83 @@
 ---
-title: Animations tutorial
+title: "Tutorial de animaciones"
 short-title: Tutorial
-description: A tutorial showing how to build explicit animations in Flutter.
+descripcion: Un tutorial mostrando como construir animaciones explícitas en Flutter
 ---
 
-{{site.alert.secondary}}
-  <h4 class="no_toc">What you’ll learn</h4>
+{site.alert.secondary}}
+  <h4 class="no_toc">Lo que aprenderás:</h4>
 
-  * How to use the fundamental classes from the animation library to add
-    animation to a widget.
-  * When to use AnimatedWidget vs. AnimatedBuilder.
+  * Como usar clases fundamentales de la biblioteca de animaciones para añadir 
+    animaciones a un widget.
+  * Cuando usar AnimatedWidget vs. AnimatedBuilder.
 {{site.alert.end}}
 
-This tutorial shows you how to build explicit animations in Flutter.
-After introducing some of the essential concepts, classes, and methods
-in the animation library, it walks you through 5 animation examples.
-The examples build on each other,
-introducing you to different aspects of the animation library.
+Este tutorial te muestra como construir animaciones en Flutter.
+Después de introducir algunos conceptos esenciales, clases y métodos, 
+de la biblioteca de animaciones, te conduce a través de 5 ejemplos de animación.
+Los ejemplos se basan unos en otros,
+introduciéndote en diferentes aspectos de la biblioteca de animaciones.
 
-The Flutter SDK also provides transition animations, such as
+El SDK de Flutter también proporciona animaciones de transición, como son
 [FadeTransition]({{site.api}}/flutter/widgets/FadeTransition-class.html),
-[SizeTransition]({{site.api}}/flutter/widgets/SizeTransition-class.html), and
+[SizeTransition]({{site.api}}/flutter/widgets/SizeTransition-class.html), y
 [SlideTransition]({{site.api}}/flutter/widgets/SlideTransition-class.html).
-These simple animations are triggered by setting a beginning and ending
-point. They are simpler to implement than explicit animations, which are
-described here.
+Estas animaciones simples son ejecutadas definiendo un punto de 
+inicio y de fin. Son más simples que las animaciones explícitas, 
+que describimos aquí.
 
 <a name="concepts"></a>
-## Essential animation concepts and classes
+## Conceptos y clases esenciales de animaciones
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">What's the point?</h4>
+  <h4 class="no_toc">¿Qué aprenderás?</h4>
 
-  * The Animation object, a core class in Flutter's animation library,
-    interpolates the values used to guide an animation.
-  * The Animation object knows the current state of an animation (for example,
-    whether it's started, stopped, or moving forward or in reverse),
-    but doesn't know anything about what appears onscreen.
-  * An AnimationController manages the Animation.
-  * A CurvedAnimation defines progression as a non-linear curve.
-  * A Tween interpolates between the range of data as used by the
-    object being animated. For example, a Tween might define an interpolation
-    from red to blue, or from 0 to 255.
-  * Use Listeners and StatusListeners to monitor animation state changes.
+* El objeto Animation, una clase principal en la biblioteca de animaciones de Flutter,
+  interpola los valores usados para guiar una animación.
+* El objeto Animation conoce el estado actual de una animación (por ejemplo,
+  ya sea que, ha comenzado, parado, o se mueve adelante o hacia atrás),
+  pero no sabe nada de lo que aparece en la pantalla.
+* Un AnimationController administra el Animation.
+* Un CurvedAnimation define progresiones como una curva no lineal.
+* Un Tween interpola entre el rango de datos usados por el objeto que 
+  está siendo animado. Por ejemplo, un Tween podría definir una interpolación 
+  de rojo a azul, o de 0 a 255.
+* Usa Listeners y StatusListeners para monitorizar los cambios de estado de la animación.
 {{site.alert.end}}
 
-The animation system in Flutter is based on typed
-[`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html)
-objects. Widgets can either incorporate these animations in their build
-functions directly by reading their current value and listening to their
-state changes or they can use the animations as the basis of more elaborate
-animations that they pass along to other widgets.
+El sistema de animaciones en Flutter está basado en 
+objetos [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html) tipados. 
+Los widgets pueden incorporar estos objetos animation en sus 
+funciones build directamente al leer su valor actual y escuchar sus 
+cambios de estado, o pueden usarlos como la base
+de animaciones más elaboradas que pasan a través de otros widgets.
 
 <a name="animation-class"></a>
 ### Animation&lt;double&gt;
 
-In Flutter, an Animation object knows nothing about what is onscreen.
-An Animation is an abstract class that understands its current value
-and its state (completed or dismissed). One of the more commonly used
-animation types is Animation&lt;double&gt;.
+En Flutter, un objeto Animation no sabe nada sobre que hay en la pantalla.
+Un objeto Animation es una clase abstracta que entiende su valor actual y 
+su estado (completado o rechazado). Uno de los tipos de animation más comúnmente 
+usados es Animation&lt;double&gt;.
 
-An Animation object in Flutter is a class that sequentially generates
-interpolated numbers between two values over a certain duration.
-The output of an Animation object may be linear, a curve, a step function,
-or any other mapping you can devise. Depending on how the Animation object
-is controlled, it could run in reverse, or even switch directions in the
-middle.
+Un objeto Animation en Flutter es una clase que genera secuencialmente números 
+interpolándolos entre dos valores durante una cierta duración.
+La salida de un objeto Animation puede ser lineal, una curva, una función por pasos,
+o cualquier otro mapeado que puedas idear. Dependiendo de como el objeto Animation 
+se controle, podría ejecutarse en modo inverso, o incluso cambiar la dirección en 
+el medio.
 
-Animations can also interpolate types other than double, such as
-Animation&lt;Color&gt; or Animation&lt;Size&gt;.
+Los objetos Animation pueden también interpolar otros tipos diferentes a double, como 
+Animation&lt;Color&gt; o Animation&lt;Size&gt;.
 
-`Animation` object has state. Its current value is always available
-in the `.value` member.
+El objeto `Animation` tiene estado. El valor actual siempre esta disponible 
+en la propiedad `.value`.
 
-An Animation object knows nothing about rendering or `build()` functions.
+Un objeto Animation no conoce nada sobre renderizado o funciones `build()`.
 
 ### CurvedAnimation
 
-A CurvedAnimation defines the animation's progress as a non-linear curve.
+Un objeto CurvedAnimation define el progreso de una animación como una curva no lineal.
 
 <!-- skip -->
 {% prettify dart %}
@@ -86,10 +86,10 @@ final CurvedAnimation curve =
 {% endprettify %}
 
 <aside class="alert alert-success" markdown="1">
-**Note:**
-The [Curves](https://docs.flutter.io/flutter/animation/Curves-class.html)
-class defines many commonly used curves, or you can create your own.
-For example:
+**Nota:**
+La clase [Curves](https://docs.flutter.io/flutter/animation/Curves-class.html) 
+define muchas curvas usadas comúnmente, o puedes crear la tuya propia.
+Por ejemplo:
 
 <!-- skip -->
 {% prettify dart %}
@@ -102,18 +102,18 @@ class ShakeCurve extends Curve {
 {% endprettify %}
 </aside>
 
-CurvedAnimation and AnimationController (described in the next section)
-are both of type Animation&lt;double&gt;, so you can pass them interchangeably.
-The CurvedAnimation wraps the object it’s modifying&mdash;you
-don’t subclass AnimationController to implement a curve.
+CurvedAnimation y AnimationController (descrito en la siguiente sección), 
+son ambas de tipo Animation&lt;double&gt;, puedes pasarlas de forma intercambiable.
+El objeto CurvedAnimation envuelve el objeto que está modificando&mdash;no puedes 
+hacer una subclase de AnimationController para implementar una curva.
 
 ### AnimationController
 
-AnimationController is a special Animation object that generates a new
-value whenever the hardware is ready for a new frame. By default,
-an AnimationController linearly produces the numbers from 0.0 to 1.0
-during a given duration. For example, this code creates an Animation object,
-but does not start it running:
+AnimationController es un objeto Animation especial que genera un nuevo valor 
+cada vez que el hardware esta preparado para un nuevo frame. Por defecto,
+un AnimationController produce linealmente números desde 0.0 a 1.0
+durante una duración dada. Por ejemplo, este código crea un objeto Animation, 
+pero no comienza su ejecución:
 
 <!-- skip -->
 {% prettify dart %}
@@ -121,23 +121,23 @@ final AnimationController controller = AnimationController(
     duration: const Duration(milliseconds: 2000), vsync: this);
 {% endprettify %}
 
-AnimationController derives from Animation&lt;double&gt;, so it can be used
-wherever an Animation object is needed. However, the AnimationController
-has additional methods to control the animation. For example, you start
-an animation with the `.forward()` method. The generation of numbers is
-tied to the screen refresh, so typically 60 numbers are generated per
-second. After each number is generated, each Animation object calls the
-attached Listener objects. To create a custom display list for each
-child, see
+AnimationController deriva de Animation&lt;double&gt;, por esto puede ser 
+usado donde quiera que se necesite un objeto Animation. Sin embargo, 
+AnimationController tiene métodos adicionales para controlar la animación. 
+Por ejemplo, inicias una animación con el método `.forward()`. La generación 
+de números está vinculada al refresco de la pantalla, normalmente son 
+generados 60 numeros por segundo. Después de que cada número es generado, 
+cada objeto Animation llama a sus objetos Listener asociados. Para crear 
+una lista personalizada para cada hijo, mira
 [RepaintBoundary](https://docs.flutter.io/flutter/widgets/RepaintBoundary-class.html).
 
-When creating an AnimationController, you pass it a `vsync` argument.
-The presence of `vsync` prevents offscreen animations from consuming
-unnecessary resources. You can use your stateful object as the vsync
-by adding SingleTickerProviderStateMixin to the class definition.
-You can see an example of this in
+Cuando creas un AnimationController, le pasas un argumento `vsync`. 
+La presencia de `vsync` previene animaciones fuera de pantalla que consuman 
+recursos innecesarios. Puedes usar tu objeto stateful como vsync 
+añadiendo SingleTickerProviderStateMixin a la definición de la clase.
+Puedes ver un ejemplo de esto en 
 [animate1](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate1/main.dart)
-on GitHub.
+en GitHub.
 {% comment %}
 The `vsync` object ties the ticking of the animation controller to
 the visiblity of the widget, so that when the animating widget goes
@@ -149,39 +149,39 @@ To use your custom State object as the `vsync`, include the
 {% endcomment %}
 
 {{site.alert.note}}
-  In some cases, a position might exceed the AnimationController's
-  0.0-1.0 range. For example, the `fling()` function allows you to provide
-  velocity, force, and position (via the Force object).
-  The position can be anything and so can be outside of the 0.0 to 1.0 range.
+En algunos casos, una posición podria sobrepasar el rango 0.0-1.0 del 
+AnimationController. Por ejemplo, la función `fling()` te permite proporcionar 
+velocidad, fuerza y posicion (vía el objeto Force).
+La posición puede ser cualquiera y puede estar fuera del rango entre 0.0 y 1.0.
 
-  A CurvedAnimation can also exceed the 0.0 to 1.0 range,
-  even if the AnimationController doesn't. Depending on the curve selected,
-  the output of the CurvedAnimation can have a wider range than the input.
-  For example, elastic curves such as Curves.elasticIn will significantly
-  overshoot or undershoot the default range.
+Un CurvedAnimation puede también sobrepasar el rango de 0.0 a 1.0,
+en cambio AnimationController no puede. Dependiendo de la curva seleccionada,
+la salida de CurvedAnimation puede ser un rango más amplio que la entrada.
+Por ejemplo, las curvas elásticas como Curves.elasticIn sobrepasaran 
+significativamente el rango por defecto tanto por abajo como por arriba.
 {{site.alert.end}}
 
 ### Tween
 
-By default, the AnimationController object ranges from 0.0 to 1.0.
-If you need a different range or a different data type,
-you can use a Tween to configure an animation to interpolate to a
-different range or data type. For example, the following Tween
-goes from -200.0 to 0.0:
+Por defecto, el objeto AnimationController tiene rangos entre 0.0 y 1.0.
+Si necesitas un rango diferente o un tipo de datos diferente, 
+puedes usar Tween para configurar un objeto animation que interpole 
+un rango o tipo de dato diferente. Por ejemplo, el siguiente Tween
+va desde -200.0 a 0.0:
 
 <!-- skip -->
 {% prettify dart %}
 final Tween doubleTween = Tween<double>(begin: -200.0, end: 0.0);
 {% endprettify %}
 
-A Tween is a stateless object that takes only `begin` and `end`.
-The sole job of a Tween is to define a mapping from an input range
-to an output range. The input range is commonly 0.0 to 1.0,
-but that’s not a requirement.
+Un Tween es un objeto stateless que solo toma las propiedades `begin` y `end`.
+El único trabajo de un Tween es definir un mapeado entre un rango de entrada 
+y un rango de salida. El rango de entrada en normalment 0.0 a 1.0,
+pero esto no es un requisito.
 
-A Tween inherits from Animatable&lt;T&gt;, not from Animation&lt;T&gt;.
-An Animatable, like Animation, doesn't have to output double.
-For example, ColorTween specifies a progression between two colors.
+Un Tween hereda de Animatable&lt;T&gt;, no de Animation&lt;T&gt;.
+Un Animatable, como un Animation, no tiene porque tener una salida de tipo double.
+Por ejemplo, ColorTween especifica una progresión entre dos colores.
 
 <!--- skip -->
 {% prettify dart %}
@@ -189,19 +189,19 @@ final Tween colorTween =
     ColorTween(begin: Colors.transparent, end: Colors.black54);
 {% endprettify %}
 
-A Tween object does not store any state. Instead, it provides the
-`evaluate(Animation<double> animation)` method that applies the mapping
-function to the current value of the animation. The current value of the
-`Animation` object can be found in the `.value` method.
-The evaluate function also performs some housekeeping,
-such as ensuring that begin and end are returned when the animation
-values are 0.0 and 1.0, respectively.
+Un objeto Tween no almacena ningun estado. En cambio, provee el método 
+`evaluate(Animation<double> animation)` que aplica la función de mapeado 
+al valor actual del objeto Animation. El valor actual del 
+objeto `Animation` puede ser encontrado en el método `.value`.
+La función evaluate function también realiza algunas labores de limpieza, 
+como asegurar que se devuelva begin y end cuando los valores del objeto 
+animation sean 0.0 y 1.0, respectivamente.
 
 #### Tween.animate
 
-To use a Tween object, call `animate()` on the Tween, passing in the
-controller object. For example, the following code generates the
-integer values from 0 to 255 over the course of 500 ms.
+Para usar el objeto Tween, llama a `animate()` en Tween, pasado en el 
+objeto controller. Por ejemplo, el siguiente código genera los valores 
+enteros entre 0 y 255 en el trascurso de 500 ms.
 
 <!-- skip -->
 {% prettify dart %}
@@ -210,9 +210,9 @@ final AnimationController controller = AnimationController(
 Animation<int> alpha = IntTween(begin: 0, end: 255).animate(controller);
 {% endprettify %}
 
-Notice that `animate()` returns an Animation, not an Animatable.
+Note que `animate()` devuelve un Animation, no un Animatable.
 
-The following example shows a controller, a curve, and a Tween:
+El siguiente ejemplo muestra un controller, un curve, y un Tween:
 
 <!-- skip -->
 {% prettify dart %}
@@ -223,49 +223,49 @@ final Animation curve =
 Animation<int> alpha = IntTween(begin: 0, end: 255).animate(curve);
 {% endprettify %}
 
-### Animation notifications
+### Notificaciones de Animation
 
-An Animation object can have Listeners and StatusListeners,
-defined with `addListener()` and `addStatusListener()`.
-A Listener is called whenever the value of the animation changes.
-The most common behavior of a Listener is to call `setState()`
-to cause a rebuild. A StatusListener is called when an animation begins,
-ends, moves forward, or moves reverse, as defined by AnimationStatus.
-The next section has an example of the `addListener()` method,
-and [Monitoring the progress of the animation](#monitoring) shows an
-example of `addStatusListener()`.
+Un objeto Animation puede tener Listeners y StatusListeners,
+definidos con `addListener()` y `addStatusListener()`.
+Un Listener es llamado cada vez que el valor del objeto animation cambia.
+El comportamiento mas habitual de un Listener es llamar a `setState()` 
+para provocar un rebuild. Un StatusListener es llamado cuando una animación empieza, 
+finaliza, se mueve hacia delante, o se mueve hacia atrás, como es definido por AnimationStatus.
+La nueva sección tiene un ejemplo del método `addListener()`, 
+y [Monitoriza el progreso de la animación](#monitoring) monstrando un ejemplo de 
+`addStatusListener()`.
 
 ---
 
-## Animation examples
+## Ejemplo de animaciones
 
-This section walks you through 5 animation examples.
-Each section provides a link to the source code for that example.
+Esta sección te conduce a través de 5 ejemplos de animaciones.
+Cada sección proporciona un enlace al código fuente del ejemplo.
 
 ### Rendering animations
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* How to add basic animation to a widget using `addListener()` and
+* Como añadir animación básica a un widget usando `addListener()` y
   `setState()`.
-* Every time the Animation generates a new number, the `addListener()`
-  function calls `setState()`.
-* How to define an AnimatedController with the required `vsync` parameter.
-* Understanding the "`..`" syntax in "`..addListener`", also known as Dart's
-  _cascade notation_.
-* To make a class private, start its name with an underscore (`_`).
+* Cada vez que el objeto Animation genera un nuevo número, la función `addListener()`
+  llama a `setState()`.
+* Como definir un AnimatedController con el parámetro `vsync` requerido.
+* Entendindo la sintaxis "`..`" en "`..addListener`", también conocida como 
+  _cascade notation_ en Dart.
+* Para hacer una clase privada, inicia su nombre con un guión bajo (`_`).
 
 </div>
 
-So far you've learned how to generate a sequence of numbers over time.
-Nothing has been rendered to the screen. To render with an
-Animation&lt;&gt; object, store the Animation object as a
-member of your Widget, then use its value to decide how to draw.
+Hasta ahora has aprendido como generar una secuencia de números en el trascurso del un tiempo.
+Nada se ha renderizado en la pantalla. Para renderizar con un objeto 
+Animation&lt;&gt;, guarda el objeto Animation como un miembro de tu Widget, entonces 
+usa su valor para decidir que dibujar.
 
-Consider the following application that draws the Flutter logo without
-animation:
+Considera la siguiente aplicación que dibuja el logo de Flutter 
+sin animación:
 
 <!-- skip -->
 {% prettify dart %}
@@ -293,13 +293,13 @@ void main() {
 }
 {% endprettify %}
 
-The following shows the same code modified to animate the
-logo to grow from nothing to full size. When
-defining an AnimationController, you must pass in a `vsync` object.
-The `vsync` parameter is described in the
-[AnimationController](#animationcontroller) section.
+Lo siguiente muestra el mismo código modificado para animar el logo 
+para crecer de nada al tamaño completo. Cuando defines 
+un AnimationController, debes pasarlo en un objeto `vsync`.
+El parámetro `vsync` es descrito en la sección 
+[AnimationController](#animationcontroller).
 
-The changes from the non-animated example are highlighted:
+Los cambios desde el ejemplo no animado están resaltados:
 
 <!-- skip -->
 {% prettify dart %}
@@ -321,7 +321,7 @@ class _LogoAppState extends State<LogoApp> [[highlight]]with SingleTickerProvide
     [[highlight]]animation = Tween(begin: 0.0, end: 300.0).animate(controller)[[/highlight]]
       [[highlight]]..addListener(() {[[/highlight]]
         [[highlight]]setState(() {[[/highlight]]
-          [[highlight]]// the state that has changed here is the animation object’s value[[/highlight]]
+          [[highlight]]// El estado que ha cambiado aquí es el valor del objeto animation[[/highlight]]
         [[highlight]]});[[/highlight]]
       [[highlight]]});[[/highlight]]
     [[highlight]]controller.forward();[[/highlight]]
@@ -349,36 +349,36 @@ void main() {
 }
 {% endprettify %}
 
-The `addListener()` function calls `setState()`, so every time the
-Animation generates a new number, the current frame is marked dirty,
-which forces `build()` to be called again.
-In `build()`, the container changes size because its height and width
-now use `animation.value` instead of a hardcoded value.
-Dispose of the controller when the animation is finished to prevent
-memory leaks.
+La función `addListener()` llama a `setState()`, cada vez que el objeto 
+Animation genera un nuevo número, el frame actual es marcado como dirty,
+lo caul fuerza al método `build()` a ser llamado de nuevo.
+En la función `build()`, el container cambia su tamaño porque su altura y anchura
+ahora usan `animation.value` en lugar de un valor fijo.
+Deseche con el método dispose el controlador cuando la animación haya terminado para prevenir 
+_memory leaks_.
 
-With these few changes, you’ve created your first animation in Flutter!
-You can find the source for this example,
+Con estos pocos cambioss, habrás creado, ¡tu primera animación en Flutter!
+Puedes encontrar el código fuente para este ejemplo en,
 [animate1.](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate1/main.dart)
 
 <aside class="alert alert-success" markdown="1">
-**Dart language tricks**
-You may not be familiar with Dart's cascade notation&mdash;the two
-dots in `..addListener()`. This syntax means that the `addListener()`
-method is called with the return value from `animate()`.
-Consider the following example:
+**Trucos del lenguaje Dart**
+PUede que no estes familiarizado cocn la notacion en cascada de Dart&mdash;los dos 
+puntos en `..addListener()`. Esta sintaxis significa que el método `addListener()`
+es llamado con el valor devuelto desde `animate()`.
+Considera el siguiente ejemplo:
 
 <!-- skip -->
 {% prettify dart %}
 [[highlight]]animation = tween.animate(controller)[[/highlight]]
           [[highlight]]..addListener(()[[/highlight]] {
             setState(() {
-              // the animation object’s value is the changed state
+              // el valor del objeto animation es el estado cambiado
             });
           });
 {% endprettify %}
 
-This code is equivalent to:
+Este código es equivalente a:
 
 <!-- skip -->
 {% prettify dart %}
@@ -390,40 +390,40 @@ This code is equivalent to:
           });
 {% endprettify %}
 
-You can learn more about cascade notation in the
+Puedes aprender más sobre la notación en cascada en el 
 [Dart Language Tour.](https://www.dartlang.org/guides/language/language-tour)
 </aside>
 
-###  Simplifying with AnimatedWidget
+###  Simplificando con AnimatedWidget
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* How to use the AnimatedWidget helper class (instead of `addListener()`
-  and `setState()`) to create a widget that animates.
-* Use AnimatedWidget to create a widget that performs a reusable animation.
-  To separate the transition from the widget, use an
+* Como usar la clase helper AnimatedWidget (en lugar de `addListener()`
+  y `setState()`) para crear un widget que se anime.
+* Usa AnimatedWidget para crear un widget que realiza una animación reutilizable.
+  Para separar la transición desde el widget, usa un
   [AnimatedBuilder.](#refactoring-with-animatedbuilder)
-* Examples of AnimatedWidgets in the Flutter API: AnimatedBuilder,
+* Ejemplos de AnimatedWidgets en la API de Flutter: AnimatedBuilder,
   AnimatedModalBarrier, DecoratedBoxTransition, FadeTransition,
   PositionedTransition, RelativePositionedTransition, RotationTransition,
   ScaleTransition, SizeTransition, SlideTransition.
 
 </div>
 
-The AnimatedWidget class allows you to separate out the widget code
-from the animation code in the `setState()` call. AnimatedWidget
-doesn't need to maintain a State object to hold the animation.
+La clase AnimatedWidget te permte separar el código del widger 
+del código de la animación en la llamada a `setState()`. AnimatedWidget 
+no neceita mantener un objeto State para sostener la animación.
 
-In the refactored example below, LogoApp now derives from AnimatedWidget
-instead of StatefulWidget. AnimatedWidget uses the current value of the
-animation when drawing itself. The LogoApp still manages the
-AnimationController and the Tween.
+En el ejemplo refactorizado más abajo, LogoApp ahora deriva de AnimatedWidget
+en lugar de StatefulWidget. AnimatedWidget usa el valor actual del objeto animation 
+cuando se dibuja a sí mismo. LogoApp todavía administra el 
+AnimationController y el Tween.
 
 <!-- skip -->
 {% prettify dart %}
-// Demonstrate a simple animation with AnimatedWidget
+// Demuestra una simple animación con AnimatedWidget
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -476,35 +476,35 @@ void main() {
 }
 {% endprettify %}
 
-LogoApp passes the Animation object to the base class and uses
-`animation.value` to set the height and width of the container, so
-it works exactly the same as before.
+LogoApp pasa el objeto Animation a la clase base y usa 
+`animation.value` para fijar el alto y el ancho del container, funcionando entonces 
+exactamente igual que antes.
 
-You can find the source for this example,
+Puedes encontrar el código fuente para este ejemplo en, 
 [animate2,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate2/main.dart)
-on GitHub.
+en GitHub.
 
 <a name="monitoring"></a>
-### Monitoring the progress of the animation
+### Monitorzando el progreso de la animación
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* Use addStatusListener for notifications of changes to the animation's
-  state, such as starting, stopping, or reversing direction.
-* Run an animation in an infinite loop by reversing direction when
-  the animation has either completed or returned to its starting state.
+* Usa addStatusListener para notificaciones de cambios del estado de la animacion, 
+  como empezando, parando, o invirtiendo la dirección.
+* Ejecuta una animación en un loop infinito, invirtiendo la dirección cuando la animación 
+  ha sido completada o regresado a su estado de inicio.
 
 </div>
 
-It’s often helpful to know when an animation changes state,
-such as finishing, moving forward, or reversing.
-You can get notifications for this with `addStatusListener()`.
-The following code modifies the
+A menudo es útil saber cuando una animación cambia su estado,
+como cuando finaliza, avanza hacia delante, o hacia atrás.
+Puedes obtener notificaciones de esto con `addStatusListener()`.
+El siguiente códgo modifica el ejemplo 
 [animate1](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate1/main.dart)
-example so that it listens for a state change and prints an update.
-The highlighted line shows the change:
+para que escuche los cambios de estado e imprima una actualización.
+Las líneas resaltadas muestran los cambios:
 
 <!-- skip -->
 {% prettify dart %}
@@ -524,7 +524,7 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
 }
 {% endprettify %}
 
-Running this code produces lines like the following:
+Ejecutar este código produce líneas como las siguientes:
 
 <!-- skip -->
 {% prettify sh %}
@@ -532,8 +532,8 @@ AnimationStatus.forward
 AnimationStatus.completed
 {% endprettify %}
 
-Next, use `addStatusListener()` to reverse the animation at the
-beginning or the end. This creates a "breathing" effect:
+A continuación, usa `addStatusListener()` para invertir la animación en el principio 
+o en el final. Esto crea un efecto "respiración":
 
 <!-- skip -->
 {% prettify dart %}
@@ -560,59 +560,59 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
 }
 {% endprettify %}
 
-You can find the source for this example,
+Puedes encontrar el código fuente para este ejemplo en, 
 [animate3,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate3/main.dart)
-on GitHub.
+en GitHub.
 
-### Refactoring with AnimatedBuilder
+### Refactorizando con AnimatedBuilder
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* An AnimatedBuilder understands how to render the transition.
-* An AnimatedBuilder doesn't know how to render the widget, nor does it
-  manage the Animation object.
-* Use AnimatedBuilder to describe an animation as part of a build method
-  for another widget. If you simply want to define a widget with a reusable
-  animation, use [AnimatedWidget.](#simplifying-with-animatedwidget)
-* Examples of AnimatedBuilders in the Flutter API: BottomSheet, ExpansionTile,
+* Un AnimatedBuilder entiende como renderizar la transición.
+* Un AnimatedBuilder no conoce como renderizar el widget, ni tampoco 
+  administra el objeto Animation.
+* Usa AnimatedBuilder para describir una animación como parte de un método build 
+  de otro widget. Si solo quieres definir un widget con una animación reusable, 
+  use [AnimatedWidget.](#simplifying-with-animatedwidget)
+* Ejemplos de AnimatedBuilders en la API de Flutter: BottomSheet, ExpansionTile,
   PopupMenu, ProgressIndicator, RefreshIndicator, Scaffold, SnackBar, TabBar,
   TextField.
 
 </div>
 
-One problem with the code in the
+Un problema con el código en el ejemplo 
 [animate3](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate3/main.dart)
-example, is that changing
-the animation required changing the widget that renders the logo.
-A better solution is to separate responsibilities into different
-classes:
+, es que cambiar la animación requiere 
+cambiar el widget que renderiza el logo.
+Una mejor solución es separar las responsabilidades 
+en dos clases diferentes:
 
-* Render the logo
-* Define the Animation object
-* Render the transition
+* Renderizar el logo
+* Definir el objeto Animation
+* Renderizar la transición
 
-You can accomplish this separation with the help of the
-AnimatedBuilder class. An AnimatedBuilder is a separate class in the
-render tree. Like AnimatedWidget, AnimatedBuilder automatically
-listens to notifications from the Animation object, and marks
-the widget tree dirty as necessary, so you don't need to call
-`addListener()`.
+Puedes conseguir esta separación con la ayuda de la clase 
+AnimatedBuilder. Un AnimatedBuilder es una clase separada en el 
+árbol de renderizado. Como AnimatedWidget, AnimatedBuilder automáticamente 
+escucha las notificaciones del objeto Animation, y marca 
+el árbol de widgets como _dirty_ cuando sea necesario, entonces no necesitas 
+llamar a `addListener()`.
 
-The widget tree for the
+El árbol de widgets para el ejemplo 
 [animate5](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate5/main.dart)
-example looks like this:
+se ve como esto:
 
 {% asset 'ui/AnimatedBuilder-WidgetTree.png' alt="Widget tree" %}
 
-Starting from the bottom of the widget tree, the code for rendering
-the logo is straightforward:
+Empezando por el fondo del árbol de widget, el código para renderizar el 
+logo es sencillo:
 
 <!-- skip -->
 {% prettify dart %}
 class LogoWidget extends StatelessWidget {
-  // Leave out the height and width so it fills the animating parent
+  // Deja fuera la altura y la anchura ya que esto lo rellenará el padre animado
   build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.0),
@@ -622,22 +622,22 @@ class LogoWidget extends StatelessWidget {
 }
 {% endprettify %}
 
-The middle three blocks in the diagram are all created in the
-`build()` method in GrowTransition. The GrowTransition widget itself
-is stateless and holds the set of final variables necessary to
-define the transition animation. The build() function creates and
-returns the AnimatedBuilder, which takes the (Anonymous builder)
-method and the LogoWidget object as parameters. The work of
-rendering the transition actually happens in the (Anonymous builder)
-method, which creates a Container of the appropriate size to force
-the LogoWidget to shrink to fit.
+Los tres bloques centrales en el diagrama son todos creados en el método 
+`build()` en GrowTransition. El widget GrowTransition en sí mismo 
+es stateless y soporta el conjunto final de variable necesarias para 
+definir la animación de transición. La función build() crea y devuelve 
+el AnimatedBuilder, que toma el método (constructor anónimo) y 
+el objeto LogoWidget como parámetros. El trabajo de renderizar 
+la transición actualmente ocure en el método (construcor anónimo), 
+que crea un Container del tamaño apropiado para forzar a 
+LogoWidget a ajustarse para llenarlo.
 
-One tricky point in the code below is that the child looks like it's
-specified twice. What's happening is that the outer reference of
-child is passed to AnimatedBuilder, which passes it to the anonymous
-closure, which then uses that object as its child. The net result is
-that the AnimatedBuilder is inserted in between the two widgets in
-the render tree.
+Un punto complicado en el código más abajo, es que la propiedad _child_ se 
+ve como si se hubiera definido dos veces. Lo que está ocurriendo es 
+que la referencia externa del hijo esta siendo pasada al AnimatedBuilder, 
+el cual pase este a la función anónima, que usa este objeto 
+como su hijo. La red resulta en que AnimatedBuilder es insertado entre los dos widgets 
+en el árbol de renderizado.
 
 <!-- skip -->
 {% prettify dart %}
@@ -661,14 +661,14 @@ class GrowTransition extends StatelessWidget {
 }
 {% endprettify %}
 
-Finally, the code to initialize the animation looks very similar to
-the first example,
+Finalmente, el código para iniciar la animación se ve muy similar 
+al primer ejemplo,
 [animate1.](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate1/main.dart)
-The `initState()` method creates an AnimationController
-and a Tween, then binds them with `animate()`. The magic happens in the
-`build()` method, which returns a GrowTransition object with a
-LogoWidget as a child, and an animation object to drive the transition.
-These are the three elements listed in the bullet points above.
+El método `initState()` crea un AnimationController
+y un Tween, entonces vincula estos con `animate()`. La mágia ocurre en el método 
+`build()`, que devuelve un objeto GrowTransition con un 
+LogoWidget como hijo, un objeto animation para dirigir la transición.
+Estos son los tres elementos listados en los puntos más arriba.
 
 
 <!-- skip -->
@@ -706,41 +706,41 @@ void main() {
 }
 {% endprettify %}
 
-You can find the source for this example,
+Puedes encontrar el código fuente para este ejemplo, 
 [animate4,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate4/main.dart)
-on GitHub.
+en GitHub.
 
-### Simultaneous animations
+### Animaciones simultáneas
 
 <div class="whats-the-point" markdown="1">
 
-<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
+<b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>¿Qué aprenderás?</b>
 
-* The [Curves](https://docs.flutter.io/flutter/animation/Curves-class.html)
-  class defines an array of commonly used curves that you can use with a
+* La clase [Curves](https://docs.flutter.io/flutter/animation/Curves-class.html)
+  define un array de curvas usadas comúnmente que puedes usar con un 
   [CurvedAnimation](https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html).
 
 </div>
 
-In this section, you'll build on the example from [monitoring
-the progress of the animation](#monitoring)
+En esta sección, construirás el ejemplo de [monitorizando 
+el progreso de la animación](#monitoring)
 ([animate3](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate3/main.dart)),
-which used AnimatedWidget to animate in and out continuously. Consider the case
-where you want to animate in and out while the opacity animates from
-transparent to opaque.
+que usa AnimatedWidget para animarlo dentro y fuera continuamente. 
+Considera el caso en que queras animar adentro y afuera mientras que 
+animas la opacidad de transparente a opaco.
 
 <aside class="alert alert-success" markdown="1">
-**Note:**
-This example shows how to use multiple tweens on the same animation
-controller, where each tween manages a different effect in the animation.
-It is for illustrative purposes only. If you were tweening opacity and
-size in production code, you'd probably use
-[FadeTransition](https://docs.flutter.io/flutter/widgets/FadeTransition-class.html) and
+**Nota:**
+Este ejemplo muestra como usar múltiples tweens en el mismo animation controller, 
+donde cada uno administra un efecto diferente en la animación.
+Solo para fines ilustrativos. Si quieres interpolar la opacidad y el tamaño 
+en código de producción, problamente deberías usar 
+[FadeTransition](https://docs.flutter.io/flutter/widgets/FadeTransition-class.html) y
 [SizeTransition](https://docs.flutter.io/flutter/widgets/SizeTransition-class.html)
-instead.
+en su lugar.
 </aside>
 
-Each tween manages an aspect of the animation. For example:
+Cada tween administra un aspecto de la animación. Por ejemplo:
 
 <!-- skip -->
 {% prettify dart %}
@@ -752,17 +752,17 @@ final Animation<double> opacityAnimation =
     Tween(begin: 0.1, end: 1.0).animate(controller);
 {% endprettify %}
 
-You can get the size with `sizeAnimation.value` and the opacity
-with `opacityAnimation.value`, but the constructor for AnimatedWidget
-only takes a single Animation object. To solve this problem,
-the example creates its own Tween objects and explicitly calculates the
-values.
+Puedes obtber el tamaño con `sizeAnimation.value` y la opacidad con 
+`opacityAnimation.value`, pero el construcor para AnimatedWidget
+solo toma un único objeto Animation. Para resolver este problema,
+el ejemplo crea su propio objeto Tween y calcula los 
+valores explícitamente.
 
-LogoApp widget was changed to encapsulate its own Tween objects.
-Its `build` method calls the Tween `.evaluate()` function on the parent's
-animation object to calculate the required size and opacity values.
+El widget LogoApp fue cambiado para encapsular sus propios objetos Tween.
+Su método `build` llama a la función `.evaluate()` del Tween en el objeto
+animation padre para calcular el tamaño requerido y los valores de opacidad.
 
-The following code shows the changes with highlights:
+El siguiente código muestra los cambios con resaltado:
 
 <!-- skip -->
 {% prettify dart %}
@@ -770,7 +770,7 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedLogo extends AnimatedWidget {
-  // The Tweens are static because they don't change.
+  // Los Tweens son estáticos porque no cambian.
   [[highlight]]static final _opacityTween = Tween<double>(begin: 0.1, end: 1.0);[[/highlight]]
   [[highlight]]static final _sizeTween = Tween<double>(begin: 0.0, end: 300.0);[[/highlight]]
 
@@ -833,17 +833,17 @@ void main() {
 }
 {% endprettify %}
 
-You can find the source for this example,
+Puedes encontrar el código fuente para este ejemplo en, 
 [animate5,](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/animate5/main.dart)
-on GitHub.
+en GitHub.
 
-## Next steps
+## Siguientes pasos
 
-This tutorial gives you a foundation for creating animations in Flutter
-using Tweens, but there are many other classes to explore.
-You might investigate the specialized Tween classes,
-animations specific to Material Design, ReverseAnimation, shared element
-transitions (also known as Hero animations), physics simulations and
-`fling()` methods. See the
-[animations landing page](/docs/development/ui/animations)
-for the latest available documents and examples.
+Este tutorial te da una base para crear animaciones en Flutter usando Tweens, 
+pero hay muchas otras clases a explorar.
+Puedes investigar las clases especializadas Tween,
+animaciones específicas de Material Design, ReverseAnimation, elementos compartidos 
+en transiciones (también conocidas como animaciones Hero), simulaciones físicas y 
+métodos `fling()`. Mira la 
+[página animaciones](/docs/development/ui/animations) 
+para los últimos documentos y ejemplos disponibles.
