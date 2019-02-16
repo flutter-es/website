@@ -1,215 +1,157 @@
 ---
-title: Technical Overview
+title: Resumen Técnico
 ---
 
-## What is Flutter?
+## ¿Qué es Flutter?
 
-Flutter is a mobile app SDK for building high-performance, high-fidelity,
-apps for iOS and Android, from a single codebase.
+Flutter es un SDK de aplicaciones móviles para la creación de aplicaciones de alto rendimiento y alta fidelidad para iOS y Android, a partir de un único código base.
 
-The goal is to enable developers to deliver high-performance apps that feel
-natural on different platforms. We embrace differences in scrolling behaviors,
-typography, icons, and more.
+El objetivo es permitir a los desarrolladores que lancen aplicaciones de alto rendimiento que se adapten de forma natural a diferentes plataformas. Abarcamos las diferencias en los comportamientos de scrolling, tipografía, iconos, y más.
 
 <object type="image/svg+xml" data="/images/whatisflutter/hero-shrine.svg" style="width: 100%; height: 100%;"></object>
 
-This is a demo app from the
-[Gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo),
-a collection of Flutter sample apps you can run after installing Flutter
-and setting up your environment. Shrine has high-quality scrolling images,
-interactive cards, buttons, dropdown lists, and a shopping cart page.
-To look at the single codebase for this and more examples,
-[visit our GitHub
-repository](https://github.com/flutter/flutter/tree/master/examples).
+Esta es una aplicación de demostración de la
+[Galería](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo),
+una colección de aplicaciones de ejemplo de Flutter que puedes ejecutar después de instalar Flutter y de configurar tu entorno. Shrine tiene scrolling de imágenes de alta calidad, cards interactivas, botones, listas desplegables, y una página de carrito de compras. Para ver el código base único de este y otros ejemplos,
+[visita nuestro repositorio en GitHub](https://github.com/flutter/flutter/tree/master/examples).
 
-No mobile development experience is required to get started. Apps are written
-in [Dart](https://www.dartlang.org), which looks familiar if you've used a
-language like Java or JavaScript. Experience with object-oriented languages
-is definitely helpful, but even non-programmers have made Flutter apps!
+No se requiere experiencia en desarrollo móvil para empezar. Las aplicaciones están escritas en [Dart](https://www.dartlang.org), lo que resulta familiar si has utilizado un lenguaje como Java o JavaScript. !La experiencia con lenguajes orientados a objetos es definitivamente útil, pero, incluso los no programadores han desarrollado aplicaciones Flutter!
 
-## Why use Flutter?
+## ¿Por qué usar Flutter?
 
-What are some advantages of Flutter? It helps you:
+¿Cuáles son algunas de las ventajas de Flutter? Te ayuda a:
 
-*   Be highly productive
-    *   Develop for iOS and Android from a single codebase
-    *   Do more with less code, even on a single OS, with a modern, expressive
-        language and a declarative approach
-    *   Prototype and iterate easily
-        *   Experiment by changing code and reloading as your app runs (with
-            hot reload)
-        *   Fix crashes and continue debugging from where the app left off
-*   Create beautiful, highly-customized user experiences
-    *   Benefit from a rich set of Material Design and Cupertino (iOS-flavor)
-        widgets built using Flutter's own framework
-    *   Realize custom, beautiful, brand-driven designs, without the
-        limitations of OEM widget sets
+*   Ser altamente productivo
+    *   Desarrolla para iOS y Android desde una único código base
+    *   Haz más con menos código, incluso en un solo sistema operativo, 
+        con un lenguaje moderno y expresivo y un enfoque declarativo.
+    *   Haz un prototipo e itera fácilmente
+        *   Experimenta cambiando el código y recargando a medida que tu aplicación se ejecuta (con hot reload)
+        *   Corrige los fallos y continúa depurando desde donde la aplicación se quedó
+*   Crear experiencias de usuario maravillosas y altamente personalizadas
+    *   Benefíciate de un amplio conjunto de widgets Material Design y Cupertino (toque iOS)
+        construidos usando el propio framework de Flutter
+    *   Realiza diseños personalizados, agradables y de marca, sin las
+        limitaciones de los conjuntos de widgets OEM
 
-## Core principles
+## Principios básicos
 
-Flutter includes a modern react-style framework, a 2D rendering engine,
-ready-made widgets, and development tools. These components work together to help
-you design, build, test, and debug apps. Everything is organized around a few core
-principles.
+Flutter incluye un framework moderno de estilo reactivo, un motor de renderizado 2D, widgets listos y herramientas de desarrollo. Estos componentes trabajan juntos para ayudarte a diseñar, construir, probar y depurar aplicaciones. Todo está organizado en torno a unos pocos principios básicos.
 
-### Everything's a Widget
+### Todo es un Widget
 
-Widgets are the basic building blocks of a Flutter app's user interface. Each widget is an
-immutable declaration of part of the user interface.  Unlike other frameworks that
-separate views, view controllers, layouts, and other properties, Flutter has a
-consistent, unified object model: the widget.
+Los widgets son los elementos básicos de la interfaz de usuario de una aplicación Flutter. Cada widget es una declaración inmutable de parte de la interfaz de usuario.  A diferencia de otros frameworks que separan vistas, controladores de vistas, layouts y otras propiedades, Flutter tiene un modelo de objeto unificado y consistente: el widget.
 
-A widget can define:
+Un widget puede definir:
 
-*   a structural element (like a button or menu)
-*   a stylistic element (like a font or color scheme)
-*   an aspect of layout (like padding)
-*   and so on...
+*   un elemento estructural (como un botón o menú)
+*   un elemento de estilo (como una fuente o un esquema de color)
+*   un aspecto del diseño (como padding)
+*   y así sucesivamente...
 
-Widgets form a hierarchy based on composition.  Each widget nests inside, and
-inherits properties from, its parent.  There is no separate "application" object.
-Instead, the root widget serves this role.
+Los widgets forman una jerarquía basada en la composición.  Cada widget se integra en el interior y hereda propiedades de su padre.  No existe un objeto "application" separado.
+En su lugar, el widget raíz sirve para esta función.
 
-You can respond to events, like user interaction, by telling the framework to
-replace a widget in the hierarchy with another widget.  The framework then
-compares the new and old widgets and efficiently updates the user interface.
+Puedes responder a eventos, como la interacción del usuario, diciéndole al framework que reemplace un widget en la jerarquía con otro widget.  El framework compara los widgets nuevos y antiguos y actualiza eficientemente la interfaz de usuario.
 
-#### Composition > inheritance
+#### Composición > herencia
 
-Widgets are themselves often composed of many small, single-purpose widgets that
-combine to produce powerful effects.  For example, [Container](https://github.com/flutter/flutter/blob/master/packages/flutter/lib/src/widgets/container.dart),
-a commonly-used widget, is made up of several widgets responsible for layout,
-painting, positioning, and sizing. Specifically, Container is made up of
+Los widgets se componen a menudo de muchos widgets pequeños y de un solo propósito, que se combinan para producir efectos poderosos. Por ejemplo, [Container](https://github.com/flutter/flutter/blob/master/packages/flutter/lib/src/widgets/container.dart),
+un widget de uso común está compuesto por varios widgets responsables del diseño,
+pintado, posicionamiento y dimensionado. Específicamente, Container está compuesto por widgets 
 [LimitedBox](https://docs.flutter.io/flutter/widgets/LimitedBox-class.html),
 [ConstrainedBox](https://docs.flutter.io/flutter/widgets/ConstrainedBox-class.html),
 [Align](https://docs.flutter.io/flutter/widgets/Align-class.html),
 [Padding](https://docs.flutter.io/flutter/widgets/Padding-class.html),
 [DecoratedBox](https://docs.flutter.io/flutter/widgets/DecoratedBox-class.html),
-and [Transform](https://docs.flutter.io/flutter/widgets/Transform-class.html)
-widgets.  Rather than subclassing Container to produce a customized effect, you
-can compose these, and other, simple widgets in novel ways.
+y [Transform](https://docs.flutter.io/flutter/widgets/Transform-class.html)
+widgets.  En lugar de subclasificar Contenedor para producir un efecto personalizado, puedes componer estos y otros widgets sencillos de formas novedosas.
 
-The class hierarchy is shallow and broad to maximize the possible number of
-combinations.
+La jerarquía de clases es superficial y amplia para maximizar el número posible de combinaciones.
 
 <object type="image/svg+xml" data="/images/whatisflutter/diagram-widgetclass.svg" style="width: 100%; height: 100%;"></object>
 
-You can also control the *layout* of a widget by composing it with other widgets.
-For example, to center a widget, you wrap it in a Center widget. There are
-widgets for padding, alignment, row, columns, and grids. These layout widgets
-do not have a visual representation of their own. Instead, their sole purpose is to
-control some aspect of another widget's layout. To understand why a widget
-renders in a certain way, it's often helpful to inspect the neighboring widgets.
+También puedes controlar el *diseño* de un widget componiéndolo con otros widgets.
+Por ejemplo, para centrar un widget, puedes envolverlo en un widget Center. Hay widgets para
+padding, alignment, row, columns, y grids. Estos widgets de diseño no tienen una representación visual propia. En cambio, su único propósito es controlar algún aspecto del diseño de otro widget. Para entender por qué un widget se renderiza de cierta manera, a menudo es útil inspeccionar los widgets vecinos.
 
-#### Layer cakes are delicious
+#### Los pasteles en capas son deliciosos
 
-The Flutter framework is organized into a series of layers, with each layer
-building upon the previous layer.
+El framework Flutter está organizado en una serie de capas, con cada capa
+construyéndose sobre la capa anterior.
 
 <object type="image/svg+xml" data="/images/whatisflutter/diagram-layercake.svg" style="width: 85%; height: 85%"></object>
 
-The upper layers of the framework are used more frequently than the lower
-layers. For the complete set of libraries that make up
-the Flutter's layered framework, see our
-[API documentation](https://docs.flutter.io).
+El diagrama muestra las capas superiores de la estructura, que se utilizan más
+frecuentemente que las capas inferiores. Para el conjunto completo de librerías que componen
+la estructura de capas de Flutter, consulta nuestra
+[documentación de la API](https://docs.flutter.io).
 
-The goal of this design is to help you do more with less code.  For example,
-the Material layer is built by composing basic widgets from the widgets layer,
-and the widgets layer itself is built by orchestrating lower-level objects from
-the rendering layer.
+El objetivo de este diseño es ayudarte a hacer más con menos código.  Por ejemplo, la capa Material se construye componiendo widgets básicos a partir de la capa de widgets, y la capa de widgets se construye organizando los objetos de nivel inferior a partir de la capa de renderizado.
 
-The layers offer many options for building apps. Choose a customized approach to
-unlock the full expressive power of the framework, or use building blocks from
-the widgets layer, or mix and match. You can compose the ready-made widgets
-Flutter provides, or create your own custom widgets using the same tools and
-techniques that the Flutter team used to build the framework.
+Las capas ofrecen muchas opciones para crear aplicaciones. Elige un enfoque personalizado para liberar todo el poder expresivo del framework, o usa los componentes de la capa de widgets, o mezcla y combina. Puedes componer los widgets que Flutter proporciona, o crear tus propios widgets personalizados usando las mismas herramientas y técnicas que el equipo de Flutter utilizó para desarrollar el framework.
 
-Nothing is hidden from you.  You reap the productivity benefits of a high-level,
-unified widget concept, without sacrificing the ability to dive as deeply as you
-wish into the lower layers.
+No se te oculta nada.  Obtendrás los beneficios de productividad de un concepto de widget unificado de alto nivel, sin sacrificar la capacidad de profundizar tanto como desees en las capas inferiores.
 
-### Building widgets
+### Construyendo widgetss
 
-You define the unique characteristics of a widget by implementing a
+Las características únicas de un widget se definen mediante la implementación de una función
 [build](https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html)
-function that returns a tree (or hierarchy) of widgets. This tree represents
-the widget's part of the user interface in more concrete terms.
-For example, a toolbar widget might have a build function that returns
-a [horizontal layout](https://docs.flutter.io/flutter/widgets/Row-class.html)
-of some [text](https://docs.flutter.io/flutter/widgets/Text-class.html) and
-[various](https://docs.flutter.io/flutter/material/IconButton-class.html)
-[buttons](https://docs.flutter.io/flutter/material/PopupMenuButton-class.html).
-The framework then recursively asks each of these widgets to build until the
-process bottoms out in [fully concrete
-widgets](https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html),
-which the framework then stitches together into a tree.
+que devuelve un árbol (o jerarquía) de widgets. Este árbol representa la parte del widget de la interfaz de usuario en términos más concretos. Por ejemplo, un widget de la barra de herramientas puede tener una función de compilación que devuelva un [horizontal layout](https://docs.flutter.io/flutter/widgets/Row-class.html)
+de algún [text](https://docs.flutter.io/flutter/widgets/Text-class.html) y
+[diversos](https://docs.flutter.io/flutter/material/IconButton-class.html)
+[botones](https://docs.flutter.io/flutter/material/PopupMenuButton-class.html).
+El framework solicita entonces, recursivamente, a cada uno de estos widgets, que ejecuten su método build hasta que el proceso llegue a su fin en un [widget completo correcto](https://docs.flutter.io/flutter/widgets/RenderObjectWidget-class.html),
+que luego el framework une en un árbol.
 
-A widget's build function should be free of side effects.  Whenever it is asked
-to build, the widget should return a new tree of widgets regardless of what the
-widget previously returned. The framework does the heavily lifting of comparing
-the previous build with the current build and determining what modifications
-need to be made to the user interface.
+La función de construcción de un widget debería estar libre de efectos secundarios.  Siempre que se le pida que construya, el widget debe devolver un nuevo árbol de widgets independientemente de lo que el widget haya devuelto previamente. El framework hace el trabajo pesado de comparar la construcción anterior con la actual y determinar qué modificaciones se deben hacer a la interfaz de usuario.
 
-This automated comparison is quite effective, enabling high-performance,
-interactive apps. And the design of the build function simplifies your code by
-focusing on declaring what a widget is made of, rather than the complexities of
-updating the user interface from one state to another.
+Esta comparación automatizada es bastante efectiva, permitiendo aplicaciones interactivas de alto rendimiento. Y el diseño de la función build simplifica el código al centrarse en declarar de qué está hecho un widget, en lugar de las complejidades de
+actualizar la interfaz de usuario de un estado a otro.
 
-### Handling user interaction
+### Manejo de la interacción del usuario
 
-If the unique characteristics of a widget need to change based on user
-interaction or other factors, that widget is *stateful*. For example, if a
-widget has a counter that increments whenever the user taps a button, the value
-of the counter is the state for that widget. When that value changes, the widget
-needs to be rebuilt to update the UI.
+Si las características únicas de un widget necesitan cambiar, basadas en la interacción del usuario u otros factores, ese widget es *stateful*. Por ejemplo, si un widget tiene un contador que se incrementa cada vez que el usuario pulsa un botón, el valor del contador es el estado de ese widget. Cuando ese valor cambia, el widget necesita ser reconstruido para actualizar la UI.
 
-These widgets subclass
+Estos widgets heredan de
 [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
-(rather than
+(en lugar de
 [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html))
-and store their mutable state in a subclass of
+y almacenan su estado mutable en una subclase de
 [State](https://docs.flutter.io/flutter/widgets/State-class.html).
 
 <object type="image/svg+xml" data="/images/whatisflutter/diagram-state.svg" style="width: 85%; height: 85%"></object>
 
-Whenever you mutate a State object (e.g., increment the counter), you must call
-[setState](https://docs.flutter.io/flutter/widgets/State/setState.html)() to
-signal the framework to update the user interface by calling the State's build
-method again. For an example of managing state, see the
-[MyApp template](https://github.com/flutter/flutter/blob/master/packages/flutter_tools/templates/app/lib/main.dart.tmpl)
-that's created with each new Flutter project.
+Cada vez que se muta un objeto State (p.ej., incrementando el contador), debes llamar a
+[setState](https://docs.flutter.io/flutter/widgets/State/setState.html)() para indicar al framework que actualice la interfaz de usuario llamando al método build de State 
+de nuevo. Para ver un ejemplo de la gestión del estado, consulta el
+[template MyApp](https://github.com/flutter/flutter/blob/master/packages/flutter_tools/templates/app/lib/main.dart.tmpl)
+que es creado con cada nuevo proyecto de Flutter.
 
-Having separate state and widget objects lets other widgets treat stateless and
-stateful widgets in the same way, without being concerned about losing state.
-Rather than needing to hold on to a child to preserve its state, the parent is
-free to create a new instance of the child without losing the child's persistent
-state. The framework does all the work of finding and reusing existing state
-objects when appropriate.
+El hecho de tener objetos state y widget separados permite que otros widgets traten de la misma manera a los widgets stateless y stateful, sin preocuparse por perder estado.
+En lugar de tener que aferrarse a un hijo para preservar su estado, el padre es libre de crear una nueva instancia del hijo sin perder el estado persistente del mismo. El framework hace todo el trabajo de encontrar y reutilizar los objetos de estado existentes cuando sea apropiado.
 
-## Try it!
+## ¡Inténtalo!
 
-Now that you're familiar with the basic structure and principles of the Flutter
-framework, along with how to build apps and make them interactive, you're ready
-to start developing and iterating.
+Ahora que estás familiarizado con la estructura básica y los principios del framework de Flutter, junto con la manera de crear aplicaciones y hacerlas interactivas, estás listo para empezar a desarrollarlas e iterarlas.
 
-Next steps:
+Próximos pasos:
 
-1.  [Follow the Flutter Getting Started guide](/get-started).
-1.  Try [Building Layouts in Flutter](/docs/development/ui/layout) and
-    [Adding Interactivity to Your Flutter App](/docs/development/ui/interactive).
-1.  Follow a detailed example in [Tour of the Widget
-    Framework](/docs/development/ui/widgets-intro).
+1.  [Sigue la Guía de Inicio de Flutter](/get-started).
+1.  Prueba con el [Tutorial - Construyendo layouts](/docs/development/ui/layout) y
+    [Tutorial - Agregando interactividad](/docs/development/ui/interactive).
+1.  Sigue un ejemplo detallado en [Un Recorrido por el Framework de Widgets Flutter](/docs/development/ui/widgets-intro).
 
-## Get support
+## Obtén apoyo
 
-Track the Flutter project and join the conversation in a variety of ways.
-We're open source and would love to hear from you.
+Sigue el proyecto Flutter y únete a la conversación de varias maneras.
+Somos de código abierto y nos encantaría saber de ti.
 
-- [Ask HOWTO questions that can be answered with specific solutions][so]
-- [Live chat with Flutter engineers and users][gitter]
-- [Discuss Flutter, best practices, app design, and more on our mailing list][mailinglist]
-- [Report bugs, request features and docs][issues]
-- [Follow us on Twitter: @flutterio](https://twitter.com/flutterio/)
+- [Haz preguntas sobre "Como Hacer" que puedan ser respondidas con una solución especifica][so]
+- [Chat en vivo con ingenieros y usuarios de Flutter][gitter]
+- [Discusión sobre Flutter, mejores prácticas, diseño de aplicaciones y más en nuestra lista de correo][mailinglist]
+- [Notificar fallos, solicitar funcionalidades y documentos][issues]
+- [Síguenos en Twitter: @flutterio](https://twitter.com/flutterio/)
 
 
 [issues]: https://github.com/flutter/flutter/issues
