@@ -1,114 +1,113 @@
 ---
-title: Rendering in Flutter
+title: Renderizando en Flutter
 ---
 
-## Introduction
+## Introducción
 
-The Flutter render tree is a low-level layout and painting system based on a
-retained tree of objects that inherit from `RenderObject`. Most developers
-using Flutter will not need to interact directly with the rendering tree.
-Instead, most developers should use
-[widgets](/widgets-intro), which are built using the render tree.
+El árbol de renderizado Flutter es un sistema de diseño y pintura de bajo nivel basado en un
+árbol retenido de objetos que heredan de `RenderObject`. La mayoría de los desarrolladores
+de Flutter no tendrá que interactuar directamente con el árbol de representación.
+En su lugar, la mayoría de los desarrolladores deberían usar
+[widgets](/widgets-intro), que se construyen utilizando el árbol de render.
 
-### Base Model
+### Modelo base
 
-The base class for every node in the render tree is
-`RenderObject`, which defines the base layout model. The base
-layout mode is extremely general and can accommodate a large number of more
-concrete layout models that can co-exist in the same tree. For example, the base
-model does not commit to a fixed number of dimensions or even a cartesian
-coordinate system. In this way, a single render tree can contain render objects
-operating in three-dimensional space together with other render objects
-operating in two-dimensional space, e.g., on the face of a cube in the three-
-dimensional space. Moreover, the two-dimensional layout might be partially
-computed in cartesian coordinates and partially computed in polar coordinates.
-These distinct models can interact during layout, for example determining the
-size of the cube by the height of a block of text on the cube's face.
+La clase base para cada nodo en el árbol de renderizado es
+`RenderObject`, que define el modelo de diseño base. La base
+El modo de diseño es extremadamente general y puede acomodar un gran número de 
+Modelos de maquetación concretos que pueden coexistir en el mismo árbol. Por ejemplo, la base
+del modelo no se compromete a un número fijo de dimensiones o incluso a un sistema
+de coordenadas cartesiano. De esta manera, un solo árbol de render puede contener objetos de render
+Operando en el espacio tridimensional junto con otros objetos renderizados
+operando en el espacio bidimensional, p.Ej.,en la cara de un cubo en tres dimensiones.
+Por otra parte, el diseño bidimensional puede ser parcialmente
+computado en coordenadas cartesianas y parcialmente computado en coordenadas polares.
+Estos distintos modelos pueden interactuar durante el diseño, por ejemplo, determinando el
+tamaño del cubo por la altura de un bloque de texto en la cara del cubo.
 
-Not entirely free-wheeling, the base model does impose some structure on the
-render tree:
+No totalmente libre, el modelo base impone cierta estructura en el
+árbol de renderización
 
- * Subclasses of `RenderObject` must implement a `performLayout` function that
-   takes as input a `constraints` object provided by its parent. `RenderObject`
-   has no opinion about the structure of this object and different layout models
-   use different types of constraints. However, whatever type they choose must
-   implement `operator==` in such a way that `performLayout` produces the same
-   output for two `constraints` objects that are `operator==`.
+ * Subclases de `RenderObject` debe implementar un `performLayout` función que
+   toma como entrada un objeto `constraints` proporcionado por su padre. `RenderObject`
+   no tiene opinión sobre la estructura de este objeto y los diferentes modelos de diseño
+   usan diferentes tipos de restricciones. Sin embargo, cualquier tipo que elijan deben
+   implementar `operator==` de una manera que `performLayout` produce la misma
+   salida para dos objetos `constraints` que son `operator==`.
 
- * Implementations of `performLayout` are expected to call `layout` on their
-   children. When calling `layout`, a `RenderObject` must use the
-   `parentUsesSize` parameter to declare whether its `performLayout` function
-   depends on information read from the child. If the parent doesn't declare
-   that it uses the child's size, the edge from the parent to the child becomes
-   a _relayout boundary_, which means the child (and its subtree) might undergo
-   layout without the parent undergoing layout.
+ * Implementaciones de `performLayout` se espera que llamen `layout` en su
+   hijos. Al llamar `layout`, a `RenderObject` debe usar el parámetro
+   `parentUsesSize` para declarar si su función `performLayout` Depende 
+   de la información leída por el hijo. Si el padre no declara
+   que utiliza el tamaño del hijo, el borde del padre al hijo se convierte en
+   _relayout boundary_, lo que significa que el hijo (y su subárbol) podría sufrir
+   diseño sin que el padre realice el diseño.
 
- * Subclasses of `RenderObject` must implement a `paint` function that draws a
-   visual representation of the object onto a `PaintingCanvas`. If
-   the `RenderObject` has children, the `RenderObject` is responsible for
-   painting its children using the `paintChild` function on the
+ * Subclases de `RenderObject` debe implementar una functión `paint` que dibuja una
+   representación visual del objeto sobre una `PaintingCanvas`. Si
+   el `RenderObject` tiene hijos, el `RenderObject` es responsable por
+   el pintando a sus hijos usando la función `paintChild` en el
    `PaintingCanvas`.
 
- * Subclasses of `RenderObject` must call `adoptChild` whenever they add a
-   child. Similarly, they must call `dropChild` whenever they remove a child.
+ * Subclase de `RenderObject` debe llamar `adoptChild` cada vez que agregan un
+   hijo. Similarmente, deben llamar `dropChild` cada vez que sacan a un hijo.
 
- * Most subclasses of `RenderObject` will implement a `hitTest` function that
-   lets clients query the render tree for objects that intersect with a given
-   user input location. `RenderObject` itself does not impose a particular
-   type signature on `hitTest`, but most implementations will take an argument
-   of type `HitTestResult` (or, more likely, a model-specific subclass of
-   `HitTestResult`) as well as an object that describes the location at which
-   the user provided input (e.g., a `Point` for a two-dimensional cartesian
-   model).
+ * La mayoría de las subclases de `RenderObject` implementará una function `hitTest` que
+   permite a los clientes consultar el árbol de renderización de objetos que se intersecan con una
+   ubicación de entrada del usuario. `RenderObject` en sí no impone un particular
+   tipo de firma en `hitTest`, pero la mayoría de las implementaciones tomarán un argumento
+   de tipo `HitTestResult` (o, más probablemente, una subclase específica del modelo de
+   `HitTestResult`) así como un objeto que describe la ubicación en la que
+   la entrada proporcionada por el usuario (p.Ej., un `Point` para un modelo cartesiano de dos dimensiones).
 
- * Finally, subclasses of `RenderObject` can override the default, do-nothing
-   implemenations of `handleEvent` and `rotate` to respond to user input and
-   screen rotation, respectively.
+ * Finalmente, las subclases de `RenderObject` puede anular el valor predeterminado, no hacer nada
+   de implementaciones en `handleEvent` y `rotate` para responder a la entrada del usuario y
+   rotación de la pantalla, respectivamente.
 
-The base model also provides two mixins for common child models:
+El modelo base también proporciona dos mixins para modelos de hijos comunes:
 
- * `RenderObjectWithChildMixin` is useful for subclasses of `RenderObject` that
-   have a unique child.
+ * `RenderObjectWithChildMixin` es útil para las subclases de `RenderObject` al
+   tener un hijo único.
 
- * `ContainerRenderObjectMixin` is useful for subclasses of `RenderObject` that
-   have a child list.
+ * `ContainerRenderObjectMixin` es útil para las subclases de `RenderObject` al
+   tener una lista de hijos.
 
-Subclasses of `RenderObject` are not required to use either of these child
-models and are free to invent novel child models for their specific use cases.
+Subclases de `RenderObject` no están obligados a usar ninguno de estos hijos
+los modelos son libres de inventar nuevos modelos infantiles para sus casos de uso específicos.
 
-### Parent Data
+### Datos de los padres
 
-TODO(ianh): Describe the parent data concept.
+TODO(ianh): Describe el concepto de datos padre.
 
-The `setupParentData()` method is automatically called for each child
-when the child's parent is changed. However, if you need to
-preinitialize the `parentData` member to set its values before you add
-a node to its parent, you can preemptively call that future parent's
-`setupParentData()` method with the future child as the argument.
+El método `setupParentData()` se llama automáticamente para cada hijo
+cuando se cambia el padre del hijo. Sin embargo, si necesitas
+preinicializar el miembro `parentData` para establecer sus valores antes de agregar
+un nodo a su padre, usted puede llamar preventivamente a ese padre futuro el método
+`setupParentData()` con el futuro hijo como argumento.
 
-TODO(ianh): Discuss putting per-child configuration information for
-the parent on the child's parentData.
+TODO(ianh): Discuta cómo poner información de configuración por niño para
+el padre en los datos del padre del niño.
 
-If you change a child's parentData dynamically, you must also call
-markNeedsLayout() on the parent, otherwise the new information will
-not take effect until something else triggers a layout.
+Si cambia dinámicamente los datos de los padres de un hijo, también debe llamar
+markNeedsLayout() en el padre, de lo contrario la nueva información no
+surtirá efecto hasta que algo más active un diseño.
 
-### Box Model
+### Modelo de caja
 
-#### Dimensions
+#### Dimensiones
 
-All dimensions are expressed as logical pixel units. Font sizes are
-also in logical pixel units. Logical pixel units are approximately
-96dpi, but the precise value varies based on the hardware, in such a
-way as to optimize for performance and rendering quality while keeping
-interfaces roughly the same size across devices regardless of the
-hardware pixel density.
+Todas las dimensiones se expresan como unidades de píxeles lógicos. Los tamaños de fuente son
+también en unidades de píxeles lógicos. Las unidades de píxeles lógicos son aproximadamente
+96dpi, pero el valor preciso varía según el hardware, de tal manera
+forma de optimizar el rendimiento y la calidad de renderizado manteniendo
+Interfaces de apróximadamente el mismo tamaño en todos los dispositivos, independientemente de la
+densidad de píxeles del hardware.
 
-Logical pixel units are automatically converted to device (hardware)
-pixels when painting by applying an appropriate scale factor.
+Las unidades de píxeles lógicos se convierten automáticamente a pixeles del dispositivo (hardware)
+al pintar aplicando un factor de escala apropiado.
 
-TODO(ianh): Define how you actually get the device pixel ratio if you
-need it, and document best practices around that.
+TODO(ianh): Defina cómo obtiene realmente la proporción de píxeles del dispositivo si
+Necesitarlo, y documentar las mejores prácticas en torno a eso.
 
 #### EdgeInsets
 
@@ -117,7 +116,7 @@ need it, and document best practices around that.
 ### Bespoke Models
 
 
-Using the provided subclasses
+Usando las subclases proporcionadas
 -----------------------------
 
 ### render_box.dart
@@ -156,245 +155,245 @@ Using the provided subclasses
 
 ### RenderStack (render_stack.dart)
 
-Writing new subclasses
+Escribir nuevas subclases
 ----------------------
 
-### The RenderObject contract
+### El contrato RenderObject
 
-If you want to define a `RenderObject` that uses a new coordinate
-system, then you should inherit straight from `RenderObject`. Examples
-of doing this can be found in `RenderBox`, which deals in
-rectangles in cartesian space, and in the [sector_layout.dart
-example](https://github.com/flutter/flutter/blob/master/examples/layers/rendering/src/sector_layout.dart), which
-implements a toy model based on polar coordinates. The `RenderView`
-class, which is used internally to adapt from the host system to this
-rendering framework, is another example.
+Si quieres definir un `RenderObject` que usa una nueva coordenada
+sistema, entonces usted debe heredar directamente de `RenderObject`. Ejemplos
+de hacer esto se puede encontrar en `RenderBox`, que se ocupa en
+rectángulos en el espacio cartesiano, y en el [ejemplo sector_layout.dart
+](https://github.com/flutter/flutter/blob/master/examples/layers/rendering/src/sector_layout.dart), cual
+implementa un modelo de juguete basado en coordenadas polares. La clase `RenderView`,
+que se utiliza internamente para adaptarse desde el sistema host a este
+marco de representación, es otro ejemplo.
 
-A subclass of `RenderObject` must fulfill the following contract:
+Una subclase de `RenderObject` debe cumplir los siguientes parámetros:
 
-* It must fulfill the `AbstractNode` contract when
-  dealing with children. Using `RenderObjectWithChildMixin` or
-  `ContainerRenderObjectMixin` can make this easier.
+* Debe cumplir la condición `AbstractNode` cuando trata
+  con hijos. Utilizando `RenderObjectWithChildMixin` o
+  `ContainerRenderObjectMixin` puede hacer esto más fácil.
 
-* Information about the child managed by the parent, e.g. typically
-  position information and configuration for the parent's layout,
-  should be stored on the `parentData` member; to this effect, a
-  ParentData subclass should be defined and the `setupParentData()`
-  method should be overridden to initialize the child's parent data
-  appropriately.
+* Información sobre el hijo manejado por el padre., p.Ej., típicamente
+  informando la posición y configuración para el diseño de los padres,
+  debe ser almacenado en el miembro `parentData`; para este efecto, una 
+  clase ParentData debe ser definida y el método `setupParentData()`
+  debe anularse para inicializar los datos de los padres del hijo
+  apropiadamente.
 
-* Layout constraints must be expressed in a Constraints subclass. This
-  subclass must implement `operator==` (and `hashCode`).
+* Las restricciones de diseño se deben expresar en una subclase de Restricciones. Esta
+  subclase debe implementar `operator==` (y `hashCode`).
 
-* Whenever the layout needs updating, the `markNeedsLayout()` method
-  should be called.
+* Cuando sea necesario actualizar el diseño, el método `markNeedsLayout()`
+  debe ser llamado.
 
-* Whenever the rendering needs updating without changing the layout,
-  the `markNeedsPaint()` method should be called. (Calling
-  `markNeedsLayout()` implies a call to `markNeedsPaint()`, so you
-  don't need to call both.)
+* Cuando sea necesario actualizar la representación sin cambiar el diseño,
+  el método `markNeedsPaint()` debe ser llamado. (llamando
+  `markNeedsLayout()` implica una llamada a `markNeedsPaint()`, usted 
+  no necesita llamar a los dos.)
 
-* The subclass must override `performLayout()` to perform layout based
-  on the constraints given in the `constraints` member. Each object is
-  responsible for sizing itself; positioning must be done by the
-  object calling `performLayout()`. Whether positioning is done before
-  or after the child's layout is a decision to be made by the class.
-  TODO(ianh): Document sizedByParent, performResize(), rotate
+* La subclase debe anular `performLayout()` para realizar el diseño basado
+  en las restricciones dadas en el miembro `constraints`. Cada objeto es
+  responsable de dimensionarse; El posicionamiento debe ser hecho por el
+  objeto llamado `performLayout()`. Si el posicionamiento se realiza antes
+  o después de que el diseño del hijo, es una decisión que debe tomar la clase.
+  TODO(ianh): Documentación sizedByParent, performResize(), rotate
 
-* TODO(ianh): Document painting, hit testing, debug*
+* TODO(ianh): Documentación painting, hit testing, debug*
 
-#### The ParentData contract
+#### El parámetro ParentData
 
-#### Using RenderObjectWithChildMixin
+#### Uso de RenderObjectWithChildMixin
 
-#### Using ContainerRenderObjectMixin (and ContainerParentDataMixin)
+#### Uso de ContainerRenderObjectMixin (y ContainerParentDataMixin)
 
-This mixin can be used for classes that have a child list, to manage
-the list. It implements the list using linked list pointers in the
-`parentData` structure.
+Esta combinación se puede utilizar para clases que tienen una lista secundaria, para administrar
+la lista. Implementa la lista utilizando punteros de lista enlazada en la
+estructura 'parentData`.
 
-TODO(ianh): Document this mixin.
+TODO(ianh): Documentar esta mezcla.
 
-Subclasses must follow the following contract, in addition to the
-contracts of any other classes they subclass:
+Las subclases deben seguir el siguiente contrato, además de la
+contratos de cualquier otra clase que subclase:
 
-* If the constructor takes a list of children, it must call addAll()
-  with that list.
+* Si el constructor toma una lista de hijos, debe llamar addAll()
+  con esa lista.
 
-TODO(ianh): Document how to walk the children.
+TODO(ianh): Documentar como recorrer los hijos.
 
-### The RenderBox contract
+### El parámetro RenderBox
 
-A `RenderBox` subclass is required to implement the following contract:
+Se requiere una subclase `RenderBox` para implementar el siguiente contrato:
 
-* It must fulfill the `AbstractNode` contract when
-  dealing with children. Note that using `RenderObjectWithChildMixin`
-  or `ContainerRenderObjectMixin` takes care of this for you, assuming
-  you fulfill their contract instead.
+* Debe cumplir el contrato `AbstractNode` cuando
+  trata con hijos. Tenga en cuenta que utilizando `RenderObjectWithChildMixin`
+  o `ContainerRenderObjectMixin` se encarga de esto por ti, asumiendo
+  usted cumple su contrato en su lugar.
 
-* If it has any data to store on its children, it must define a
-  BoxParentData subclass and override setupParentData() to initialize
-  the child's parent data appropriately, as in the following example.
-  (If the subclass has an opinion about what type its children must
-  be, e.g. the way that `RenderBlock` wants its children to be
-  `RenderBox` nodes, then change the `setupParentData()` signature
-  accordingly, to catch misuse of the method.)
+* Si tiene datos para almacenar en sus hijos, debe definir una subclase
+  BoxParentData y anular setupParentData() para inicializar
+  los datos de los hijos apropiadamente, como en el siguiente ejemplo.
+  (Si la subclase tiene una opinión sobre qué tipo de hijos deben
+  ser, P.Ej. la forma en que `RenderBlock` quiere que sus hijos sean
+  los nodos de `RenderBox`, luego cambian la firma `setupParentData()`
+  en consecuencia, para detectar el mal uso del método..)
 
 <!-- skip -->
 ```dart
   class FooParentData extends BoxParentData { ... }
 
-  // In RenderFoo
+  // En RenderFoo
   void setupParentData(RenderObject child) {
     if (child.parentData is! FooParentData)
       child.parentData = FooParentData();
   }
 ```
 
-* The class must encapsulate a layout algorithm that has the following
-  features:
+* La clase debe encapsular un algoritmo de diseño que tenga las siguientes
+  caracteristicas:
 
-** It uses as input a set of constraints, described by a
-   BoxConstraints object, and a set of zero or more children, as
-   determined by the class itself, and has as output a Size (which is
-   set on the object's own `size` field), and positions for each child
-   (which are set on the children's `parentData.position` field).
+** Utiliza como entrada un conjunto de restricciones, descritas por un
+   Objeto BoxConstraints, y un conjunto de cero o más hijos, como
+   determinado por la propia clase, y tiene como salida un Tamaño (que es
+   establecido en el propio campo `size` del objeto), y las posiciones para cada hijo
+   (que se establecen en el campo `parentData.position` de los hijos).
 
-** The algorithm can decide the Size in one of two ways: either
-   exclusively based on the given constraints (i.e. it is effectively
-   sized entirely by its parent), or based on those constraints and
-   the dimensions of the children.
+** El algoritmo puede decidir el tamaño en una de dos formas:
+   basado exclusivamente en las restricciones dadas (es decir, es efectivamente
+   dimensionado enteramente por su matriz), o basado en esas restricciones y
+   las dimensiones de los niños.
 
-   In the former case, the class must have a sizedByParent getter that
-   returns true, and it must have a `performResize()` method that uses
-   the object's `constraints` member to size itself by setting the
-   `size` member. The size must be consistent, a given set of
-   constraints must always result in the same size.
+   En el primer caso, la clase debe tener un getter sizeByParent que
+   devuelve verdadero, y debe tener un método `performResize()` que usa
+   los objetos de tamaño `constraints` a sí mismo mediante el establecimiento del miembro
+   `size`. El tamaño debe ser consistente, un conjunto dado de
+   las restricciones siempre deben resultar en el mismo tamaño.
 
-   In the latter case, it will inherit the default `sizedByParent`
-   getter that returns false, and it will size itself in the
-   `performLayout()` function described below.
+   En este último caso, heredará el valor por defecto del getter `sizedByParent`
+   que devuelve falso, y se dimensionará en 
+   función `performLayout()` que se describe a continuación.
 
-   The `sizedByParent` distinction is purely a performance
-   optimization. It allows nodes that only set their size based on the
-   incoming constraints to skip that logic when they need to be
-   re-laid-out, and, more importantly, it allows the layout system to
-   treat the node as a _layout boundary_, which reduces the amount of
-   work that needs to happen when the node is marked as needing
-   layout.
+   La distinción `sizedByParent` es puramente una performance
+   de mejoramiento. Permite nodos que solo establecen su tamaño en función de la
+   restricciones entrantes para omitir esa lógica cuando necesitan ser
+   rediseñado y, lo que es más importante, permite que el sistema al diseño
+   tratar el nodo como un _layout boundary_, lo que reduce la cantidad de
+   trabajo que debe ocurrir cuando el nodo está marcado como necesario
+   en el diseño.
 
-* The following methods must report numbers consistent with the output
-  of the layout algorithm used:
+* Los siguientes métodos deben reportar números consistentes con la salida
+  del algoritmo de diseño utilizado:
 
-  * `double getMinIntrinsicWidth(BoxConstraints constraints)` must
-     return the width that fits within the given constraints below which
-     making the width constraint smaller would not increase the
-     resulting height, or, to put it another way, the narrowest width at
-     which the box can be rendered without failing to lay the children
-     out within itself.
+  * `double getMinIntrinsicWidth(BoxConstraints constraints)` debe
+     devolver el ancho que se ajuste dentro de las restricciones dadas debajo de las cuales
+     hacer la restricción de ancho más pequeña no aumentaría la
+     altura resultante, o, para decirlo de otra manera, el ancho más estrecho en
+     que la caja se puede renderizar sin dejar de colocar a los hijos
+     dentro de sí mismo.
 
-     For example, the minimum intrinsic width of a piece of text like "a
-     b cd e", where the text is allowed to wrap at spaces, would be the
-     width of "cd".
+     Por ejemplo, el ancho intrínseco mínimo de un fragmento de texto como "a
+     b cd e ", donde se permite que el texto se ajuste a los espacios, sería el
+     ancho de "cd".
 
-  * `double getMaxIntrinsicWidth(BoxConstraints constraints)` must
-     return the width that fits within the given constraints above which
-     making the width constraint larger would not decrease the resulting
-     height.
+  * `double getMaxIntrinsicWidth(BoxConstraints constraints)` devuelve
+     el ancho que se ajusta dentro de las restricciones dadas arriba del cual
+     hacer la restricción de ancho más grande no disminuiría el resultado
+     altura.
 
-     For example, the maximum intrinsic width of a piece of text like "a
-     b cd e", where the text is allowed to wrap at spaces, would be the
-     width of the whole "a b cd e" string, with no wrapping.
+     Por ejemplo, el ancho intrínseco máximo de un fragmento de texto como "a
+     b cd e ", donde se permite que el texto se ajuste a los espacios, sería el
+     ancho de toda la cadena "a b cd e", sin envoltura.
 
-  * `double getMinIntrinsicHeight(BoxConstraints constraints)` must
-     return the height that fits within the given constraints below
-     which making the height constraint smaller would not increase the
-     resulting width, or, to put it another way, the shortest height at
-     which the box can be rendered without failing to lay the children
-     out within itself.
+  * `double getMinIntrinsicHeight(BoxConstraints constraints)` devuelve
+     la altura que se ajusta a las restricciones dadas a continuación
+     lo que reduce la restricción de altura y no aumentaría el
+     ancho resultante, o, para decirlo de otra manera, la altura más corta en
+     que la caja se puede renderizar sin dejar de colocar a los hijos.
+     dentro de sí mismo.
 
-     The minimum intrinsic height of a width-in-height-out algorithm,
-     like English text layout, would be the height of the text at the
-     width that would be used given the constraints. So for instance,
-     given the text "hello world", if the constraints were such that it
-     had to wrap at the space, then the minimum intrinsic height would
-     be the height of two lines (and the appropriate line spacing). If
-     the constraints were such that it all fit on one line, then it
-     would be the height of one line.
+     La altura intrínseca mínima de un algoritmo de anchura en altura,
+     como el diseño de texto en inglés, sería la altura del texto en el
+     ancho que se utilizaría dadas las restricciones. Así, por ejemplo,
+     dado el texto "hola mundo", si las restricciones fueran tales que
+     tenía que envolver en el espacio, entonces la altura intrínseca mínima sería
+     la altura de dos líneas (y el interlineado apropiado). Si
+     las restricciones eran tales que todo encajaba en una sola línea, 
+     sería la altura de una línea.
 
-   * `double getMaxIntrinsicHeight(BoxConstraints constraints)` must
-     return the height that fits within the given constraints above
-     which making the height constraint larger would not decrease the
-     resulting width. If the height depends exclusively on the width,
-     and the width does not depend on the height, then
-     `getMinIntrinsicHeight()` and `getMaxIntrinsicHeight()` will return the
-     same number given the same constraints.
+   * `double getMaxIntrinsicHeight(BoxConstraints constraints)` 
+     devuelve la altura que se ajuste dentro de las restricciones dadas arriba
+     lo que hacer la restricción de altura más grande no disminuiría el
+     ancho resultante. Si la altura depende exclusivamente del ancho,
+     y el ancho no depende de la altura, entonces
+     `getMinIntrinsicHeight()` y `getMaxIntrinsicHeight()` devolverán el
+     mismo número dado las mismas restricciones.
 
-     In the case of English text, the maximum intrinsic height is the
-     same as the minimum intrinsic height.
+     En el caso del texto en inglés, la altura intrínseca máxima es la
+     Igual que la altura intrínseca mínima.
 
-* The box must have a `performLayout()` method that encapsulates the
-  layout algorithm that this class represents. It is responsible for
-  telling the children to lay out, positioning the children, and, if
-  sizedByParent is false, sizing the object.
+* El cuadro debe tener un método `performLayout()` que encapsule el
+  Algoritmo de diseño que esta clase representa. Es responsable de
+  decirle a los hijos que coloquen, posicionando a los hijos, y, si
+  sizedByParent es falso, dimensionando el objeto.
 
-  Specifically, the method must walk over the object's children, if
-  any, and for each one call `child.layout()` with a BoxConstraints
-  object as the first argument, and a second argument named
-  `parentUsesSize` which is set to true if the child's resulting size
-  will in any way influence the layout, and omitted (or set to false)
-  if the child's resulting size is ignored. The children's positions
-  (`child.parentData.position`) must then be set.
+  Específicamente, el método debe caminar sobre los hijos del objeto, si
+  cualquiera, y para cada llamada, `child.layout()` con un objeto BoxConstraints
+  como el primer argumento, y un segundo argumento llamado
+  `parentUsesSize` que se establece en verdadero si el tamaño resultante del hijo
+  influirá de alguna manera en el diseño, y se omite (o se establece en falso)
+  si se ignora el tamaño resultante del hijo. Las posiciones de los hijos.
+  (`child.parentData.position`) entonces debe ser establecido.
 
-  (Calling `layout()` can result in the child's own `performLayout()`
-  method being called recursively, if the child also needs to be laid
-  out. If the child's constraints haven't changed and the child is not
-  marked as needing layout, however, this will be skipped.)
+  (Llamar a `layout()` puede resultar en el propio método `performLayout()` del hijo
+  se llame recursivamente, si el hijo también necesita ser puesto
+  afuera. Si las restricciones del hijo no han cambiado y el hijo no está
+  marcado como que necesita diseño, esto será omitido.)
 
-  The parent must not set a child's `size` directly. If the parent
-  wants to influence the child's size, it must do so via the
-  constraints that it passes to the child's `layout()` method.
+  El padre no debe establecer el `tamaño` de un hijo directamente. Si el padre
+  quiere influir en el tamaño del hijo, debe hacerlo a través de la
+  restricciones que pasa al método `layout()` del hijo.
 
-  If an object's `sizedByParent` is false, then its `performLayout()`
-  must also size the object (by setting `size`), otherwise, the size
-  must be left untouched.
+  Si el `sizedByParent` de un objeto es falso, entonces su `performLayout()`
+  también debe dimensionar el objeto (configurando `tamaño`), de lo contrario, el tamaño
+  hay que dejarlo intacto.
 
-* The `size` member must never be set to an infinite value.
+* El objeto `size` nunca debe establecerse en un valor infinito.
 
-* The box must also implement `hitTestChildren()`.
-  TODO(ianh): Define this better
+* La caja también debe implementar `hitTestChildren()`.
+  TODO(ianh): Definir esto mejor
 
-* The box must also implement `paint()`.
-  TODO(ianh): Define this better
+* La caja también debe implementar `paint()`.
+  TODO(ianh): Definir esto Mejor
 
-#### Using RenderProxyBox
+#### usando RenderProxyBox
 
-### The Hit Testing contract
+### El contrato de prueba de golpe
 
 
-Performance rules of thumb
+Reglas de rendimiento
 --------------------------
 
-* Avoid using transforms where mere maths would be sufficient (e.g.
-  draw your rectangle at x,y rather than translating by x,y and
-  drawing it at 0,0).
+* Evite usar transformaciones donde las meras matemáticas sean suficientes (p.Ej,
+  dibuja tu rectángulo en x,y en lugar de traducir por x,y y
+  dibujándolo a 0,0).
 
-* Avoid using save/restore on canvases.
+* Evite utilizar guardar/restaurar en lienzos.
 
 
-Useful debugging tools
+Útiles herramientas de depuración
 ----------------------
 
-This is a quick way to dump the entire render tree to the console every frame.
-This can be quite useful in figuring out exactly what is going on when
-working with the render tree.
+Esta es una forma rápida de volcar todo el árbol de renderizado a la consola en cada fotograma.
+Esto puede ser muy útil para averiguar exactamente qué está pasando cuando
+trabajamos con el árbol de render.
 
 ```dart
 import 'package:flutter/rendering.dart';
 
 void main() {
   RendererBinding.instance.addPersistentFrameCallback((_) {
-    // This dumps the entire render tree every frame.
+    // Esto vuelca todo el árbol de renderizado cada fotograma..
     debugDumpRenderTree();
   });
   // ...
