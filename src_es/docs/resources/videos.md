@@ -3,19 +3,23 @@ title: Videos técnicos
 description: Videos disponibles sobre diversos aspectos del desarrollo en Flutter..
 ---
 
-Estos videos de Flutter, producidos internamente en Google y por la comunidad de Flutter, puede ayudar si eres un aprendiz visual.
+Estos videos de Flutter, producidos internamente en Google y por la 
+comunidad de Flutter, puede ayudar si eres un aprendiz visual.
 
-Tenga en cuenta que muchas personas hacen videos de Flutter. Esta página muestra algunos que nos gustan, pero hay muchos otros.
+Tenga en cuenta que muchas personas hacen videos de Flutter. Esta página muestra 
+algunos que nos gustan, pero hay muchos otros.
 
 ---
 
 ## Series
 
-La siguiente lista muestra el primer episodio de la lista de Reproducción, con un enlace a la lista de reproducción completa.
+La siguiente lista muestra el primer episodio de la lista de Reproducción, 
+con un enlace a la lista de reproducción completa.
 
 ### The Boring Flutter Show
 
-Esta serie presenta a programadores de Flutter en tiempo real. Errores de codificación, soluciones y música de introducción elegante incluidos.
+Esta serie presenta a programadores de Flutter en tiempo real. 
+Errores de codificación, soluciones y música de introducción elegante incluidos.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yr8F2S3Amas?rel=0" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 Episode One: The Boring Flutter Show<br>
