@@ -1,54 +1,54 @@
-## Get the Flutter SDK
+## Obtener el SDK de Flutter
 
- 1. Download the following installation bundle to get the latest beta release of the
-    Flutter SDK:
+1. Descarga el siguiente paquete de instalación para obtener la versión más reciente {{site.sdk.channel}} release del 
+   SDK Flutter:
 
-    [(loading...)](#){:.download-latest-link-{{os}}.btn.btn-primary}
+   [(loading...)](#){:.download-latest-link-{{os}}.btn.btn-primary}
 
-    For other release channels, and older builds, see the [SDK
-    archive](/docs/development/tools/sdk/archive) page.
- 1. Extract the zip file and place the contained `flutter` in the desired
-    installation location for the Flutter SDK (eg. `C:\src\flutter`; do not
-    install Flutter in a directory like `C:\Program Files\` that requires
-    elevated privileges).
- 1. Locate the file `flutter_console.bat` inside the `flutter` directory. Start
-    it by double-clicking.
+   Para otros release channels, y compilaciones más viejas, mira la página [SDK 
+   archive](/docs/development/tools/sdk/archive).
+1. Extraiga el archivo zip y coloque el contenido de `flutter` en la ubicación
+   deseada de instalación para el Flutter SDK (ej. `C:\src\flutter`; no instale
+   flutter en un directorio como `C:\Program Files\` que requiere permisos 
+   de administrador).
+1. Localice el archivo `flutter_console.bat` dentro del directorio de `flutter`. Inícialo 
+   con doble clic.
 
-You are now ready to run Flutter commands in the Flutter Console!
+¡Ahora está todo listo para ejecutar los comandos de Flutter en la consola de Flutter!
 
-To update an existing version of Flutter, see [Upgrading Flutter](/docs/development/tools/sdk/upgrading).
+Para actualizar una versión existente de Flutter, vea [Actualizando Flutter](/docs/development/tools/sdk/upgrading).
 
-### Update your path
+### Actualizando tu "path"
 
-If you wish to run Flutter commands in the regular Windows console, take
-these steps to add Flutter to the `PATH` environment variable:
+Si deseas ejecutar los comandos de Flutter en un ventana de comandos regular de Windows, siga
+estos pasos y agregue Flutter a las variables de entorno en el `PATH`:
 
-* From the Start search bar, type 'env' and select **Edit environment
-  variables for your account**
-* Under **User variables** check if there is an entry called **Path**:
-  * If the entry does exist, append the full path to `flutter\bin` using `;` as
-    a separator from existing values.
-  * If the entry does not exist, create a new user variable named `Path` with
-    the full path to `flutter\bin` as its value.
+* Desde la barra de busqueda en Inicio, escribe 'env' y selecciona **Editar variables de 
+entorno para tu cuenta**
+* Debajo de **Variables de usuario** verifica si existe una entrada llamada **Path**:
+    * Si la entrada existe, agrega la ruta completa a `flutter\bin` usando `;`
+      como separador de los valores existentes.
+    * Si la entrada no existe, crea una nueva variable de usuario llamada `Path` 
+      con la ruta completa `flutter\bin` como su valor.
 
-Note that you will have to close and reopen any existing console windows 
-for these changes to take effect.  
+Ten en cuenta que tendrás que cerrar y reabrir cualquier ventana de consola 
+existente para que estos cambios surtan efecto.
 
-### Run `flutter doctor`
+### Ejecuta `flutter doctor`
 
-From a console window which has the Flutter directory in the path (see above), 
-run the following command to see if there are any platform dependencies you 
-need to complete the setup:
+Desde una ventana de consola que tenga el directorio Flutter en su path (ver arriba), 
+ejecuta el siguiente comando para ver si hay algunas dependencias de la plataforma que 
+necesites para completar la configuración:
 
 ```console
 C:\src\flutter>flutter doctor
 ```
 
-This command checks your environment and displays a report of the status of your
-Flutter installation. Check the output carefully for other software you may need 
-to install or further tasks to perform (shown in **bold** text).
+Este comando verifica tu entorno y muestra un reporte del estado de tu 
+instalación de Flutter. Verifica la salida con cuidado para otros programas que 
+pudieras necesitar o tareas a realizar (mostradas en texto en **negrita**).
 
-For example:
+Por Ejemplo:
 
 <pre>
 [-] Android toolchain - develop for Android devices
@@ -58,8 +58,8 @@ For example:
       visit https://flutter.io/setup/#android-setup for detailed instructions.
 </pre>
 
-The following sections describe how to perform these tasks and finish the setup
-process. Once you have installed any missing dependencies, you can run the 
-`flutter doctor` command again to verify that you’ve set everything up correctly.
+La siguiente sección describe como desempeñar estas tareas y finalizar el proceso de 
+configuración. Una vez que tenga instalado cualquiera de las dependencias faltantes, 
+puedes ejecutar el comando `flutter doctor` de nuevo para verificar que todo se ha configurado correctamente.
 
 {% include_relative _analytics.md %}

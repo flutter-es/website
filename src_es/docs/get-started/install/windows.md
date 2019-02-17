@@ -3,32 +3,32 @@ title: Windows install
 short-title: Windows
 # js: [{defer: true, url: /assets/archive.js}]
 next:
-  title: Set up an editor
+  title: Configurar un editor
   path: /get-started/editor
 ---
 
 {% assign os = 'windows' -%}
 
-## System requirements
+## Requerimientos del Sistema
 
-To install and run Flutter, your development environment must meet these minimum requirements:
+Para instalar y ejecutar Flutter, el ambiente de trabajo debe de cumplir al menos con los siguientes requerimientos:
 
-- **Operating Systems**: Windows 7 SP1 or later (64-bit)
-- **Disk Space**: 400 MB (does not include disk space for IDE/tools).
-- **Tools**: Flutter depends on these tools being available in your environment.
-  - [Windows PowerShell 5.0][] or newer (this is pre-installed with Windows 10)
-  - [Git for Windows][], with the **Use Git from the Windows Command Prompt** option.
+- **Sistema Operativo**: Windows 7 SP1 o superior (64-bit)
+- **Espacio en Disco**: 400 MB (no incluye espacio en disco para IDE/herramientas).
+- **Herramientas**: Flutter depende de que estas herramientas estén disponibles en tu entorno.
+  - [Windows PowerShell 5.0][] o superior (este es pre-instalado con Windows 10)
+  - [Git para Windows][] con la opción **Use Git from the Windows Command Prompt**
 
-     If Git for Windows is already installed, make sure you can run `git` commands from the
-     command prompt or PowerShell.
+     Si Git para Windows está ya instalado, asegúrate de poder correr comandos con `git` desde el 
+     Command Prompt o PowerShell.
 
 {% include_relative _get-sdk-win.md %}
 
 {% include_relative _android-setup.md %}
 
-## Next step
+## Siguiente paso
 
-[Next step: Configure Editor](/get-started/editor)
+[Siguiente paso: Configura el editor](/get-started/editor)
 
-[Git for Windows]: https://git-scm.com/download/win
+[Git para Windows]: https://git-scm.com/download/win
 [Windows PowerShell 5.0]: https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell

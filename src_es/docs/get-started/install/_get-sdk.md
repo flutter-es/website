@@ -6,61 +6,63 @@
   {% assign file_ext = '.zip' -%}
 {% endif -%}
 
-## Get the Flutter SDK {#get-sdk}
+## Obtener el SDK de Flutter {#get-sdk}
 
- 1. Download the following installation bundle to get the latest beta release of the
-    Flutter SDK:
+1. Descarga el siguiente paquete de instalación para obtener la versión más reciente {{site.sdk.channel}} release del 
+   SDK Flutter:
 
-    [(loading...)](#){:.download-latest-link-{{os}}.btn.btn-primary}
+   [(loading...)](#){:.download-latest-link-{{os}}.btn.btn-primary}
 
-    For other release channels, and older builds, see the [SDK
-    archive](/docs/development/tools/sdk/archive) page.
- 1. Extract the file in the desired location, for example:
+   Para otros release channels, y compilaciones más viejas, mira la página [SDK 
+   archive](/docs/development/tools/sdk/archive).
+1. Extraiga el archivo en la ubicación deseada, por ejemplo:
 
     {% comment %}
       Our JS also updates the filename in this template, but it doesn't include the terminal formatting:
 
       {% prettify shell %}
       $ cd ~/development
-      $ {{unzip}} ~/Downloads/[[download-latest-link-filename]]flutter_{{os}}_vX.X.X-beta{{file_ext}}[[/end]]
+      $ {{unzip}} ~/Downloads/[[download-latest-link-filename]]flutter_{{os}}_vX.X.X-{{site.sdk.channel}}{{file_ext}}[[/end]]
       {% endprettify %}
     {% endcomment -%}
 
     ```terminal
     $ cd ~/development
-    $ {{unzip}} ~/Downloads/flutter_{{os}}_vX.X.X-beta{{file_ext}}
+    $ {{unzip}} ~/Downloads/flutter_{{os}}_vX.X.X-{{site.sdk.channel}}{{file_ext}}
     ```
 
- 1. Add the `flutter` tool to your path:
-
+1. Agrega la herramienta `flutter` a tu path:
+   
     ```terminal
-    $ export PATH=$PATH:`pwd`/flutter/bin
+    $ export PATH="$PATH:`pwd`/flutter/bin"
     ```
 
-The above command sets your `PATH` variable temporarily, for the current terminal
-window. To permanently add Flutter to your path, see [Update your
-path](#update-your-path).
+    Este comando configura tu variable `PATH` sólo para la ventana _actual_ de terminal. 
+    Para agregar Flutter permanentemente a tu path, mira [Actualiza  
+    el path](#actualiza-tu-path).
 
-You are now ready to run Flutter commands!
+¡Ahora estas preparado para ejecutar comandos de Flutter!
 
-To update an existing version of Flutter, see [Upgrading Flutter](/docs/development/tools/sdk/upgrading).
+{{site.alert.note}}
+Para actualizar una versión existente de Flutter, mira 
+[Actualizando Flutter](/docs/development/tools/sdk/upgrading).
+{{site.alert.end}}
 
-### Run flutter doctor
+### Ejecuta flutter doctor
 
-Run the following command to see if there are any dependencies you need to
-install to complete the setup:
+Ejecuta el siguiente comando para verificar si existe alguna dependencia que se necesite para
+completar la configuración (para una salida detallada, añade la etiqueta `-v`):
 
 ```terminal
-$ flutter doctor [-v]
+$ flutter doctor
 ```
 
-This command checks your environment and displays a report to the terminal
-window. The Dart SDK is bundled with Flutter; it is not necessary to install
-Dart separately. Check the output carefully for other software you may need to
-install or further tasks to perform (shown in **bold** text).
+Este comando verifica tu entorno y muestra un reporte en la ventana del terminal.
+El SDK de Dart esta empaquetado con Flutter, no es necesario instalar Dart por separado.
+Verifica la salida con cuidado para otros programas que 
+pudieras necesitar o tareas a realizar (mostradas en texto en **negrita**).
 
-For example:
-
+Por ejemplo:
 <pre>
 [-] Android toolchain - develop for Android devices
     • Android SDK at /Users/obiwan/Library/Android/sdk
@@ -69,10 +71,9 @@ For example:
       visit https://flutter.io/setup/#android-setup for detailed instructions.
 </pre>
 
-The following sections describe how to perform these tasks and finish the setup
-process.
+La siguiente sección describe cómo desempeñar estas tareas y finalizar el proceso de configuración.
 
-Once you have installed any missing dependencies, run the `flutter doctor`
-command again to verify that you’ve set everything up correctly.
+Una vez que tengaS instalado cualquiera de las dependencias faltantes, ejecuta el comando `flutter doctor`
+de nuevo para verificar que todo se ha configurado correctamente.
 
 {% include_relative _analytics.md %}

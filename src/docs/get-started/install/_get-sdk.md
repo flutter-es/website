@@ -8,7 +8,7 @@
 
 ## Get the Flutter SDK {#get-sdk}
 
- 1. Download the following installation bundle to get the latest beta release of the
+ 1. Download the following installation bundle to get the latest {{site.sdk.channel}} release of the
     Flutter SDK:
 
     [(loading...)](#){:.download-latest-link-{{os}}.btn.btn-primary}
@@ -22,36 +22,39 @@
 
       {% prettify shell %}
       $ cd ~/development
-      $ {{unzip}} ~/Downloads/[[download-latest-link-filename]]flutter_{{os}}_vX.X.X-beta{{file_ext}}[[/end]]
+      $ {{unzip}} ~/Downloads/[[download-latest-link-filename]]flutter_{{os}}_vX.X.X-{{site.sdk.channel}}{{file_ext}}[[/end]]
       {% endprettify %}
     {% endcomment -%}
 
     ```terminal
     $ cd ~/development
-    $ {{unzip}} ~/Downloads/flutter_{{os}}_vX.X.X-beta{{file_ext}}
+    $ {{unzip}} ~/Downloads/flutter_{{os}}_vX.X.X-{{site.sdk.channel}}{{file_ext}}
     ```
 
  1. Add the `flutter` tool to your path:
 
     ```terminal
-    $ export PATH=$PATH:`pwd`/flutter/bin
+    $ export PATH="$PATH:`pwd`/flutter/bin"
     ```
 
-The above command sets your `PATH` variable temporarily, for the current terminal
-window. To permanently add Flutter to your path, see [Update your
-path](#update-your-path).
+    This command sets your `PATH` variable for the _current_ terminal window only.
+    To permanently add Flutter to your path, see [Update your
+    path](#update-your-path).
 
 You are now ready to run Flutter commands!
 
-To update an existing version of Flutter, see [Upgrading Flutter](/docs/development/tools/sdk/upgrading).
+{{site.alert.note}}
+  To update an existing version of Flutter, see
+  [Upgrading Flutter](/docs/development/tools/sdk/upgrading).
+{{site.alert.end}}
 
 ### Run flutter doctor
 
 Run the following command to see if there are any dependencies you need to
-install to complete the setup:
+install to complete the setup (for verbose output, add the `-v` flag):
 
 ```terminal
-$ flutter doctor [-v]
+$ flutter doctor
 ```
 
 This command checks your environment and displays a report to the terminal
@@ -61,12 +64,12 @@ install or further tasks to perform (shown in **bold** text).
 
 For example:
 
-<pre>
+<pre>∫
 [-] Android toolchain - develop for Android devices
     • Android SDK at /Users/obiwan/Library/Android/sdk
     <strong>✗ Android SDK is missing command line tools; download from https://goo.gl/XxQghQ</strong>
     • Try re-installing or updating your Android SDK,
-      visit https://flutter.io/setup/#android-setup for detailed instructions.
+      visit {{site.url}}/setup/#android-setup for detailed instructions.
 </pre>
 
 The following sections describe how to perform these tasks and finish the setup

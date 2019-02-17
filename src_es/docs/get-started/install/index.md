@@ -1,12 +1,12 @@
 ---
-title: Install
+title: Instalación
 next:
-  title: Set up an editor
+  title: Configura un editor
   path: /get-started/editor
 toc: false
 ---
 
-Select the operating system on which you are installing Flutter:
+Selecciona el sistema operativo en el que estes instalando Flutter:
 
 <div class="card-deck mb-8">
 {% for os in site.os-list %}
@@ -22,6 +22,6 @@ Select the operating system on which you are installing Flutter:
 </div>
 
 {{site.alert.important}}
-  If you're in China, first read [Using Flutter in China](/community/china).
+  Si estas en China, lee primero [Usando  Flutter en China](/community/china).
 {{site.alert.end}}
 

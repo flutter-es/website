@@ -25,15 +25,15 @@
 
           <li class="nav-item">
             <a class="nav-link
-                {%- if page_url_path == '/showcase' %} active {%- endif -%}" href="/showcase">Showcase</a>
+                {%- if page_url_path == '/showcase' %} active {%- endif -%}" href="/showcase">Portafolio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link
-                {%- if page_url_path == '/community' %} active {%- endif -%}" href="/community">Community</a>
+                {%- if page_url_path == '/community' %} active {%- endif -%}" href="/community">Comunidad</a>
           </li>
         </ul>
         <form action="/search/" class="site-header__search form-inline">
-          <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Search" aria-label="Search">
+          <input class="site-header__searchfield form-control" type="search" name="q" id="q" autocomplete="off" placeholder="Buscar" aria-label="Search">
         </form>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <a  class="nav-item nav-link" href="{{site.repo.organization}}"><i class="fab fa-github fa-lg"></i></a>
     </div>
     {% if page.show-nav-get-started-button -%}
-      <a class="site-header__cta btn btn-primary" href="/get-started/install/">Get started</a>
+      <a class="site-header__cta btn btn-primary" href="/get-started/install/">Empezar</a>
     {% endif -%}
   </nav>
 </header>

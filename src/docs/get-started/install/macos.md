@@ -3,7 +3,7 @@ title: MacOS install
 short-title: MacOS
 next:
   title: Set up an editor
-  path: /get-started/editor
+  path: /docs/get-started/editor
 ---
 
 {% assign os = 'macos' -%}
@@ -15,7 +15,13 @@ To install and run Flutter, your development environment must meet these minimum
 - **Operating Systems**: macOS (64-bit)
 - **Disk Space**: 700 MB (does not include disk space for IDE/tools).
 - **Tools**: Flutter depends on these command-line tools being available in your environment.
-  - `bash`, `mkdir`, `rm`, `git`, `curl`, `unzip`, `which`
+  - `bash`
+  - `curl`
+  - `git` 2.x
+  - `mkdir`
+  - `rm`
+  - `unzip`
+  - `which`
 
 {% include_relative _get-sdk.md %}
 
@@ -33,4 +39,4 @@ first Flutter app.
 
 ## Next step
 
-[Next step: Configure Editor](/get-started/editor)
+[Next step: Configure Editor](/docs/get-started/editor)

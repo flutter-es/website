@@ -1,36 +1,42 @@
 ---
-title: MacOS install
+title: Instalación en macOS
 short-title: MacOS
 next:
-  title: Set up an editor
+  title: Configura un editor
   path: /get-started/editor
 ---
 
 {% assign os = 'macos' -%}
 
-## System requirements
+## Requerimiento del sistema
 
-To install and run Flutter, your development environment must meet these minimum requirements:
+Para instalar y ejecutar Flutter, tu entorno de trabajo debe cumplir los siguientes requisitos mínimos:
 
-- **Operating Systems**: macOS (64-bit)
-- **Disk Space**: 700 MB (does not include disk space for IDE/tools).
-- **Tools**: Flutter depends on these command-line tools being available in your environment.
-  - `bash`, `mkdir`, `rm`, `git`, `curl`, `unzip`, `which`
+- **Sistema Operativo**: macOS (64-bit)
+- **Espacio en disco**: 700 MB (Esto no incluye el espacio en disco para IDE/tools).
+- **Herramientas**: Flutter necesita que estas herramientas de línea de comando estén disponibles en tu entorno.
+  - `bash`
+  - `mkdir`
+  - `rm`
+  - `git`
+  - `curl`
+  - `unzip`
+  - `which`
 
 {% include_relative _get-sdk.md %}
 
 {% include_relative _path-mac-linux.md %}
 
-## Platform setup
+## Configurar plataforma
 
-MacOS supports developing Flutter apps for both iOS and Android. Complete at
-least one of the two platform setup steps now, to be able to build and run your
-first Flutter app.
+macOS permite desarrollar apps con Fluter para ambos iOS y Android. Termina al menos
+una de las configuraciones para las plataformas ahora, para poder ser capaz de crear y ejecutar
+su primera app en Flutter.
 
 {% include_relative _ios-setup.md %}
 
 {% include_relative _android-setup.md %}
 
-## Next step
+## Siguiente paso
 
-[Next step: Configure Editor](/get-started/editor)
+[Siguiente paso: Configura un editor](/get-started/editor)

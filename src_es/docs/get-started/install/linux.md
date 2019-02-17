@@ -1,24 +1,25 @@
 ---
-title: Linux install
+title: Instalación en Linux
 short-title: Linux
 # js: [{defer: true, url: /assets/archive.js}]
 next:
-  title: Set up an editor
+  title: Configura un editor
   path: /get-started/editor
 ---
 
 {% assign os = 'linux' -%}
 
-## System requirements
+## Requerimiento del Sistema
 
-To install and run Flutter, your development environment must meet these minimum requirements:
+Para instalar y ejecutar Flutter, el entorno de trabajo debe estos requisitos mínimos:
 
-- **Operating Systems**: Linux (64-bit)
-- **Disk Space**: 600 MB (does not include disk space for IDE/tools).
-- **Tools**: Flutter depends on these command-line tools being available in your environment.
+- **Sistema Operativo**: Linux (64-bit)
+- **Espacio en Disco**: 600 MB (no incluye espacio en disco para IDE/herramientas).
+- **Herramientas**: Flutter  depende de que estas herramientas estén disponibles en tu entorno.
   - `bash`, `mkdir`, `rm`, `git`, `curl`, `unzip`, `which`
-- **Shared libraries**: Flutter `test` command depends on this library being available in your environment.
-  - `libGLU.so.1` - provided by mesa packages e.g. `libglu1-mesa` on Ubuntu/Debian
+- **Bibliotecas Compartidas**: El comando `test` en Flutter  depende de que estas bibliotecas estén disponibles en tu entorno.
+  * `libGLU.so.1` -  suministrada por mesa packages ej. `libglu1-mesa` en Ubuntu/Debian
+
 
 {% include_relative _get-sdk.md %}
 
@@ -26,6 +27,6 @@ To install and run Flutter, your development environment must meet these minimum
 
 {% include_relative _android-setup.md %}
 
-## Next step
+## Siguiente paso
 
-[Next step: Configure Editor](/get-started/editor)
+[Siguiente paso: Configura un editor](/get-started/editor)
