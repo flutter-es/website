@@ -58,7 +58,8 @@ No totalmente libre, el modelo base impone cierta estructura en el
    tipo de firma en `hitTest`, pero la mayoría de las implementaciones tomarán un argumento
    de tipo `HitTestResult` (o, más probablemente, una subclase específica del modelo de
    `HitTestResult`) así como un objeto que describe la ubicación en la que
-   la entrada proporcionada por el usuario (p.Ej., un `Point` para un modelo cartesiano de dos dimensiones).
+   la entrada proporcionada por el usuario (p.Ej., un `Point` para un modelo cartesiano de 
+dos dimensiones).
 
  * Finalmente, las subclases de `RenderObject` puede anular el valor predeterminado, no hacer nada
    de implementaciones en `handleEvent` y `rotate` para responder a la entrada del usuario y
