@@ -12,7 +12,7 @@ permalink: /widgets-intro/
 Los widgets de Flutter son construidos usando un moderno framework de estilo-reactivo, el cual toma
 inspiración de [React](http://facebook.github.io/react/). La idea central es
 que construyas tu UI de widgets. Los Widgets describen cómo debería ser su vista,
-dada su configuración y estado actuales. Cuando el estado de un widget cambia,
+dada su configuración y estado actual. Cuando el estado de un widget cambia,
 el widget reconstruye su descripción, que el framework difiere de la descripción
 anterior para determinar los cambios mínimos necesarios en el árbol de renderizado
 subyacente para la transición de un estado al siguiente.
@@ -55,7 +55,7 @@ de dos widgets, el widget
 y su hijo, el widget
 [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html).
 El framework obliga al widget raíz a cubrir la pantalla, lo que significa que el texto
-"Hola, mundo" termina centrado en la pantalla. La dirección del texto debe
+"Hello, world!" termina centrado en la pantalla. La dirección del texto debe
 especificarse en esta instancia; cuando se usa el widget MaterialApp,
 este lo hace por ti, como se demuestra más adelante.
 
@@ -81,11 +81,11 @@ son de uso muy común:
 
  * [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html): El widget
    [`Text`](https://docs.flutter.io/flutter/widgets/Text-class.html)
-   te permite crear una cadena de texto con estilo, dentro de su aplicación.
+   te permite crear una cadena de texto con estilo, dentro de tu aplicación.
 
  * [`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html),
    [`Column`](https://docs.flutter.io/flutter/widgets/Column-class.html):
-   Estos widgets flexibles te permiten crear layout flexibles tanto en la
+   Estos widgets flexibles te permiten crear layouts flexibles tanto en la
    dirección horizontal
    ([`Row`](https://docs.flutter.io/flutter/widgets/Row-class.html)) como
    en la vertical.
@@ -190,9 +190,9 @@ void main() {
 }
 ```
 
-Asegúrate de tener una entrada `uses-material-design: true` en la sección `flutter`
+Asegúrate de tener la línea `uses-material-design: true` en la sección `flutter`
 de tu archivo `pubspec.yaml`. Permite utilizar el conjunto predefinido de
-[Iconos de Material](https://design.google.com/icons/).
+[Iconos de Material Design](https://design.google.com/icons/).
 
 ```yaml
 name: my_app
@@ -357,7 +357,7 @@ el
 [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
 llama a su callback
 [`onTap`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html#onTap)
-en este caso imprimiendo un mensaje a la consola. Puede utilizar
+en este caso imprimiendo un mensaje en la consola. Puede utilizar
 [`GestureDetector`](https://docs.flutter.io/flutter/widgets/GestureDetector-class.html)
 para detectar una variedad de gestos de entrada, incluidos taps, drags y scales.
 
