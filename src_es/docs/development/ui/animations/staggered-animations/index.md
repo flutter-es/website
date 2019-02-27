@@ -1,149 +1,149 @@
 ---
-title: Staggered Animations
-short-title: Staggered
+title: Animaciones escalonadas
+short-title: Escalonada
 ---
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">What you’ll learn</h4>
+  <h4 class="no_toc">Lo que aprenderas</h4>
 
-  * A staggered animation consists of sequential or overlapping
-    animations.
-  * To create a staggered animation, use multiple Animation objects.
-  * One AnimationController controls all of the Animations.
-  * Each Animation object specifies the animation during an Interval.
-  * For each property being animated, create a Tween.
+  * Una animación escalonada consiste en secuencial o superpuesta.
+    animaciones
+  * Para crear una animación escalonada, use varios objetos de animación.
+  * Un AnimationController controla todas las animaciones.
+  * Cada objeto de animación especifica la animación durante un intervalo.
+  * Para cada propiedad que se esté animando, cree una interpolación.
 {{site.alert.end}}
 
 <aside class="alert alert-info" markdown="1">
-  **Terminology:**
-  If the concept of tweens or tweening is new to you, see the
-  [Animations in Flutter tutorial.](/docs/development/ui/animations/tutorial)
+  **Terminología:**
+  Si el concepto de interpolaciones o interpolaciones es nuevo para usted, consulte la
+  [Animaciones en tutorial Flutter.](/docs/development/ui/animations/tutorial)
 </aside>
 
-Staggered animations are a straightforward concept: visual changes
-happen as a series of operations, rather than all at once.
-The animation might be purely sequential, with one change occuring after
-the next, or it might partially or completely overlap. It might also
-have gaps, where no changes occur.
+Las animaciones escalonadas son un concepto sencillo: cambios visuales
+sucede como una serie de operaciones, en lugar de todas a la vez.
+La animación puede ser puramente secuencial, con un cambio que se produce después de
+la siguiente, o podría superponerse parcial o totalmente. También podría
+Tiene brechas, donde no se producen cambios.
 
-This guide shows how to build a staggered animation in Flutter.
+Esta guía muestra cómo construir una animación escalonada en Flutter.
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">Examples</h4>
+  <h4 class="no_toc">Ejemplos</h4>
 
-  This guide explains the basic_staggered_animation example. You can also
-  refer to a more complex example, staggered_pic_selection.
+  Esta guía explica el ejemplo de basic_staggered_animation. Tú también puedes
+  Consulte un ejemplo más complejo, staggered_pic_selection.
 
   [basic_staggered_animation](https://github.com/flutter/website/tree/master/src/_includes/code/animation/basic_staggered_animation)
-  : Shows a series of sequential and overlapping animations of a single widget.
-    Tapping the screen begins an animation that changes opacity, size,
-    shape, color, and padding.
+  : Muestra una serie de animaciones secuenciales y superpuestas de un solo widget.
+    Al tocar la pantalla comienza una animación que cambia la opacidad, el tamaño,
+    Forma, color y relleno.
 
   [staggered_pic_selection](https://github.com/flutter/website/tree/master/src/_includes/code/animation/staggered_pic_selection)
-  : Shows deleting an image from a list of images displayed in one of three sizes.
-    This example uses two [animation
+  : Muestra la eliminación de una imagen de una lista de imágenes mostradas en uno de tres tamaños.
+    Este ejemplo utiliza dos [animation
     controllers](https://docs.flutter.io/flutter/animation/AnimationController-class.html):
-    one for image selection/deselection, and one for image deletion.
-    The selection/deselection animation is staggered. (To see this effect,
-    you might need to increase the `timeDilation` value.)
-    Select one of the largest images&mdash;it shrinks as it displays a checkmark
-    inside a blue circle. Next, select one of the smallest images&mdash;the
-    large image expands as the checkmark disappears. Before the large image
-    has finished expanding, the small image shrinks to display its checkmark.
-    This staggered behavior is similar to what you might see in Google Photos.
+    Uno para la selección / deselección de imágenes, y otro para la eliminación de imágenes.
+    La animación de selección / deselección es escalonada. (Para ver este efecto,
+    puede que necesites aumentar el valor de `timeDilation`.)
+    Seleccione una de las imágenes más grandes; se reduce, ya que muestra una marca de verificación
+    dentro de un circulo azul. A continuación, seleccione una de las imágenes más pequeñas & mdash;
+    La imagen grande se expande a medida que desaparece la marca de verificación. Antes de la imagen grande
+    ha terminado de expandirse, la imagen pequeña se contrae para mostrar su marca de verificación.
+    Este comportamiento escalonado es similar al que puedes ver en Google Photos.
 {{site.alert.end}}
 
 
 
-The following video demonstrates the animation performed by
+El siguiente video muestra la animación realizada por
 basic_staggered_animation:
 
 <!--
-  Use this instead of the default YouTube embed code so that the embed
-  is responsive.
+  Use esto en lugar del código de inserción de YouTube predeterminado para que la incrustación
+  es receptivo
 -->
 <div class="embed-container"><iframe src="https://www.youtube.com/embed/0fFvnZemmh8?rel=0" frameborder="0" allowfullscreen></iframe></div>
 
-In the video, you see the following animation of a single widget,
-which begins as a bordered blue square with slightly rounded corners.
-The square runs through changes in the following order:
+En el video, ves la siguiente animación de un solo widget,
+que comienza como un cuadrado azul bordeado con esquinas ligeramente redondeadas.
+El cuadrado se ejecuta a través de cambios en el siguiente orden:
 
-1. Fades in
-1. Widens
-1. Becomes taller while moving upwards
-1. Transforms into a bordered circle
-1. Changes color to orange
+1. Se desvanece en
+1. Ensancha
+1. Se vuelve más alto mientras se mueve hacia arriba
+1. Se transforma en un círculo bordeado.
+1. Cambia de color a naranja
 
-After running forward, the animation runs in reverse.
+Después de correr hacia adelante, la animación se ejecuta en reversa.
 
 <aside class="alert alert-info" markdown="1">
-**New to Flutter?**<br>
-This page assumes you know how to create a layout using Flutter’s
-widgets.  For more information, see [Building Layouts in
+**Nuevo en Flutter?**<br>
+Esta página asume que usted sabe cómo crear un diseño utilizando Flutter
+widgets Para obtener más información, consulte [Creación de diseños en
 Flutter](/docs/development/ui/layout).
 </aside>
 
-## Basic structure of a staggered animation
+## Estructura básica de una animación escalonada.
 
 <div class="whats-the-point" markdown="1">
 
 <b> <a id="whats-the-point" class="anchor" href="#whats-the-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the point?</b>
 
-* All of the animations are driven by the same
+* Todas las animaciones son impulsadas por el mismo.
   [AnimationController](https://docs.flutter.io/flutter/animation/AnimationController-class.html).
-* Regardless of how long the animation lasts in real time,
-  the controller's values must be between 0.0 and 1.0, inclusive.
-* Each animation has an
-  [Interval](https://docs.flutter.io/flutter/animation/Interval-class.html)
-  between 0.0 and 1.0, inclusive.
-* For each property that animates in an interval, create a
-  [Tween.](https://docs.flutter.io/flutter/animation/Tween-class.html)
-  The Tween specifies the start and end values for that property.
-* The Tween produces an
-  [Animation](https://docs.flutter.io/flutter/animation/Animation-class.html)
-  object that is managed by the controller.
+* Independientemente de cuánto dure la animación en tiempo real,
+  Los valores del controlador deben estar entre 0.0 y 1.0, inclusive.
+* Cada animación tiene un
+  [Intervalo](https://docs.flutter.io/flutter/animation/Interval-class.html)
+  entre 0.0 y 1.0, inclusive.
+* Para cada propiedad que se anime en un intervalo, cree una
+  [Interpolación.](https://docs.flutter.io/flutter/animation/Tween-class.html)
+  La interpolación especifica los valores de inicio y finalización de esa propiedad.
+* La Tween produce una
+  [Animación](https://docs.flutter.io/flutter/animation/Animation-class.html)
+  Objeto que es gestionado por el controlador.
 </div>
 
 {% comment %}
-The app is essentially animating a Container whose decoration and size are
-animated. The Container is within another Container whose padding moves the
-inner container around and an Opacity widget that's used to fade everything
-in and out.
+La aplicación es esencialmente animar un contenedor cuya decoración y tamaño son
+animado. El Contenedor está dentro de otro Contenedor cuyo relleno mueve el
+Contenedor interno alrededor y un widget de opacidad que se usa para atenuar todo
+dentro y fuera
 {% endcomment %}
 
-The following diagram shows the Intervals used in the
+El siguiente diagrama muestra los intervalos utilizados en la
 [basic_staggered_animation](https://github.com/flutter/website/tree/master/src/_includes/code/animation/basic_staggered_animation)
-example. You might notice the following characteristics:
+ejemplo. Podrías notar las siguientes características:
 
-* The opacity changes during the first 10% of the timeline.
-* A tiny gap occurs between the change in opacity, and the change in width.
-* Nothing animates during the last 25% of the timeline.
-* Increasing the padding makes the widget appear to rise upward.
-* Increasing the border radius to 0.5, transforms the square with rounded
-  corners into a circle.
-* The padding and border radius changes occur during the same exact interval,
-  but they don't have to.
+* La opacidad cambia durante el primer 10% de la línea de tiempo.
+* Se produce una pequeña brecha entre el cambio en la opacidad y el cambio en el ancho.
+* Nada se anima durante el último 25% de la línea de tiempo.
+* Aumentar el relleno hace que el widget parezca subir.
+* Al aumentar el radio del borde a 0.5, se transforma el cuadrado con redondeado.
+  esquinas en un círculo.
+* Los cambios de relleno y del radio del borde se producen durante el mismo intervalo exacto,
+  pero no tienen que hacerlo.
 
 <img src="/docs/development/ui/animations/staggered-animations/images/StaggeredAnimationIntervals.png" alt="Diagram showing the interval specified for each motion." />
 
-To set up the animation:
+Para configurar la animación:
 
-* Create an AnimationController that manages all of the Animations.
-* Create a Tween for each property being animated.
-  * The Tween defines a range of values.
-  * The Tween's `animate` method requires the `parent` controller, and
-    produces an Animation for that property.
-* Specify the interval on the Animation's `curve` property.
+* Cree un controlador de animación que administre todas las animaciones.
+* Crea una interpolación para cada propiedad que se está animando.
+  * La Tween define un rango de valores.
+  * El método `animate` de Tween requiere el controlador` parent`, y
+    Produce una animación para esa propiedad.
+* Especifique el intervalo en la propiedad `curve` de la animación.
 
-When the controlling animation's value changes, the new animation's
-value changes, triggering the UI to update.
+Cuando el valor de la animación de control cambia, la nueva animación
+cambios de valor, lo que desencadena la interfaz de usuario para actualizar.
 
-The following code creates a tween for the `width` property.
-It builds a
+El siguiente código crea una interpolación para la propiedad `width`.
+Construye un
 [CurvedAnimation](https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html),
-specifying an eased curve.
-See [Curves](https://docs.flutter.io/flutter/animation/Curves-class.html)
-for other available pre-defined animation curves.
+especificando una curva suavizada.
+Vea [Curvas](https://docs.flutter.io/flutter/animation/Curves-class.html)
+Para otras curvas de animación predefinidas disponibles.
 
 <!-- skip -->
 {% prettify dart %}
@@ -161,10 +161,10 @@ width = Tween<double>(
 ),
 {% endprettify %}
 
-The `begin` and `end` values don't have to be doubles.
-The following code builds the tween for the `borderRadius` property
-(which controls the roundness of the square's corners), using
-`BorderRadius.circular()`.
+Los valores de "comienzo" y "final" no tienen que ser dobles.
+El siguiente código crea la interpolación para la propiedad `borderRadius`
+(que controla la redondez de las esquinas del cuadrado), usando
+`BorderRadius.circular ()`.
 
 {% prettify dart %}
 borderRadius = BorderRadiusTween(
@@ -181,43 +181,43 @@ borderRadius = BorderRadiusTween(
 ),
 {% endprettify %}
 
-### Complete staggered animation
+### Animación escalonada completa
 
-Like all interactive widgets, the complete animation consists
-of a widget pair: a stateless and a stateful widget.
+Como todos los widgets interactivos, la animación completa consiste
+de un par de widgets: un widget sin estado y uno con estado.
 
-The stateless widget specifies the Tweens,
-defines the Animation objects, and provides a `build()` function
-responsible for building the animating portion of the widget tree.
+El widget sin estado especifica los Tweens,
+define los objetos de animación y proporciona una función `build ()`
+responsable de construir la porción de animación del árbol de widgets.
 
-The stateful widget creates the controller, plays the animation,
-and builds the non-animating portion of the widget tree.
-The animation begins when a tap is detected anywhere in the screen.
+El widget de estado crea el controlador, reproduce la animación,
+y construye la parte no animada del árbol de widgets.
+La animación comienza cuando se detecta un toque en cualquier parte de la pantalla.
 
-[Full code for basic_staggered_animation's main.dart](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/basic_staggered_animation/main.dart)
+[Código completo para el main.dart de basic_staggered_animation](https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/animation/basic_staggered_animation/main.dart)
 
-### Stateless widget: StaggerAnimation
+### Widget sin estado: StaggerAnimation
 
-In the stateless widget, StaggerAnimation, the `build()` function instantiates an
+En el widget sin estado, StaggerAnimation, la función `build ()` crea una instancia de
 [AnimatedBuilder](https://docs.flutter.io/flutter/widgets/AnimatedBuilder-class.html)&mdash;a
-general purpose widget for building animations. The AnimatedBuilder
-builds a widget and configures it using the Tweens' current values.
-The example creates a function named `_buildAnimation()` (which performs
-the actual UI updates), and assigns it to its `builder` property.
-AnimatedBuilder listens to notifications from the animation controller,
-marking the widget tree dirty as values change.
-For each tick of the animation, the values are updated,
-resulting in a call to `_buildAnimation()`.
+Widget de propósito general para la construcción de animaciones. El AnimatedBuilder
+crea un widget y lo configura usando los valores actuales de los preadolescentes.
+El ejemplo crea una función llamada `_buildAnimation ()` (que realiza
+las actualizaciones reales de la interfaz de usuario), y lo asigna a su propiedad `builder`.
+AnimatedBuilder escucha las notificaciones del controlador de animación,
+marcando el árbol de widgets sucio a medida que cambian los valores.
+Para cada tick de la animación, los valores se actualizan,
+dando como resultado una llamada a `_buildAnimation ()`.
 
 <!-- skip -->
 {% prettify dart %}
-[[highlight]]class StaggerAnimation extends StatelessWidget[[/highlight]] {
+[[highlight]]clase StaggerAnimation extiende StatelessWidget[[/highlight]] {
   StaggerAnimation({ Key key, this.controller }) :
 
-    // Each animation defined here transforms its value during the subset
-    // of the controller's duration defined by the animation's interval.
-    // For example the opacity animation transforms its value during
-    // the first 10% of the controller's duration.
+    // Cada animación definida aquí transforma su valor durante el subconjunto.
+    // de la duración del controlador definida por el intervalo de la animación.
+    // Por ejemplo, la animación de opacidad transforma su valor durante
+    // El primer 10% de la duración del controlador.
 
     [[highlight]]opacity = Tween<double>[[/highlight]](
       begin: 0.0,
@@ -232,7 +232,7 @@ resulting in a call to `_buildAnimation()`.
       ),
     ),
 
-    // ... Other tween definitions ...
+    // ... Otras definiciones de interpolación ...
 
     super(key: key);
 
@@ -244,9 +244,9 @@ resulting in a call to `_buildAnimation()`.
   [[highlight]]final Animation<BorderRadius> borderRadius;[[/highlight]]
   [[highlight]]final Animation<Color> color;[[/highlight]]
 
-  // This function is called each time the controller "ticks" a new frame.
-  // When it runs, all of the animation's values will have been
-  // updated to reflect the controller's current value.
+  // Esta función se llama cada vez que el controlador "marca" un nuevo marco.
+  // Cuando se ejecuta, todos los valores de la animación habrán sido
+  // actualizado para reflejar el valor actual del controlador.
   [[highlight]]Widget _buildAnimation(BuildContext context, Widget child)[[/highlight]] {
     return Container(
       padding: padding.value,
@@ -279,13 +279,13 @@ resulting in a call to `_buildAnimation()`.
 }
 {% endprettify %}
 
-### Stateful widget: StaggerDemo
+### Widget de estado: StaggerDemo
 
-The stateful widget, StaggerDemo, creates the AnimationController
-(the one who rules them all), specifying a 2000 ms duration. It plays
-the animation, and builds the non-animating portion of the widget tree.
-The animation begins when a tap is detected in the screen.
-The animation runs forward, then backward.
+El widget con estado, StaggerDemo, crea el controlador de animación
+(el que los gobierna a todos), especificando una duración de 2000 ms. Juega
+la animación, y construye la parte no animada del árbol de widgets.
+La animación comienza cuando se detecta un toque en la pantalla.
+La animación corre hacia adelante, luego hacia atrás.
 
 <!-- skip -->
 {% prettify dart %}
@@ -314,7 +314,7 @@ class _StaggerDemoState extends State<StaggerDemo> with TickerProviderStateMixin
       [[highlight]]await _controller.forward().orCancel;[[/highlight]]
       [[highlight]]await _controller.reverse().orCancel;[[/highlight]]
     } on TickerCanceled {
-      // the animation got canceled, probably because we were disposed
+      // La animación se canceló, probablemente porque estábamos dispuestos.
     }
   }
 
@@ -351,36 +351,36 @@ class _StaggerDemoState extends State<StaggerDemo> with TickerProviderStateMixin
 }
 {% endprettify %}
 
-## Resources
+## Recursos
 
-The following resources might help when writing animations:
+Los siguientes recursos pueden ayudar al escribir animaciones:
 
-[Animations landing page](/docs/development/ui/animations)
-: Lists the available documentation for Flutter animations.
-  If tweens are new to you, check out the
-  [Animations tutorial](/docs/development/ui/animations/tutorial).
+[Página de inicio de animaciones](/docs/development/ui/animations)
+: Enumera la documentación disponible para animaciones Flutter.
+  Si las preadolescentes son nuevas para ti, echa un vistazo a la
+  [Tutorial de animaciones](/docs/development/ui/animations/tutorial).
 
-[Flutter API documentation](https://docs.flutter.io/)
-: Reference documentation for all of the Flutter libraries.
-  In particular, see the [animation
-  library](https://docs.flutter.io/flutter/animation/animation-library.html)
-  documentation.
+[Documentación de la API Flutter](https://docs.flutter.io/)
+: Documentación de referencia para todas las bibliotecas de Flutter.
+  En particular, ver la [biblioteca
+  de animaciones](https://docs.flutter.io/flutter/animation/animation-library.html)
+  documentacion.
 
-[Flutter Gallery](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
-: Demo app showcasing many Material Components and other Flutter
-  features.  The [Shrine
-  demo](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine)
-  implements a hero animation.
+[Galería de aleteo](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery)
+: Aplicación de demostración que muestra muchos componentes de material y otros Flutter
+  caracteristicas.  El [Santuario
+  manifestación](https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/demo/shrine)
+  Implementa una animación de héroe.
 
-[Material motion spec](https://material.io/guidelines/motion/)
-: Describes motion for Material apps.
+[Material de movimiento espec.](https://material.io/guidelines/motion/)
+: Describe el movimiento para aplicaciones de material.
 
 {% comment %}
-Package not yet vetted.
+Paquete aún no examinado.
 
-## Other resources
+## Otros recursos
 
-* For an alternate approach to sequence animation, see the
+* Para un enfoque alternativo a la secuencia de animación, vea el paquete
 [flutter_sequence_animation](https://pub.dartlang.org/packages/flutter_sequence_animation)
-package on [pub.dartlang.org](https://pub.dartlang.org/packages).
+en [pub.dartlang.org](https://pub.dartlang.org/packages).
 {% endcomment %}
