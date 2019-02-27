@@ -1,20 +1,20 @@
 ---
-title: Creating Useful Bug Reports
+title: Reando reportes de error funcionales
 ---
 
-The instructions in this document detail the current steps required to provide the most
-actionable bug reports for crashes and other bad behavior. Each step is optional but
-will greatly improve how quickly issues are diagnosed and addressed. We appreciate your
-effort in sending us as much feedback as possible.
+Las instrucciones en este documento detallan los pasos actuales requeridos para proporcionar la mayor
+Informes de errores procesables por fallas y otros comportamientos incorrectos. Cada paso es opcional pero
+mejorará en gran medida la rapidez con que se diagnostican y abordan los problemas. Apreciamos su
+esfuerzo en enviarnos tantos comentarios como sea posible.
 
-## Create an Issue on Github
+## Crear un problema en Github
 
-* A new Github issue may be created at
+* Se puede crear un nuevo problema de Github en
  [https://github.com/flutter/flutter/issues/new](https://github.com/flutter/flutter/issues/new)
 
-## Provide some Flutter Diagnostics
+## Proporcionar algunos diagnósticos Flutter
 
-* Run `flutter doctor` in your project directory and paste the results into the Github Issue:
+* Ejecuta `flutter doctor` en el directorio de su proyecto y pegue los resultados en el problema de Github:
 
 ```
 [✓] Flutter (on Mac OS, channel master)
@@ -35,24 +35,24 @@ effort in sending us as much feedback as possible.
     • Flutter plugin installed
 ```
 
-## Run the Command in Verbose Mode
+## Ejecutar el comando en modo detallado
 
-Follow these steps only if your issue is related to the `flutter` tool.
+Siga estos pasos solo si su problema está relacionado con la herramienta `flutter`.
 
-* All Flutter commands accept the `--verbose` flag. If attached to the issue, the output from this command may aid in diagnosing the issue.
-* Attach the results of the command to the Github issue.
+* Todos los comandos de Flutter aceptan la etiqueta `--verbose`.Si se adjunta al problema, la salida de este comando puede ayudar a diagnosticar el problema.
+* Adjunte los resultados del comando al problema de Github.
 ![flutter verbose](/images/verbose_flag.png)
 
-## Provide the Most Recent Logs
+## Proporcionar los registros más recientes
 
-* Logs for the currently connected device may be accessed via `flutter logs`
-* If the crash is reproducible, clear the logs (⌘ + k on Mac), reproduce the crash and copy the newly generated logs into a file attached to the bug report.
-* If you are getting exceptions thrown by the framework, include all the output between and including the dashed lines of the first such exception.
+* Se puede acceder a los registros del dispositivo conectado actualmente a través de `flutter logs`
+* Si el bloqueo es reproducible, borre los registros (⌘ + k en Mac), reproduzca el bloqueo y copie los registros recién generados en un archivo adjunto al informe de errores.
+* Si está obteniendo excepciones generadas por el marco, incluya todos los resultados entre las líneas discontinuas de la primera excepción.
 ![flutter logs](/images/logs.png)
 
-## Provide the Crash Report
+## Proporcionar el Informe de Accidente
 
-* In case the iOS simulator crashes, a crash report is generated in `~/Library/Logs/DiagnosticReports/`.
-* In case the iOS device crashes, a crash report is generated in `~/Library/Logs/CrashReporter/MobileDevice`.
-* Find the report corresponding to the crash (usually the latest) and attach it to the Github issue.
-![crash report](/images/crash_reports.png)
+* En caso de que el simulador de iOS se bloquee, se genera un informe de fallo en `~/Library/Logs/DiagnosticReports/`.
+* En caso de que el dispositivo iOS se caiga, se genera un informe de error en `~/Library/Logs/CrashReporter/MobileDevice`.
+* Encuentre el informe correspondiente al fallo (generalmente el más reciente) y adjúntelo al problema de Github.
+![informe del accidente](/images/crash_reports.png)
