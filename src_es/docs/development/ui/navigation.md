@@ -3,7 +3,7 @@ title: Navegación y enrutamiento
 ---
 
 {% comment %}
-TODO: una vez que la navegación de la página del Libro de cocina esté en su lugar, cambie lo siguiente para que sea una lista generada automáticamente.
+TODO: una vez que la navegación de la página del Cookbook esté en su lugar, cambie lo siguiente para que sea una lista generada automáticamente.
 {% endcomment -%}
 
 El seguimiento [recetas de libros de cocina cubrir {{page.title | downcase }}][cookbook]:
