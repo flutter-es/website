@@ -1,43 +1,43 @@
 ---
-title: Bootstrap into Dart
+title: Bootstrap en Dart
 toc: false
 ---
 
-New to the [Dart](https://www.dartlang.org) language?
-We compiled our favorite resources to
-help you quickly learn Dart.
-We looked at a lot of languages, and [we found Dart easy
-and fun to learn](/docs/resources/faq#why-did-flutter-choose-to-use-dart).
-We hope these resources make Dart
-easy for you to learn, too.
+¿Nuevo en el lenguaje [Dart](https://www.dartlang.org)?
+Compilamos nuestros recursos favoritos para
+Ayudarte rápidamente a aprender Dart.
+Nos fijamos en muchos idiomas, y [encontramos a Dart fácil
+y divertido de aprender](/docs/resources/faq#why-did-flutter-choice-to-use-dart).
+Esperamos que estos recursos hagan Dart.
+También es fácil para ti aprender.
 
-[Language tour](https://www.dartlang.org/guides/language/language-tour)
-: Your best introduction to the Dart language. Learn about Dart's
-  features such as _optional types_, _closures_, _libraries_, _lexical scoping_,
-  _top-level functions_, _named parameters_, _async / await_, and lots more.
+[Recorrido por el idioma](https://www.dartlang.org/guides/language/language-tour)
+: Tu mejor introducción al lenguaje Dart. Aprende sobre Dart's
+  características tales como _ tipos opcionales_, _cierros_, _libraries_, _lexical scoping_,
+  _ funciones de nivel superior_, _named parameters_, _async / await_ y mucho más.
 
-[Library tour](https://www.dartlang.org/guides/libraries/library-tour)
-: A good overview of Dart's powerful core libraries. Learn about
-  Dart's support for collections, async, math, numbers, strings, JSON, and more.
+[Visita a la biblioteca](https://www.dartlang.org/guides/libraries/library-tour)
+: Una buena visión general de las potentes bibliotecas del núcleo de Dart. Aprender acerca
+  El soporte de Dart para colecciones, asíncronos, matemáticas, números, cadenas, JSON y más.
 
-[Intro to Dart for Java Developers Codelab](https://codelabs.developers.google.com/codelabs/from-java-to-dart)
-: Use your Java knowledge to get up and running quickly with Dart. Learn about
-  classes, constructors, parameters, and interfaces with examples from the Java
-  Tutorial.
+[Introducción a Dart para Java Developers Codelab](https://codelabs.developers.google.com/codelabs/from-java-to-dart)
+: Usa tu conocimiento de Java para ponerte en marcha rápidamente con Dart. Aprender acerca
+  clases, constructores, parámetros e interfaces con ejemplos de Java
+  Tutorial.
 
-[Effective Dart](https://www.dartlang.org/guides/language/effective-dart)
-: Guides for style, authoring documentation, usage, and more.
+[Dardos efectivo](https://www.dartlang.org/guides/language/effective-dart)
+: Guías de estilo, documentación de autoría, uso y más.
 
-[Asynchronous Programming: Futures Tutorial](https://www.dartlang.org/tutorials/language/futures)
-: Learn how to use Futures, which are used extensively in the Dart core
-  libraries.  Futures can be used instead of one-time callbacks.
+[Programación asíncrona: tutorial de futures](https://www.dartlang.org/tutorials/language/futures)
+: Aprenda a usar Futuros, que se usan ampliamente en el núcleo de Dart
+  bibliotecas Se pueden utilizar futuros en lugar de devoluciones de llamada de una sola vez.
 
-[Asynchronous Programming: Streams Tutorial](https://www.dartlang.org/docs/tutorials/streams/)
-: Learn how to use Streams, which are used extensively in the Dart core
-  libraries. Streams can be used instead repeating callbacks.
-  For example, the
-  [File class](https://docs.flutter.io/flutter/dart-io/File-class.html)
-  uses Streams to read bytes from a file.
+[Programación asíncrona: Tutorial de Streams](https://www.dartlang.org/docs/tutorials/streams/)
+: Aprenda a usar Streams, que se usan ampliamente en el núcleo de Dart
+  bibliotecas Las secuencias se pueden utilizar en lugar de repetición de devoluciones de llamada.
+  Por ejemplo, el
+  [Clase de archivo](https://docs.flutter.io/flutter/dart-io/File-class.html)
+  usa Streams para leer bytes de un archivo.
 
-Want to learn more and maybe contribute? Check out the
-[Dart community](https://www.dartlang.org/community).
+¿Quieres aprender más y tal vez contribuir? Revisar la
+[Comunidad Dart](https://www.dartlang.org/community).
