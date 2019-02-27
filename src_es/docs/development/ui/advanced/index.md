@@ -1,5 +1,5 @@
 ---
 layout: toc
-title: Advanced UI
-short-title: Advanced
+title: UI Avanzada
+short-title: Avanzado
 ---
