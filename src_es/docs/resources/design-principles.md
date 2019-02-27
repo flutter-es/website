@@ -1,262 +1,262 @@
 ---
-title: Flutter's Development philosophy
+title: Filosofía de Desarrollo Flutter
 ---
 
-Flutter is written based on some core principles that were mostly
-intuited from past experiences with other platforms such as the Web
-and Android, some of which are summarised below.
+Flutter está escrito en base a algunos principios básicos que fueron en su mayoría
+Intuitado a partir de experiencias pasadas con otras plataformas como la web.
+y Android, algunos de los cuales se resumen a continuación.
 
-This document is most useful if you want to contribute to Flutter, as
-then we hope you will also follow these philosophies. Please also read
-our [style
-guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
-for more specific guidelines regarding writing Dart code for Flutter.
+Este documento es muy útil si desea contribuir a Flutter, como
+Entonces esperamos que también sigas estas filosofías. Por favor lea también
+nuestro [guía de 
+estilo](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo)
+para pautas más específicas con respecto a escribir código Dart para Flutter.
 
 
-## Code review and checking in code
+## Revisión de código y verificación de código.
 
-Every PR must be code-reviewed before check-in, including things like
-rolling a dependency. Getting a review means that a regular Flutter
-contributor (someone with commit access) has written a comment saying
-"LGTM" on your PR, and you have addressed all their feedback. ("LGTM"
-means "Looks Good To Me".)
+Cada RP debe ser revisada por el código antes del check-in, incluyendo cosas como
+rodando una dependencia. Obtener una revisión significa que un Flutter regular
+colaborador (alguien con acceso comprometido) ha escrito un comentario diciendo
+"LGTM" en su PR, y ha abordado todos sus comentarios. ("LGTM"
+significa "Me parece bien".
 
-Code review serves many critical purposes. There's the obvious
-purpose: catching errors. Even the most experienced engineers
-frequently make errors that are caught by code review. But there are
-also many other benefits of code reviews:
+La revisión del código tiene muchos propósitos críticos. Hay lo obvio
+propósito: atrapar errores. Incluso los ingenieros más experimentados.
+Con frecuencia cometen errores que son atrapados por la revisión de código. Pero hay
+También muchos otros beneficios de las revisiones de código:
 
- * It spreads knowledge among the team. Since every line of code will
-   have been read by two people, it's more likely that once you move
-   on, someone else will understand the code.
+ * Difunde el conocimiento entre el equipo. Dado que cada línea de código será
+   ha sido leído por dos personas, es más probable que una vez que te muevas
+   en adelante, alguien más entenderá el código.
 
- * It keeps you honest. Knowing that someone will be reading your
-   code, you are less tempted to cut corners and more motivated to
-   write code you are proud of.
+ * Te mantiene honesto. Sabiendo que alguien estará leyendo tu
+   código, estás menos tentado a cortar esquinas y más motivado a
+   escribe el código del que estás orgulloso.
 
- * It exposes you to different modes of thinking. Your code reviewer
-   has probably not thought about the problem in the same way you
-   have, and so may have a fresh perspective and may find you a better
-   way to solve the problem.
+ * Te expone a diferentes modos de pensar. Su revisor de código
+   Probablemente no haya pensado en el problema de la misma manera que usted
+   tener, y así tener una perspectiva nueva y encontrarle un mejor
+   Manera de resolver el problema.
 
-We recommend you consider
-[these suggestions](https://testing.googleblog.com/2017/06/code-health-too-many-comments-on-your.html)
-for addressing code review comments on your PR.
+Te recomendamos que consideres
+[estas sugerencias](https://testing.googleblog.com/2017/06/code-health-too-many-comments-on-your.html)
+para abordar los comentarios de revisión de código en su PR.
 
-If you're working on a big patch, don't hesitate to get reviews early,
-before you're ready to check code in. Also, don't hesitate to ask for
-multiple people to review your code, and don't hesitate to provide unsolicited
-comments on other people's PRs. The more reviews the better.
+Si estás trabajando en un gran parche, no dudes en obtener comentarios antes,
+antes de que esté listo para verificar el código. Además, no dude en preguntar
+varias personas para revisar su código, y no dude en proporcionar información no solicitada
+comentarios sobre las relaciones públicas de otras personas. Cuantas más reseñas mejor.
 
-Reviewers should carefully read the code and make sure they understand
-it. A reviewer should check the code for both high level concerns,
-such as whether the code's structure makes sense, as well as
-readability and adherence to the [Flutter style guide](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo).
-Use [these best practices](https://mtlynch.io/human-code-reviews-1/)
-when reviewing code and providing comments.
+Los revisores deben leer cuidadosamente el código y asegurarse de que entienden
+eso. Un revisor debe verificar el código para las preocupaciones de alto nivel,
+por ejemplo, si la estructura del código tiene sentido, así como
+legibilidad y adherencia a la [Guía de estilo aleteo](https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo).
+Use [estas mejores prácticas](https://mtlynch.io/human-code-reviews-1/)
+Al revisar el código y proporcionar comentarios.
 
-Reviewers should not give an LGTM unless the patch has tests that verify
-all the affected code, or unless a test would make no sense. If you
-review a patch, you are sharing the responsibility for the patch with
-its author. You should only give an LGTM if you would feel confident
-answering questions about the code.
+Los revisores no deben dar un LGTM a menos que el parche tenga pruebas que verifiquen
+todo el código afectado, o a menos que una prueba no tenga sentido. Si tu
+revisa un parche, estás compartiendo la responsabilidad del parche con
+su autor Solo debes dar un LGTM si te sientes confiado
+respondiendo preguntas sobre el código.
 
-A reviewer may in some circumstances consider the code satisfactory
-without having fully reviewed or understood it. If a reviewer has not
-fully reviewed the code, they admit to this by saying "RSLGTM" rather
-than just "LGTM". If you feel your code needs a real review, please
-find someone to actually review it. ("RSLGTM" means "Rubber Stamp
-Looks Good To Me".) If you mark a patch as RSLGTM, you are still
-sharing the responsibility for the patch with its author. Reviewing a
-patch as RSLGTM should be a rare event.
+Un revisor puede en algunas circunstancias considerar el código como satisfactorio.
+sin haberlo revisado o comprendido en su totalidad. Si un revisor no tiene
+Revisaron completamente el código, lo admiten al decir "RSLGTM" en lugar de
+que sólo "LGTM". Si cree que su código necesita una revisión real, por favor
+Encuentra a alguien que realmente lo revise. ("RSLGTM" significa "Sello de goma
+Me parece bien ".) Si marca un parche como RSLGTM, todavía está
+Compartiendo la responsabilidad del parche con su autor. Revisando un
+parche como RSLGTM debería ser un evento raro.
 
-If you really need to check something in in a hurry, for example
-because everything is broken and you can fix it, then pick someone on
-the team who you want to have review the code, and then mark the PR as
-"TBR" with their name. ("TBR" means "To Be Reviewed".) This is only to
-be used in emergencies. (Nobody being around to review your 50,000
-line patch at midnight on December 31st is not an emergency!) If
-someone marks a patch as TBR and gives your name as the reviewer, you
-should review the patch as soon as possible. If a reviewer finds
-problems with a patch marked TBR, the issues should be fixed as soon
-as possible.
+Si realmente necesita comprobar algo en un apuro, por ejemplo
+porque todo está roto y puedes arreglarlo, luego elige a alguien en
+El equipo que desea que revise el código y luego marque el PR como
+"TBR" con su nombre. ("TBR" significa "Para ser revisado".) Esto es solo para
+ser utilizado en emergencias. (No hay nadie alrededor para revisar tus 50,000
+el parche de línea a la medianoche del 31 de diciembre no es una emergencia!) Si
+alguien marca un parche como TBR y da su nombre como revisor, usted
+Debe revisar el parche lo antes posible. Si un revisor encuentra
+problemas con un parche marcado como TBR, los problemas deben solucionarse lo antes posible
+como sea posible.
 
-Wait for Cirrus to give the green light before merging a PR. Cirrus
-runs a bunch of precommit checks (see the tests for the
+Espere a que Cirrus le dé luz verde antes de fusionar un RP. Cirro
+ejecuta un montón de verificaciones previas (vea las pruebas para el
 [framework](https://github.com/flutter/flutter/blob/master/dev/bots/test.dart),
-the [engine](https://github.com/flutter/engine/blob/master/ci/build.sh),
-and the website).
-These checks include checks on comments, so make sure you wait for the
-green light even if your patch is _obviously_ fine!
+el [motor](https://github.com/flutter/engine/blob/master/ci/build.sh),
+y el sitio web).
+Estas verificaciones incluyen verificaciones en los comentarios, así que asegúrese de esperar a que
+luz verde incluso si su parche es _obviamente_ bien!
 
-For the engine repository, Travis
-does not actually _build_ the engine, so you should make sure to do
-that locally first too before checking anything in.
+Para el repositorio del motor, Travis
+en realidad no construye el motor, por lo que debes asegurarte de hacerlo
+que localmente primero también antes de registrar algo.
 
-Make sure all the trees and dashboards are green before checking in:
-the [infra waterfall](https://build.chromium.org/p/client.flutter/waterfall),
-our [Cirrus dashboard](https://cirrus-ci.com/github/flutter/flutter/master),
-our [test dashboard](https://flutter-dashboard.appspot.com/build.html), and
-our [benchmarks dashboard](https://flutter-dashboard.appspot.com/benchmarks.html) (Google-only, sorry).
+Asegúrese de que todos los árboles y tableros estén verdes antes de registrarse:
+el [cascada infra](https://build.chromium.org/p/client.flutter/waterfall),
+nuestro [Tablero de cirros](https://cirrus-ci.com/github/flutter/flutter/master),
+nuestro [tablero de prueba](https://flutter-dashboard.appspot.com/build.html), and
+nuestro [tablero de puntos de referencia](https://flutter-dashboard.appspot.com/benchmarks.html) (Google-only, sorry).
 
-**If the trees or dashboards are showing any regressions, only fixes
-that improve the situation are allowed to go in.**
+**Si los árboles o tableros muestran alguna regresión, solo corrige
+Que mejoren la situación se les permite entrar.**
 
-## Handling breaking changes
+## Manejo de cambios de última hora.
 
-We're attempting to stablize the APIs for the
-[packages in the SDK](https://github.com/flutter/flutter/tree/master/packages).
-To make a change that will require developers to change their code:
+Estamos intentando estabilizar las API para el
+[paquetes en el SDK](https://github.com/flutter/flutter/tree/master/packages).
+Para hacer un cambio que requerirá que los desarrolladores cambien su código:
 
- 1. File an issue or create a pull request with the `severe: API break`
-    label.
+ 1. Archivo de un problema o crear una solicitud de extracción con el `severo: API break`
+    etiqueta.
 
- 2. Send an e-mail to <mailto:flutter-announce@googlegroups.com> to socialize
-    your proposed change. The purpose of this e-mail is to see if you can
-    get consensus around your change. **You are not telling people that
-    the change will happen, you are asking them for permission.**
-    The e-mail should include the following:
+ 2. Enviar un correo electrónico a <mailto:flutter-announce@googlegroups.com> socializar
+    Su cambio propuesto. El propósito de este correo electrónico es ver si puede
+    obtener consenso en torno a su cambio. ** No le estás diciendo a la gente que
+    el cambio ocurrirá, usted les está pidiendo permiso. **
+    El correo electrónico debe incluir lo siguiente:
 
-    - A subject line that clearly summarises the proposed change and sounds like it
-      matters (so that people can spot these e-mails among the noise). Prefix
-      the subject line with `[Breaking Change]`.
+    - Una línea de asunto que resume claramente el cambio propuesto y suena así
+      asuntos (para que las personas puedan detectar estos correos electrónicos entre el ruido). Prefijo
+      la línea de asunto con `[Cambio de ruptura]`.
 
-    - A summary of each change you propose.
+    - Un resumen de cada cambio que usted proponga.
 
-    - A brief justification for the change.
+    - Una breve justificación del cambio.
 
-    - A link to the issue you filed in step 1, and any PRs you may have already
-      posted relating to this change.
+    - Un enlace al problema que archivó en el paso 1, y cualquier RP que pueda tener
+      publicado en relación con este cambio.
 
-    - Clear mechanical steps for porting the code from the old form to the new
-      form, if possible. If not possible, clear steps for figuring out how to
-      port the code.
+    - Pasos mecánicos claros para trasladar el código de la forma antigua a la nueva.
+      forma, si es posible. Si no es posible, pasos claros para averiguar cómo
+      portar el código.
 
-    - A sincere offer to help port code, which includes the preferred venue for
-      contacting the person who made the change.
+    - Una oferta sincera para ayudar al código de puerto, que incluye el lugar preferido para
+      contactando a la persona que hizo el cambio.
 
-    - A request that people notify you if this change will be a problem,
-      perhaps by discussing the change in the issue tracker on the pull request.
+    - Una solicitud para que las personas le notifiquen si este cambio será un problema.
+      quizás discutiendo el cambio en el rastreador de problemas en la solicitud de extracción.
 
- 3. **If folks agree that the benefits of changing the API outweigh the stablity
-    costs**, you can proceed with the normal code review process for making
-    changes. You should leave some time between steps 2 and 3 (at a bare minimum
-    24 hours during the work week so that people in all time zones have had a
-    chance to see it, but ideally a week or so).
+ 3. **Si la gente está de acuerdo en que los beneficios de cambiar la API superan a la estabilidad
+    costos**, Puede continuar con el proceso normal de revisión de código para hacer
+    cambios Debe dejar algo de tiempo entre los pasos 2 y 3 (como mínimo
+    24 horas durante la semana laboral para que las personas en todas las zonas horarias hayan tenido una
+    posibilidad de verlo, pero idealmente una semana más o menos).
 
- 4. If you landed a breaking change, add a bullet point to the top section of
-    the [Changelog page on the wiki](https://github.com/flutter/flutter/wiki/Changelog),
-    describing your change and
-    linking to your e-mail in [the mailing list archives](https://groups.google.com/forum/#!forum/flutter-dev).
-    To figure out the correct version heading for the changelog run
-    `git fetch upstream && flutter --version`. For example, if it says
-    "Flutter 0.0.23-pre.10" in the output your changelog entry should be under
-    heading "Changes since 0.0.22".
+ 4. Si obtuviste un cambio de ruptura, agrega un punto de bala a la sección superior de
+    la [Página de registro de cambios en la wiki](https://github.com/flutter/flutter/wiki/Changelog),
+    describiendo su cambio y
+    enlazando a su correo electrónico en [los archivos de la lista de correo](https://groups.google.com/forum/#!forum/flutter-dev).
+    Para averiguar el rumbo de la versión correcta para la ejecución del registro de cambios
+    `git fetch aguas arriba && flutter --version`. Por ejemplo, si dice
+    "Flutter 0.0.23-pre.10" en la salida en la que debe estar su entrada de registro de cambios
+    Título "Cambios desde 0.0.22".
 
-Where possible, even "breaking" changes should be made in a backwards-compatible way,
-for example by introducing a new class and marking the old class `@deprecated`. When
-doing this, include a description of how to transition in the deprecation notice, for
-example:
+Cuando sea posible, incluso los cambios de "ruptura" deben realizarse de forma compatible con versiones anteriores,
+por ejemplo, introduciendo una nueva clase y marcando la clase antigua `@ deprecated`. Cuando
+al hacer esto, incluya una descripción de cómo hacer la transición en el aviso de desaprobación, para
+ejemplo:
 
 <!-- skip -->
 ```dart
-@Deprecated('FooInterface has been deprecated because ...; it is recommended that you transition to the new FooDelegate.')
+@Deprecated('FooInterface ha quedado en desuso porque ...; Se recomienda que hagas la transición al nuevo FooDelegate..')
 class FooInterface {
   /// ...
 }
 ```
 
-If you use `@deprecated`, make sure to remember to actually remove the feature a few
-months later (after the next stable release), do not just leave it forever!
+Si usa `@ deprecated`, asegúrese de recordar eliminar realmente la función unos cuantos
+Meses después (después del próximo lanzamiento estable), ¡no lo dejes para siempre!
 
 
-### Google-only responsibilities
+### Responsabilidades solo de Google
 
-If you work for Google, you have the added responsibility of updating Google's
-internal copy of Flutter and fixing any broken call-sites reasonably quickly
-after merging the upstream change.
+Si trabajas para Google, tienes la responsabilidad adicional de actualizar Google
+Copia interna de Flutter y reparación de cualquier sitio de llamada roto razonablemente rápido
+después de fusionar el cambio aguas arriba.
 
-## Bugs
+## Errores
 
-Only assign a bug to yourself when you are actively working on it. If
-you're not working on it, leave it unassigned. Don't assign bugs to
-people unless you know they are going to work on it. If you find
-yourself with bugs assigned that you are not going to be working on in
-the very near future, unassign the bug so that other people feel
-empowered to work on them.
+Solo asignate un error a ti mismo cuando estés trabajando activamente en ello. Si
+No estás trabajando en ello, déjalo sin asignar. No asignar errores a
+Personas a menos que sepan que van a trabajar en ello. Si tu encuentras
+usted mismo con los errores asignados que no va a estar trabajando en
+En un futuro muy cercano, desasigne el error para que otras personas se sientan
+facultado para trabajar en ellos.
 
-You may hear team members refer to "licking the cookie". Assigning a
-bug to yourself, or otherwise indicating that you will work on it,
-tells others on the team to not fix it. If you then don't work on it
-straight away, you are acting like someone who has taken a cookie,
-licked it to unappetising to other people, and then not eaten it right
-away. By extension, "unlicking the cookie" means indicating to the
-rest of the team that you are not actually going to work on the bug
-right away after all, e.g. by unassigning the bug from yourself.
+Es posible que escuche a los miembros del equipo referirse a "lamer la cookie". Asignando un
+error para usted mismo, o indicando que trabajará en él,
+le dice a otros en el equipo que no lo arreglen. Si luego no trabajas en ello
+De inmediato, estás actuando como alguien que ha tomado una galleta.
+lo lamí para que no fuera apetecible para otras personas, y luego no lo comí bien
+lejos. Por extensión, "descomprimir la cookie" significa indicar a la
+El resto del equipo que realmente no va a trabajar en el error
+enseguida después de todo, por ejemplo por desasignar el error de ti mismo.
 
-File bugs for anything that you come across that needs doing. When you
-implement something but know it's not complete, file bugs for what you
-haven't done. That way, we can keep track of what still needs doing.
+Archivo de errores para cualquier cosa que te encuentres que necesita hacer. Cuando tú
+implementa algo pero sabe que no está completo, archiva los errores de lo que
+no he hecho De esa manera, podemos hacer un seguimiento de lo que aún se necesita hacer.
 
-## Regressions
+## Regresiones
 
-If a check-in has caused a regression on the trunk, roll back the
-check-in (even if it isn't yours) unless doing so would take longer
-than fixing the bug. When the trunk is broken, it slows down everyone
-else on the project.
+Si un check-in ha provocado una regresión en el tronco, restaure el
+check-in (incluso si no es tuyo) a menos que hacerlo tomaría más tiempo
+que arreglar el error. Cuando el tronco se rompe, ralentiza a todos
+otra cosa en el proyecto.
 
-If things are broken, the priority of everyone on the team should be
-helping the team fix the problem. Someone should own the issue, and
-they can delegate responsibilities to others on the team. Once the
-problem is resolved, write a
+Si las cosas se rompen, la prioridad de todos en el equipo debe ser
+ayudando al equipo a solucionar el problema Alguien debería ser dueño del problema, y
+pueden delegar responsabilidades a otros en el equipo. Una vez el
+problema resuelto, escribe un
 [post-mortem](https://github.com/flutter/flutter/wiki/Postmortems).
-Postmortems are about documenting what went wrong and how to avoid the
-problem (and the entire class of problems like it) from recurring in
-the future. Postmortems are emphatically _not_ about assigning blame.
+Los postmortems tratan de documentar lo que salió mal y cómo evitar la
+problema (y toda la clase de problemas como él) de recurrente en
+el futuro. Los postmortems no son enfáticamente sobre la asignación de la culpa.
 
-There is no shame in making mistakes.
+No hay vergüenza en cometer errores.
 
-## Questions
+## Preguntas
 
-It's always ok to ask questions. Our systems are large, nobody will be
-an expert in all the systems.
+Siempre está bien hacer preguntas. Nuestros sistemas son grandes, nadie será
+Un experto en todos los sistemas.
 
-## Conflict resolution
+## La resolución de conflictos
 
-When multiple contributors disagree on the direction for a particular
-patch or the general direction of the project, the conflict should be
-resolved by communication. The people who disagree should get together,
-try to understand each other's points of view, and work to find a design
-that addresses everyone's concerns.
+Cuando varios contribuyentes no están de acuerdo en la dirección de un determinado
+parche o la dirección general del proyecto, el conflicto debe ser
+Resuelto por la comunicación. Las personas que no están de acuerdo deben reunirse,
+tratar de entender los puntos de vista de los demás y trabajar para encontrar un diseño
+que aborda las preocupaciones de todos.
 
-This is usually sufficient to resolve issues. If you cannot come to an
-agreement, ask for the advice of a more senior member of the team.
+Esto suele ser suficiente para resolver problemas. Si no puedes venir a un
+acuerdo, solicite el consejo de un miembro de mayor rango del equipo.
 
-Be wary of agreement by attrition, where one person argues a point repeatedly
-until other participants give up in the interests of moving on. This is
-not conflict resolution, as it does not address everyone's concerns. Be wary
-of agreement by compromise, where two good competing solutions are merged
-into one mediocre solution. A conflict is addressed when the participants
-agree that the final solution is _better_ than all the conflicting proposals.
-Sometimes the solution is more work than either of the proposals. Please
-see the comments above where we introduce the phrase "embrace the yak shave".
+Desconfíe del acuerdo por desgaste, donde una persona discute un punto repetidamente
+hasta que otros participantes se den por vencidos por seguir adelante. Esto es
+No resolución de conflictos, ya que no aborda las preocupaciones de todos. Sé cauteloso
+de acuerdo por compromiso, donde se fusionan dos buenas soluciones de la competencia
+en una solución mediocre. Se aborda un conflicto cuando los participantes.
+acuerde que la solución final es mejor que todas las propuestas en conflicto.
+A veces la solución es más trabajo que cualquiera de las propuestas. Por favor
+vea los comentarios anteriores donde presentamos la frase "abrazar el afeitado de yak".
 
-## Code of conduct
+## Código de Conducta
 
-This section is the last section in this document because it should be
-the most obvious. However, it is also the most important.
+Esta sección es la última sección de este documento porque debe ser
+lo mas obvio. Sin embargo, también es el más importante.
 
-We expect Flutter's contributors to act professionally and respectfully, and
-we expect our social spaces to be safe and dignified environments.
+Esperamos que los colaboradores de Flutter actúen profesionalmente y con respeto, y
+Esperamos que nuestros espacios sociales sean ambientes seguros y dignos.
 
-Specifically:
+Específicamente:
 
-* Respect people, their identities, their culture, and their work.
-* Be kind. Be courteous. Be welcoming.
-* Listen. Consider and acknowledge people's points before responding.
+* Respetar a las personas, sus identidades, su cultura y su trabajo.
+* Se amable. Sé cortés. Se acogedor
+* Escucha. Considerar y reconocer los puntos de la gente antes de responder.
 
-Should you experience anything that makes you feel unwelcome in Flutter's
-community, please contact someone on the team, for instance
-[Ian](mailto:ian@hixie.ch) or [Tim](mailto:timsneath@google.com). We will
-not tolerate harrasment from anyone in Flutter's community, even outside
-of Flutter's public communication channels.
+En caso de que experimentes algo que te haga sentir incómodo en Flutter's
+comunidad, por favor contacte a alguien en el equipo, por ejemplo
+[Ian](mailto:ian@hixie.ch) o [Tim](mailto:timsneath@google.com). Lo haremos
+no tolerar el acoso de nadie en la comunidad de Flutter, incluso fuera
+De los canales de comunicación pública de Flutter.
