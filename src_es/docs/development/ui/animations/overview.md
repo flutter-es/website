@@ -1,301 +1,301 @@
 ---
-title: Animations overview
-short-title: Overview
-description: An overview of animation concepts
+title: Visión general de animaciones
+short-title: Visión general
+description: Una visión general de los conceptos de animación.
 ---
 
-The animation system in Flutter is based on typed
+El sistema de animación en Flutter está basado en mecanografiado del objeto
 [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html)
-objects. Widgets can either incorporate these animations in their build
-functions directly by reading their current value and listening to their
-state changes or they can use the animations as the basis of more elaborate
-animations that they pass along to other widgets.
+Los widgets pueden incorporar estas animaciones en su compilación.
+funciona directamente leyendo su valor actual y escuchando su
+cambios de estado o pueden utilizar las animaciones como la base de más elaborados
+Animaciones que pasan a otros widgets.
 
-## Animation
+## Animación
 
-The primary building block of the animation system is the
+El bloque de construcción principal del sistema de animación es el
 [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html)
-class.  An animation represents a value of a specific type that can change
-over the lifetime of the animation. Most widgets that perform an animation
-receive an `Animation` object as a parameter, from which they read the current
-value of the animation and to which they listen for changes to that value.
+clase. Una animación representa un valor de un tipo específico que puede cambiar
+A lo largo de la vida de la animación. La mayoría de los widgets que realizan una animación.
+recibir un objeto `Animation` como parámetro, desde el cual leen el actual
+Valor de la animación y a la que escuchan los cambios en ese valor.
 
 ### `addListener`
 
-Whenever the animation's value changes, the animation notifies all the
-listeners added with
+Cada vez que cambia el valor de la animación, la animación notifica a todos los
+oyentes añadidos con
 [`addListener`](https://docs.flutter.io/flutter/animation/Animation/addListener.html).
-Typically, a [`State`](https://docs.flutter.io/flutter/widgets/State-class.html)
-object that listens to an animation will call
-[`setState`](https://docs.flutter.io/flutter/widgets/State/setState.html) on
-itself in its listener callback to notify the widget system that it needs to
-rebuild with the new value of the animation.
+Normalmente, un [`Estado`](https://docs.flutter.io/flutter/widgets/State-class.html)
+Objeto que escucha una animación llamará
+[`setState`](https://docs.flutter.io/flutter/widgets/State/setState.html) en
+en su devolución de llamada del oyente para notificar al sistema de widgets que necesita
+Reconstruir con el nuevo valor de la animación.
 
-This pattern is so common that there are two widgets that help widgets rebuild
-when animations change value:
+Este patrón es tan común que hay dos widgets que ayudan a reconstruir los widgets
+cuando las animaciones cambian de valor:
 [`AnimatedWidget`](https://docs.flutter.io/flutter/widgets/AnimatedWidget-class.html)
-and
+y
 [`AnimatedBuilder`](https://docs.flutter.io/flutter/widgets/AnimatedBuilder-class.html).
-The first, `AnimatedWidget`, is most useful for stateless animated widgets.
-To use `AnimatedWidget`, simply subclass it and implement the
+El primero, `AnimatedWidget`, es más útil para widgets sin estado y animados.
+Para usar `AnimatedWidget`, simplemente subclasifique e implemente el
 [`build`](https://docs.flutter.io/flutter/widgets/AnimatedWidget/build.html)
-function. The second, `AnimatedBuilder`, is useful for more complex widgets
-that wish to include an animation as part of a larger build function. To use
-`AnimatedBuilder`, simply construct the widget and pass it a `builder` function.
+función. El segundo, `AnimatedBuilder`, es útil para widgets más complejos
+que desean incluir una animación como parte de una función de compilación más grande. Usar
+`AnimatedBuilder`, simplemente construye el widget y pásalo una función` builder`.
 
 ### `addStatusListener`
 
-Animations also provide an
+Las animaciones también proporcionan una
 [`AnimationStatus`](https://docs.flutter.io/flutter/animation/AnimationStatus-class.html),
-which indicates how the animation will evolve over time. Whenever the animation's
-status changes, the animation notifies all the listeners added with
+lo que indica cómo la animación evolucionará con el tiempo. Siempre que la animación sea de
+cambios de estado, la animación notifica a todos los oyentes agregados con
 [`addStatusListener`](https://docs.flutter.io/flutter/animation/Animation/addStatusListener.html).
-Typically, animations start out in the `dismissed` status, which means they're
-at the beginning of their range. For example, animations that progress from 0.0
-to 1.0 will be `dismissed` when their value is 0.0. An animation might then run
-`forward` (e.g., from 0.0 to 1.0) or perhaps in `reverse` (e.g., from 1.0 to
-0.0). Eventually, if the animation reaches the end of its range (e.g., 1.0), the
-animation reaches the `completed` status.
+Normalmente, las animaciones comienzan en el estado `descartado ', lo que significa que son
+Al comienzo de su gama. Por ejemplo, animaciones que progresan desde 0.0.
+a 1.0 será 'descartado' cuando su valor sea 0.0. Entonces podría correr una animación.
+`forward` (por ejemplo, de 0.0 a 1.0) o tal vez en` reverse` (por ejemplo, de 1.0 a 1.0)
+0.0). Finalmente, si la animación llega al final de su rango (por ejemplo, 1.0), la animación
+la animación alcanza el estado `completado`.
 
 ## AnimationController
 
-To create an animation, first create an
+Para crear una animación, primero crea una
 [`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html).
-As well as being an animation itself, an `AnimationController` lets you control
-the animation. For example, you can tell the controller to play the animation
+Además de ser una animación en sí misma, un `AnimationController 'te permite controlar
+la animación. Por ejemplo, puedes decirle al controlador que reproduzca la animación.
 [`forward`](https://docs.flutter.io/flutter/animation/AnimationController/forward.html)
-or [`stop`](https://docs.flutter.io/flutter/animation/AnimationController/stop.html)
-the animation. You can also [`fling`](https://docs.flutter.io/flutter/animation/AnimationController/fling.html)
-animations, which uses a physical simulation, such as a spring, to drive the
-animation.
+o [`stop`](https://docs.flutter.io/flutter/animation/AnimationController/stop.html)
+la animación. También puede [`fling`](https://docs.flutter.io/flutter/animation/AnimationController/fling.html)
+animaciones, que utiliza una simulación física, como un resorte, para impulsar el
+animación.
 
-Once you've created an animation controller, you can start building other
-animations based on it. For example, you can create a
+Una vez que haya creado un controlador de animación, puede comenzar a construir otros
+Animaciones basadas en él. Por ejemplo, puede crear un
 [`ReverseAnimation`](https://docs.flutter.io/flutter/animation/ReverseAnimation-class.html)
-that mirrors the original animation but runs in the opposite direction (e.g.,
-from 1.0 to 0.0). Similarly, you can create a
+que refleja la animación original pero se ejecuta en la dirección opuesta (por ejemplo,
+de 1.0 a 0.0). Del mismo modo, puede crear un
 [`CurvedAnimation`](https://docs.flutter.io/flutter/animation/CurvedAnimation-class.html)
-whose value is adjusted by a [curve](https://docs.flutter.io/flutter/animation/Curves-class.html).
+cuyo valor se ajusta mediante una [curva](https://docs.flutter.io/flutter/animation/Curves-class.html).
 
 ## Tweens
 
-To animate beyond the 0.0 to 1.0 interval, you can use a
-[`Tween<T>`](https://docs.flutter.io/flutter/animation/Tween-class.html), which
-interpolates between its
+Para animar más allá del intervalo de 0.0 a 1.0, puede usar un
+[`Tween <T>`](https://docs.flutter.io/flutter/animation/Tween-class.html), que
+interpola entre sus
 [`begin`](https://docs.flutter.io/flutter/animation/Tween/begin.html)
-and [`end`](https://docs.flutter.io/flutter/animation/Tween/end.html)
-values. Many types have specific `Tween` subclasses that provide type-specific
-interpolation. For example,
+y [`end`](https://docs.flutter.io/flutter/animation/Tween/end.html)
+valores. Muchos tipos tienen subclases `Tween` específicas que proporcionan tipos específicos
+interpolación. Por ejemplo,
 [`ColorTween`](https://docs.flutter.io/flutter/animation/ColorTween-class.html)
-interpolates between colors and
+Interpola entre colores y
 [`RectTween`](https://docs.flutter.io/flutter/animation/RectTween-class.html)
-interpolates between rects. You can define your own interpolations by creating
-your own subclass of `Tween` and overriding its
+Interpola entre rectas. Puedes definir tus propias interpolaciones creando
+tu propia subclase de `Tween` y anulando su
 [`lerp`](https://docs.flutter.io/flutter/animation/Tween/lerp.html)
-function.
+función.
 
-By itself, a tween just defines how to interpolate between two values. To get
-a concrete value for the current frame of an animation, you also need an
-animation to determine the current state. There are two ways to combine a tween
-with an animation to get a concrete value:
+Por sí misma, una interpolación simplemente define cómo interpolar entre dos valores. Llegar
+un valor concreto para el cuadro actual de una animación, también necesita un
+Animación para determinar el estado actual. Hay dos formas de combinar una interpolación.
+Con una animación para obtener un valor concreto:
 
-1. You can [`evaluate`](https://docs.flutter.io/flutter/animation/Tween/evaluate.html)
-   the tween at the current value of an animation. This approach is most useful
-   for widgets that are already listening to the animation and hence
-   rebuilding whenever the animation changes value.
+1. Puede [`evaluar`](https://docs.flutter.io/flutter/animation/Tween/evaluate.html)
+   la interpolación en el valor actual de una animación. Este enfoque es el más útil.
+   para widgets que ya están escuchando la animación y por lo tanto
+   reconstruir cada vez que la animación cambia de valor.
 
-2. You can [`animate`](https://docs.flutter.io/flutter/animation/Animatable/animate.html)
-   the tween based on the animation. Rather than returning a single value, the
-   animate function returns a new `Animation` that incorporates the tween. This
-   approach is most useful when you want to give the newly created animation to
-   another widget, which can then read the current value that incorporates
-   the tween as well as listen for changes to the value.
+2. Puedes [`animate`](https://docs.flutter.io/flutter/animation/Animatable/animate.html)
+   La interpolación basada en la animación. En lugar de devolver un solo valor, el
+   La función animar devuelve un nuevo `Animación` que incorpora la interpolación. Esta
+   El enfoque es más útil cuando se quiere dar la animación recién creada a
+   Otro widget, que luego puede leer el valor actual que incorpora
+   la interpolación, así como escuchar los cambios en el valor.
 
-# Architecture
+# Arquitectura
 
-Animations are actually built from a number of core building blocks.
+Las animaciones en realidad se construyen a partir de una serie de elementos básicos.
 
-## Scheduler
+## Sheduler
 
-The
+los
 [`SchedulerBinding`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding-class.html)
-is a singleton class that exposes the Flutter scheduling primitives.
+es una clase singleton que expone las primitivas de planificación de Flutter.
 
-For this discussion, the key primitive is the frame callbacks. Each
-time a frame needs to be shown on the screen, Flutter's engine
-triggers a "begin frame" callback which the scheduler multiplexes to
-all the listeners registered using
+Para esta discusión, la clave primitiva son las devoluciones de llamada de marco. Cada
+el tiempo que se necesita mostrar un cuadro en la pantalla, el motor de Flutter
+activa una devolución de llamada de "cuadro inicial" que el planificador multiplexa
+todos los oyentes registrados usando
 [`scheduleFrameCallback()`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding/scheduleFrameCallback.html).
-All these callbacks are given the official time stamp of the frame, in
-the form of a `Duration` from some arbitrary epoch. Since all the
-callbacks have the same time, any animations triggered from these
-callbacks will appear to be exactly synchronised even if they take a
-few milliseconds to be executed.
+Todas estas devoluciones de llamada reciben la marca de tiempo oficial del marco, en
+La forma de una "Duración" de alguna época arbitraria. Ya que todos los
+las devoluciones de llamada tienen el mismo tiempo, las animaciones activadas de estos
+Las devoluciones de llamada aparecerán exactamente sincronizadas incluso si toman una
+Pocos milisegundos para ser ejecutados.
 
 ## Tickers
 
-The
+los
 [`Ticker`](https://docs.flutter.io/flutter/scheduler/Ticker-class.html)
-class hooks into the scheduler's
+clase engancha en el programador
 [`scheduleFrameCallback()`](https://docs.flutter.io/flutter/scheduler/SchedulerBinding/scheduleFrameCallback.html)
-mechanism to invoke a callback every tick.
+Mecanismo para invocar una devolución de llamada cada tick.
 
-A `Ticker` can be started and stopped. When started, it returns a
-`Future` that will resolve when it is stopped.
+Un 'Ticker' se puede iniciar y detener. Cuando se inicia, devuelve un
+'Futuro' que se resolverá cuando se detenga.
 
-Each tick, the `Ticker` provides the callback with the duration since
-the first tick after it was started.
+Cada marca, el 'Ticker' proporciona la devolución de llamada con la duración desde
+La primera marca después de que se inició.
 
-Because tickers always give their elapsed time relative to the first
-tick after they were started, tickers are all synchronised. If you
-start three ticks at different times between two frames, they will all
-nonetheless be synchronised with the same starting time, and will
-subsequently tick in lockstep.
+Porque los tickers siempre dan su tiempo transcurrido en relación al primero.
+tick después de que se iniciaron, todos los tickers están sincronizados. Si tu
+iniciar tres tics en diferentes momentos entre dos cuadros, todos ellos
+no obstante, se sincronizará con la misma hora de inicio y
+posteriormente marque en el paso.
 
-## Simulations
+## Simulaciones
 
-The
+los
 [`Simulation`](https://docs.flutter.io/flutter/physics/Simulation-class.html)
-abstract class maps a relative time value (an elapsed time) to a
-double value, and has a notion of completion.
+clase abstracta asigna un valor de tiempo relativo (un tiempo transcurrido) a un
+Doble valor, y tiene una noción de terminación.
 
-In principle simulations are stateless but in practice some simulations
-(for example,
-[`BouncingScrollSimulation`](https://docs.flutter.io/flutter/widgets/BouncingScrollSimulation-class.html) and
+En principio, las simulaciones son apátridas pero en la práctica algunas simulaciones
+(por ejemplo,
+[`BouncingScrollSimulation`](https://docs.flutter.io/flutter/widgets/BouncingScrollSimulation-class.html) y
 [`ClampingScrollSimulation`](https://docs.flutter.io/flutter/widgets/ClampingScrollSimulation-class.html))
-change state irreversibly when queried.
+cambio de estado irreversible cuando se consulta.
 
-There are [various concrete implementations](https://docs.flutter.io/flutter/physics/physics-library.html)
-of the `Simulation` class for different effects.
+Hay [varias implementaciones concretas](https://docs.flutter.io/flutter/physics/physics-library.html)
+de la clase `Simulation` para diferentes efectos.
 
-## Animatables
+## animables
 
-The
+los
 [`Animatable`](https://docs.flutter.io/flutter/animation/Animatable-class.html)
-abstract class maps a double to a value of a particular type.
+clase abstracta asigna un doble a un valor de un tipo particular.
 
-`Animatable` classes are stateless and immutable.
+Las clases `animables` son apátridas e inmutables.
 
 ### Tweens
 
-The
+los
 [`Tween`](https://docs.flutter.io/flutter/animation/Tween-class.html)
-abstract class maps a double value nominally in the range 0.0-1.0 to a
-typed value (e.g. a `Color`, or another double). It is an
+clase abstracta asigna un valor doble nominalmente en el rango de 0.0-1.0 a un
+valor escrito (por ejemplo, un `Color`, u otro doble). Es un
 `Animatable`.
 
-It has a notion of an output type (`T`), a `begin` value and an `end`
-value of that type, and a way to interpolate (`lerp`) between the
-begin and end values for a given input value (the double nominally in
-the range 0.0-1.0).
+Tiene una noción de un tipo de salida (`T`), un valor de` begin` y un `end`
+valor de ese tipo, y una manera de interpolar (`lerp`) entre
+valores iniciales y finales para un valor de entrada dado (el doble nominalmente en
+el rango 0.0-1.0).
 
-`Tween` classes are stateless and immutable.
+Las clases `tween` son apátridas e inmutables.
 
-### Composing animatables
+### Componiendo animatables
 
-Passing an `Animatable<double>` (the parent) to an `Animatable`'s
-`chain()` method creates a new `Animatable` subclass that applies the
-parent's mapping then the child's mapping.
+Pasando un `Animatable <double>` (el padre) a un `Animatable`'s
+El método `chain ()` crea una nueva subclase `Animatable` que aplica la
+mapeo de los padres luego mapeo del niño.
 
-## Curves
+## Curvas
 
-The
-[`Curve`](https://docs.flutter.io/flutter/animation/Curve-class.html)
-abstract class maps doubles nominally in the range 0.0-1.0 to doubles
-nominally in the range 0.0-1.0.
+los
+[`Curve`] (https://docs.flutter.io/flutter/animation/Curve-class.html)
+los mapas abstractos de clase se duplican nominalmente en el rango de 0.0-1.0 a dobles
+nominalmente en el rango de 0.0-1.0.
 
-`Curve` classes are stateless and immutable.
+Las clases de 'curva' son apátridas e inmutables.
 
-## Animations
+## Animaciones
 
-The
+los
 [`Animation`](https://docs.flutter.io/flutter/animation/Animation-class.html)
-abstract class provides a value of a given type, a concept of
-animation direction and animation status, and a listener interface to
-register callbacks that get invoked when the value or status change.
+clase abstracta proporciona un valor de un tipo dado, un concepto de
+Dirección de animación y estado de animación, y una interfaz de escucha para
+registrar devoluciones de llamada que se invocan cuando cambia el valor o el estado.
 
-Some subclasses of `Animation` have values that never change
+Algunas subclases de `Animation` tienen valores que nunca cambian
 ([`kAlwaysCompleteAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysCompleteAnimation-constant.html),
 [`kAlwaysDismissedAnimation`](https://docs.flutter.io/flutter/animation/kAlwaysDismissedAnimation-constant.html),
 [`AlwaysStoppedAnimation`](https://docs.flutter.io/flutter/animation/AlwaysStoppedAnimation-class.html));
-registering callbacks on these has no effect as the callbacks are
-never called.
+el registro de devoluciones de llamada en estos no tiene efecto ya que las devoluciones de llamada son
+nunca llamado
 
-The `Animation<double>` variant is special because it can be used to
-represent a double nominally in the range 0.0-1.0, which is the input
-expected by `Curve` and `Tween` classes, as well as some further
-subclasses of `Animation`.
+La variante `Animation <double>` es especial porque puede usarse para
+representa un doble nominalmente en el rango de 0.0-1.0, que es la entrada
+esperado por las clases `Curve` y` Tween`, así como algunas más
+subclases de `animacion`.
 
-Some `Animation` subclasses are stateless, merely forwarding listeners
-to their parents. Some are very stateful.
+Algunas subclases `Animation` son sin estado, simplemente enviando oyentes
+a sus padres. Algunos son muy con estado.
 
-### Composable animations
+### Animaciones compostables
 
-Most `Animation` subclasses take an explicit "parent"
-`Animation<double>`. They are driven by that parent.
+La mayoría de las subclases `Animación` toman un" padre "explícito
+`Animación <double>`. Ellos son conducidos por ese padre.
 
-The `CurvedAnimation` subclass takes an `Animation<double>` class (the
-parent) and a couple of `Curve` classes (the forward and reverse
-curves) as input, and uses the value of the parent as input to the
-curves to determine its output. `CurvedAnimation` is immutable and
-stateless.
+La subclase `CurvedAnimation` toma una clase` Animation <double> `(la
+padre) y un par de clases `Curve` (el avance y el reverso
+curvas) como entrada, y utiliza el valor del padre como entrada para el
+Curvas para determinar su salida. 'CurvedAnimation' es inmutable y
+apátrida.
 
-The `ReverseAnimation` subclass takes an `Animation<double>` class as
-its parent and reverses all the values of the animation. It assumes
-the parent is using a value nominally in the range 0.0-1.0 and returns
-a value in the range 1.0-0.0. The status and direction of the parent
-animation are also reversed. `ReverseAnimation` is immutable and
-stateless.
+La subclase `ReverseAnimation` toma una clase` Animation <double> `como
+Es padre e invierte todos los valores de la animación. Asume
+el padre está usando un valor nominalmente en el rango de 0.0-1.0 y devuelve
+un valor en el rango de 1.0-0.0. El estado y dirección del padre.
+La animación también se invierte. `ReverseAnimation` es inmutable y
+apátrida.
 
-The `ProxyAnimation` subclass takes an `Animation<double>` class as
-its parent and merely forwards the current state of that parent.
-However, the parent is mutable.
+La subclase `ProxyAnimation` toma una clase` Animation <double> `como
+su padre y simplemente reenvía el estado actual de ese padre.
+Sin embargo, el padre es mutable.
 
-The `TrainHoppingAnimation` subclass takes two parents, and switches
-between them when their values cross.
+La subclase `TrainHoppingAnimation` toma dos padres, y cambia
+entre ellos cuando sus valores se cruzan.
 
-### Animation Controllers
+### Controladores de animacion
 
-The
-[`AnimationController`](https://docs.flutter.io/flutter/animation/AnimationController-class.html)
-is stateful `Animation<double>` that uses a `Ticker` to give itself
-life. It can be started and stopped. Each tick, it takes the time
-elapsed since it was started and passes it to a `Simulation` to obtain
-a value. That is then the value it reports. If the `Simulation`
-reports that at that time it has ended, then the controller stops
-itself.
+los
+[`AnimationController`] (https://docs.flutter.io/flutter/animation/AnimationController-class.html)
+es un estado `Animation <double>` que usa un `Ticker` para darse a sí mismo
+vida. Se puede iniciar y detener. Cada tick, toma el tiempo.
+transcurrió desde que se inició y lo pasa a una 'Simulación' para obtener
+un valor. Ese es entonces el valor que reporta. Si la `simulación`
+informa que en ese momento ha finalizado, entonces el controlador se detiene
+sí mismo.
 
-The animation controller can be given a lower and upper bound to
-animate between, and a duration.
+Al controlador de animación se le puede asignar un límite inferior y superior a
+Animar entre, y una duración.
 
-In the simple case (using `forward()`, `reverse()`, `play()`, or
-`resume()`), the animation controller simply does a linear
-interpolation from the lower bound to the upper bound (or vice versa,
-for the reverse direction) over the given duration.
+En el caso simple (usando `forward ()`, `reverse ()`, `play ()`, o
+`resume ()`), el controlador de animación simplemente hace un lineal
+interpolación desde el límite inferior al límite superior (o viceversa,
+para la dirección inversa) sobre la duración dada.
 
-When using `repeat()`, the animation controller uses a linear
-interpolation between the given bounds over the given duration, but
-does not stop.
+Cuando se usa `repeat ()`, el controlador de animación usa un
+interpolación entre los límites dados sobre la duración dada, pero
+no para.
 
-When using `animateTo()`, the animation controller does a linear
-interpolation over the given duration from the current value to the
-given target. If no duration is given to the method, the default
-duration of the controller and the range described by the controller's
-lower bound and upper bound is used to determine the velocity of the
-animation.
+Cuando se usa `animateTo ()`, el controlador de animación realiza una
+interpolación sobre la duración dada desde el valor actual hasta el
+objetivo dado. Si no se le da una duración al método, el valor predeterminado es
+Duración del controlador y el rango descrito por el controlador.
+El límite inferior y el límite superior se utilizan para determinar la velocidad del
+animación.
 
-When using `fling()`, a `Force` is used to create a specific
-simulation which is then used to drive the controller.
+Cuando se usa `fling ()`, se usa un `Force` para crear un
+Simulación que luego se utiliza para conducir el controlador.
 
-When using `animateWith()`, the given simulation is used to drive the
-controller.
+Cuando se usa `animateWith ()`, la simulación dada se usa para conducir el
+controlador.
 
-These methods all return the future that the `Ticker` provides and
-which will resolve when the controller next stops or changes
-simulation.
+Todos estos métodos devuelven el futuro que el 'Ticker' proporciona y
+que se resolverá cuando el controlador se detenga o cambie a continuación
+simulación.
 
-### Attaching animatables to animations
+### Adjuntando animatables a animaciones
 
-Passing an `Animation<double>` (the new parent) to an `Animatable`'s
-`animate()` method creates a new `Animation` subclass that acts like
-the `Animatable` but is driven from the given parent.
+Pasando un `Animation <double>` (el nuevo padre) a un `Animatable`'s
+El método `animate ()` crea una nueva subclase `Animation` que actúa como
+el 'Animatable' pero es expulsado del padre dado.
