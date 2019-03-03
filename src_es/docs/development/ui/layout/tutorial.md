@@ -1,7 +1,7 @@
 ---
-title: Layout tutorial
+title: Tutorial de diseño
 short-title: Tutorial
-description: Learn how to build a layout.
+description: Aprende a construir un diseño.
 diff2html: true
 ---
 
@@ -13,34 +13,30 @@ diff2html: true
 <style>dl, dd { margin-bottom: 0; }</style>
 
 {{site.alert.secondary}}
-  <h4 class="no_toc">What you’ll learn</h4>
+  <h4 class="no_toc">Lo que aprenderás</h4>
 
-  * How Flutter's layout mechanism works.
-  * How to lay out widgets vertically and horizontally.
-  * How to build a Flutter layout.
+  * Cómo funciona el mecanismo de diseño de Flutter.
+  * Cómo distribuir los widgets verticalmente y horizontalmente.
+  * Cómo construir un diseño Flutter.
 {{site.alert.end}}
 
-This is a guide to building layouts in Flutter.
-You'll build the layout for the following app:
+Esta es una guía para construir diseños en Flutter. 
+Construirás el diseño para la siguiente aplicación:
 
 {% include app-figure.md img-class="site-mobile-screenshot border"
     image="ui/layout/lakes.jpg" caption="The finished app" %}
 
-This guide then takes a step back to explain Flutter's approach to layout,
-and shows how to place a single widget on the screen.
-After a discussion of how to lay widgets out horizontally and vertically,
-some of the most common layout widgets are covered.
+Esta guía da un paso atrás para explicar el enfoque de Flutter sobre el diseño y muestra cómo colocar un único widget en la pantalla. Después de una discusión sobre cómo colocar los widgets horizontalmente y verticalmente, se tratan algunos de los widgets de diseño más comunes.
 
-If you want a "big picture" understanding of the layout mechanism,
-start with [Flutter's approach to layout](/docs/development/ui/layout).
+Si deseas una visión general del mecanismo de diseño,
+comienza con el [enfoque de Flutter sobre el diseño](/docs/development/ui/layout).
 
-## Step 0: Create the app base code
+## Paso 0: Crear el código base de la aplicación
 
-Make sure you've [set up](/docs/get-started/install) your environment,
-then do the following:
+Asegúrate de haber [configurado](/docs/get-started/install) tu entorno y luego haz lo siguiente:
 
- 1. [Create a basic "Hello World" Flutter app][hello-world].
- 2. Change the app bar title and the app title as follows:
+ 1. [Crea una aplicación básica Flutter "Hello World"][hello-world].
+ 2. Cambia el título de la barra de aplicaciones y el título de la aplicación como sigue:
 
     <?code-excerpt "{codelabs/startup_namer/step1_base,layout/base}/lib/main.dart"?>
     ```diff
@@ -63,46 +59,44 @@ then do the following:
 
 [hello-world]: /docs/get-started/codelab#step-1-create-the-starter-flutter-app
 
-## Step 1: Diagram the layout
+## Paso 1: Diagramar el diseño
 
-The first step is to break the layout down to its basic elements:
+El primer paso es desglosar el diseño en sus elementos básicos:
 
-* Identify the rows and columns.
-* Does the layout include a grid?
-* Are there overlapping elements?
-* Does the UI need tabs?
-* Notice areas that require alignment, padding, or borders.
+* Identificar las filas y columnas.
+* ¿El diseño incluye una cuadrícula?
+* ¿Hay elementos que se superponen?
+* ¿Necesita pestañas la interfaz de usuario?
+* Observe las áreas que requieren alineación, padding o bordes.
 
-First, identify the larger elements. In this example, four elements are
-arranged into a column: an image, two rows, and a block of text.
+Primero, identifica los elementos más grandes. En este ejemplo, cuatro elementos están
+dispuestos en una columna: una imagen, dos filas y un bloque de texto.
 
 {% include app-figure.md img-class="site-mobile-screenshot border"
     image="ui/layout/lakes-column-elts.png" caption="Column elements (circled in red)" %}
 
-Next, diagram each row. The first row, called the Title
-section, has 3 children: a column of text, a star icon,
-and a number. Its first child, the column, contains 2 lines of text.
-That first column takes a lot of space, so it must be wrapped in an
-Expanded widget.
+A continuación, diagrama cada fila. La primera fila, llamada sección Título, 
+tiene 3 hijos: una columna de texto, un icono de estrella y un número. 
+Su primer hijo, la columna, contiene 2 líneas de texto. Esa primera columna 
+ocupa mucho espacio, por lo que debe estar envuelta en un widget Expanded.
 
 {% include app-figure.md image="ui/layout/title-section-parts.png" alt="Title section" %}
 
-The second row, called the Button section, also has
-3 children: each child is a column that contains an icon and text.
+La segunda fila, llamada sección Botón, también tiene 3 hijos: 
+cada hijo es una columna que contiene un icono y un texto.
 
 {% include app-figure.md image="ui/layout/button-section-diagram.png" alt="Button section" %}
 
-Once the layout has been diagrammed, it's easiest to take a bottom-up
-approach to implementing it. To minimize the visual
-confusion of deeply nested layout code, place some of the implementation
-in variables and functions.
+Una vez que se ha diagramado el diseño, lo más fácil es adoptar un enfoque 
+ascendente para implementarlo. Para minimizar la confusión visual del 
+código de diseño profundamente anidado, coloca parte de la implementación 
+en variables y funciones.
 
-## Step 2: Implement the title row
+## Paso 2: Implementar la fila de título
 
 <?code-excerpt path-base="layout/lakes/step2"?>
 
-First, you'll build the left column in the title section. Add the following code
-at the top of the `build()` method of the `MyApp` class:
+Primero, construirás la columna izquierda en la sección de título. Agrega el siguiente código en la parte superior del método `build()` de la clase `MyApp`:
 
 <?code-excerpt "lib/main.dart (titleSection)" title?>
 ```dart
@@ -146,16 +140,17 @@ Widget titleSection = Container(
 ```
 
 {:.numbered-code-notes}
- 1. Putting a Column inside an Expanded widget stretches the column to use all
-    remaining free space in the row. Setting the `crossAxisAlignment` property to
-    `CrossAxisAlignment.start` positions the column at the start of the row.
- 2. Putting the first row of text inside a Container enables you to add padding.
-    The second child in the Column, also text, displays as grey.
- 3. The last two items in the title row are a star icon, painted red,
-    and the text "41". The entire row is in a Container and padded
-    along each edge by 32 pixels.
+ 1. Al colocar una columna dentro de un widget Expanded, se estira la columna 
+    para utilizar todo el espacio libre que queda en la fila. Al establecer 
+    la propiedad `crossAxisAlignment` a
+    `CrossAxisAlignment.start` se posiciona la columna al principio de la fila.
+ 2. Poner la primera fila de texto dentro de un Container te permite añadir 
+    padding. El segundo hijo en la Columna, también texto, se visualiza como gris.
+ 3. Los dos últimos elementos de la fila del título son un icono de estrella, 
+    pintado de rojo, y el texto "41". Toda la fila está en un Container y con 
+    padding a lo largo de cada borde por 32 píxeles.
 
-Add the title section to the app body like this:
+Añade la sección de título al cuerpo de la aplicación de esta manera:
 
 <?code-excerpt path-base="layout/lakes"?>
 <?code-excerpt "{../base,step2}/lib/main.dart" from="return MaterialApp"?>
@@ -181,27 +176,28 @@ Add the title section to the app body like this:
 ```
 
 {{site.alert.tip}}
-  - When pasting code into your app, indentation can
-    become skewed. You can fix this in your Flutter editor
-    using the [automatic reformatting support](/docs/development/tools/formatting).
-  - For a faster development experience, try Flutter's [hot reload][] feature.
-  - If you have problems, compare your code to [lib/main.dart][].
+  - Al pegar el código en la aplicación, la indentación se puede desviar. Puedes 
+    arreglar esto en tu editor Flutter usando el 
+    [soporte de reformateo automático](/docs/development/tools/formatting).
+  - Para una experiencia de desarrollo más rápida, prueba la función [hot reload][] 
+    de Flutter.
+  - Si tienes problemas, compara tu código con [lib/main.dart][].
 
   [hot reload]: /docs/development/tools/hot-reload
   [lib/main.dart]: {{examples}}/layout/lakes/step2/lib/main.dart
 {{site.alert.end}}
 
-## Step 3: Implement the button row
+## Paso 3: Implementar la fila de botones
 
 <?code-excerpt path-base="layout/lakes/step3"?>
 
-The button section contains 3 columns that use the same layout&mdash;an
-icon over a row of text. The columns in this row are evenly spaced,
-and the text and icons are painted with the primary color.
+La sección de botones contiene 3 columnas que utilizan la misma disposición: 
+un icono sobre una línea de texto. Las columnas de esta fila están espaciadas 
+uniformemente, y el texto y los iconos están pintados con el color primario.
 
-Since the code for building each column is almost identical, create a private
-helper method named `buildButtonColumn()`, which takes a color, an Icon and
-Text, and returns a column with its widgets painted in the given color.
+Como el código para construir cada columna es casi idéntico, crea un método 
+de ayuda privado llamado `buildButtonColumn()`, que toma un color, un Icono 
+y Texto, y devuelve una columna con sus widgets pintados con el color dado.
 
 <?code-excerpt "lib/main.dart (_buildButtonColumn)" title?>
 ```dart
@@ -234,14 +230,10 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-The function adds the icon directly to the column. The text is inside a
-Container with a top-only margin, separating the text from the icon.
+La función añade el icono directamente a la columna. El texto se encuentra dentro de un Container con un margen superior, separando el texto del icono.
 
-Build the row containing these columns by calling the function and passing the
-color, `Icon`, and text specific to that column. Align the columns along the main axis
-using `MainAxisAlignment.spaceEvenly` to arrange the free space evenly before,
-between, and after each column. Add the following code just below the
-`titleSection` declaration inside the `build()` method:
+Construye la fila que contiene estas columnas llamando a la función y pasando el color, 
+`Icon`, y el texto específico de esa columna. Alinea las columnas a lo largo del eje principal utilizando `MainAxisAlignment.spaceEvenly` para organizar el espacio libre uniformemente antes, entre y después de cada columna. Agrega el siguiente código justo debajo de la declaración `titleSection` dentro del método `build()`:
 
 <?code-excerpt "lib/main.dart (buttonSection)" title?>
 ```dart
@@ -259,7 +251,7 @@ Widget buttonSection = Container(
 );
 ```
 
-Add the button section to the body:
+Añade la sección de botones al body:
 
 <?code-excerpt path-base="layout/lakes"?>
 <?code-excerpt "{step2,step3}/lib/main.dart" from="return MaterialApp" to="}"?>
@@ -282,13 +274,13 @@ Add the button section to the body:
    }
 ```
 
-## Step 4: Implement the text section
+## Paso 4: Implementar la sección de texto
 
 <?code-excerpt path-base="layout/lakes/step4"?>
 
-Define the text section as a variable. Put the text in a Container and add
-padding along each edge. Add the following code just below the `buttonSection`
-declaration:
+Define la sección de texto como una variable. Pon el texto en un Container y 
+agrega padding a lo largo de cada borde. Añade el siguiente código justo 
+debajo de la declaración `buttonSection`:
 
 <?code-excerpt "lib/main.dart (textSection)" title?>
 ```dart
@@ -306,10 +298,10 @@ Widget textSection = Container(
 );
 ```
 
-By setting `softwrap` to true, text lines will fill the column width before
-wrapping at a word boundary.
+Al establecer `softwrap` a true, las líneas de texto rellenarán el ancho de 
+la columna antes de ajustarla al límite de una palabra.
 
-Add the text section to the body:
+Añade la sección de texto al body:
 
 <?code-excerpt path-base="layout/lakes"?>
 <?code-excerpt "{step3,step4}/lib/main.dart" from="return MaterialApp"?>
@@ -330,24 +322,22 @@ Add the text section to the body:
        ),
 ```
 
-## Step 5: Implement the image section
+## Paso 5: Implementar la sección de imagen
 
-Three of the four column elements are now complete, leaving only the image.
-Add the image file to the example:
+Tres de los cuatro elementos de la columna están ahora completos, dejando sólo la imagen. Añade el archivo de imagen al ejemplo:
 
-* Create an `images` directory at the top of the project.
-* Add [`lake.jpg`]({{rawExFile}}/layout/lakes/step5/images/lake.jpg).
+* Crea un directorio `images` en la parte superior del proyecto.
+* Añade [`lake.jpg`]({{rawExFile}}/layout/lakes/step5/images/lake.jpg).
 
   {{site.alert.info}}
-    Note that `wget` doesn't work for saving this binary file. The original image
-    is [available online][] under a Creative Commons license, but it's large and
-    slow to fetch.
+    Observa que `wget` no funciona para guardar este archivo binario. La imagen original 
+    esta [disponible en linea][] bajo una licencia Creative Commons, pero es grande y lenta de obtener.
 
-    [available online]: https://images.unsplash.com/photo-1471115853179-bb1d604434e0?dpr=1&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=583&amp;q=80&amp;cs=tinysrgb&amp;crop=
+    [disponible en linea]: https://images.unsplash.com/photo-1471115853179-bb1d604434e0?dpr=1&amp;auto=format&amp;fit=crop&amp;w=767&amp;h=583&amp;q=80&amp;cs=tinysrgb&amp;crop=
   {{site.alert.end}}
 
-* Update the `pubspec.yaml` file to include an `assets` tag. This makes the
-  image available to your code.
+* Actualice el archivo `pubspec.yaml` para incluir una etiqueta `assets`. Esto hace 
+  que la imagen esté disponible para tu código.
 
   <?code-excerpt "{step4,step5}/pubspec.yaml"?>
   ```diff
@@ -361,7 +351,7 @@ Add the image file to the example:
   +    - images/lake.jpg
   ```
 
-Now you can reference the image from your code:
+Ahora puedes referenciar la imagen de tu código:
 
 <?code-excerpt "{step4,step5}/lib/main.dart"?>
 ```diff
@@ -382,14 +372,13 @@ Now you can reference the image from your code:
              textSection,
 ```
 
-`BoxFit.cover` tells the framework that the image should be as small as
-possible but cover its entire render box.
+`BoxFit.cover` le dice al framework que la imagen debe ser lo más pequeña posible pero que debe cubrir toda su caja de render.
 
-## Step 6: Final touch
+## Paso 6: El toque final
 
-In this final step, arrange all of the elements in a `ListView`, rather than a
-`Column`, because a `ListView` supports app body scrolling when the app is run
-on a small device.
+En este paso final, ordena todos los elementos en un `ListView`, en lugar de una
+`Column`, porque un `ListView` soporta el desplazamiento del body de la aplicación 
+cuando la aplicación se ejecuta en un dispositivo pequeño.
 
 <?code-excerpt "{step5,step6}/lib/main.dart" diff-u="6" from="return MaterialApp"?>
 ```diff
@@ -416,8 +405,7 @@ on a small device.
 **Image:** [images]({{examples}}/layout/lakes/step6/images)<br>
 **Pubspec:** [pubspec.yaml]({{examples}}/layout/lakes/step6/pubspec.yaml)
 
-That's it! When you hot reload the app, you should see the same app layout as
-the screenshot at the top of this page.
+¡Eso es todo! Cuando recargas la aplicación en caliente, deberías ver el mismo diseño de la aplicación como la de la captura de pantalla en la parte superior de esta página.
 
-You can add interactivity to this layout by following [Adding Interactivity to
-Your Flutter App](/docs/development/ui/interactive).
+Puedes añadir interactividad a este diseño siguiendo el enlace 
+[Agregando interactividad a tu aplicación Flutter](/docs/development/ui/interactive).
