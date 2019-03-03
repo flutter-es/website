@@ -12,9 +12,9 @@ permalink: /formatting/
 
 Aunque el código puede ajustarse a cualquier estilo preferido - en nuestra experiencia - los equipos de desarrolladores pueden encontrar más productivo:
 
-1. tener un estilo único y compartido, y
+1. Tener un estilo único y compartido.
 
-1. forzar este estilo a través del formateo automático.
+1. Forzar este estilo a través del formateo automático.
 
 La alternativa es a menudo agotadores debates de formato durante las revisiones de código, donde el tiempo puede ser mejor invertido en el funcionamiento del código en lugar de en el estilo de código.
 

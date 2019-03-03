@@ -142,29 +142,29 @@ ventana de la herramienta Flutter Inspector usando 'View> Tool Windows> Flutter 
 Esto ofrece muchas herramientas de depuración; para detalles sobre estos, por favor mira
 [Depura tu app](https://flutter-es.io/debugging/).
 
-* 'Toggle Select Widget Mode': Selecciona un widget en el dispositivo para inspeccionarlo en el
+* **Toggle Select Widget Mode**: Selecciona un widget en el dispositivo para inspeccionarlo en el
   [Flutter Inspector](/inspector/).
 
-* 'Toggle Debug Paint': Agregue sugerencias de depuración visual a la presentación que muestra 
+* **Toggle Debug Paint**: Agregue sugerencias de depuración visual a la presentación que muestra 
   bordes, relleno, alineación y espaciadores.
 
-* 'Toggle Platform Mode': Alternar entre renderizado para Android o iOS.
+* **Toggle Platform Mode**: Alternar entre renderizado para Android o iOS.
 
-* 'Toggle Performance Overlay': Mostrar gráficos de rendimiento para los hilos de la GPU y la CPU.
+* **Toggle Performance Overlay**: Mostrar gráficos de rendimiento para los hilos de la GPU y la CPU.
 
-* 'Open Timeline View': Analiza la actividad de la aplicación mientras se ejecuta.
+* **Open Timeline View**: Analiza la actividad de la aplicación mientras se ejecuta.
 
-* 'Open Observatory': Un perfilador para aplicaciones Dart.
+* **Open Observatory**: Un perfilador para aplicaciones Dart.
 
 También disponible en el menú de acciones adicionales:
 
-* 'Show Paint Baselines': Hace que cada RenderBox dibuje una línea en cada línea de base.
+* **Show Paint Baselines**: Hace que cada RenderBox dibuje una línea en cada línea de base.
 
-* 'Enable Repaint Rainbow': Muestra colores rotativos en las capas cuando vuelva a pintar.
+* **Enable Repaint Rainbow**: Muestra colores rotativos en las capas cuando vuelva a pintar.
 
-* 'Enable Slow Animations': Reduce la velocidad de las animaciones para permitir la inspección visual.
+* **Enable Slow Animations**: Reduce la velocidad de las animaciones para permitir la inspección visual.
 
-* 'Hide Debug Banner': Ocultar el banner 'debug' incluso cuando se ejecuta una compilación de depuración.
+* **Hide Debug Banner**: Ocultar el banner 'debug' incluso cuando se ejecuta una compilación de depuración.
 
 
 ### Depurando con Observatory

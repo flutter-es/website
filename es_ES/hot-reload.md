@@ -9,8 +9,8 @@ permalink: /hot-reload/
 
 ## Usando hot reload
 
-La funcionalidad hot reload de Flutter te ayuda a rápida y fácilmente  experimentar, 
-construir UIS, añadir funcionalidades y arreglar bugs. Hot reload trabaja inyectando ficheros 
+La funcionalidad hot reload de Flutter te ayuda a experimentar rápida y fácilmente, 
+construir UIs, añadir funcionalidades y arreglar bugs. Hot reload trabaja inyectando ficheros 
 de código fuente actualizados en la Máquina Virtual(VM) Dart en ejecución. Después de que VM 
 actualiza clases con la nueva version de campos y funciones, el framework Flutter 
 automáticamente reconstruye el árbol de widgets, permitiendo ver rápidamente los efectos de 
@@ -39,13 +39,13 @@ similar a:
 Performing hot reload...
 Reloaded 1 of 448 libraries in 2,777ms.
 ```
-La app se actualiza para reflejar tus cambios, y el estado actual de la app
+La app se actualiza para reflejar tus cambios y el estado actual de la app
 — el valor de la variable counter en el ejemplo anterior — se conserva. Tu 
 app continua ejecutándose desde donde estaba antes de ejecutar el comando 
 hot reload. El código se ha actualizado y la ejecución continua.
 
 Un cambio en el código solo tiene un efecto visible si el código Dart modificado 
-se ejecuta de nuevo después del cambio. Especificamente, un hot reload causa que todos 
+se ejecuta de nuevo después del cambio. Específicamente, un hot reload causa que todos 
 los widgets existentes ejecuten un rebuild. Solo el código involucrado en el 
 rebuild de los widgets es automáticamente re-ejecutado.
 

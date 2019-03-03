@@ -32,9 +32,9 @@ disponibles.
 
 Para instalar actualizaciones manualmente:
 
-1. Haga clic sobre el botón Extensions Side Bar
+1. Haga clic sobre el botón Extensions Side Bar.
 1. Si se muestra la extensión de Flutter con una actualización disponible, haga clic en el botón 
-de actualización y luego en el botón de recarga
+de actualización y luego en el botón de recarga.
 
 ## Creando proyectos
 
@@ -126,13 +126,13 @@ Durante una sesión de depuración, se agregan varios comandos de depuración ad
 [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette),
 incluyendo:
 
-* 'Toggle Baseline Painting': Hace que cada RenderBox dibuje una línea en cada línea de base.
+* **Toggle Baseline Painting**: Hace que cada RenderBox dibuje una línea en cada línea de base.
 
-* 'Toggle Repaint Rainbow': Muestra colores rotativos en las capas cuando vuelva a pintar.
+* **Toggle Repaint Rainbow**: Muestra colores rotativos en las capas cuando vuelva a pintar.
 
-* 'Toggle Slow Animations': Reduce la velocidad de las animaciones para permitir la inspección visual.
+* **Toggle Slow Animations**: Reduce la velocidad de las animaciones para permitir la inspección visual.
 
-* 'Toggle Slow-Mode Banner': Ocultar el banner de "slow mode" incluso cuando se ejecuta una compilación de depuración.
+* **Toggle Slow-Mode Banner**: Ocultar el banner de "slow mode" incluso cuando se ejecuta una compilación de depuración.
 
 ### Depurando con Observatory
 
