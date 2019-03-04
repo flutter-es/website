@@ -14,7 +14,7 @@ Las aplicaciones de Flutter pueden hacer uso de las bases de datos SQLite a trav
 
 Si eres nuevo en SQLite y en las sentencias de SQL, revisa el [sitio SQLite Tutorial](http://www.sqlitetutorial.net/) para aprender lo básico antes de completar este cookbok.
 
-## Direcciones
+## Instrucciones
 
   1. Añade las dependencias
   2. Definir el modelo de datos `Dog`
@@ -42,7 +42,7 @@ dependencies:
 
 ## 2. Definir el modelo de datos del Dog.
 
-Antes de crear la tabla para almacenar información en Dogs, tómate unos minutos para definir los datos que deben almacenarse. Para este ejemplo, define una clase Perro que contenga tres datos: Un `id` único, el nombre (`name`), y la edad (`age`) del perro.
+Antes de crear la tabla para almacenar información en Dogs, tómate unos minutos para definir los datos que deben almacenarse. Para este ejemplo, define una clase Dog que contenga tres datos: Un `id` único, el nombre (`name`), y la edad (`age`) del perro.
 
 <!-- skip -->
 ```dart
@@ -131,7 +131,7 @@ class Dog {
   }
 }
 
-// A continuación, define la funcion para insertar dogs en la base de datos
+// A continuación, define la función para insertar dogs en la base de datos
 Future<void> insertDog(Dog dog) async {
   // Obtiene una referencia de la base de datos
   final Database db = await database;
