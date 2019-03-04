@@ -4,7 +4,7 @@ description: Cómo solucionar las incompatibilidades de AndroidX que han sido de
 ---
 
 {{site.alert.note}}
-  Es posible que se te dirija a esta página si el marco detecta un problema en su aplicación Flutter que involucra incompatibilidades de AndroidX.
+  Es posible que se te dirija a esta página si el framework detecta un problema en su aplicación Flutter que involucra incompatibilidades de AndroidX.
 {{site.alert.end}}
 
 El código de Android a menudo utiliza las bibliotecas [`android.support`]({{site.android-dev}}/topic/libraries/support-library/) para garantizar la compatibilidad con versiones anteriores. Las bibliotecas `android.support` están obsoletas, y fueron reemplazadas con [AndroidX]({{site.android-dev}}/jetpack/androidx/). AndroidX tiene similitudes de funciones con las bibliotecas antiguas con algunas capacidades adicionales, pero, desafortunadamente, estos dos conjuntos de bibliotecas son incompatibles.
@@ -80,14 +80,14 @@ Estas son las últimas versiones disponibles de todos los paquetes `flutter/plug
 - `video_player`: 0.9.0
 - `webview_flutter`: 0.2.0
 
-Note that this is not an exhaustive list of all Flutter plugins
-that use AndroidX, and the AndroidX dependency in your app may be
-coming from another plugin besides these.
+Ten en cuenta que esta no es una lista exhaustiva de todos los plugins de Flutter que
+usan AndroidX, y la dependencia de AndroidX en tu app puede proceder 
+de otro plugin distinto a estos.
 
 ## Para los mantenedores de complementos: Migrar un complemento de Flutter a AndroidX
 
 La migración de un complemento de Flutter a AndroidX sigue básicamente el mismo proceso que la [migración de una aplicación Flutter](#How-to-migrate-a-Flutter-app-to-AndroidX), pero con algunas preocupaciones adicionales y algunos cambios leves.
 
-1. Asegúrate de incrementar la [version principal]({{site.dart-site}}/tools/pub/versioning#semantic-versions) de tu complemento para este cambio y documéntalo claramente en el registro de cambios de tu complemento. Este cambio de última hora requiere una migración manual para que los usuarios puedan corregirlo. El Pub trata los dígitos de manera diferente dependiendo de si un complemento es anterior o posterior a la 1.0.0. El primer dígito es la versión principal para los complementos que están en o por encima de 1.0.0. Para los complementos por debajo de 1.0.0, el dígito medio se considera la versión principal.
+1. Asegúrate de incrementar la [version principal]({{site.dart-site}}/tools/pub/versioning#semantic-versions) de tu complemento para este cambio y documéntalo claramente en el registro de cambios de tu complemento. Este cambio de última hora requiere una migración manual para que los usuarios puedan corregirlo. Pub trata los dígitos de manera diferente dependiendo de si un complemento es anterior o posterior a la 1.0.0. El primer dígito es la versión principal para los complementos que están en o por encima de 1.0.0. Para los complementos por debajo de 1.0.0, el dígito medio se considera la versión principal.
 2. El código del complemento se puede migrar automáticamente con Android Studio de la misma manera que el código de una aplicación Flutter. Importa la aplicacion `plugin_root/example` en el IDE como si fuera una aplicación normal de Flutter. Android Studio también importa y analiza el código de Android del complemento.
 
