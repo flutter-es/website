@@ -1,85 +1,51 @@
 ---
-title: AndroidX compatibility
-description: How to fix AndroidX incompatibilities that have been detected by the Flutter framework.
+title: Compatibilidad con AndroidX
+description: Cómo solucionar las incompatibilidades de AndroidX que han sido detectadas en el framework Flutter.
 ---
 
 {{site.alert.note}}
-  You may be directed to this page if the framework detects a problem in your
-  Flutter app involving AndroidX incompatibilities.
+  Es posible que se te dirija a esta página si el marco detecta un problema en su aplicación Flutter que involucra incompatibilidades de AndroidX.
 {{site.alert.end}}
 
-Android code often uses the
-[`android.support`]({{site.android-dev}}/topic/libraries/support-library/)
-libraries to ensure backwards compatibility. The `android.support`
-libraries are deprecated, and replaced with
-[AndroidX]({{site.android-dev}}/jetpack/androidx/).
-AndroidX has feature parity with the old libraries
-with some additional capabilities but, unfortunately, these two sets of
-libraries are incompatible.
+El código de Android a menudo utiliza las librerías [`android.support`]({{site.android-dev}}/topic/libraries/support-library/) para garantizar la compatibilidad con versiones anteriores. Las librerías `android.support` están obsoletas, y fueron reemplazadas con [AndroidX]({{site.android-dev}}/jetpack/androidx/). AndroidX tiene similitudes de funciones con las librerías antiguas con algunas capacidades adicionales, pero, desafortunadamente, estos dos conjuntos de librerías son incompatibles.
 
-_Gradle crashes when trying to build an APK that relies on both sets
-of libraries._ This page explains how you can workaround this issue.
+_Gradle se bloquea al intentar crear un APK que se basa en ambos conjuntos de librerías._ Esta página explica cómo podés solucionar este problema.
 
-## Fixing AndroidX crashes in a Flutter app
+## Arreglando fallas de AndroidX en una aplicación Flutter
 
-AndroidX can break a Flutter app at compile time in two ways:
+AndroidX puede romper una aplicación Flutter en tiempo de compilación de dos maneras:
 
-1. The app uses an AndroidX plugin and its main `build.gradle` file has a
-   `compileSdkVersion` below version 28.
-2. The app uses both deprecated and AndroidX code at the same time.
+1. La aplicación utiliza un complemento de AndroidX y su archivo `build.gradle` principal tiene en `compileSdkVersion` una versión menor a 28.
+2. La aplicación utiliza tanto el código AndroidX como el obsoleto al mismo tiempo.
 
-The error messages from Gradle vary. Sometimes the messages mention
-"package androidx" or "package android.support" directly. However, often the
-Gradle error messages aren't obvious, and instead talk about
-"AAPT," "AAPT2," or otherwise mention failing at "parsing resources."
+Los mensajes de error del Gradle varían. A veces, los mensajes mensionan "package androidx" o "package android.support" directamente. Sin embargo, a menudo los mensajes de error del Gradle no son obvios, y en cambio hablan de "AAPT", "AAPT2", o "parsing resources".
 
-These problems must be fixed by either manually migrating the
-code to the same library, or downgrading to versions of the plugins
-that still use the original support libraries.
+Estos problemas deben solucionarse ya sea migrando manualmente el código a la misma librería, o degradando las versiones de los complementos que aún utilizas las librerías de soporte originales.
 
-### How to migrate a Flutter app to AndroidX
+### Cómo migrar una aplicación Flutter a AndroidX
 
 {{site.alert.note}}
-  It's impossible to fully migrate your app to AndroidX if it's
-  actively using any plugins that rely on the old support library.
-  If your app depends on plugins that use the old `android.support`
-  packages, you'll need to [avoid using AndroidX](#avoiding-androidx).
+  Es imposible migrar completamente tu aplicación a AndroidX si estás utilizando activamente algunos complementos que dependen de la antigua librería de soporte. Si su aplicación depende de los complementos que utilizan los paquetes `android.support` anteriores, deberá [evitar el uso de AndroidX](#avoiding-androidx).
 {{site.alert.end}}
 
-First make sure that `compileSdkVersion` is at least `28` in
-`app/build.gradle`.  This property controls the version of the
-Android SDK that Gradle uses to build your APK. It doesn't affect
-the minimum SDK version that your app can run on. See the Android
-developer docs on [the module-level build
-file]({{site.android-dev}}/studio/build/#module-level)
-for more information.
+Primero asegúrate de que `compileSdkVersion` sea al menos `28` en `app/build.gradle`. Esta propiedad controla la versión del SDK de Android que Gradle usa para construir tu APK. No afecta a la versión mínima de SDK con la que se puede ejecutar tu aplicación. Consulte la documentación del desarrollador de Android en [el archivo de compilación a nivel módulo]({{site.android-dev}}/studio/build/#module-level) para obtener más información.
 
-#### Recommended: Use Android Studio to migrate your app
+#### Recomendado: usa Android Studio para migrar tu aplicación
 
-This requires the latest version of Android Studio.
-Use the following instructions:
+Esto requiere la última versión de Android Studio. Usa las siguientes instrucciones:
 
-1. Import your Flutter app into Android Studio so that the IDE can
-   parse the Android code following the steps in
-   [Editing Android code in Android Studio with full IDE
-   support](/docs/development/tools/android-studio#android-ide).
-2. Follow the instructions for [Migrating to
-   AndroidX]({{site.android-dev}}/jetpack/androidx/migrate).
+1. Importa tu aplicación Flutter en Android Studio para que el IDE pueda analizar el código de Android siguiendo los pasos en [Edición del código de Android en Android Studio con soporte completo de IDE](/docs/development/tools/android-studio#android-ide).
+2. Sigue las instrucciones para [Mirgrar a AndroidX]({{site.android-dev}}/jetpack/androidx/migrate).
 
-#### Not recommended: Manually migrate your app
+#### No recomendado: migra manualmente tu aplicación
 
-See [Migrating to
-AndroidX]({{site.android-dev}}/jetpack/androidx/migrate) for detailed
-instructions on how to do this.
+Consulte [Migrando a AndroidX]({{site.android-dev}}/jetpack/androidx/migrate) para obtener instrucciones detalladas sobre cómo hacerlo.
 
-### Avoiding AndroidX
+### Evitando AndroidX
 
-If you want or need to avoid migrating to AndroidX, you'll need to 
-pin your plugin dependencies in your `pubspec.yaml` to the last major
-version from before they were migrated.
+Si deseas o necesitas evitar la migración a AndroidX, deberá fijar las dependencias de tus complementos en `pubspec.yaml` a la última versión principal antes de que se migraran.
 
-These are the last available versions of all the `flutter/plugins`
-packages that are pre AndroidX:
+Estas son las últimas versiones disponibles de todos los paquetes `flutter/plugins` que son pre AndroidX:
 
 - `android_alarm_manager`: 0.2.3
 - `android_intent`: 0.2.1
@@ -118,22 +84,10 @@ Note that this is not an exhaustive list of all Flutter plugins
 that use AndroidX, and the AndroidX dependency in your app may be
 coming from another plugin besides these.
 
-## For plugin maintainers: Migrating a Flutter plugin to AndroidX
+## Para los mantenedores de complementos: Migrar un complemento de Flutter a AndroidX
 
-Migrating a Flutter plugin to AndroidX follows basically the same process as
-[migrating a Flutter app](#How-to-migrate-a-Flutter-app-to-AndroidX),
-but with some additional concerns and some slight changes.
+La migración de un complemento de Flutter a AndroidX sigue básicamente el mismo proceso que la [migración de una aplicación Flutter](#How-to-migrate-a-Flutter-app-to-AndroidX), pero con algunas preocupaciones adicionales y algunos cambios leves.
 
-1. Make sure to increment the [major
-   version]({{site.dart-site}}/tools/pub/versioning#semantic-versions) of
-   your plugin for this change and clearly document it in your plugin's
-   changelog. This breaking change requires manual migration for
-   users to fix. Pub treats digits differently depending on whether
-   a plugin is pre- or post-1.0.0. The very first digit is the major version
-   for plugins that are at or above 1.0.0. For plugins below 1.0.0,
-   the middle digit is considered to the major version.
-2. Plugin code can be automatically migrated with Android Studio in the same
-   way as Flutter app code. Import the `plugin_root/example` app into the
-   IDE as if it's a regular Flutter app. Android Studio also imports and
-   parses the plugin's Android code.
+1. Asegúrate de incrementar la [version principal]({{site.dart-site}}/tools/pub/versioning#semantic-versions) de tu complemento para este cambio y documéntalo claramente en el registro de cambios de tu complemento. Este cambio de última hora requiere una migración manual para que los usuarios puedan corregirlo. El Pub trata los dígitos de manera diferente dependiendo de si un complemento es anterior o posterior a la 1.0.0. El primer dígito es la versión principal para los complementos que están en o por encima de 1.0.0. Para los complementos por debajo de 1.0.0, el dígito medio se considera la versión principal.
+2. El código del complemento se puede migrar automáticamente con Android Studio de la misma manera que el código de una aplicación Flutter. Importa la aplicacion `plugin_root/example` en el IDE como si fuera una aplicación normal de Flutter. Android Studio también importa y analiza el código de Android del complemento.
 
