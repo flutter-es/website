@@ -1,4 +1,4 @@
 ---
 layout: toc
-title: State management
+title: Gestión de Estado
 ---
