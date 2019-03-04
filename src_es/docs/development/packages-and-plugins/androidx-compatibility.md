@@ -7,9 +7,9 @@ description: Cómo solucionar las incompatibilidades de AndroidX que han sido de
   Es posible que se te dirija a esta página si el marco detecta un problema en su aplicación Flutter que involucra incompatibilidades de AndroidX.
 {{site.alert.end}}
 
-El código de Android a menudo utiliza las librerías [`android.support`]({{site.android-dev}}/topic/libraries/support-library/) para garantizar la compatibilidad con versiones anteriores. Las librerías `android.support` están obsoletas, y fueron reemplazadas con [AndroidX]({{site.android-dev}}/jetpack/androidx/). AndroidX tiene similitudes de funciones con las librerías antiguas con algunas capacidades adicionales, pero, desafortunadamente, estos dos conjuntos de librerías son incompatibles.
+El código de Android a menudo utiliza las bibliotecas [`android.support`]({{site.android-dev}}/topic/libraries/support-library/) para garantizar la compatibilidad con versiones anteriores. Las bibliotecas `android.support` están obsoletas, y fueron reemplazadas con [AndroidX]({{site.android-dev}}/jetpack/androidx/). AndroidX tiene similitudes de funciones con las bibliotecas antiguas con algunas capacidades adicionales, pero, desafortunadamente, estos dos conjuntos de bibliotecas son incompatibles.
 
-_Gradle se bloquea al intentar crear un APK que se basa en ambos conjuntos de librerías._ Esta página explica cómo podés solucionar este problema.
+_Gradle se bloquea al intentar crear un APK que se basa en ambos conjuntos de bibliotecas._ Esta página explica cómo podés solucionar este problema.
 
 ## Arreglando fallas de AndroidX en una aplicación Flutter
 
@@ -20,12 +20,12 @@ AndroidX puede romper una aplicación Flutter en tiempo de compilación de dos m
 
 Los mensajes de error del Gradle varían. A veces, los mensajes mensionan "package androidx" o "package android.support" directamente. Sin embargo, a menudo los mensajes de error del Gradle no son obvios, y en cambio hablan de "AAPT", "AAPT2", o "parsing resources".
 
-Estos problemas deben solucionarse ya sea migrando manualmente el código a la misma librería, o degradando las versiones de los complementos que aún utilizas las librerías de soporte originales.
+Estos problemas deben solucionarse ya sea migrando manualmente el código a la misma biblioteca, o degradando las versiones de los complementos que aún utilizas las bibliotecas de soporte originales.
 
 ### Cómo migrar una aplicación Flutter a AndroidX
 
 {{site.alert.note}}
-  Es imposible migrar completamente tu aplicación a AndroidX si estás utilizando activamente algunos complementos que dependen de la antigua librería de soporte. Si su aplicación depende de los complementos que utilizan los paquetes `android.support` anteriores, deberá [evitar el uso de AndroidX](#avoiding-androidx).
+  Es imposible migrar completamente tu aplicación a AndroidX si estás utilizando activamente algunos complementos que dependen de la antigua biblioteca de soporte. Si su aplicación depende de los complementos que utilizan los paquetes `android.support` anteriores, deberá [evitar el uso de AndroidX](#avoiding-androidx).
 {{site.alert.end}}
 
 Primero asegúrate de que `compileSdkVersion` sea al menos `28` en `app/build.gradle`. Esta propiedad controla la versión del SDK de Android que Gradle usa para construir tu APK. No afecta a la versión mínima de SDK con la que se puede ejecutar tu aplicación. Consulte la documentación del desarrollador de Android en [el archivo de compilación a nivel módulo]({{site.android-dev}}/studio/build/#module-level) para obtener más información.
