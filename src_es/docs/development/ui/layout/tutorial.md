@@ -1,7 +1,7 @@
 ---
-title: Tutorial de diseño
+title: Tutorial de layout
 short-title: Tutorial
-description: Aprende a construir un diseño.
+description: Aprende a construir un layout.
 diff2html: true
 ---
 
@@ -15,21 +15,21 @@ diff2html: true
 {{site.alert.secondary}}
   <h4 class="no_toc">Lo que aprenderás</h4>
 
-  * Cómo funciona el mecanismo de diseño de Flutter.
+  * Cómo funciona el mecanismo de layout de Flutter.
   * Cómo distribuir los widgets verticalmente y horizontalmente.
-  * Cómo construir un diseño Flutter.
+  * Cómo construir un layout Flutter.
 {{site.alert.end}}
 
-Esta es una guía para construir diseños en Flutter. 
-Construirás el diseño para la siguiente aplicación:
+Esta es una guía para construir layouts en Flutter. 
+Construirás el layout para la siguiente aplicación:
 
 {% include app-figure.md img-class="site-mobile-screenshot border"
     image="ui/layout/lakes.jpg" caption="The finished app" %}
 
-Esta guía da un paso atrás para explicar el enfoque de Flutter sobre el diseño y muestra cómo colocar un único widget en la pantalla. Después de una discusión sobre cómo colocar los widgets horizontalmente y verticalmente, se tratan algunos de los widgets de diseño más comunes.
+Esta guía da un paso atrás para explicar el enfoque de Flutter sobre el layout y muestra cómo colocar un único widget en la pantalla. Después de una discusión sobre cómo colocar los widgets horizontalmente y verticalmente, se tratan algunos de los widgets de layout más comunes.
 
-Si deseas una visión general del mecanismo de diseño,
-comienza con el [enfoque de Flutter sobre el diseño](/docs/development/ui/layout).
+Si deseas una visión general del mecanismo de layout,
+comienza con el [enfoque de Flutter sobre el layout](/docs/development/ui/layout).
 
 ## Paso 0: Crear el código base de la aplicación
 
@@ -59,12 +59,12 @@ Asegúrate de haber [configurado](/docs/get-started/install) tu entorno y luego 
 
 [hello-world]: /docs/get-started/codelab#step-1-create-the-starter-flutter-app
 
-## Paso 1: Diagramar el diseño
+## Paso 1: Diagrama del layout
 
-El primer paso es desglosar el diseño en sus elementos básicos:
+El primer paso es desglosar el layout en sus elementos básicos:
 
 * Identificar las filas y columnas.
-* ¿El diseño incluye una cuadrícula?
+* ¿El layout incluye una cuadrícula?
 * ¿Hay elementos que se superponen?
 * ¿Necesita pestañas la interfaz de usuario?
 * Observe las áreas que requieren alineación, padding o bordes.
@@ -87,9 +87,9 @@ cada hijo es una columna que contiene un icono y un texto.
 
 {% include app-figure.md image="ui/layout/button-section-diagram.png" alt="Button section" %}
 
-Una vez que se ha diagramado el diseño, lo más fácil es adoptar un enfoque 
+Una vez que se ha diagramado el layout, lo más fácil es adoptar un enfoque 
 ascendente para implementarlo. Para minimizar la confusión visual del 
-código de diseño profundamente anidado, coloca parte de la implementación 
+código de layout profundamente anidado, coloca parte de la implementación 
 en variables y funciones.
 
 ## Paso 2: Implementar la fila de título
@@ -405,7 +405,7 @@ cuando la aplicación se ejecuta en un dispositivo pequeño.
 **Image:** [images]({{examples}}/layout/lakes/step6/images)<br>
 **Pubspec:** [pubspec.yaml]({{examples}}/layout/lakes/step6/pubspec.yaml)
 
-¡Eso es todo! Cuando recargas la aplicación en caliente, deberías ver el mismo diseño de la aplicación como la de la captura de pantalla en la parte superior de esta página.
+¡Eso es todo! Cuando recargas la aplicación en caliente, deberías ver el mismo layout de la aplicación como la de la captura de pantalla en la parte superior de esta página.
 
-Puedes añadir interactividad a este diseño siguiendo el enlace 
+Puedes añadir interactividad a este layout siguiendo el enlace 
 [Agregando interactividad a tu aplicación Flutter](/docs/development/ui/interactive).
