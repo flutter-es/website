@@ -8,7 +8,7 @@ next:
   path: /docs/development/data-and-backend/state-mgmt/options
 ---
 
-Ahora que conoces la [programación declarativa de UI](/docs/development/data-and-backend/state-mgmt/declarative) y la diferencia entre [efímero y app state](/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app), estás listo para aprender acerca de la gestión de estado una app sencilla.
+Ahora que conoces la [programación declarativa de UI](/docs/development/data-and-backend/state-mgmt/declarative) y la diferencia entre [efímero y app state](/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app), estás listo para aprender acerca de la gestión de estado de una app sencilla.
 
 En esta página, vamos a usar el paquete `scoped_model`. Si eres nuevo en Flutter y no tienes una razón de peso para elegir otro enfoque (Redux, Rx, hooks, etc.), este es probablemente el enfoque con el que deberías empezar. El `scoped_model` es fácil de entender y no utiliza mucho código. También utiliza conceptos que son aplicables en todos los demás enfoques.
 

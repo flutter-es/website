@@ -22,7 +22,7 @@ Source drawing for the png above: : https://docs.google.com/drawings/d/1RDcR5LyF
 
 Cuando el estado de tu aplicación cambia (por ejemplo, el usuario acciona un switch en la ventana de control de la aplicación), se modifica el estado y esto desencadena una nueva configuración de la interfaz de usuario. No hay ningún cambio imperativo de la propia interfaz de usuario (como por ejemplo `widget.setText`) - cambias el estado, y la interfaz de usuario se reconstruye desde cero.
 
-Leé más sobre el enfoque declarativo de la programación de la interfaz de usuario [en la guía de inicio ](/docs/get-started/flutter-for/declarative). 
+Leé más sobre el enfoque declarativo de la programación de la interfaz de usuario [en la guía de inicio](/docs/get-started/flutter-for/declarative). 
 
 El estilo declarativo de la programación de la interfaz de usuario tiene muchos beneficios. Sorprendentemente, hay sólo una ruta de código para cualquier estado de la interfaz de usuario. Describe lo que la interfaz de usuario debería ser para cualquier estado dado, una vez - y eso es todo.
 
