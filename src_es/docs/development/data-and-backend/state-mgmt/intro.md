@@ -6,7 +6,7 @@ next:
   path: /docs/development/data-and-backend/state-mgmt/declarative
 ---
 
-_Si ya estás familiarizado con la gestión de estados en aplicaciones reactivas, puedes saltarte esta sección, aunque es posible que quieras revisar la[lista de diferentes enfoques](/docs/development/data-and-backend/state-mgmt/options)._
+_Si ya estás familiarizado con la gestión de estados en aplicaciones reactivas, puedes saltarte esta sección, aunque es posible que quieras revisar la [lista de diferentes enfoques](/docs/development/data-and-backend/state-mgmt/options)._
 
 {% asset development/data-and-backend/state-mgmt/state-management-explainer width="100%" alt="A short animated gif that shows the workings of a simple declarative state management system. This is explained in full in one of the following pages. Here it's just a decoration." %}
 

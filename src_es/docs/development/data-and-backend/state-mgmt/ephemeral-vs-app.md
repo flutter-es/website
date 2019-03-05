@@ -1,5 +1,5 @@
 ---
-title: Diferencia entre estado efímero y app state
+title: Diferencia entre estado efímero y estado de app
 prev:
   title: Empieza a pensar de forma declarativa
   path: /docs/development/data-and-backend/state-mgmt/declarative
@@ -12,7 +12,7 @@ Este documento presenta el estado de la aplicación, el estado efímero y cómo 
 
 En el sentido más amplio posible, el estado de una aplicación es todo lo que existe en la memoria cuando la aplicación está en ejecución. Esto incluye los activos de la aplicación, todas las variables que el framework Flutter mantiene sobre la interfaz de usuario, el estado de la animación, las texturas, las fuentes, etc. Aunque esta definición lo más amplia posible de estado es válida, no es muy útil para la arquitectura de una aplicación.
 
-En primer lugar, ni siquiera se puede manejar algún estado (como las texturas). El framework se encarga de ello por usted. Así que una definición más útil del estado es "cualquier dato que necesite para reconstruir su interfaz de usuario en cualquier momento". En segundo lugar, el estado que _de verdad_ manejas puede ser separado en dos tipos conceptuales: estado efímero y estado de aplicación. 
+En primer lugar, ni siquiera se puede manejar algún estado (como las texturas). El framework se encarga de ello por usted. Así que una definición más útil del estado es "cualquier dato que necesite para reconstruir tu interfaz de usuario en cualquier momento". En segundo lugar, el estado que _de verdad_ manejas puede ser separado en dos tipos conceptuales: estado efímero y estado de aplicación. 
 
 ## Estado efímero
 
@@ -70,17 +70,17 @@ Ejemplos de estados de aplicación:
 * El carrito de la compra en una aplicación de comercio electrónico
 * Estado de los artículos leídos/no leídos en una aplicación de noticias
 
-Para administrar el estado de las aplicaciones, deberá investigar sus opciones. Su elección depende de la complejidad y naturaleza de su aplicación, de la experiencia previa de su equipo y de muchos otros aspectos. Sigue leyendo.
+Para administrar el estado de las aplicaciones, deberá investigar sus opciones. Su elección depende de la complejidad y naturaleza de tu aplicación, de la experiencia previa de tu equipo y de muchos otros aspectos. Sigue leyendo.
 
 ## No hay una regla clara
 
 Para ser claro, puedes usar `State` y `setState()` para administrar todo el estado de tu aplicación. De hecho, el equipo de Flutter hace esto en muchos ejemplos de aplicaciones simples (incluyendo la aplicación de inicio que se obtiene con cada `creacion de flutter`).
 
-También va para el otro lado. Por ejemplo, puede decidir que - en el contexto de su aplicación en particular - la pestaña seleccionada en una barra de navegación inferior _no_ es estado efímero. Es posible que tenga que cambiarlo desde fuera de la clase, mantenerlo entre sesiones, y así sucesivamente. En ese caso, la variable `_index` es app state.
+También va para el otro lado. Por ejemplo, puede decidir que - en el contexto de tu aplicación en particular - la pestaña seleccionada en una barra de navegación inferior _no_ es estado efímero. Es posible que tenga que cambiarlo desde fuera de la clase, mantenerlo entre sesiones, y así sucesivamente. En ese caso, la variable `_index` es app state.
 
-No existe una regla clara y universal para distinguir si una variable en particular es efímera o en estado de aplicación. A veces, tendrás que refactorizar uno en otro. Por ejemplo, comenzará con un estado claramente efímero, pero a medida que su aplicación crezca en características, tendrá que ser movida al estado de aplicación.
+No existe una regla clara y universal para distinguir si una variable en particular es efímera o es estado de aplicación. A veces, tendrás que refactorizar uno en otro. Por ejemplo, comenzará con un estado claramente efímero, pero a medida que tu aplicación crezca en características, tendrá que ser movida al estado de aplicación.
 
-Por esa razón, tome el siguiente diagrama con un gran grano de sal:
+Por esa razón, toma el siguiente diagrama con un gran grano de sal:
 
 {% asset development/data-and-backend/state-mgmt/ephemeral-vs-app-state alt="A flow chart. Start with 'Data'. 'Who needs it?'. Three options: 'Most widgets', 'Some widgets' and 'Single widget'. The first two options both lead to 'App state'. The 'Single widget' option leads to 'Ephemeral state'." %}
 
@@ -93,4 +93,4 @@ Cuando se le preguntó sobre el setState de React vs la store de Redux, el autor
 > "La regla general es: [Hacer lo que sea menos 
 > torpe]({{site.github}}/reduxjs/redux/issues/1287#issuecomment-175351978)."
 
-En resumen, hay dos tipos conceptuales de estado en cualquier aplicación Flutter. El estado efímero puede ser implementado usando `State` y `setState()`, y a menudo es local a un solo widget. El resto es el estado de la aplicación. Ambos tipos tienen su lugar en cualquier aplicación Flutter, y la división entre los dos depende de su propia preferencia y de la complejidad de la aplicación.
+En resumen, hay dos tipos conceptuales de estado en cualquier aplicación Flutter. El estado efímero puede ser implementado usando `State` y `setState()`, y a menudo es local a un solo widget. El resto es el estado de la aplicación. Ambos tipos tienen su lugar en cualquier aplicación Flutter, y la división entre los dos depende de tu propia preferencia y de la complejidad de la aplicación.

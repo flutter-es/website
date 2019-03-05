@@ -1,20 +1,20 @@
 ---
 title: Gestión sencilla del estado de las aplicaciones
 prev:
-  title: Efímero vs app state
+  title: Efímero vs estado de aplicación
   path: /docs/development/data-and-backend/state-mgmt/ephemeral-vs-app
 next:
   title: Lista de enfoques
   path: /docs/development/data-and-backend/state-mgmt/options
 ---
 
-Ahora que conoce la [programación declarativa de UI](/docs/development/data-and-backend/state-mgmt/declarative) y la diferencia entre [efímero y app state](/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app), estás listo para aprender acerca de la gestión de estado un app sencilla.
+Ahora que conoces la [programación declarativa de UI](/docs/development/data-and-backend/state-mgmt/declarative) y la diferencia entre [efímero y app state](/docs/development/data-and-backend/state-mgmt/ephemeral-vs-app), estás listo para aprender acerca de la gestión de estado una app sencilla.
 
 En esta página, vamos a usar el paquete `scoped_model`. Si eres nuevo en Flutter y no tienes una razón de peso para elegir otro enfoque (Redux, Rx, hooks, etc.), este es probablemente el enfoque con el que deberías empezar. El `scoped_model` es fácil de entender y no utiliza mucho código. También utiliza conceptos que son aplicables en todos los demás enfoques.
 
-Dicho esto, si tiene una formación sólida en gestión de estados de otros frameworks reactivos, encontrará paquetes y tutoriales en la [página siguiente](/docs/development/data-and-backend/state-mgmt/options).
+Dicho esto, si tienes una formación sólida en gestión de estados de otros frameworks reactivos, encontrarás paquetes y tutoriales en la [página siguiente](/docs/development/data-and-backend/state-mgmt/options).
 
-## Nuestro ejemplo {% asset development/data-and-backend/state-mgmt/model-shopper-screencast alt="An animated gif showing a Flutter app in use. It starts with the user on a login screen. They log in and are taken to the catalog screen, with a list of items. The click on several items, and as they do so, the items are marked as "added". The user clicks on a button and gets taken to the cart view. They see the items there. They go back to the catalog, and the items they bought still show "added". End of animation." class='site-image-right' %}
+## Nuestro ejemplo {% asset development/data-and-backend/state-mgmt/model-shopper-screencast alt="Un gif animado que muestra una aplicación Flutter en uso. Comienza con el usuario en una pantalla de inicio de sesión. Se conectan y se les lleva a la pantalla del catálogo, con una lista de artículos. Al hacer clic en varios elementos, y al hacerlo, los elementos se marcan como "añadidos". El usuario hace clic en un botón y es llevado a la vista del carro. Ellos ven los artículos allí. Vuelven al catálogo, y los artículos que compraron siguen mostrando "añadidos". Fin de la animación." class='site-image-right' %}
 
 A modo de ejemplo, considera la siguiente aplicación sencilla.
 
@@ -30,7 +30,7 @@ Aquí está la aplicación visualizada como un árbol de widgets.
   Source drawing for the png above: https://docs.google.com/drawings/d/1KXxAl_Ctxc-avhR4uE58BXBM6Tyhy0pQMCsSMFHVL_0/edit?zx=y4m1lzbhsrvx
 {% endcomment %}
 
-Así que tenemos al menos 6 subclases de `Widget`. Muchos de ellos necesitarán acceso a un estado que "pertenece" a otra parte. Por ejemplo, cada `MyListItem` podrá añadir a la carrito. También podría querer ver si el artículo que está mostrando ya está en el carrito.
+Así que tenemos al menos 6 subclases de `Widget`. Muchos de ellos necesitarán acceso a un estado que "pertenece" a otra parte. Por ejemplo, cada `MyListItem` podrá añadir a la carrito. También podrías querer ver si el artículo que está mostrando ya está en el carrito.
 
 Esto nos lleva a nuestra primera pregunta: ¿dónde debemos poner el estado actual del carro? 
 
@@ -93,7 +93,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-En nuestro ejemplo, `contents` necesitan vivir en `MyApp`. Cada vez que cambie, recontruye `MyCart` desde arriba (hablaremos más de esto despues). debido a esto, `MyCart` no necesita preocuparse por el ciclo de vida&mdash;soló declara qué mostrar para cualquier `contents` dado. Cuendo eso cambia, el widget `MyCart` viejo desaparecer y es completamente reemplazado por uno nuevo.
+En nuestro ejemplo, `contents` necesitan vivir en `MyApp`. Cada vez que cambie, recontruye `MyCart` desde arriba (hablaremos más de esto despues). Debido a esto, `MyCart` no necesita preocuparse por el ciclo de vida&mdash;soló declara qué mostrar para cualquier `contents` dado. Cuando eso cambia, el widget `MyCart` viejo desaparecer y es completamente reemplazado por uno nuevo.
 
 
 {% asset development/data-and-backend/state-mgmt/simple-widget-tree-with-cart alt="Same widget tree as above, but now we show a small 'cart' badge next to MyApp, and there are two arrows here. One comes from one of the MyListItems to the 'cart', and another one goes from the 'cart' to the MyCart widget." %}
@@ -110,14 +110,14 @@ Ahora que sabemos dónde poner el estado del carro, veamos cómo acceder a él.
 
 Cuando el usuario hace clic en uno de los artículos del catálogo, se añade al carrito. Pero ya que el carro vive encima de `MyListItem`, ¿cómo lo hacemos?
 
-Una opción simple es proporcionar una callback a la que `MyListItem` puede llamar cuando se hace clic en ella. Las funciones de Dart son objetos de primera clase, por lo que puedes compartirlos como quieras. Así, dentro de `MiCatálogo` puedes tener lo siguiente:
+Una opción simple es proporcionar un callback a la que `MyListItem` puede llamar cuando se hace clic en el. Las funciones de Dart son objetos de primera clase, por lo que puedes compartirlos como quieras. Así, dentro de `MiCatálogo` puedes tener lo siguiente:
 
 <?code-excerpt "state_mgmt/simple/lib/src/passing_callbacks.dart (methods)"?>
 ```dart
 @override
 Widget build(BuildContext context) {
   return SomeWidget(
-    // Contruye el widget, pasando la referencia al metodo de superior.
+    // Contruye el widget, pasando la referencia al método de superior.
     MyListItem(myTapCallback),
   );
 }
@@ -140,9 +140,9 @@ Con `scoped_model`, no tienes que preocuparte por las llamadas de retorno o `Inh
 * ScopedModelDescendant
 
 
-## Model
+## Modelo
 
-En `scoped_model`, el `Model` encapsula el estado de su aplicación. En los complejos, tendrás varios modelos.
+En `scoped_model`, el `Modelo` encapsula el estado de su aplicación. En los complejos, tendrás varios modelos.
 
 En nuestro ejemplo de aplicación de compras, queremos gestionar el estado del carro en un `Modelo`. Creamos una nueva clase que extiende Model. De esta manera
 
@@ -168,9 +168,9 @@ class CartModel extends Model {
 }
 ```
 
-El único código que es específico de `Model` es la llamada a `notifyListeners()`. Llame a este método cada vez que el modelo cambie de una manera que pueda cambiar la interfaz de usuario de su aplicación. Todo lo demás en `CartModel` es el modelo mismo y su lógica de negocio.
+El único código que es específico de `Model` es la llamada a `notifyListeners()`. Llama a este método cada vez que el modelo cambie de una manera que pueda cambiar la interfaz de usuario de tu aplicación. Todo lo demás en `CartModel` es el modelo mismo y su lógica de negocio.
 
-El modelo no depende de ninguna clase de alto nivel en Flutter, por lo que es fácilmente comprobable (ni siquiera necesitas usar[widget testing](/docs/testing#widget-testing) para ello). Por ejemplo, he aquí una sencilla prueba unitaria de CartModel:
+El modelo no depende de ninguna clase de alto nivel en Flutter, por lo que es fácilmente comprobable (ni siquiera necesitas usar [widget testing](/docs/testing#widget-testing) para ello). Por ejemplo, he aquí una sencilla prueba unitaria de CartModel:
 
 <?code-excerpt "state_mgmt/simple/test/model_test.dart (test)"?>
 ```dart
@@ -211,7 +211,7 @@ void main() {
 }
 ```
 
-Tenga en cuenta que estamos creando `ScopedModel<CartModel>` (lea: "ScopedModel of CartModel"). El paquete `scoped_model` se basa en tipos para encontrar el modelo correcto, y la parte `<CartModel>` deja claro qué tipo estamos proporcionando aquí.
+Ten en cuenta que estamos creando `ScopedModel<CartModel>` (lea: "ScopedModel of CartModel"). El paquete `scoped_model` se basa en tipos para encontrar el modelo correcto, y la parte `<CartModel>` deja claro qué tipo estamos proporcionando aquí.
 
 Si desea proporcionar más de un modelo, necesita anidar los ScopedModels:
 
@@ -228,7 +228,7 @@ ScopedModel<SomeOtherModel>(
 
 ## ScopedModelDescendant
 
-Ahora que `CartModel` se proporciona a los widgets de nuestra aplicación a través de la declaración`ScopedModel<CartModel>` en la parte superior, podemos empezar a usarlo.
+Ahora que `CartModel` se proporciona a los widgets de nuestra aplicación a través de la declaración `ScopedModel<CartModel>` en la parte superior, podemos empezar a usarlo.
 
 Esto se hace a través del widget `ScopedModelDescendant`.
 
@@ -243,7 +243,7 @@ return ScopedModelDescendant<CartModel>(
 
 Debemos especificar el tipo de modelo al que queremos acceder. En este caso, queremos `CartModel`, así que escribimos `ScopedModelDescendant<CartModel>`. Si no especifica el genérico (`<CartModel>`), el paquete `scoped_model` no podrá ayudarte. Como se mencionó anteriormente, `scoped_model` está basado en tipos, y sin el tipo, no sabe lo que quieres.
 
-El único argumento requerido del widget `ScopedModelDescendant` es el constructor. Builder es una función que se llama cada vez que cambia el modelo. (En otras palabras, cuando usted llama `notifyListeners()` en su modelo, todos los métodos de construcción de todos los widgets correspondientes de `ScopedModelDescendant` son llamados.)
+El único argumento requerido del widget `ScopedModelDescendant` es el constructor. Builder es una función que se llama cada vez que cambia el modelo. (En otras palabras, cuando llamas `notifyListeners()` en su modelo, todos los métodos de construcción de todos los widgets correspondientes de `ScopedModelDescendant` son llamados.)
 
 El constructor es llamado con tres atributos. El primero es `context`, que también se obtiene en todos los métodos de construcción. 
 
@@ -265,9 +265,9 @@ return ScopedModelDescendant<CartModel>(
 );
 ```
 
-El tercer argumento de la función builder es el modelo. Eso es lo que estábamos pidiendo en primer lugar. Puede utilizar los datos del modelo para definir cómo debería ser la interfaz de usuario en un momento dado.
+El tercer argumento de la función builder es el modelo. Eso es lo que estábamos pidiendo en primer lugar. Puedes utilizar los datos del modelo para definir cómo debería ser la interfaz de usuario en un momento dado.
 
-Es una buena práctica colocar los widgets de `ScopedModelDescendant` lo más profundo posible en el árbol. No querrá reconstruir grandes porciones de la interfaz de usuario sólo porque algún detalle haya cambiado en alguna parte.
+Es una buena práctica colocar los widgets de `ScopedModelDescendant` lo más profundo posible en el árbol. No querrás reconstruir grandes porciones de la interfaz de usuario sólo porque algún detalle haya cambiado en alguna parte.
 
 <?code-excerpt "state_mgmt/simple/lib/src/performance.dart (nonLeafDescendant)"?>
 ```dart
@@ -305,7 +305,7 @@ return HumongousWidget(
 
 ### ScopedModel.of
 
-A veces, no necesita realmente los _datos_ en el modelo para cambiar la interfaz de usuario, pero aún así necesita acceder a ella. Por ejemplo, un botón `ClearCart` quiere permitir al usuario eliminar todo del carrito. No necesita mostrar el contenido del carrito, sólo necesita llamar al método `clear()`.
+A veces, no necesitas realmente los _datos_ en el modelo para cambiar la interfaz de usuario, pero aún así necesitas acceder a ella. Por ejemplo, un botón `ClearCart` quiere permitir al usuario eliminar todo del carrito. No necesitas mostrar el contenido del carrito, sólo necesita llamar al método `clear()`.
 
 Podríamos usar `ScopedModelDescendant<CartModel>` para esto, pero eso sería un desperdicio. Estaríamos pidiendo el marco para reconstruir un widget que no necesita ser reconstruido. 
 
@@ -318,11 +318,11 @@ ScopedModel.of<CartModel>(context).add(item);
 
 Usar la línea anterior en un método de compilación no hará que este widget se reconstruya cuando `notifyListeners` sea llamado.
 
-Nota: También puede utilizar `ScopedModelDescendant<CartModel>(builder: myBuilder, rebuildOnChange: false)` pero eso es más largo y requiere que usted defina la función builder.
+Nota: También puedes utilizar `ScopedModelDescendant<CartModel>(builder: myBuilder, rebuildOnChange: false)` pero eso es más largo y requiere que definas la función builder.
 
 ## Uniendo todo
 
-Puedes [ver el ejemplo]({{site.github}}/filiph/samples/tree/scoped-model-shopper/model_shopper) cubierto en este artículo. Si quieres algo más simple, puedes ver cómo se ve la sencilla aplicación Counter cuando [built with scoped_model](https://github.com/flutter/samples/tree/master/scoped_model_counter).
+Puedes [ver el ejemplo]({{site.github}}/filiph/samples/tree/scoped-model-shopper/model_shopper) cubierto en este artículo. Si quieres algo más simple, puedes ver cómo se ve la sencilla aplicación Counter [contruida con scoped_model](https://github.com/flutter/samples/tree/master/scoped_model_counter).
 
 Cuando estés listo para jugar con `scoped_model` tú mismo, no olvides añadir la dependencia de él a tu `pubspec.yaml` primero.
 

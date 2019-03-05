@@ -25,11 +25,11 @@ Obtenga más información en los siguientes enlaces, muchos de los cuales han si
 
 ## InheritedWidget &amp; Scoped model
 
-* [Usando Inherited Widgets  efectviamente en Flutter](https://ericwindmill.com/posts/inherited_widget/),
+* [Usando Inherited Widgets efectivamente en Flutter](https://ericwindmill.com/posts/inherited_widget/),
   por Eric Windmill
-* [You might not need Redux: The Flutter edition](https://proandroiddev.com/you-might-not-need-redux-the-flutter-edition-9c11eba006d7), por Ryan Edge
+* [Podrías no necesitar Redux: La edición de Flutter](https://proandroiddev.com/you-might-not-need-redux-the-flutter-edition-9c11eba006d7), por Ryan Edge
 * [Managing state with the scoped model pattern in Dart's Flutter framework](https://www.youtube.com/watch?v=-MCeWP3rgI0), un video por Tensor Programming
-* [Flutter: Inherited Widget and Scoped Model Explained, part 1](https://www.youtube.com/watch?v=j-27MZwRbFw),un video por MTechViral
+* [Flutter: Inherited Widget y Scoped Model Explicado, parte 1](https://www.youtube.com/watch?v=j-27MZwRbFw),un video por MTechViral
 * [Gestión de estado&mdash;scoped model en Flutter](https://www.youtube.com/watch?v=Oql5bU-Uvso)
 * [Scoped model package]({{site.pub-pkg}}/scoped_model)
 
