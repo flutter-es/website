@@ -67,7 +67,7 @@ Ejemplos de estados de aplicación:
 * Preferencias del usuario
 * Información de inicio de sesión
 * Notificaciones en una aplicación de redes sociales
-* El carrito de la compra en una aplicación de comercio electrónico
+* El carrito de compras en una aplicación de comercio electrónico
 * Estado de los artículos leídos/no leídos en una aplicación de noticias
 
 Para administrar el estado de las aplicaciones, deberá investigar sus opciones. Su elección depende de la complejidad y naturaleza de tu aplicación, de la experiencia previa de tu equipo y de muchos otros aspectos. Sigue leyendo.
