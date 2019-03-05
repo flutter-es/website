@@ -7,7 +7,7 @@ prev:
 
 La gestión del Estado es un tema complejo. Si sientes que algunas de tus preguntas no han sido contestadas, o que el enfoque descrito en estas páginas no es viable para tus casos de uso, probablemente tengas razón.
 
-Obtenga más información en los siguientes enlaces, muchos de los cuales han sido aportados por la comunidad de Flutter:
+Obten más información en los siguientes enlaces, muchos de los cuales han sido aportados por la comunidad de Flutter:
 
 ## Vista general
 

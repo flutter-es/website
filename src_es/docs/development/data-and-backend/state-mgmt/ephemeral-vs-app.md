@@ -80,7 +80,7 @@ También va para el otro lado. Por ejemplo, puede decidir que - en el contexto d
 
 No existe una regla clara y universal para distinguir si una variable en particular es efímera o es estado de aplicación. A veces, tendrás que refactorizar uno en otro. Por ejemplo, comenzará con un estado claramente efímero, pero a medida que tu aplicación crezca en características, tendrá que ser movida al estado de aplicación.
 
-Por esa razón, toma el siguiente diagrama con un gran grano de sal:
+Por esa razón, toma el siguiente diagrama con un gran grano de sal (con el entendimiento de que exista la probabilidad de que algo sea falso o incorrecto):
 
 {% asset development/data-and-backend/state-mgmt/ephemeral-vs-app-state alt="A flow chart. Start with 'Data'. 'Who needs it?'. Three options: 'Most widgets', 'Some widgets' and 'Single widget'. The first two options both lead to 'App state'. The 'Single widget' option leads to 'Ephemeral state'." %}
 

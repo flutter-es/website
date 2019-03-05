@@ -26,4 +26,4 @@ Leé más sobre el enfoque declarativo de la programación de la interfaz de usu
 
 El estilo declarativo de la programación de la interfaz de usuario tiene muchos beneficios. Sorprendentemente, hay sólo una ruta de código para cualquier estado de la interfaz de usuario. Describe lo que la interfaz de usuario debería ser para cualquier estado dado, una vez - y eso es todo.
 
-Al principio, este estilo imperativo de programación puede no parecer tan intuitivo como el imperativo estilo. Esta es la razón por la que esta sección está aquí. Sigue leyendo.
+Al principio, este estilo imperativo de programación puede no parecer tan intuitivo como el estilo imperativo. Esta es la razón por la que esta sección está aquí. Sigue leyendo.
