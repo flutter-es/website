@@ -10,4 +10,6 @@ Para obtener información sobre como implementar slivers en Flutter, incluyendo
 [SliverAppBar]({{site.api}}/flutter/material/SliverAppBar-class.html),
 mira [Slivers,
 DeMystified]({{site.flutter-medium}}/slivers-demystified-6ff68ab0296f),
-un árticulo de [Publicaciones sobre Flutter]({{site.flutter-medium}}) en Medium.
+un árticulo de [Publicaciones sobre Flutter]({{site.flutter-medium}}) en Medium,
+también puedes ver las traducción de [Slivers al Descubierto](https://medium.com/comunidad-flutter/slivers-desenmascarado-a44781aa7597) en Medium por Argel Bejarano de la 
+[Comunidad Flutter en Español](https://medium.com/comunidad-flutter).
