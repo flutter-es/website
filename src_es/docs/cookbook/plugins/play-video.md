@@ -54,7 +54,7 @@ Agrega el siguiente permiso a `AndroidManifest.xml` justo después de la definic
 
 ### iOS
 
-FParaor iOS, debe agregar lo siguiente a su archivo `Info.plist` que se encuentra en `<project root>/ios/Runner/Info.plist`. 
+Para iOS, debe agregar lo siguiente a tu archivo `Info.plist` que se encuentra en `<project root>/ios/Runner/Info.plist`. 
 
 <!-- skip -->
 ```xml
@@ -72,7 +72,7 @@ El complemento `video_player` no funciona en simuladores iOS. Debes probar los v
 ## 3. Crear e inicializar un `VideoPlayerController`
 
 Ahora que tienes el complemento `video_player` instalado con los permisos correctos, necesitas crear un archivo `VideoPlayerController`. La clase
-`VideoPlayerController` te permite conectarte a diferentes tipos de vídeos y controlar la repoducción.
+`VideoPlayerController` te permite conectarte a diferentes tipos de vídeos y controlar la reproducción.
 
 Antes de poder reproducir videos, tambien debe `inicializar` el controlador. Esto establecerá la conexión al video y preparará el controlador para la reproducción.
 
