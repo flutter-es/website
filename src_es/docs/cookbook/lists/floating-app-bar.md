@@ -21,10 +21,10 @@ del `CustomScrollView`.
 
 Esta receta demuestra cómo usar un `CustomScrollView` para mostrar una lista de elementos con un app bar en la parte superior que se desplaza fuera de la pantalla a medida que el usuario se desplaza por la lista.
 
-### Direcciones
+### Instrucciones
 
   1. Crear un `CustomScrollView`
-  2. Usar `SliverAppBar` para agregar el app bar floatante
+  2. Usar `SliverAppBar` para agregar el app bar flotante
   3. Agregar una lista de elementos usando un `SliverList`
 
 ## 1. Crear un `CustomScrollView`
@@ -146,7 +146,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: title,
       home: Scaffold(
-        // No se proporciona ningun appbar al Scaffold, sólo un body con un
+        // No se proporciona ningún appbar al Scaffold, sólo un body con un
         // CustomScrollView
         body: CustomScrollView(
           slivers: <Widget>[
