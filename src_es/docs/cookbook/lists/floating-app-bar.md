@@ -30,7 +30,7 @@ Esta receta demuestra cómo usar un `CustomScrollView` para mostrar una lista de
 ## 1. Crear un `CustomScrollView`
 
 Para crear el app bar flotante, necesitas colocar el app bar dentro de un
-`CustomScrollView` que también contenga la lista de elementos. Esto sincroniza la posición de desplazamiento de el app bar y la lista de elementos. Puedes pensar en el Widget `CustomScrollView` como un `ListView` que te permite ¡mezclar y combinar diferentes tipos de listas desplazables y widgets juntos!
+`CustomScrollView` que también contenga la lista de elementos. Esto sincroniza la posición de desplazamiento del app bar y la lista de elementos. Puedes pensar en el Widget `CustomScrollView` como un `ListView` que te permite ¡mezclar y combinar diferentes tipos de listas desplazables y widgets juntos!
 
 Las listas de desplazamiento y los widgets que se pueden proporcionar al
 `CustomScrollView` se conocen como slivers. Hay varios tipos de Slivers, como
@@ -51,7 +51,7 @@ Scaffold(
 );
 ```
 
-### 2. Usar `SliverAppBar` para agregar el app bar floatante
+### 2. Usa `SliverAppBar` para agregar el app bar flotante
 
 A continuación, agrega el app bar al
 [`CustomScrollView`](https://docs.flutter.io/flutter/widgets/CustomScrollView-class.html).
@@ -182,4 +182,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-![Demo de la lista básica](/images/cookbook/floating-app-bar.gif){:.site-mobile-screenshot}
+![Demo básico de la lista](/images/cookbook/floating-app-bar.gif){:.site-mobile-screenshot}
