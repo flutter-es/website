@@ -8,31 +8,31 @@ next:
   path: /docs/cookbook/testing/integration/introduction
 ---
 
-Many apps require working with the device's cameras to take photos and videos.
-Flutter provides the [`camera`](https://pub.dartlang.org/packages/camera) plugin
-for this purpose. The `camera` plugin provides tools to get a list of the
-available cameras, display a preview coming from a specific camera, and take
-photos or videos.
+Muchas aplicaciones requieren trabajar con las cámaras del dispositivo para tomar fotos y videos.
+Flutter proporciona el plugin [`camera`](https://pub.dartlang.org/packages/camera)
+para este propósito. El plugin `camera` proporciona herramientas para obtener una lista de las
+cámaras disponibles, mostrar una vista previa que viene de una cámara específica, y tomar
+fotos o videos.
 
-This recipe demonstrates how to use the `camera` plugin to display a preview, 
-take a photo, and display it.
+Esta receta demuestra cómo usar el plugin `camera` para mostrar una vista previa, 
+tomar una foto y mostrarla.
 
-## Directions
+## Indicaciones
 
-  1. Add the required dependencies
-  2. Get a list of the available cameras
-  3. Create and initialize the `CameraController`
-  4. Use a `CameraPreview` to display the camera's feed
-  5. Take a picture with the `CameraController`
-  6. Display the picture with an `Image` Widget
+  1. Añadir las dependencias necesarias
+  2. Obtén una lista de las cámaras disponibles
+  3. Crear e inicializar el `CameraController`.
+  4. Usa un `CameraPreview` para mostrar el feed de la cámara.
+  5. Toma una foto con el `CameraController`.
+  6. Muestra la imagen con un widget `Image`.
 
-## 1. Add the required dependencies
+## 1. Añadir las dependencias necesarias
 
-To complete this recipe, you need to add three dependencies to your app:
+Para completar esta receta, necesitas añadir tres dependencias a tu aplicación:
 
-  - [`camera`](https://pub.dartlang.org/packages/camera) - Provides tools to work with the cameras on device
-  - [`path_provider`](https://pub.dartlang.org/packages/path_provider) - Finds the correct paths to store images
-  - [`path`](https://pub.dartlang.org/packages/path) - Creates paths that work on any platform
+  - [`camera`](https://pub.dartlang.org/packages/camera) - Proporciona herramientas para trabajar con las cámaras del dispositivo
+  - [`path_provider`](https://pub.dartlang.org/packages/path_provider) - Encuentra las rutas correctas para almacenar imágenes
+  - [`path`](https://pub.dartlang.org/packages/path) - Crea rutas que funcionan en cualquier plataforma
 
 ```yaml
 dependencies:
@@ -43,38 +43,36 @@ dependencies:
   path:
 ```
 
-## 2. Get a list of the available cameras
+## 2. Obtén una lista de las cámaras disponibles
 
-Next, you can get a list of available cameras using the `camera` plugin.
+A continuación, puedes obtener una lista de las cámaras disponibles utilizando el plugin `camera`.
 
 <!-- skip -->
 ```dart
-// Obtain a list of the available cameras on the device.
+// Obtén una lista de las cámaras disponibles en el dispositivo.
 final cameras = await availableCameras();
 
-// Get a specific camera from the list of available cameras
+// Obtén una cámara específica de la lista de cámaras disponibles
 final firstCamera = cameras.first; 
 ```
 
-## 3. Create and initialize the `CameraController`
+## 3. Crear e inicializar el `CameraController`.
 
-Once you have a camera to work with, you need to create and initialize a
-`CameraController`. This process establishes a connection to the device's camera
-that allows you to control the camera and display a preview of the camera's
-feed.
+Una vez que tengas una cámara para trabajar, deberás crear e inicializar un `CameraController`. Este 
+proceso establece una conexión con la cámara del dispositivo que le permite controlar la cámara 
+y mostrar una vista previa de la alimentación de la cámara.
 
-To achieve this, please:
+Para lograrlo, por favor:
 
-  1. Create a `StatefulWidget` with a companion `State` class 
-  2. Add a variable to the `State` class to store the `CameraController`
-  3. Add a variable to the `State` class to store the `Future` returned from
-  `CameraController.initialize`
-  4. Create and initialize the controller in the `initState` method
-  5. Dispose of the controller in the `dispose` method
-  
+  1. Crear un `StatefulWidget` con un compañero `State`
+  2. Añade una variable a la clase `State` para almacenar el `CameraController`.
+  3. Añade una variable a la clase `State` para almacenar el `Future` devuelto desde `CameraController.initialize`
+  4. Crear e inicializar el controlador en el método `initState`
+  5. Elimine el controlador en el método `dispose`
+
 <!-- skip -->
 ```dart
-// A screen that takes in a list of Cameras and the Directory to store images.
+// Una pantalla que contiene una lista de cámaras y el directorio para almacenar imágenes.
 class TakePictureScreen extends StatefulWidget {
   final CameraDescription camera;
 
@@ -88,141 +86,140 @@ class TakePictureScreen extends StatefulWidget {
 }
 
 class TakePictureScreenState extends State<TakePictureScreen> {
-  // Add two variables to the state class to store the CameraController and
-  // the Future
+  // Añada dos variables a la clase de estado para almacenar el CameraController 
+  // y el futuro
   CameraController _controller;
   Future<void> _initializeControllerFuture;
 
   @override
   void initState() {
     super.initState();
-    // In order to display the current output from the Camera, you need to
-    // create a CameraController.
+    // Para visualizar la salida actual de la cámara, es necesario crear
+    // un CameraController.
     _controller = CameraController(
-      // Get a specific camera from the list of available cameras
+      // Obtén una cámara específica de la lista de cámaras disponibles
       widget.camera,
-      // Define the resolution to use
+      // Define la resolución a utilizar
       ResolutionPreset.medium,
     );
 
-    // Next, you need to initialize the controller. This will return a Future
+    // A continuación, debes inicializar el controlador. Esto devolverá un Futuro
     _initializeControllerFuture = _controller.initialize();
   }
 
   @override
   void dispose() {
-    // Make sure to dispose of the controller when the Widget is disposed
+    // Asegúrate de eliminar el controlador cuando se elimine el Widget.
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Fill this out in the next steps
+    // Llenaras esto en los siguientes pasos
   }
 }
 ```
 
 {{site.alert.warning}}
-If you do not initialize the `CameraController`, you will *not* be able to work with
-the camera.
+Si no inicializas el `CameraController`, *no* podrás trabajar con
+la cámara.
 {{site.alert.end}}
 
-## 4. Use a `CameraPreview` to display the camera's feed
+## 4. Usa un `CameraPreview` para mostrar el feed de la cámara
 
-Next, you can use the `CameraPreview` Widget from the `camera` package to
-display a preview of the camera's feed.
+A continuación, puedes utilizar el widget `CameraPreview` del paquete `camera` 
+para mostrar una vista previa de la alimentación de la cámara.
 
-Remember: You must wait until the controller has finished initializing before
-working with the camera. Therefore, you must wait for the
-`_initializeControllerFuture` created in the previous step to complete before
-showing a `CameraPreview`.
+Recuerda: Debes esperar hasta que el controlador haya terminado de inicializar 
+antes de trabajar con la cámara. Por lo tanto, debes esperar a que 
+el `_initializeControllerFuture` creado en el paso anterior se complete 
+antes de mostrar una `CameraPreview`.
 
-You can use a
-[`FutureBuilder`](https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html)
-for exactly this purpose.
+Puede utilizar un [`FutureBuilder`](https://docs.flutter.io/flutter/widgets/FutureBuilder-class.html) 
+exactamente para este propósito.
 
 <!-- skip -->
 ```dart
-// You must wait until the controller is initialized before displaying the
-// camera preview. Use a FutureBuilder to display a loading spinner until the
-// controller has finished initializing
+// Debes esperar hasta que el controlador se inicialice antes de mostrar la vista previa de la cámara. 
+// Utiliza un FutureBuilder para mostrar un spinner de carga hasta que 
+// el controlador haya terminado de inicializar.
 FutureBuilder<void>(
   future: _initializeControllerFuture,
   builder: (context, snapshot) {
     if (snapshot.connectionState == ConnectionState.done) {
-      // If the Future is complete, display the preview
+      // Si el Futuro esta completo, mostrar vista previa
       return CameraPreview(_controller);
     } else {
-      // Otherwise, display a loading indicator
+      // De lo contrario, mostrar el indicador de cargando
       return Center(child: CircularProgressIndicator());
     }
   },
 )
 ```
 
-## 5. Take a picture with the `CameraController`
+## 5. Tomar una foto con el `CameraController`.
 
-You can also use the `CameraController` to take pictures using the
-[`takePicture`](https://pub.dartlang.org/documentation/camera/latest/camera/CameraController/takePicture.html)
-method. In this example, create a `FloatingActionButton` that takes a picture
-using the `CameraController` when a user taps on the button.
+También puedes usar el `CameraController` para tomar fotos usando el método 
+[`takePicture`](https://pub.dartlang.org/documentation/camera/latest/camera/CameraController/takePicture.html). 
+En este ejemplo, crearas un `FloatingActionButton` que tome una foto usando 
+el `CameraController` cuando un usuario toque el botón.
 
-Saving a picture requires 3 steps:
+Para guardar una imagen se necesitan 3 pasos:
 
-  1. Ensure the camera is initialized
-  2. Construct a path that defines where the picture should be saved
-  3. Use the controller to take a picture and save the result to the path
+  1. Asegúrate de que la cámara esté inicializada
+  2. Construir una ruta que defina dónde se guardará la imagen
+  3. Utilizar el controlador para tomar una fotografía y guardar el resultado en la ruta
   
-It is good practice to wrap these operations in a `try / catch` block in order
-to handle any errors that might occur.
+Es una buena práctica envolver estas operaciones en un bloque `try / catch` para poder manejar cualquier error que pueda ocurrir.
 
 <!-- skip -->
 ```dart
 FloatingActionButton(
   child: Icon(Icons.camera_alt),
-  // Provide an onPressed callback
+  // Agrega un callback onPressed
   onPressed: () async {
-    // Take the Picture in a try / catch block. If anything goes wrong,
-    // catch the error.
+    // Toma la foto en un bloque de try / catch. Si algo sale mal, 
+    // atrapa el error.
     try {
-      // Ensure the camera is initialized
+      // Asegúrate que tu cámara esta inicializada
       await _initializeControllerFuture;
 
-      // Construct the path where the image should be saved using the path
-      // package.
+      // Construye la ruta donde la imagen se guardará
+      // usando el plugin `path`.
       final path = join(
-        // In this example, store the picture in the temp directory. Find
-        // the temp directory using the `path_provider` plugin.
+        // En este ejemplo, guarde la imagen en el directorio temporal. Encuentra 
+        // el directorio temporal usando el plugin `path_provider`.
         (await getTemporaryDirectory()).path,
         '${DateTime.now()}.png',
       );
 
-      // Attempt to take a picture and log where it's been saved
+      // Intenta tomar una foto y registrar donde se ha guardado
       await _controller.takePicture(path);
     } catch (e) {
-      // If an error occurs, log the error to the console.
+      // Si se produce un error, regístralo en la consola.
       print(e);
     }
   },
 )
 ```
-## 6. Display the picture with an `Image` Widget
 
-If you take the picture successfully, you can then display the saved picture
-using an `Image` widget. In this case, the picture will be stored as a file on
-the device.
+## 6. Muestra la imagen con un widget `Imagen`
 
-Therefore, you must provide a `File` to the `Image.file` constructor. You
-can create an instance of the `File` class by passing in the path you created in
-the previous step.
+Si tomas la foto con éxito, puedes mostrar la imagen guardada utilizando 
+un widget `Image`. En este caso, la imagen se almacenará como un archivo 
+en el dispositivo.
+
+Por lo tanto, debes proporcionar un `Archivo` al constructor `Image.file`. Puedes 
+crear una instancia de la clase `File` pasando la ruta 
+que creaste en el paso anterior.
 
 <!-- skip -->
 ```dart
 Image.file(File('path/to/my/picture.png'))
 ```
 
-## Complete Example
+## Ejemplo Completo
 
 ```dart
 import 'dart:async';
@@ -234,24 +231,24 @@ import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
-  // Obtain a list of the available cameras on the device.
+  // Obtén una lista de las cámaras disponibles en el dispositivo.
   final cameras = await availableCameras();
 
-  // Get a specific camera from the list of available cameras
+  // Obtén una cámara específica de la lista de cámaras disponibles
   final firstCamera = cameras.first;
 
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
       home: TakePictureScreen(
-        // Pass the appropriate camera to the TakePictureScreen Widget
+        // Pasa la cámara correcta al widget de TakePictureScreen
         camera: firstCamera,
       ),
     ),
   );
 }
 
-// A screen that allows users to take a picture using a given camera
+// Una pantalla que permite a los usuarios tomar una fotografía utilizando una cámara determinada.
 class TakePictureScreen extends StatefulWidget {
   final CameraDescription camera;
 
@@ -271,22 +268,22 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   void initState() {
     super.initState();
-    // In order to display the current output from the Camera, you need to
-    // create a CameraController.
+    // Para visualizar la salida actual de la cámara, es necesario 
+    // crear un CameraController.
     _controller = CameraController(
-      // Get a specific camera from the list of available cameras
+      // Obtén una cámara específica de la lista de cámaras disponibles
       widget.camera,
-      // Define the resolution to use
+      // Define la resolución a utilizar
       ResolutionPreset.medium,
     );
 
-    // Next, you need to initialize the controller. This will return a Future!
+    // A continuación, debes inicializar el controlador. Esto devolverá un futuro!
     _initializeControllerFuture = _controller.initialize();
   }
 
   @override
   void dispose() {
-    // Make sure to dispose of the controller when the Widget is disposed
+    // Asegúrate de deshacerte del controlador cuando se deshaga del Widget.
     _controller.dispose();
     super.dispose();
   }
@@ -295,44 +292,44 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Take a picture!')),
-      // You must wait until the controller is initialized before displaying the
-      // camera preview. Use a FutureBuilder to display a loading spinner until
-      // the controller has finished initializing!
+      // Debes esperar hasta que el controlador se inicialice antes de mostrar la vista previa 
+      // de la cámara. Utiliza un FutureBuilder para mostrar un spinner de carga 
+      // hasta que el controlador haya terminado de inicializar.
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            // If the Future is complete, display the preview
+            // Si el Futuro está completo, muestra la vista previa
             return CameraPreview(_controller);
           } else {
-            // Otherwise, display a loading indicator
+            // De lo contrario, muestra un indicador de carga
             return Center(child: CircularProgressIndicator());
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.camera_alt),
-        // Provide an onPressed callback
+        // Agrega un callback onPressed
         onPressed: () async {
-          // Take the Picture in a try / catch block. If anything goes wrong,
-          // catch the error.
+          // Toma la foto en un bloque de try / catch. Si algo sale mal, 
+          // atrapa el error.
           try {
             // Ensure the camera is initialized
             await _initializeControllerFuture;
 
-            // Construct the path where the image should be saved using the path
-            // package.
+            // Construye la ruta donde la imagen debe ser guardada usando 
+            // el paquete path.
             final path = join(
-              // In this example, store the picture in the temp directory. Find
-              // the temp directory using the `path_provider` plugin.
+
+              // 
               (await getTemporaryDirectory()).path,
               '${DateTime.now()}.png',
             );
 
             // Attempt to take a picture and log where it's been saved
             await _controller.takePicture(path);
-
-            // If the picture was taken, display it on a new screen
+            // En este ejemplo, guarda la imagen en el directorio temporal. Encuentra 
+            // el directorio temporal usando el plugin `path_provider`.
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -340,7 +337,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
               ),
             );
           } catch (e) {
-            // If an error occurs, log the error to the console.
+            // Si se produce un error, regístralo en la consola.
             print(e);
           }
         },
@@ -349,7 +346,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   }
 }
 
-// A Widget that displays the picture taken by the user
+// Un Widget que muestra la imagen tomada por el usuario
 class DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
 
@@ -359,8 +356,8 @@ class DisplayPictureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Display the Picture')),
-      // The image is stored as a file on the device. Use the `Image.file`
-      // constructor with the given path to display the image
+      // La imagen se almacena como un archivo en el dispositivo. Usa el 
+      // constructor `Image.file` con la ruta dada para mostrar la imagen
       body: Image.file(File(imagePath)),
     );
   }
