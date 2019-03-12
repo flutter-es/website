@@ -1,5 +1,8 @@
 ---
 title: Efectos Fade in and out en un Widget
+prev:
+  title: Anima las propiedades de un Container
+  path: /docs/cookbook/animation/animated-container
 next:
   title: Añadir un Drawer a la pantalla
   path: /docs/cookbook/design/drawer
