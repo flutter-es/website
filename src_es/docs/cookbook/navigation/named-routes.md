@@ -4,8 +4,8 @@ rev:
   title: Navegar a una nueva pantalla y volver
   path: /docs/cookbook/navigation/navigation-basics
 next:
-  title: Devolver datos desde una pantalla
-  path: /docs/cookbook/navigation/returning-data
+  title: Pasar argumentos a una ruta con nombre
+  path: /docs/cookbook/navigation/navigate-with-arguments
 ---
 
 En la receta 

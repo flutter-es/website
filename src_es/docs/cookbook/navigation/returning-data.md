@@ -1,8 +1,8 @@
 ---
 title: Devolver datos desde una pantalla
 rev:
-  title: Navegar a rutas con nombre
-  path: /docs/cookbook/navigation/named-routes
+  title: Pasar argumentos a una ruta con nombre
+  path: /docs/cookbook/navigation/navigate-with-arguments
 next:
   title: Enviar datos a una nueva pantalla
   path: /docs/cookbook/navigation/passing-data
