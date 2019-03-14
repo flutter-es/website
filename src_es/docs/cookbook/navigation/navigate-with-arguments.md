@@ -46,7 +46,7 @@ Para pasar ambas piezas de datos, crea una clase que almacene esta información.
 
 <!-- skip -->
 ```dart
-// Puedes pasar cualquier objeto al parametro `arguments`. En este ejemplo, crea una 
+// Puedes pasar cualquier objeto al parámetro `arguments`. En este ejemplo, crea una 
 // clase que contiene ambos, un título y un mensaje personalizable.
 class ScreenArguments {
   final String title;
@@ -180,17 +180,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Provide a function to handle named routes. Use this function to
-      // identify the named route being pushed and create the correct
-      // Screen.
+      // Proporciona una función para manejar las rutas con nombre. Usa esta función para 
+      // identificar la ruta con nombre que ha sido añadida, con push, y crea la 
+      // pantalla correcta.
       onGenerateRoute: (settings) {
-        // If you push the the PassArguments route
+        // Si haces push del nombre de la ruta de la pantala PassArgumentsScreen
         if (settings.name == PassArgumentsScreen.routeName) {
-          // Cast the arguments to the correct type: ScreenArguments.
+          // Covierte los argumentos al tipo correcto: ScreenArguments.
           final ScreenArguments args = settings.arguments;
 
-          // Then, extract the required data from the arguments and
-          // pass the data to the correct screen.
+          // Entonces, extrae los datos requeridos de los argumentos
+          // y pasa los datos a la pantalla correcta.
           return MaterialPageRoute(
             builder: (context) {
               return PassArgumentsScreen(
@@ -218,20 +218,20 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // A button that navigates to a named route that. The named route
-            // extracts the arguments by itself.
+            // Un botón que navega a una ruta con nombre. La ruta con nombre
+            // extrae los argumentos por si misma.
             RaisedButton(
               child: Text("Navigate to screen that extracts arguments"),
               onPressed: () {
-                // When the user taps the button, navigate to the specific route
-                // and provide the arguments as part of the RouteSettings.
+                 // Cuando el usuario pulsa el botón, navega a una ruta específica
+                // y proporciona los argumentos como pate de RouteSettings.
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ExtractArgumentsScreen(),
-                    // Pass the arguments as part of the RouteSettings. The
-                    // ExtractArgumentScreen reads the arguments from these
-                    // settings.
+                    // Pasa los argumentos como parte de RouteSettings. 
+                    // ExtractArgumentScreen lee los argumentos de su 
+                    // propiedad settings.
                     settings: RouteSettings(
                       arguments: ScreenArguments(
                         'Extract Arguments Screen',
@@ -242,14 +242,14 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-            // A button that navigates to a named route. For this route, extract
-            // the arguments in the onGenerateRoute function and pass them
-            // to the screen.
+            // Un botón que navega a una ruta con nombre. Para esta ruta, extrae
+            // los argumentos en la función onGenerateRoute y los pasa a 
+            // la pantalla.
             RaisedButton(
               child: Text("Navigate to a named that accepts arguments"),
               onPressed: () {
-                // When the user taps the button, navigate to a named route
-                // and provide the arguments as an optional parameter.
+                // Cuando el usuario pulsa el botón, navega a la ruta con nombre
+                // y proporciona los argumentos con un parámetro opcional.
                 Navigator.pushNamed(
                   context,
                   PassArgumentsScreen.routeName,
@@ -267,14 +267,14 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// A Widget that extracts the necessary arguments from the ModalRoute.
+// Un widget que extrae los argumentos necesarios del ModalRoute.
 class ExtractArgumentsScreen extends StatelessWidget {
   static const routeName = '/extractArguments';
 
   @override
   Widget build(BuildContext context) {
-    // Extract the arguments from the current ModalRoute settings and cast
-    // them as ScreenArguments.
+    // Extrae los argumentos de la propiedad settings del ModalRoute actual y lo convierte
+    // en un objeto ScreenArguments.
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
@@ -288,18 +288,18 @@ class ExtractArgumentsScreen extends StatelessWidget {
   }
 }
 
-// A Widget that accepts the necessary arguments via the constructor.
+// Un widget que acepta los argumentos necesarios a través de su constructor.
 class PassArgumentsScreen extends StatelessWidget {
   static const routeName = '/passArguments';
 
   final String title;
   final String message;
 
-  // This Widget accepts the arguments as constructor parameters. It does not
-  // extract the arguments from the ModalRoute.
+  // Este widget acepta los argumentos como parámetros de su constructor. No  
+  // extrae los argumentos del ModalRoute.
   //
-  // The arguments are extracted by the onGenerateRoute function provided to the
-  // MaterialApp widget.
+  // Los agumentos son extraidos por la función onGenerateRoute proporcionada por el 
+  // widget MaterialApp.
   const PassArgumentsScreen({
     Key key,
     @required this.title,
@@ -319,8 +319,8 @@ class PassArgumentsScreen extends StatelessWidget {
   }
 }
 
-// You can pass any object to the arguments parameter. In this example, create a
-// class that contains both a customizable title and message.
+// Puedes pasar cualquier objeto al parámetro `arguments`. En este ejemplo, crea una 
+// clase que contiene ambos, un título y un mensaje personalizable.
 class ScreenArguments {
   final String title;
   final String message;
