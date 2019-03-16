@@ -7,11 +7,11 @@ Los **Tutoriales de Flutter** te enseñan a usar el framework de Flutter para co
 Elige entre las siguientes opciones:
 
 * [Tutorial Construyendo Layouts](/docs/development/ui/layout)
-: Cómo construir diseños usando el mecanismo de diseño de Flutter. Una vez que hayas
-  aprendido los principios básicos, construirás el diseño para un screenshot de muestra.
+: Cómo construir layouts usando el mecanismo de layouts de Flutter. Una vez que hayas
+  aprendido los principios básicos, construirás el layout para un screenshot de muestra.
 
 * [Añade Interactividad a Tu App Flutter](/docs/development/ui/interactive)
-: Extenderás la aplicación de layout simple creada en "Construyendo diseños en Flutter"
+: Extenderás la aplicación de layout simple creada en "Tutorial Construyendo Layouts"
   para hacer que un icono se pueda tocar. También se discuten diferentes formas de gestionar el estado de un widget.
 
 * [Animaciones en Flutter](/docs/development/ui/animations/tutorial)
