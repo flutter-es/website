@@ -2,7 +2,7 @@
 title: Tutorials
 ---
 
-Los **Tutoriales de Flutter** te enseñan a usar el framework de Flutter para construir aplicaciones móviles para iOS y Android..
+Los **Tutoriales de Flutter** te enseñan a usar el framework de Flutter para construir aplicaciones móviles para iOS y Android.
 
 Elige entre las siguientes opciones:
 
