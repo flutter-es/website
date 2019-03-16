@@ -49,8 +49,8 @@ Utiliza los efectos con cuidado, ya que pueden ser caros. Algunos de ellos
 invocan `saveLayer()` entre bastidores, lo que puede ser una operación costosa.
 
 {{site.alert.note}}
-**Why is savelayer expensive?**<br>
-¿Por qué es caro savelayer?
+**¿Por qué es costoso saveLayer?**<br>
+¿Por qué es costoso saveLayer?
 Llamando a `saveLayer()` se asigna un buffer offscreen. La incorporación de 
 contenido en el búfer offscreen puede desencadenar cambios de destino que son 
 especialmente lentos en las GPU más antiguas.
