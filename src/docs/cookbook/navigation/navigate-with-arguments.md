@@ -149,7 +149,7 @@ MaterialApp(
   // identify the named route being pushed and create the correct
   // Screen.
   onGenerateRoute: (settings) {
-    // If you push the the PassArguments route
+    // If you push the PassArguments route
     if (settings.name == PassArgumentsScreen.routeName) {
       // Cast the arguments to the correct type: ScreenArguments.
       final ScreenArguments args = settings.arguments;

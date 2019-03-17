@@ -9,7 +9,7 @@ next:
 ---
  
 El objeto [`Navigator`](https://docs.flutter.io/flutter/widgets/Navigator-class.html)
-proporciona la habilidad de navegar a una nombre con nombre desde cualquier parte de la app usando 
+proporciona la habilidad de navegar a una ruta con nombre desde cualquier parte de la app usando 
 un identificador común. En algunos casos, quizás necesites pasar argumentos a una 
 ruta con nombre. Por ejemplo, es posible que desees navegar a la ruta `/user` y 
 pasar información sobre el usuario a esta ruta.
@@ -108,7 +108,7 @@ Finalmente, navega hasta `ExtractArgumentsScreen` cuando el usuario pulsa un bot
 usando 
 [`Navigator.pushNamed`](https://docs.flutter.io/flutter/widgets/Navigator/pushNamed.html).
 Proporciona los argumentos a la ruta a través de la propiedad `arguments`. 
-`ExtractArgumentsScreen` extrae `title` y `message` de estis 
+`ExtractArgumentsScreen` extrae `title` y `message` de estos 
 argumentos.
 
 <!-- skip -->
@@ -119,7 +119,7 @@ RaisedButton(
   child: Text("Navigate to screen that extracts arguments"),
   onPressed: () {
     // Cuando el usuario pulsa el botón, navega a una ruta específica
-    // y proporciona los argumentos como pate de RouteSettings.
+    // y proporciona los argumentos como parte de RouteSettings.
     Navigator.pushNamed(
       context,
       ExtractArgumentsScreen.routeName,
@@ -146,10 +146,10 @@ dada.
 ```dart
 MaterialApp(
   // Proporciona una función para manejar las rutas con nombre. Usa esta función para 
-  // identificar la ruta con nombre que ha sido añadida, con push, y crea la 
+  // identificar la ruta con nombre que ha sido añadida con push, y crea la 
   // pantalla correcta.
   onGenerateRoute: (settings) {
-    // Si haces push del nombre de la ruta de la pantala PassArgumentsScreen
+    // Si haces push de la ruta PassArgumentsScreen
     if (settings.name == PassArgumentsScreen.routeName) {
       // Covierte los argumentos al tipo correcto: ScreenArguments.
       final ScreenArguments args = settings.arguments;
@@ -181,10 +181,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Proporciona una función para manejar las rutas con nombre. Usa esta función para 
-      // identificar la ruta con nombre que ha sido añadida, con push, y crea la 
+      // identificar la ruta con nombre que ha sido añadida con push, y crea la 
       // pantalla correcta.
       onGenerateRoute: (settings) {
-        // Si haces push del nombre de la ruta de la pantala PassArgumentsScreen
+        // Si haces push de la ruta PassArgumentsScreen
         if (settings.name == PassArgumentsScreen.routeName) {
           // Covierte los argumentos al tipo correcto: ScreenArguments.
           final ScreenArguments args = settings.arguments;
@@ -223,8 +223,8 @@ class HomeScreen extends StatelessWidget {
             RaisedButton(
               child: Text("Navigate to screen that extracts arguments"),
               onPressed: () {
-                 // Cuando el usuario pulsa el botón, navega a una ruta específica
-                // y proporciona los argumentos como pate de RouteSettings.
+                // Cuando el usuario pulsa el botón, navega a una ruta específica
+                // y proporciona los argumentos como parte de RouteSettings.
                 Navigator.push(
                   context,
                   MaterialPageRoute(
