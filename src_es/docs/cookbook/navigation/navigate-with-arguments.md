@@ -151,7 +151,7 @@ MaterialApp(
   onGenerateRoute: (settings) {
     // Si haces push de la ruta PassArgumentsScreen
     if (settings.name == PassArgumentsScreen.routeName) {
-      // Covierte los argumentos al tipo correcto: ScreenArguments.
+      // Convierte los argumentos al tipo correcto: ScreenArguments.
       final ScreenArguments args = settings.arguments;
 
       // Entonces, extrae los datos requeridos de los argumentos
@@ -169,7 +169,7 @@ MaterialApp(
 );
 ```
 
-## Complete example
+## Ejemplo completo
 
 ```dart
 import 'package:flutter/material.dart';
@@ -186,7 +186,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         // Si haces push de la ruta PassArgumentsScreen
         if (settings.name == PassArgumentsScreen.routeName) {
-          // Covierte los argumentos al tipo correcto: ScreenArguments.
+          // Convierte los argumentos al tipo correcto: ScreenArguments.
           final ScreenArguments args = settings.arguments;
 
           // Entonces, extrae los datos requeridos de los argumentos
@@ -298,7 +298,7 @@ class PassArgumentsScreen extends StatelessWidget {
   // Este widget acepta los argumentos como parámetros de su constructor. No  
   // extrae los argumentos del ModalRoute.
   //
-  // Los agumentos son extraidos por la función onGenerateRoute proporcionada por el 
+  // Los argumentos son extraidos por la función onGenerateRoute proporcionada por el 
   // widget MaterialApp.
   const PassArgumentsScreen({
     Key key,
