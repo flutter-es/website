@@ -11,8 +11,8 @@ short-title: Box constraints
 
 En Flutter, los widgets son dibujados por su objeto 
 [`RenderBox`]({{site.api}}/flutter/rendering/RenderBox-class.html) subyacente. Las cajas de renderizado boxes toman las restricciones dadas por 
-sus padres, y se dimensioan a si mismos con estas 
-restricciones. Las restricciones consisten en anchos y altos míbimos y 
+sus padres, y se dimensionan a si mismos con estas 
+restricciones. Las restricciones consisten en anchos y altos mínimos y 
 máximos; las dimensiones consisten en un acho y alto específicos.
 
 Generalmente, hay tres tipos de cajas, en términos de como manejan 
