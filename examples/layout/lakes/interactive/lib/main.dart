@@ -125,14 +125,9 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 
   // #docregion _toggleFavorite
   void _toggleFavorite() {
-    setState(() {
-      if (_isFavorited) {
-        _favoriteCount -= 1;
-        _isFavorited = false;
-      } else {
-        _favoriteCount += 1;
-        _isFavorited = true;
-      }
+    setState(() {      
+      _favoriteCount = _isFavorited ? _favoriteCount - 1 : _favoriteCount + 1;
+      _isFavorited = !_isFavorited;
     });
   }
   // #enddocregion _toggleFavorite
