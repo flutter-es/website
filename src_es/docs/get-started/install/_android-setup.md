@@ -19,7 +19,7 @@ Prepara la ejecución y pruebas de app de Flutter en un dispositivo de Android, 
 un dispositivo Android ejecutando Android 4.1 (API nivel 16) o superior.
 
 1. Habilita **Opciones de desarrollador** y **Depurador por USB** en tu dispositivo. Instrucciones detalladas
- están disponibles en la [Documentación de Android]({{site.android-dev}}/studio/debug/dev-option).
+ están disponibles en la [Documentación de Android]({{site.android-dev}}/studio/debug/dev-options).
 1. Solo en Windows: Instala [Google USB Driver]({{site.android-dev}}/studio/run/win-usb)
 1. Utilizando el cable USB, conecta tu móvil de la computadora, de requerirse en tu 
 dispositivo, autoriza el acceso de la computadora a tu dispositivo.
