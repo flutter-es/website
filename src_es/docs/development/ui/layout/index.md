@@ -65,7 +65,7 @@ fila.
 
 El resto del UI en este ejemplo es controlado por propiedades.
 Fija un color para [Icon][] usando su propiedad `color`.
-Us la propiedad `Text.style` para fijar la fuente, su color, tamaño, y así sucesivamente.
+Usa la propiedad `Text.style` para fijar la fuente, su color, tamaño, y así sucesivamente.
 Columns y rows tienen propiedades que te permiten especificar como se alinearán 
 sus hijos vertical u horizontalmente, y cuanto espacio deben ocupar 
 los hijos.
