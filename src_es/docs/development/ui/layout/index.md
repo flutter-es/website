@@ -958,7 +958,7 @@ Los widgets pueden superponerse completa o parcialmente al widget base.
   {:.text-center}
 
   Usa `Stack` para superponer un gradiente encima de la imagen. El gradiente 
-  asegura que los iconos del toolbar son distintos de la imasgen.
+  asegura que los iconos del toolbar son distintos de la imagen.
 
   **Dart code:** [contacts_demo.dart]({{demo}}/contacts_demo.dart)
   de la [Flutter Gallery][]
