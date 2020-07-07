@@ -743,7 +743,7 @@ claro.
 </div>
 </div>
 
-Un `Container` tambien es usado para añadir brodes redondeados y márgenes a cada imagen:
+Un `Container` también es usado para añadir bordes redondeados y márgenes a cada imagen:
 
 <?code-excerpt "layout/container/lib/main.dart (row)" replace="/\bContainer/[!$&!]/g;"?>
 ```dart
