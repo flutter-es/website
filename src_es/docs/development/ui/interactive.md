@@ -44,7 +44,7 @@ Puedes empezar a tocar el código en  [Paso 2: Subclase
 StatefulWidget](#step-2). Si quieres probar diferentes 
 maneras de administrar el estado, salta a [Administrando el estado](#managing-state).
 
-## Stateful and stateless widgets
+## Widgets stateful y stateless
 
 Un widget puede ser stateful, o stateless. Si un widget cambia&mdash;por ejemplo, 
 cuando el usuario interactúa con el&mdash;es stateful.
@@ -109,7 +109,7 @@ Cuando tienes un dispositivo conectado y habilitado, o has lanzado el [simulador
 (parte de la instalación de Flutter), ¡estás preparado para seguir!
 
 <a name="step-1"></a>
-### Paso 1: Decide cual objeto administra el estado del widget
+### Paso 1: Decide qué objeto administra el estado del widget
 
 El estado de un widget puede ser administrado de varias maneras, pero en nuestro ejemplo, 
 el widget `FavoriteWidget`, administrará por si mismo su estado.
@@ -148,7 +148,7 @@ mira [Bibliotecas y visibilidad,][] una sección en el
 <a name="step-3"></a>
 ### Paso 3: Subclase State
 
-La clase _FavoriteWidgetState` almacena la información mutable&mdash;la lógica y estado interno que puede cambiar 
+La clase `_FavoriteWidgetState` almacena la información mutable&mdash;la lógica y estado interno que puede cambiar 
 durante el tiempo de vida del widget. Cuando la app se lanza por primera vez, la UI muestra una estrella 
 rellena de rojo, indicando que el lago tiene el estado "favorite", y tiene 41 “likes”.
 El objeto state almacena esta información en las variables `_isFavorited` y `_favoriteCount`.
