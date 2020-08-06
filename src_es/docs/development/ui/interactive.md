@@ -117,7 +117,7 @@ En este ejemplo, alternar la estrella es una acción aislada que no afecta
 al widget padre o al resto de la UI, por eso el widget puede manejar su estado internamente.
 
 Aprende mas acerca de la separación de widget y estado,
-y como puede ser admnistrado el estado, en [Administrando el estado](#managing-state).
+y como puede ser administrado el estado, en [Administrando el estado](#managing-state).
 
 <a name="step-2"></a>
 ### Paso 2: Subclase StatefulWidget
@@ -148,7 +148,7 @@ mira [Bibliotecas y visibilidad,][] una sección en el
 <a name="step-3"></a>
 ### Paso 3: Subclase State
 
-La clase _FavoriteWidgetState` almacena la información mutable&mdash;la lógica y estado interno que puede cambiar 
+La clase _FavoriteWidgetState almacena la información mutable &mdash;la lógica y estado interno&mdash; que puede cambiar 
 durante el tiempo de vida del widget. Cuando la app se lanza por primera vez, la UI muestra una estrella 
 rellena de rojo, indicando que el lago tiene el estado "favorite", y tiene 41 “likes”.
 El objeto state almacena esta información en las variables `_isFavorited` y `_favoriteCount`.
@@ -162,8 +162,8 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
 }
 ```
 
-La clase también define el método `build` que crea una fila conteniendo un `IconButton`
-rojo, y un `Text`. Usas [IconButton][], (en lugar de `Icon`), porque este tiene 
+La clase también define el método `build` que crea una fila que contiene un `IconButton`
+rojo, y un `Text`. Usas [IconButton][] (en lugar de `Icon`) porque este tiene 
 una propiedad `onPressed` que define el método callback 
 (`_toggleFavorite`) para manejar un gesto tap. Definirás 
 la función callback a continuación.
@@ -204,7 +204,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   diferentes anchos.
 {{site.alert.end}}
 
-El método `_toggleFavorite()`, que es llamado couando el `IconButton` es presionado,
+El método `_toggleFavorite()`, que es llamado cuando el `IconButton` es presionado,
 llama a `setState()`. Llamar a `setState()` es fundamental, porque esto dice 
 al framework que el estado del widget ha cambiado y el widget deberia redibujarse. La función 
 pasada a `setState()` alterna la UI entre 
@@ -269,7 +269,7 @@ ubicación, crea el widget stateful:
 Si no puedes hacer que el código se ejecute, mira en tu IDE por posibles errores.
 [Depurar Apps en Flutter](/docs/testing/debugging) puede ayudar.
 Si sigues sin encontrar el problema,
-comprueba tu código con el ejemplo "interactive Lakes" en GitHub.
+comprueba tu código con el ejemplo "interactive lakes" en GitHub.
 
 {% comment %}
 TODO: replace the following links with tabbed code panes.
@@ -293,15 +293,15 @@ y lista otros widgets interactivos disponibles.
   <h4 class="no_toc">¿Qué aprenderás?</h4>
 
   * Hay diferentes enfoques para administrar estados.
-  * Tú, como diseñador del widget, eliges que enfoque usar.
-  * Si dudas, empieza administrando el estado en el widget padre.
+  * Tú, como diseñador del widget, eliges qué enfoque usar.
+  * Si tienes dudas, empieza administrando el estado en el widget padre.
 {{site.alert.end}}
 
 
 ¿Quién administra el estado de un widget stateful? ¿El propio widget? ¿El widget padre?
 ¿Ambos? ¿Otro objeto? La respuesta es... depende.
 Hay muchas formas válidas de hacer tu widget interactivo.
-Tú, como diseñador del widget, tomas la decisión basándote en como esperas que 
+Tú, como diseñador del widget, tomas la decisión basándote en cómo esperas que 
 tu widget sea usado. Aqui están las maneras más comunes de administrar estados:
 
 * [El widget administra su propio estado](#self-managed)
@@ -337,13 +337,13 @@ decidirte:
 * Si el estado en cuestión es estético, por ejemplo una animación,
   entonces el estado es mejor administrarlo en el propio widget.
 
-Si dudas, empieza administrando el estado en el widget padre.
+Si tienes dudas, empieza administrando el estado en el widget padre.
 
 Vamos a dar ejemplos de las diferentes maneras de administrar el estado creando tres 
 ejemplos simples: TapboxA, TapboxB, y TapboxC.
-Todos los ejemplos funcionan de forma similar&mdash;cada uno crea un container que,
+Todos los ejemplos funcionan de forma similar &mdash;cada uno crea un container que,
 cuando es pulsado, alterna entre una caja verde o gris.
-El boolean `_active` determina el color: verede para activo o gris para inactivo.
+El boolean `_active` determina el color: verde para activo o gris para inactivo.
 
 <div class="row mb-4">
   <div class="col-12 text-center">
@@ -436,7 +436,7 @@ class MyApp extends StatelessWidget {
 <a name="parent-managed"></a>
 ### El widget padre administra el estado del widget
 
-A menudo tiene mas sentido que el widget padre administre el estado y le diga al 
+A menudo tiene más sentido que el widget padre administre el estado y le diga al 
 widget hijo cuando actualizarse. Por ejemplo, [IconButton][] te permite tratar un 
 icono como un botón pulsable.
 IconButton es un widget stateless porque decidimos que el widget padre 
@@ -523,7 +523,7 @@ class TapboxB extends StatelessWidget {
 
 {{site.alert.tip}}
   Cuando creas la API, considera usar la notación `@required` para cualquier 
-  parámetro en que se base tu código. Para usar `@required`, importa la [biblioteca foundation][] 
+  parámetro en que se base tu código. Para usar `@required`, importa la [biblioteca `foundation`][] 
   (que re-exporta la blibioteca [meta.dart][]):
 
   <!-- skip -->
@@ -560,9 +560,9 @@ El objeto `_TapboxCState`:
 * El `GestureDetector` escucha todos los eventos tap.  Cuando el usaurio hace _tap down_, 
 añade el resaltado (implementado como un borde verde oscuro). Cuando el 
 usuario termina de pulsar, _tap up_, el resaltado se elimina.
-* LLama a `setState()` para actualizar el UI cuando se hace tap down, tap up, o se cancela el tap, y 
+* Llama a `setState()` para actualizar el UI cuando se hace tap down, tap up, o se cancela el tap, y 
   cambie el estado `_highlight`.
-* Cuan hay un evento tap, pasa este cambio de estado al widget padre para tomar la acción 
+* Cuando hay un evento tap, pasa este cambio de estado al widget padre para tomar la acción 
   adecuada usando la propiedad [widget][].
 
 {% prettify dart %}
@@ -661,11 +661,11 @@ class _TapboxCState extends State<TapboxC> {
 }
 {% endprettify %}
 
-Una implementación alternativa podría haber sido exportar el estado resaltado al 
+Una implementación alternativa podría haber sido exportar el estado highlight al 
 padre mientras mantiene el estado active internamente,
-pero si preguntas a alguien por usar este tap box, probablemente opinen que no tienen mucho 
+pero si le pides a alguien que use este tap box, probablemente consideren que no tiene mucho 
 sentido. Al desarrollador le importa si la caja esta activa. Al desarrollador 
-probablemente no le preocupe como se administra el resaltado, y prefiera
+probablemente no le preocupe cómo se administra el resaltado, y prefiere
 que el tap box maneje estos detalles.
 
 <hr>
@@ -673,7 +673,7 @@ que el tap box maneje estos detalles.
 ## Otros widgets interactivos
 
 Flutter ofrece una variedad de botones y widgets interactivos similares.
-La mayoría de estos widgets implementan las [Material Design guidelines,][] que definen un conjunto de 
+La mayoría de estos widgets implementan las [Material Design guidelines][] que definen un conjunto de 
 componentes con una UI pragmática.
 
 Si lo prefieres, puedes usar [GestureDetector][] para construir interactividad 
@@ -687,12 +687,12 @@ en [Administrado el estado](#managing-state), y en la [Flutter Gallery][].
 Cuando necesitas interactividad,
 lo más sencillo es usar uno de los widgets prefabricados. Aquí está una lista parcial:
 
-### Widgets estándar:
+### Widgets estándar
 
 * [Form][]
 * [FormField][]
 
-### Material Components:
+### Material Components
 
 * [Checkbox][]
 * [DropdownButton][]
@@ -731,7 +731,7 @@ Los siguientes recursos pueden ayudar cuando añades interactividad a tu app.
 [Flutter's Layered Design]: https://www.youtube.com/watch?v=dkyY9WCGMi0
 [FormField]: {{site.api}}/flutter/widgets/FormField-class.html
 [Form]: {{site.api}}/flutter/widgets/Form-class.html
-[foundation library]: {{site.api}}/flutter/foundation/foundation-library.html
+[biblioteca `foundation`]: {{site.api}}/flutter/foundation/foundation-library.html
 [GestureDetector]: {{site.api}}/flutter/widgets/GestureDetector-class.html
 [Manejando Gestos]: /docs/development/ui/widgets-intro#manejar-gestos
 [Gestos en Flutter]: /docs/development/ui/advanced/gestures
