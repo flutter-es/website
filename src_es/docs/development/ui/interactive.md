@@ -44,7 +44,7 @@ Puedes empezar a tocar el código en  [Paso 2: Subclase
 StatefulWidget](#step-2). Si quieres probar diferentes 
 maneras de administrar el estado, salta a [Administrando el estado](#managing-state).
 
-## Stateful and stateless widgets
+## Stateful y stateless widgets
 
 Un widget puede ser stateful, o stateless. Si un widget cambia&mdash;por ejemplo, 
 cuando el usuario interactúa con el&mdash;es stateful.
@@ -57,7 +57,7 @@ respuesta a eventos desencadenados por la intereacción del usuario o cuando rec
 [Checkbox][], [Radio][], [Slider][], [InkWell][], [Form][], y [TextField][]
 son ejemplos de widgets stateful. Los widgets stateful heredan de la clase [StatefulWidget][].
 
-El estado de un widget se alamacena en un objeto [State][], separando el estado del widget 
+El estado de un widget se almacena en un objeto [State][], separando el estado del widget 
 de su apariencia. El estado de un widget consiste en valores que pueden cambiar, como el valor actual 
 de un slider o cuando un checkbox esta marcado como checked. 
 Cuando el estado de un widget cambia, el objeto state llama a 
