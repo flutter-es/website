@@ -1,6 +1,6 @@
 <div class="tab-pane" id="vscode" role="tabpanel" aria-labelledby="vscode-tab" markdown="1">
 
-## Crear la app
+## Crea la app
 
   1. Llama a **View > Command Palette**
   1. Teclea "flutter", y selecciona la acción **Flutter: New Project**
@@ -9,7 +9,7 @@
   1. Espera la creación del proyecto y completar la generación de el archivo `main.dart` y que
      aparezca.
 
-Los comando de arriba crean un directorio para el proyecto llamado `myapp`
+Los comandos de arriba crean un directorio para el proyecto llamado `myapp`
 el cual contiene una app demo sencilla
 que utiliza [Material Components][].
 
@@ -24,7 +24,7 @@ que utiliza [Material Components][].
       clic **No Devices** y lance un simulador.
     - Para configurar un dispositivo real, siga las instrucciones para el dispositivo en específico para 
     [instalar][] en el SO que utilice.
- 1. llamar a **Debug > Start Debugging** o presionar <kbd>F5</kbd>
+ 1. Llamar a **Debug > Start Debugging** o presionar <kbd>F5</kbd>
  1. Espere que el app sea lanzada &mdash; el progreso se imprimirá en la vista de
     **Debug Console**
  
