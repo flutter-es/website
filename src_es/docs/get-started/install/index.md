@@ -6,7 +6,7 @@ next:
 toc: false
 ---
 
-Selecciona el sistema operativo en el que estes instalando Flutter:
+Selecciona el sistema operativo en el que estés instalando Flutter:
 
 {{site.alert.note}}
   **¿Estas en Chrome OS?**
