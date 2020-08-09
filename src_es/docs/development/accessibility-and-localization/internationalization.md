@@ -12,7 +12,7 @@ description: Como internacionalizar tu app Flutter.
   * Como definir las regiones que una app soporta.
 {{site.alert.end}}
 
-Su tu aplicación podría implementarse para usuarios que hablan otro lenguaje 
+Si tu aplicación podría implementarse para usuarios que hablan otro lenguaje 
 entonces necesitarás "internacionalizarla". Esto significa que necesitarás 
 escribir tu app de una manera que haga posible "regionalizar" valores 
 como textos y layouts para cada lenguaje o "región" que 

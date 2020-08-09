@@ -44,7 +44,7 @@ El GIF animado muestra como trabaja la app al completar la parte 1.
 {{site.alert.secondary}}
   <h4 class="no_toc">Lo que aprenderemos en la parte 1</h4>
 
-  * Como escribir una apliación Flutter que se vea natural en iOS y Android
+  * Como escribir una aplicación Flutter que se vea natural en iOS y Android
   * Estructura básica de una app en Flutter.
   * Encontrar y utilizar paquetes para extender funcionalidades.
   * Usar hot reload para un ciclo de desarrollo más rápido.
@@ -53,7 +53,7 @@ El GIF animado muestra como trabaja la app al completar la parte 1.
 
   En la [parte 2]({{site.codelabs}}/codelabs/first-flutter-app-pt2)
   de este codelab, añadirás interactividad, modificarás el theme de la app, y 
-  añadirás la habilidad de navegar a una nueva pantala (llamada una _ruta_ en Flutter).
+  añadirás la habilidad de navegar a una nueva pantalla (llamada una _ruta_ en Flutter).
 {{site.alert.end}}
 
 {{site.alert.secondary}}
@@ -153,7 +153,7 @@ donde se encuentra el código Dart.
 * El método main usa la anotación fat arrow (`=>`).
   Usa anotación fat arrow para funciones o métodos de una sola linea.
 * La app hereda de `StatelessWidget` el cual hace la app un widget en sí misma.
-  En Flutter, casi todo es un widget, incluido alineaciónes, 
+  En Flutter, casi todo es un widget, incluido alineaciones, 
   padding y layouts.
 * El widget `Scaffold`, de la librería de Material,
   provee una AppBar por defecto, "title", y una propiedad "body" el cual
@@ -294,7 +294,7 @@ vida de el widget.
 
 En este paso, agregaras un stateful widget, `RandomWords`, el cual crea su clase
 `State`, `RandomWordsState`. Entonces usarás `RandomWords` como 
-un hijo dentro del existentea stateless widget `MyApp`.
+un hijo dentro del existente stateless widget `MyApp`.
 
  1. Crea una state class mínima. Añade lo siguiente al final 
  de `main.dart`:
@@ -439,7 +439,7 @@ retrasada, a petición.
     dos parámetros se pasan a la función&mdash;el `BuildContext`, 
     y un fila de iteración , `i`. El iterador empieza desde 0 e incrementa
     cada vez que la función es llamada. Este incrementa dos veces por cada pareja de palabras sugeridas: 
-    una para el ListTile, y una para el Divider. Este modelo permie a la lista de sugerencias crecer infinitamente cuando el usuario hace scroll.
+    una para el ListTile, y una para el Divider. Este modelo permite a la lista de sugerencias crecer infinitamente cuando el usuario hace scroll.
 
  2. Añade una función `_buildSuggestions()`, mostrada 
     abajo, a la clase `RandomWordsState` (borra los comentarios, si lo prefieres).
@@ -467,15 +467,15 @@ retrasada, a petición.
         palabras. Para las filas impares, la
         función añade un widget `Divider` para separar visualmente 
         las entradas. Nota
-        que este divisor puede ver ser dificil de ver en los
+        que este divisor puede ver ser difícil de ver en los
         dispositivos más pequeños.
      2. Añade un widget divisor de un pixel de altura antes de
       cada fila en el `ListView`.
      3. La expresión `i ~/ 2` divide `i` entre 2 y devuelve un 
      resultado entero.
-        Por ejemplo: 1, 2, 3, 4, 5 dan como resultado 0, 1, 1, 2, 2. Esto calcula el actual numero de palbras emparejadas en el `ListView`, menos los widgests 
+        Por ejemplo: 1, 2, 3, 4, 5 dan como resultado 0, 1, 1, 2, 2. Esto calcula el actual numero de palabras emparejadas en el `ListView`, menos los widgests 
         divisores.
-     4. Si has alcanzado el final de los pares de palabras dispobibles, entonces genera
+     4. Si has alcanzado el final de los pares de palabras disponibles, entonces genera
         10 más y añade estos a la lista de sugerencias.
 
     La función `_buildSuggestions()` llama a `_buildRow()` una vez por
@@ -576,16 +576,16 @@ En este laboratorio, tu has:
 
 * Creado una app de Flutter desde cero.
 * Escrito código Dart.
-* Utilizado una libreía externa de terceros.
+* Utilizado una librería externa de terceros.
 * Usado hot reload para un ciclo de desarrollo más rápido.
-* Impementado un widget stateful.
+* Implementado un widget stateful.
 * Creado una lista de scroll infinito, de carga retrasada.
 
 Si deseas extender esta app, procede con la
 [parte 2]({{site.codelabs}}/codelabs/first-flutter-app-pt2)
 en el sitio 
 [Google Developers Codelabs]({{site.codelabs}}/),
-donde añadiras la siguiente funcionalidad:
+donde añadirás la siguiente funcionalidad:
  * Implementar interactividad añadiendo un icono corazón pulsable para guardar 
  tus parejas de palabras favoritas.
 * Implementar navegación a una nueva ruta añadiendo una nueva pantalla 
